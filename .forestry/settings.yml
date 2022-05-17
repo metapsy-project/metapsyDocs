@@ -6,9 +6,11 @@ webhook_url:
 sections:
 - type: directory
   path: content
-  label: Pages
+  label: Home
   create: all
   match: "*"
+- type: heading
+  label: Documentation Entries
 - type: directory
   path: content/r-packages
   label: R packages
