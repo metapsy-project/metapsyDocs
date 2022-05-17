@@ -1,5 +1,4 @@
 +++
-draft = true
 
 +++
 Metapsy is an open-source, digital platform. It allows you to access and
