@@ -98,7 +98,7 @@ raw Markdown line up prettily. You can also use inline Markdown.
 
 Using the `Media` menu in forestry, you can upload images, PDFs, files etc. After the upload, files are saved in the `upload` folder. So, if you want to use e.g. `sample.pdf` in a documentation entry, you have to use `/uploads/sample.pdf` as the URL. 
 
-Please note that all uploads go directly into the Github repo of this website! So please only upload files that are actually used in the documentation, and make sure that the size is below 50MB.
+**Please note that all uploads go directly into the Github repo of this website!** So please only upload files that are actually used in the documentation, and make sure that the size is below 50MB.
 
 
 
