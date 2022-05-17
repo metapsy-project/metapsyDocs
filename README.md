@@ -8,7 +8,7 @@ This is the code repository of the [docs.metapsy.org](https://luxury-syrniki-6a5
 The Metapsy documentation site is built using [Hugo](https://gohugo.io/). We have created a **Content Management System (CMS)** for the website, which is provided on [forestry.io](https://app.forestry.io/). If you want to have access to the backend, please approach [@cyplessen](www.github.com/cyplessen), [@clara-miguel](www.github.com/clara-miguel), or [@MathiasHarrer](www.github.com/MathiasHarrer).
 
 
-The forestry CMS provides you with a **code-free, visual text editor**. Using the CMS, you can change existing content, add new pages and entries, and upload media files. It is also possible to **preview** your changes (please note that this functionality may not work at times). After clicking on **save**, your changes are **automatically deployed to this Github repository**, and then released to the website shortly after.
+The forestry CMS provides you with a **code-free, visual text editor**. Using the CMS, you can change existing content, add new pages and entries, and upload media files. It is also possible to **preview** your changes (please note that this functionality may not work at times). After clicking on **save**, your changes are **automatically deployed to this [Github repository](www.github.com/metapsy-project/metapsyDocs)**, and then released to the website shortly after.
 
 ### Pre-Defined Elements
 
