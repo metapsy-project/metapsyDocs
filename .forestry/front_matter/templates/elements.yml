@@ -1,0 +1,13 @@
+---
+label: Elements
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: number
+  name: weight
+  label: weight
+- type: list
+  name: keywords
+  label: keywords
