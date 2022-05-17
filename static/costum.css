@@ -84,3 +84,7 @@ div#content a:hover {
 .nav-item.active {
     background-color: #f9f9f9 !important;
 }
+
+.sidebar {
+    top: 150px !important;
+}
