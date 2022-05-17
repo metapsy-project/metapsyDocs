@@ -100,7 +100,9 @@ Using the `Media` menu in forestry, you can upload images, PDFs, files etc. Afte
 
 **Please note that all uploads go directly into the Github repo of this website!** So please only upload files that are actually used in the documentation, and make sure that the size is below 50MB.
 
+### Attribution
 
+The website uses the [dot-hugo](https://github.com/themefisher/dot-hugo) theme as basis. 
 
 
 
