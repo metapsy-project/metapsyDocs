@@ -18,7 +18,7 @@ sections:
   match: "**/*"
 - type: directory
   path: content/meta-analysis-tool
-  label: Meta analysis tool
+  label: Meta-Analysis Tool
   create: all
   match: "**/*"
 - type: directory
