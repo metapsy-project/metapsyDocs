@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    --bs-dark2: #313f45;
+    --bs-primary: #0372b7;
+    --bs-secondary: #6c757d;
+    --bs-info: rgba(94, 186, 189, 1);
+}
+
+
+h1, h2, h3 {
+    font-family: "Roboto Slab" !important;
+}
+
+.text-white.mb-3{
+    color: var(--bs-info) !important;
+}
+
+#title {
+    color: var(--bs-primary) !important;
+}
+
+.section-title {
+    color: var(--bs-primary) !important;
+}
+
+p {
+    font-size: 18px !important;
+}
+
+ul {
+    font-size: 18px !important;
+    text-align: left !important;
+}
+
+header {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.navbar-brand {
+    font-family: "Lexend Tera" !important;
+}
+
+.bi-github {
+    font-size: 25px;
+}
+
+.bi-github:hover {
+    color: var(--bs-info) !important;
+}
+
+#gh-logo {
+    margin-top: -10px !important;
+}
+
+#gh-logo.nav-item:hover {
+    color: var(--bs-info) !important;
+}
+
+ul .nav-item gh-logo-container.nav-item:hover {
+    color: var(--bs-info) !important;
+}
+
+.nav-item:hover {
+    color: var(--bs-info) !important;
+}
+
+.nav-link.text-dark:hover {
+    color: var(--bs-info) !important;
+}
