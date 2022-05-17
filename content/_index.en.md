@@ -2,7 +2,7 @@
 
 +++
 Metapsy is an open-source, digital platform. It allows you to access and
-analyze all **available evidence** on **psychological treatments** for various **mental health conditions**. On these pages, you can find a detailed technical documentation of the Metapsy project. It covers, among other things:
+analyze all **available evidence** on **psychological treatments** for various **mental health conditions**. On these pages, you can find detailed technical documentation of the Metapsy project. It covers, among other things:
 
 * 🔎 how to prepare the data of your meta-analytic research domain so that the platform can use it
 * 🔎 the GitHub-based workflow through which data is updated, indexed, and integrated into the platform
