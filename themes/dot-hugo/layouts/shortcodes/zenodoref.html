@@ -1,0 +1,93 @@
+<span id="placeholder"></span>
+<script>
+  // random id generator
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      // loop through all elements
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        if (searchDOI === inputDOI) {
+          if ("{{.Get `type`}}" === "github-release") {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "{{.Get `text`}}";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(link);
+          }
+          if ("{{.Get `type`}}" === "last-updated") {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            //var version = post[i].meta
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(modDate);
+          }
+          if ("{{.Get `type`}}" === "version") {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(latestVersion);
+          }
+          if ("{{.Get `type`}}" === "badge") {
+            var badgeUrl = post[i].links.conceptbadge;
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+          }
+        }
+      }
+    });
+</script>

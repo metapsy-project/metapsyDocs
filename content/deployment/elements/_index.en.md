@@ -20,6 +20,18 @@ keywords: ["keyword", "keyword2"]
 
 <hr>
 
+##### Shortcodes 🎉
+
+Github release link: {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="link" >}}
+
+Last release: {{< zenodoref doi="10.5281/zenodo.6566924" type="last-updated" >}}
+
+Version number: {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}
+
+(Concept) Badge: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
+
+<hr>
+
 ##### Emphasis
 
 Emphasis, aka italics, with _asterisks_ or _underscores_.

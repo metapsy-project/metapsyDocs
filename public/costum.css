@@ -72,3 +72,19 @@ ul .nav-item gh-logo-container.nav-item:hover {
 .nav-link.text-dark:hover {
     color: var(--bs-info) !important;
 }
+
+div#content a:link {
+    color: var(--bs-primary) !important;
+}
+
+div#content a:hover {
+    color: var(--bs-info) !important;
+}
+
+.nav-item.active {
+    background-color: #f9f9f9 !important;
+}
+
+.sidebar {
+    top: 150px !important;
+}
