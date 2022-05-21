@@ -16,7 +16,7 @@ Besides the visual editing functionality, there are also several **elements** th
 
 #### Zenodo DOI Badge 🛡️
 
-Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package. The badge will also automatically contain a link to the Zenodo repository.
 
 ```
 {{< zenodoref doi="<INSERT DOI>" type="badge" >}}
