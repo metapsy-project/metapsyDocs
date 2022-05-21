@@ -14,6 +14,40 @@ The forestry CMS provides you with a **code-free, visual text editor**. Using th
 
 Besides the visual editing functionality, there are also several **elements** that you can add to the documentation page via **shortcodes**. Here is an overview of the most important ones:
 
+#### Zenodo DOI Badge 🛡️
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodoref doi="<INSERT DOI>" type="badge" >}}
+```
+
+#### Zenodo GitHub Release Link 😺
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+The link text to be displayed can be specified in `text`.
+
+```
+{{< zenodoref doi="<INSERT DOI>" type="github-release" text="link" >}}
+```
+
+#### Zenodo Last Update Date 📅
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodoref doi="<INSERT DOI>" type="last-updated" >}}
+```
+
+#### Zenodo Latest Version 🔢
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodoref doi="<INSERT DOI>" type="version" >}}
+```
+
+
 #### Note Box 🗒️
 
 ```
