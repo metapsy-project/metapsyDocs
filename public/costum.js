@@ -22,5 +22,17 @@ ul.appendChild(li);
 
 
 // remove 'updated on'
-var date = document.getElementsByClassName('post-meta');
-date[0].innerText = "";
+var dateSection = document.getElementsByClassName('post-meta');
+if (dateSection.length > 0){
+    dateSection[0].innerText = "";
+}
+
+// add construction bar
+var constructionDiv = document.createElement('div');
+var body = document.body;
+var header = document.getElementsByClassName('banner')[0];
+constructionDiv.setAttribute('id', 'construction');
+constructionDiv.innerHTML = 
+    '<i class="fa-solid fa-helmet-safety"></i>' +
+    '<strong> This site is under construction.</strong>';
+body.insertBefore(constructionDiv, body.firstChild);

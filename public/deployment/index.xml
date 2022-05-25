@@ -6,7 +6,7 @@
     <description>Recent content in Deployment on Metapsy Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2022 Metapsy Collaboration</copyright>
+    <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="/deployment/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

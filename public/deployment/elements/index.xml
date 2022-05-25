@@ -6,6 +6,6 @@
     <description>Recent content in Elements on Metapsy Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2022 Metapsy Collaboration</copyright><atom:link href="/deployment/elements/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright><atom:link href="/deployment/elements/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

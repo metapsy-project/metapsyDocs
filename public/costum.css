@@ -88,3 +88,11 @@ div#content a:hover {
 .sidebar {
     top: 150px !important;
 }
+
+#construction {
+    background-color: var(--bs-info) !important;
+    color: white !important;
+    text-align: center !important;
+    font-size: 18px !important;
+    padding: 10px 0 10px 0 !important;
+}

@@ -4,10 +4,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {{ hugo.Generator }}
   <meta name="description" content="{{ .Title }} - {{ .Site.Title }} " />
-  
+
   <!--Costum Plugins-->
-  <link rel="stylesheet" href="/costum.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/costum.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
 
   <!-- ** CSS Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
@@ -34,6 +37,12 @@
     href="https://fonts.googleapis.com/css?family={{replace .Site.Params.font_family ' ' '+' | title}}:300,400,700&display=swap"
     rel="stylesheet"
   />
+
+  <!-- fontawesome icons-->
+  <script
+    src="https://kit.fontawesome.com/51da9bb012.js"
+    crossorigin="anonymous"
+  ></script>
 
   <!-- PDF.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
@@ -106,5 +115,4 @@
   <meta name="twitter:creator" content="@{{ . }}" />
   {{ end }} {{ end }} {{ template "_internal/opengraph.html" . }} {{ template
   "_internal/twitter_cards.html" . }}
-
 </head>

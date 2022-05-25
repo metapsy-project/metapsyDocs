@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content="Hugo 0.88.1" />
   <meta name="description" content="Elements - Metapsy Documentation " />
+
   
-  
-  <link rel="stylesheet" href="/costum.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/costum.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
 
   
   
@@ -36,6 +39,12 @@
     href="https://fonts.googleapis.com/css?family=Fira%20Sans:300,400,700&display=swap"
     rel="stylesheet"
   />
+
+  
+  <script
+    src="https://kit.fontawesome.com/51da9bb012.js"
+    crossorigin="anonymous"
+  ></script>
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
@@ -89,7 +98,6 @@
  <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Elements"/>
 <meta name="twitter:description" content="Metapsy Documentation"/>
-
 
 </head>
 
@@ -222,6 +230,384 @@
 <h4 id="heading-4">Heading 4</h4>
 <h5 id="heading-5">Heading 5</h5>
 <h6 id="heading-6">Heading 6</h6>
+<hr>
+<h5 id="shortcodes-">Shortcodes 🎉</h5>
+<p>Github release link: <span id="placeholder"></span>
+<script>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+        if (searchDOI === inputDOI) {
+          if ("github-release" === "github-release") {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "link";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(link);
+          }
+          if ("github-release" === "last-updated") {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(modDate);
+          }
+          if ("github-release" === "version") {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(latestVersion);
+          }
+          if ("github-release" === "badge") {
+            var badgeUrl = post[i].links.conceptbadge;
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+          }
+        }
+      }
+    });
+</script>
+</p>
+<p>Last release: <span id="placeholder"></span>
+<script>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+        if (searchDOI === inputDOI) {
+          if ("last-updated" === "github-release") {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(link);
+          }
+          if ("last-updated" === "last-updated") {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(modDate);
+          }
+          if ("last-updated" === "version") {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(latestVersion);
+          }
+          if ("last-updated" === "badge") {
+            var badgeUrl = post[i].links.conceptbadge;
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+          }
+        }
+      }
+    });
+</script>
+</p>
+<p>Version number: <span id="placeholder"></span>
+<script>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+        if (searchDOI === inputDOI) {
+          if ("version" === "github-release") {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(link);
+          }
+          if ("version" === "last-updated") {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(modDate);
+          }
+          if ("version" === "version") {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(latestVersion);
+          }
+          if ("version" === "badge") {
+            var badgeUrl = post[i].links.conceptbadge;
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+          }
+        }
+      }
+    });
+</script>
+</p>
+<p>(Concept) Badge: <span id="placeholder"></span>
+<script>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+        if (searchDOI === inputDOI) {
+          if ("badge" === "github-release") {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(link);
+          }
+          if ("badge" === "last-updated") {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(modDate);
+          }
+          if ("badge" === "version") {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            div.appendChild(latestVersion);
+          }
+          if ("badge" === "badge") {
+            var badgeUrl = post[i].links.conceptbadge;
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+          }
+        }
+      }
+    });
+</script>
+</p>
 <hr>
 <h5 id="emphasis">Emphasis</h5>
 <p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
@@ -468,7 +854,7 @@ raw Markdown line up prettily. You can also use inline Markdown.</p>
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-8 text-md-left text-center">
-        <p class="mb-md-0 mb-4">© 2022 Metapsy Collaboration</p>
+        <p class="mb-md-0 mb-4">© <script>document.write(new Date().getFullYear())</script> Metapsy Collaboration</p>
       </div>
       <div class="col-md-4 text-md-right text-center">
         <ul class="list-inline">
