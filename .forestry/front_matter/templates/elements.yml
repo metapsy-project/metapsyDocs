@@ -13,5 +13,3 @@ fields:
 - type: list
   name: keywords
   label: keywords
-pages:
-- content/databases/_index.md.md
