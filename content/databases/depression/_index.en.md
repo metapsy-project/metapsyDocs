@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ### Affiliated Institutions
 
-* Vrije Universiteit Amsterdam
+Vrije Universiteit Amsterdam, Other University
 
 <br></br>
 
