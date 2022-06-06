@@ -4,3 +4,4 @@ title = "inpatients"
 weight = 1
 
 +++
+inpatients
