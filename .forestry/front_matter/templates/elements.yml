@@ -12,5 +12,6 @@ fields:
   name: keywords
   label: keywords
 pages:
+- content/databases/depression-inpatients/depression-inpatients.md
 - content/databases/depression-psy-ctr/depression.md
 - content/databases/suicide-prevention/suicide-prevention.md
