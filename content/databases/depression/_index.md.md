@@ -1,7 +1,7 @@
 +++
 draft = true
 keywords = ["data", "depression"]
-title = "_index.md"
+title = "Depression"
 weight = 1
 
 +++
