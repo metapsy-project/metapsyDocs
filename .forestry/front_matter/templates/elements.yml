@@ -12,5 +12,6 @@ fields:
   name: keywords
   label: keywords
 pages:
+- content/databases/depression/index.md
 - content/databases/depression/inpatients.md
 - content/databases/depression/psychotherapy-versus-control.md
