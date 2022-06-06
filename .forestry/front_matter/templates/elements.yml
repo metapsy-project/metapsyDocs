@@ -15,4 +15,4 @@ fields:
   label: keywords
 pages:
 - content/databases/depression/_index.md.md
-- content/databases/suicide/suicide-prevention.md
+- content/databases/suicide/_index.md
