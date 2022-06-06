@@ -20,10 +20,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 * Shorthand: `depression`
 * Latest Version: {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}
-* Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
-* {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="Data Repository (Latest Version) ↗" >}}
 * Last updated: {{< zenodoref doi="10.5281/zenodo.6566924" type="last-updated" >}}
 * Last search:
+* Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
+* {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="Data Repository (Latest Version) ↗" >}}
 
 ### Affiliated Institutions
 
