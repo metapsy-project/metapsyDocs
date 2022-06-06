@@ -224,15 +224,14 @@
         <div class="p-lg-5 p-4 bg-white" id="content">
           <h2 class="mb-5" id="title">Elements</h2>
           
-          <div class="content"><h1 id="heading-1">Heading 1</h1>
-<h2 id="heading-2">Heading 2</h2>
-<h3 id="heading-3">Heading 3</h3>
-<h4 id="heading-4">Heading 4</h4>
-<h5 id="heading-5">Heading 5</h5>
-<h6 id="heading-6">Heading 6</h6>
-<hr>
-<h5 id="shortcodes-">Shortcodes 🎉</h5>
-<p>Github release link: <span id="placeholder"></span>
+          <div class="content"><h1 id="heading-1">Heading 1</h1><h2 id="heading-2">Heading 2 <a class="header-link" href="#heading-2">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><h3 id="heading-3">Heading 3 <a class="header-link" href="#heading-3">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><h4 id="heading-4">Heading 4</h4><h5 id="heading-5">Heading 5</h5><h6 id="heading-6">Heading 6</h6><hr>
+<h5 id="shortcodes-">Shortcodes 🎉</h5><p>Github release link: <span id="placeholder"></span>
 <script>
   
   function makeid(length) {
@@ -267,6 +266,7 @@
             link.innerText = "link";
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
+            link.setAttribute("style", "color: unset !important");
             var div = document.getElementById("placeholder");
             div.id = randID;
             div.appendChild(link);
@@ -286,7 +286,6 @@
               "November",
               "December",
             ];
-            
             const d = new Date(post[i].modified);
             const month = months[d.getMonth()];
             const year = d.getFullYear();
@@ -320,6 +319,152 @@
             img.style.display = "inline";
             link.appendChild(img);
             div.appendChild(link);
+          }
+          if ("github-release" === "authors") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = d;
+              });
+          }
+          if ("github-release" === "search-string") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_string" +
+              ".txt";
+            var links = document.createElement("a");
+            var href = readLink;
+            links.innerText = "link";
+            links.setAttribute("href", href);
+            links.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            links.setAttribute("style", "color: unset !important");
+            div.appendChild(links);
+          }
+          if ("github-release" === "last-search") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "last_search" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                const date = new Date(d);
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const day = date.getDate();
+                modDate = document.createTextNode(
+                  month + " " + day + ", " + year
+                );
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.appendChild(modDate);
+              });
+          }
+          if ("github-release" === "shorthand") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "shorthand" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = "<code>" + d + "</code>";
+              });
+          }
+          if ("github-release" === "variable-description") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "variable_description.json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                console.log(JSON.parse(d));
+                tableData = JSON.parse(d);
+                
+                var keys = Object.keys(tableData);
+                var values = Object.values(tableData);
+                
+                var table = document.createElement("table");
+                var tr = table.insertRow(-1);
+                
+                var th1 = document.createElement("th");
+                th1.innerHTML = "Variable";
+                var th2 = document.createElement("th");
+                th2.innerHTML = "Description";
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                
+                for (var i = 0; i < keys.length; i++) {
+                  tr = table.insertRow(-1);
+                  var tabCell1 = tr.insertCell(-1);
+                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                  var tabCell2 = tr.insertCell(-1);
+                  tabCell2.innerHTML = values[i];
+                }
+                table.style.fontSize = "90%";
+                div.appendChild(table);
+              });
           }
         }
       }
@@ -361,6 +506,7 @@
             link.innerText = "";
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
+            link.setAttribute("style", "color: unset !important");
             var div = document.getElementById("placeholder");
             div.id = randID;
             div.appendChild(link);
@@ -380,7 +526,6 @@
               "November",
               "December",
             ];
-            
             const d = new Date(post[i].modified);
             const month = months[d.getMonth()];
             const year = d.getFullYear();
@@ -414,6 +559,152 @@
             img.style.display = "inline";
             link.appendChild(img);
             div.appendChild(link);
+          }
+          if ("last-updated" === "authors") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = d;
+              });
+          }
+          if ("last-updated" === "search-string") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_string" +
+              ".txt";
+            var links = document.createElement("a");
+            var href = readLink;
+            links.innerText = "";
+            links.setAttribute("href", href);
+            links.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            links.setAttribute("style", "color: unset !important");
+            div.appendChild(links);
+          }
+          if ("last-updated" === "last-search") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "last_search" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                const date = new Date(d);
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const day = date.getDate();
+                modDate = document.createTextNode(
+                  month + " " + day + ", " + year
+                );
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.appendChild(modDate);
+              });
+          }
+          if ("last-updated" === "shorthand") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "shorthand" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = "<code>" + d + "</code>";
+              });
+          }
+          if ("last-updated" === "variable-description") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "variable_description.json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                console.log(JSON.parse(d));
+                tableData = JSON.parse(d);
+                
+                var keys = Object.keys(tableData);
+                var values = Object.values(tableData);
+                
+                var table = document.createElement("table");
+                var tr = table.insertRow(-1);
+                
+                var th1 = document.createElement("th");
+                th1.innerHTML = "Variable";
+                var th2 = document.createElement("th");
+                th2.innerHTML = "Description";
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                
+                for (var i = 0; i < keys.length; i++) {
+                  tr = table.insertRow(-1);
+                  var tabCell1 = tr.insertCell(-1);
+                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                  var tabCell2 = tr.insertCell(-1);
+                  tabCell2.innerHTML = values[i];
+                }
+                table.style.fontSize = "90%";
+                div.appendChild(table);
+              });
           }
         }
       }
@@ -455,6 +746,7 @@
             link.innerText = "";
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
+            link.setAttribute("style", "color: unset !important");
             var div = document.getElementById("placeholder");
             div.id = randID;
             div.appendChild(link);
@@ -474,7 +766,6 @@
               "November",
               "December",
             ];
-            
             const d = new Date(post[i].modified);
             const month = months[d.getMonth()];
             const year = d.getFullYear();
@@ -508,6 +799,152 @@
             img.style.display = "inline";
             link.appendChild(img);
             div.appendChild(link);
+          }
+          if ("version" === "authors") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = d;
+              });
+          }
+          if ("version" === "search-string") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_string" +
+              ".txt";
+            var links = document.createElement("a");
+            var href = readLink;
+            links.innerText = "";
+            links.setAttribute("href", href);
+            links.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            links.setAttribute("style", "color: unset !important");
+            div.appendChild(links);
+          }
+          if ("version" === "last-search") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "last_search" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                const date = new Date(d);
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const day = date.getDate();
+                modDate = document.createTextNode(
+                  month + " " + day + ", " + year
+                );
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.appendChild(modDate);
+              });
+          }
+          if ("version" === "shorthand") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "shorthand" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = "<code>" + d + "</code>";
+              });
+          }
+          if ("version" === "variable-description") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "variable_description.json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                console.log(JSON.parse(d));
+                tableData = JSON.parse(d);
+                
+                var keys = Object.keys(tableData);
+                var values = Object.values(tableData);
+                
+                var table = document.createElement("table");
+                var tr = table.insertRow(-1);
+                
+                var th1 = document.createElement("th");
+                th1.innerHTML = "Variable";
+                var th2 = document.createElement("th");
+                th2.innerHTML = "Description";
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                
+                for (var i = 0; i < keys.length; i++) {
+                  tr = table.insertRow(-1);
+                  var tabCell1 = tr.insertCell(-1);
+                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                  var tabCell2 = tr.insertCell(-1);
+                  tabCell2.innerHTML = values[i];
+                }
+                table.style.fontSize = "90%";
+                div.appendChild(table);
+              });
           }
         }
       }
@@ -549,6 +986,7 @@
             link.innerText = "";
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
+            link.setAttribute("style", "color: unset !important");
             var div = document.getElementById("placeholder");
             div.id = randID;
             div.appendChild(link);
@@ -568,7 +1006,6 @@
               "November",
               "December",
             ];
-            
             const d = new Date(post[i].modified);
             const month = months[d.getMonth()];
             const year = d.getFullYear();
@@ -603,20 +1040,164 @@
             link.appendChild(img);
             div.appendChild(link);
           }
+          if ("badge" === "authors") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = d;
+              });
+          }
+          if ("badge" === "search-string") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_string" +
+              ".txt";
+            var links = document.createElement("a");
+            var href = readLink;
+            links.innerText = "";
+            links.setAttribute("href", href);
+            links.setAttribute("target", "blank");
+            var div = document.getElementById("placeholder");
+            div.id = randID;
+            links.setAttribute("style", "color: unset !important");
+            div.appendChild(links);
+          }
+          if ("badge" === "last-search") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "last_search" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                const date = new Date(d);
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const day = date.getDate();
+                modDate = document.createTextNode(
+                  month + " " + day + ", " + year
+                );
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.appendChild(modDate);
+              });
+          }
+          if ("badge" === "shorthand") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "shorthand" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                div.innerHTML = "<code>" + d + "</code>";
+              });
+          }
+          if ("badge" === "variable-description") {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "variable_description.json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("placeholder");
+                div.id = randID;
+                console.log(JSON.parse(d));
+                tableData = JSON.parse(d);
+                
+                var keys = Object.keys(tableData);
+                var values = Object.values(tableData);
+                
+                var table = document.createElement("table");
+                var tr = table.insertRow(-1);
+                
+                var th1 = document.createElement("th");
+                th1.innerHTML = "Variable";
+                var th2 = document.createElement("th");
+                th2.innerHTML = "Description";
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                
+                for (var i = 0; i < keys.length; i++) {
+                  tr = table.insertRow(-1);
+                  var tabCell1 = tr.insertCell(-1);
+                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                  var tabCell2 = tr.insertCell(-1);
+                  tabCell2.innerHTML = values[i];
+                }
+                table.style.fontSize = "90%";
+                div.appendChild(table);
+              });
+          }
         }
       }
     });
 </script>
 </p>
 <hr>
-<h5 id="emphasis">Emphasis</h5>
-<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
+<h5 id="emphasis">Emphasis</h5><p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
 <p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
 <p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
 <p>Strikethrough uses two tildes. <del>Scratch this.</del></p>
 <hr>
-<h5 id="link">Link</h5>
-<p><a href="https://www.google.com">I&rsquo;m an inline-style link</a></p>
+<h5 id="link">Link</h5><p><a href="https://www.google.com">I&rsquo;m an inline-style link</a></p>
 <p><a href="https://www.google.com" title="Google's Homepage">I&rsquo;m an inline-style link with title</a></p>
 <p><a href="https://www.mozilla.org">I&rsquo;m a reference-style link</a></p>
 <p><a href="../blob/master/LICENSE">I&rsquo;m a relative reference to a repository file</a></p>
@@ -627,11 +1208,9 @@
 example.com (but not on Github, for example).</p>
 <p>Some text to show that the reference links can follow later.</p>
 <hr>
-<h5 id="paragraph">Paragraph</h5>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime corporis cumque totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus, facilis placeat pariatur! Voluptatem, sed harum pariatur adipisci voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio vel ipsum excepturi tempore reiciendis id quidem? Vel in, doloribus debitis nesciunt fugit sequi magnam accusantium modi neque quis, vitae velit, pariatur harum autem a! Velit impedit atque maiores animi possimus asperiores natus repellendus excepturi sint architecto eligendi non, omnis nihil. Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.</p>
+<h5 id="paragraph">Paragraph</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime corporis cumque totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus, facilis placeat pariatur! Voluptatem, sed harum pariatur adipisci voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio vel ipsum excepturi tempore reiciendis id quidem? Vel in, doloribus debitis nesciunt fugit sequi magnam accusantium modi neque quis, vitae velit, pariatur harum autem a! Velit impedit atque maiores animi possimus asperiores natus repellendus excepturi sint architecto eligendi non, omnis nihil. Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.</p>
 <hr>
-<h5 id="ordered-list">Ordered List</h5>
-<ol>
+<h5 id="ordered-list">Ordered List</h5><ol>
 <li>List item</li>
 <li>List item</li>
 <li>List item</li>
@@ -639,8 +1218,7 @@ example.com (but not on Github, for example).</p>
 <li>List item</li>
 </ol>
 <hr>
-<h5 id="unordered-list">Unordered List</h5>
-<ul>
+<h5 id="unordered-list">Unordered List</h5><ul>
 <li>List item</li>
 <li>List item</li>
 <li>List item</li>
@@ -649,7 +1227,6 @@ example.com (but not on Github, for example).</p>
 </ul>
 <hr>
 <h4 id="notice">Notice</h4>
-
 
 <div class="notices note" ><p>This is a simple note.</p></div>
 
@@ -663,7 +1240,6 @@ example.com (but not on Github, for example).</p>
 <div class="notices warning" ><p>This is a simple warning.</p></div>
 <hr>
 <h4 id="tab">Tab</h4>
-
 
 <div class="code-tabs">
   <ul class="nav nav-tabs"></ul>
@@ -696,8 +1272,7 @@ this is third tab
 </div>
 </div>
 <hr>
-<h5 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h5>
-<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+<h5 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h5><p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;JavaScript syntax highlighting&#34;</span>;
 <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">s</span>);
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">s <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;R syntax highlighting&#34;</span>
@@ -711,13 +1286,11 @@ this is third tab
 </code></pre></div><pre tabindex="0"><code>No language indicated, so no syntax highlighting.
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 </code></pre><hr>
-<h5 id="blockquote">Blockquote</h5>
-<blockquote>
+<h5 id="blockquote">Blockquote</h5><blockquote>
 <p>This is a blockquote example.</p>
 </blockquote>
 <hr>
-<h5 id="inline-html">Inline HTML</h5>
-<p>You can also use raw HTML in your Markdown, and it&rsquo;ll mostly work pretty well.</p>
+<h5 id="inline-html">Inline HTML</h5><p>You can also use raw HTML in your Markdown, and it&rsquo;ll mostly work pretty well.</p>
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
@@ -725,8 +1298,7 @@ But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 <hr>
-<h5 id="tables">Tables</h5>
-<p>Colons can be used to align columns.</p>
+<h5 id="tables">Tables</h5><p>Colons can be used to align columns.</p>
 <table>
 <thead>
 <tr>
@@ -778,11 +1350,9 @@ raw Markdown line up prettily. You can also use inline Markdown.</p>
 </tbody>
 </table>
 <hr>
-<h5 id="image">Image</h5>
-<p><img src="img-1.jpg" alt="image"></p>
+<h5 id="image">Image</h5><p><img src="img-1.jpg" alt="image"></p>
 <hr>
 <h5 id="youtube-video">Youtube video</h5>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/C0DPdy98e4c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
@@ -842,8 +1412,7 @@ raw Markdown line up prettily. You can also use inline Markdown.</p>
 
 
 
-
-    
+ 
 <footer class="section pb-4">
   
   <script src="/costum.js"></script>

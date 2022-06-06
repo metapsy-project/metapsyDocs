@@ -35,4 +35,9 @@ constructionDiv.setAttribute('id', 'construction');
 constructionDiv.innerHTML = 
     '<i class="fa-solid fa-helmet-safety"></i>' +
     '<strong> This site is under construction.</strong>';
+constructionDiv.style.backgroundColor = "var(--bs-info)";
+constructionDiv.style.color = "white";
+constructionDiv.style.textAlign = "center";
+constructionDiv.style.fontSize = "18px";
+constructionDiv.style.padding = "10px 0 10px 0";
 body.insertBefore(constructionDiv, body.firstChild);

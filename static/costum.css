@@ -89,3 +89,6 @@ div#content a:hover {
     top: 150px !important;
 }
 
+button:hover {
+    background-color: var(--bs-primary) !important;
+}

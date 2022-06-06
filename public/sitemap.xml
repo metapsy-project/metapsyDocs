@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/data-preparation/first-page/</loc>
+    <loc>/databases/depression/</loc>
   </url><url>
-    <loc>/databases/first-page/</loc>
+    <loc>/data-preparation/first-page/</loc>
   </url><url>
     <loc>/deployment/first-page/</loc>
   </url><url>
@@ -12,9 +12,9 @@
   </url><url>
     <loc>/r-packages/first-page/</loc>
   </url><url>
-    <loc>/data-preparation/elements/</loc>
+    <loc>/databases/suicide/</loc>
   </url><url>
-    <loc>/databases/elements/</loc>
+    <loc>/data-preparation/elements/</loc>
   </url><url>
     <loc>/deployment/elements/</loc>
   </url><url>

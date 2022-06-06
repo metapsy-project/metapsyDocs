@@ -3,7 +3,7 @@
   {{ partial "head.html" . }}
 
   <body>
-    {{ if .IsHome }} 
+    {{ if .IsHome }}
     <!-- header -->
     <header
       class="banner {{if .Site.Params.banner.bg_image}}overlay bg-cover{{else}}bg-primary{{end}}"
@@ -18,7 +18,6 @@
       {{ partial "navigation.html" . }}
     </header>
     <!-- /header -->
-    {{ end }} {{ block "main" . }}{{ end }}
-    {{ partialCached "footer.html" . }}
+    {{ end }} {{ block "main" . }}{{ end }} {{ partialCached "footer.html" . }}
   </body>
 </html>
