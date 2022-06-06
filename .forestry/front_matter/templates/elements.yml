@@ -11,3 +11,5 @@ fields:
 - type: list
   name: keywords
   label: keywords
+pages:
+- content/databases/elements/suicide-prevention.md
