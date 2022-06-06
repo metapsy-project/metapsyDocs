@@ -24,6 +24,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 * Last search:
 * Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
 * {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="Data Repository (Latest Version) ↗" >}}
+* Search String (Latest Version) ↗
 
 ### Affiliated Institutions
 
