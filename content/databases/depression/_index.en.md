@@ -4,7 +4,7 @@ title = "Depression"
 weight = 1
 
 +++
-### Psychotherapy versus Control {#psych-vs-ctr}
+### Psychotherapy versus Control Database {#psych-vs-ctr}
 
 Pim Cuijpers <a target="_blank" href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>,
 Clara Miguel <a target="_blank" href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>,
