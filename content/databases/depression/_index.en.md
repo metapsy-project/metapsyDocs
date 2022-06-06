@@ -20,7 +20,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 * Latest Version: {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}
 * Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
 * {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="GitHub Repository (Latest Release) ↗" >}}
-* Last updated: {{< zenodoref doi="" type="last-updated" >}}
+* Last updated: {{< zenodoref doi="10.5281/zenodo.6566924" type="last-updated" >}}
 * Last search: 
 
 ### Affiliated Institutions
