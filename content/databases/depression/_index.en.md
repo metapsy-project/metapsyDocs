@@ -34,6 +34,6 @@ Vrije Universiteit Amsterdam, Other University
 
 <br></br>
 
-### Inpatients {#inpatients}
+### Inpatients Database {#inpatients}
 
 ***
