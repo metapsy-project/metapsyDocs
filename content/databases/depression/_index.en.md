@@ -20,6 +20,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 Vrije Universiteit Amsterdam, Other University
 
+#### Associated Online Meta-Analysis Tool
+
+A simplified version of this database can be analyzed at \[/depression-psychotherapy\]([https://metapsy.org/depression-psychotherapy](https://metapsy.netlify.app/depression-psychotherapy "https://metapsy.netlify.app/depression-psychotherapy")).
+
 #### Metadata
 
 * Shorthand: `depression`
