@@ -14,6 +14,6 @@ Eirini Karyotaki <a href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="dis
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-* Database DOI: {{< zenodoref doi="[10.5281/zenodo.6566924](https://doi.org/10.5281/zenodo.6566924)" type="badge" >}}
+* Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
 
 ## Inpatients {#inpatients}
