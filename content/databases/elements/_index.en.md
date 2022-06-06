@@ -1,5 +1,5 @@
 ---
-title: Depression - Psychotherapy v. Control
+title: Depression
 weight: "2"
 keywords:
 - data
