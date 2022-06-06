@@ -1,7 +1,7 @@
 +++
 draft = true
 keywords = ["suicide"]
-title = "_index.en"
+title = "Suicide Prevention"
 weight = 1
 
 +++
