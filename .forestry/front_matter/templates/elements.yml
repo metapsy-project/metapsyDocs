@@ -13,3 +13,4 @@ fields:
   label: keywords
 pages:
 - content/databases/depression/index.md
+- content/databases/depression/psych-vs-ctr/psychotherapy-versus-control.md
