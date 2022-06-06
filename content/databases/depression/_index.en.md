@@ -4,40 +4,57 @@ title = "Depression"
 weight = 1
 
 +++
+
 ### "Psychotherapy versus Control" Database {#psych-vs-ctr}
 
-Pim Cuijpers <a target="_blank" href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>,
-Clara Miguel <a target="_blank" href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>,
-Eirini Karyotaki <a target="_blank" href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>
+{{< zenodoref doi="10.5281/zenodo.6617815" type="authors">}}
 
-***
+---
+
+<br>
 
 #### General Description
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
+<br>
+
 #### Affiliated Institutions
 
 Vrije Universiteit Amsterdam, Other University
+
+<br>
 
 #### Online Meta-Analysis Tool
 
 A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/depression-psychotherapy" target="_blank">metapsy.org/depression-psychotherapy</a>.
 
+<br>
+
 #### Metadata
 
-* Shorthand: `depression`
-* Latest Version: {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}
-* Last updated: {{< zenodoref doi="10.5281/zenodo.6566924" type="last-updated" >}}
-* Last search:
-* Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
-* {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="Data Repository (Latest Version) ↗" >}}
-* Search String (Latest Version) ↗
+- Shorthand: {{< zenodoref doi="10.5281/zenodo.6617815" type="shorthand" >}}
+- Latest Version: {{< zenodoref doi="10.5281/zenodo.6617815" type="version" >}}
+- Last updated: {{< zenodoref doi="10.5281/zenodo.6617815" type="last-updated" >}}
+- Last search: {{< zenodoref doi="10.5281/zenodo.6617815" type="last-search" >}}
+- Search String (Latest Version): {{< zenodoref doi="10.5281/zenodo.6617815" type="search-string" text="↗" >}}
+- Data Repository (Latest Version): {{< zenodoref doi="10.5281/zenodo.6617815" type="github-release" text="↗" >}}
+- Database DOI: {{< zenodoref doi="10.5281/zenodo.6617815" type="badge" >}}
+
+{{< allversions doi="10.5281/zenodo.6617815" >}}
+
+<br>
 
 #### Variable Description
+
+{{< zenodoref doi="10.5281/zenodo.6617815" type="variable-description" >}}
+
+<br>
+
+#### Further Information
 
 <br></br>
 
 ### "Inpatients" Database {#inpatients}
 
-***
+---
