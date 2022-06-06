@@ -13,3 +13,5 @@ fields:
 - type: list
   name: keywords
   label: keywords
+pages:
+- content/databases/depression/_index.md.md
