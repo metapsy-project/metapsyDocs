@@ -4,3 +4,4 @@ title = "Depression"
 weight = 1
 
 +++
+# Psychotherapy versus Control {#psych-vs-ctr}
