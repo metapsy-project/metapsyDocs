@@ -1,10 +1,12 @@
 ---
-label: Elements
+label: New Documentation Page
 hide_body: false
+display_field: title
 fields:
 - type: text
   name: title
   label: title
+  default: _index.md
 - type: number
   name: weight
   label: weight
