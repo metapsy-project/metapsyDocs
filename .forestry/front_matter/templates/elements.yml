@@ -11,3 +11,5 @@ fields:
 - type: list
   name: keywords
   label: keywords
+pages:
+- content/databases/depression/psychotherapy-versus-control.md
