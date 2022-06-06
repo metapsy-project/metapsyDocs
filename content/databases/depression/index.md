@@ -1,5 +1,4 @@
 +++
-draft = true
 keywords = []
 title = "index"
 weight = 1
