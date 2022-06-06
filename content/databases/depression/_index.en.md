@@ -22,7 +22,7 @@ Vrije Universiteit Amsterdam, Other University
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at <a link="https://metapsy.org/depression-psychotherapy" target="_blank">metapsy.org/depression-psychotherapy</a>.
+A simplified version of this database can be analyzed at <a href="https://metapsy.org/depression-psychotherapy" target="_blank">metapsy.org/depression-psychotherapy</a>.
 
 #### Metadata
 
