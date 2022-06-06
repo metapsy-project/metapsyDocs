@@ -10,8 +10,6 @@ Pim Cuijpers <a href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display
 Clara Miguel <a href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>,
 Eirini Karyotaki <a href="https://orcid.org/xxxx-xxxx-xxxx-xxxx"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>
 
-_Version {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}_
-
 ***
 
 ### General Description
@@ -19,8 +17,9 @@ _Version {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}_
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 * Shorthand: `depression`
+* Latest Version: {{< zenodoref doi="10.5281/zenodo.6566924" type="version" >}}
 * Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
-* {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="link" >}}
+* GitHub Repository (Latest Release): {{< zenodoref doi="10.5281/zenodo.6566924" type="github-release" text="link" >}}
 * Last updated: {{< zenodoref doi="" type="last-updated" >}}
 * Last search: 
 
