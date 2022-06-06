@@ -16,6 +16,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 * Shorthand: `depression`
 * Database DOI: {{< zenodoref doi="10.5281/zenodo.6566924" type="badge" >}}
-* 
+
+### Affiliated Institutions
+
+* Vrije Universiteit Amsterdam
 
 ## Inpatients {#inpatients}
