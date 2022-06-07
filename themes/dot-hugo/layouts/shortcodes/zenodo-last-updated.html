@@ -1,0 +1,58 @@
+<span id="ph-last-updated"></span>
+<script>
+  // random id generator function
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+
+  // fetch zenodo API entries
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      // loop through all elements
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        // if DOI fits, do operation
+        if (searchDOI === inputDOI) {
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          const d = new Date(post[i].modified);
+          const month = months[d.getMonth()];
+          const year = d.getFullYear();
+          const day = d.getDate();
+          modDate = document.createTextNode(month + " " + day + ", " + year);
+          var div = document.getElementById("ph-last-updated");
+          div.id = div.id + "-" + randID;
+          div.appendChild(modDate);
+        }
+      }
+    });
+</script>

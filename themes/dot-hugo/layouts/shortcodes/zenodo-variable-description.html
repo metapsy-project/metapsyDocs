@@ -1,0 +1,76 @@
+<span id="ph-variable-description"></span>
+<script>
+  // random id generator function
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+
+  // fetch zenodo API entries
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      // loop through all elements
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        // if DOI fits, do operation
+        if (searchDOI === inputDOI) {
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            repoVersion +
+            "/metadata/" +
+            "variable_description.json";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              var div = document.getElementById("ph-variable-description");
+              div.id = div.id + "-" + randID;
+              tableData = JSON.parse(d);
+              // extract variable names & definitions
+              var keys = Object.keys(tableData);
+              var values = Object.values(tableData);
+              // start constructing table
+              var table = document.createElement("table");
+              var tr = table.insertRow(-1);
+              // table header
+              var th1 = document.createElement("th");
+              th1.innerHTML = "Variable";
+              var th2 = document.createElement("th");
+              th2.innerHTML = "Description";
+              tr.appendChild(th1);
+              tr.appendChild(th2);
+              // add contents via loop
+              for (var i = 0; i < keys.length; i++) {
+                tr = table.insertRow(-1);
+                var tabCell1 = tr.insertCell(-1);
+                tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                var tabCell2 = tr.insertCell(-1);
+                tabCell2.innerHTML = values[i];
+              }
+              table.style.fontSize = "90%";
+              div.appendChild(table);
+            });
+        }
+      }
+    });
+</script>

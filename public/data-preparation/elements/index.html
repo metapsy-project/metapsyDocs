@@ -245,33 +245,35 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
 
-        if (searchDOI === inputDOI) {
-          if ("github-release" === "github-release") {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "link";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            link.setAttribute("style", "color: unset !important");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(link);
-          }
-          if ("github-release" === "last-updated") {
+  if ("github-release" === "all-versions") {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+        "&all_versions=1"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        var html =
+          "<button class='accbutton' style='border: none;" +
+          " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+          "Browse all versions</button> <div " +
+          "style='background-color: var(--body-color);" +
+          " padding: 20px 20px 20px 20px;" +
+          "overflow-y: scroll; height:150px;'><ul " +
+          "style='font-size: 90% !important;'>";
+
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            
             const months = [
               "January",
               "February",
@@ -290,185 +292,273 @@
             const month = months[d.getMonth()];
             const year = d.getFullYear();
             const day = d.getDate();
-            modDate = document.createTextNode(month + " " + day + ", " + year);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(modDate);
-          }
-          if ("github-release" === "version") {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(latestVersion);
-          }
-          if ("github-release" === "badge") {
+            modDate = month + " " + day + ", " + year;
+
+            
             var badgeUrl = post[i].links.conceptbadge;
-            var href = post[i].links.conceptdoi;
-            var img = document.createElement("img");
-            var link = document.createElement("a");
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            img.setAttribute("src", badgeUrl);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            img.style.maxWidth = "unset !important";
-            img.style.height = "unset !important";
-            img.style.padding = 0;
-            img.style.margin = 0;
-            img.style.display = "inline";
-            link.appendChild(img);
-            div.appendChild(link);
-          }
-          if ("github-release" === "authors") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = d;
-              });
-          }
-          if ("github-release" === "search-string") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_string" +
-              ".txt";
-            var links = document.createElement("a");
-            var href = readLink;
-            links.innerText = "link";
-            links.setAttribute("href", href);
-            links.setAttribute("target", "blank");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            links.setAttribute("style", "color: unset !important");
-            div.appendChild(links);
-          }
-          if ("github-release" === "last-search") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "last_search" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-                const date = new Date(d);
-                const month = months[date.getMonth()];
-                const year = date.getFullYear();
-                const day = date.getDate();
-                modDate = document.createTextNode(
-                  month + " " + day + ", " + year
-                );
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.appendChild(modDate);
-              });
-          }
-          if ("github-release" === "shorthand") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "shorthand" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = "<code>" + d + "</code>";
-              });
-          }
-          if ("github-release" === "variable-description") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "variable_description.json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                console.log(JSON.parse(d));
-                tableData = JSON.parse(d);
-                
-                var keys = Object.keys(tableData);
-                var values = Object.values(tableData);
-                
-                var table = document.createElement("table");
-                var tr = table.insertRow(-1);
-                
-                var th1 = document.createElement("th");
-                th1.innerHTML = "Variable";
-                var th2 = document.createElement("th");
-                th2.innerHTML = "Description";
-                tr.appendChild(th1);
-                tr.appendChild(th2);
-                
-                for (var i = 0; i < keys.length; i++) {
-                  tr = table.insertRow(-1);
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.innerHTML = values[i];
-                }
-                table.style.fontSize = "90%";
-                div.appendChild(table);
-              });
+            var href = post[i].links.doi;
+            var insertText =
+              "<li><strong> Version " +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              "): " +
+              "<a target='_blank' href='" +
+              href +
+              "'><img src='" +
+              badgeUrl +
+              "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+            html = html + insertText;
           }
         }
-      }
-    });
+        html = html + "</ul></div>";
+        var div = document.getElementById("placeholder");
+        div.id = randID;
+        div.innerHTML = html;
+      });
+  } else {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            if ("github-release" === "github-release") {
+              var link = document.createElement("a");
+              var href = post[i].metadata.related_identifiers[0].identifier;
+              link.innerText = "link";
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              link.setAttribute("style", "color: unset !important");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(link);
+            }
+            if ("github-release" === "last-updated") {
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              const d = new Date(post[i].modified);
+              const month = months[d.getMonth()];
+              const year = d.getFullYear();
+              const day = d.getDate();
+              modDate = document.createTextNode(
+                month + " " + day + ", " + year
+              );
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("github-release" === "last-updated-year") {
+              const d = new Date(post[i].modified);
+              const year = d.getFullYear();
+              modDate = document.createTextNode("(" + year + ")");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("github-release" === "version") {
+              const version = post[i].metadata.version;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("github-release" === "doi") {
+              const version = post[i].links.conceptdoi;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("github-release" === "badge") {
+              var badgeUrl = post[i].links.conceptbadge;
+              var href = post[i].links.conceptdoi;
+              var img = document.createElement("img");
+              var link = document.createElement("a");
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              img.setAttribute("src", badgeUrl);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              img.style.maxWidth = "unset !important";
+              img.style.height = "unset !important";
+              img.style.padding = 0;
+              img.style.margin = 0;
+              img.style.display = "inline";
+              link.appendChild(img);
+              div.appendChild(link);
+            }
+            if ("github-release" === "authors") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "authors" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = d;
+                });
+            }
+            if ("github-release" === "search-string") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "search_string" +
+                ".txt";
+              var links = document.createElement("a");
+              var href = readLink;
+              links.innerText = "link";
+              links.setAttribute("href", href);
+              links.setAttribute("target", "blank");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              links.setAttribute("style", "color: unset !important");
+              div.appendChild(links);
+            }
+            if ("github-release" === "last-search") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "last_search" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  const date = new Date(d);
+                  const month = months[date.getMonth()];
+                  const year = date.getFullYear();
+                  const day = date.getDate();
+                  modDate = document.createTextNode(
+                    month + " " + day + ", " + year
+                  );
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.appendChild(modDate);
+                });
+            }
+            if ("github-release" === "shorthand") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "shorthand" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<code>" + d + "</code>";
+                });
+            }
+            if ("github-release" === "variable-description") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "variable_description.json";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  tableData = JSON.parse(d);
+                  
+                  var keys = Object.keys(tableData);
+                  var values = Object.values(tableData);
+                  
+                  var table = document.createElement("table");
+                  var tr = table.insertRow(-1);
+                  
+                  var th1 = document.createElement("th");
+                  th1.innerHTML = "Variable";
+                  var th2 = document.createElement("th");
+                  th2.innerHTML = "Description";
+                  tr.appendChild(th1);
+                  tr.appendChild(th2);
+                  
+                  for (var i = 0; i < keys.length; i++) {
+                    tr = table.insertRow(-1);
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                    var tabCell2 = tr.insertCell(-1);
+                    tabCell2.innerHTML = values[i];
+                  }
+                  table.style.fontSize = "90%";
+                  div.appendChild(table);
+                });
+            }
+          }
+        }
+      });
+  }
 </script>
 </p>
 <p>Last release: <span id="placeholder"></span>
@@ -485,33 +575,35 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
 
-        if (searchDOI === inputDOI) {
-          if ("last-updated" === "github-release") {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            link.setAttribute("style", "color: unset !important");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(link);
-          }
-          if ("last-updated" === "last-updated") {
+  if ("last-updated" === "all-versions") {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+        "&all_versions=1"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        var html =
+          "<button class='accbutton' style='border: none;" +
+          " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+          "Browse all versions</button> <div " +
+          "style='background-color: var(--body-color);" +
+          " padding: 20px 20px 20px 20px;" +
+          "overflow-y: scroll; height:150px;'><ul " +
+          "style='font-size: 90% !important;'>";
+
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            
             const months = [
               "January",
               "February",
@@ -530,185 +622,273 @@
             const month = months[d.getMonth()];
             const year = d.getFullYear();
             const day = d.getDate();
-            modDate = document.createTextNode(month + " " + day + ", " + year);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(modDate);
-          }
-          if ("last-updated" === "version") {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(latestVersion);
-          }
-          if ("last-updated" === "badge") {
+            modDate = month + " " + day + ", " + year;
+
+            
             var badgeUrl = post[i].links.conceptbadge;
-            var href = post[i].links.conceptdoi;
-            var img = document.createElement("img");
-            var link = document.createElement("a");
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            img.setAttribute("src", badgeUrl);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            img.style.maxWidth = "unset !important";
-            img.style.height = "unset !important";
-            img.style.padding = 0;
-            img.style.margin = 0;
-            img.style.display = "inline";
-            link.appendChild(img);
-            div.appendChild(link);
-          }
-          if ("last-updated" === "authors") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = d;
-              });
-          }
-          if ("last-updated" === "search-string") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_string" +
-              ".txt";
-            var links = document.createElement("a");
-            var href = readLink;
-            links.innerText = "";
-            links.setAttribute("href", href);
-            links.setAttribute("target", "blank");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            links.setAttribute("style", "color: unset !important");
-            div.appendChild(links);
-          }
-          if ("last-updated" === "last-search") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "last_search" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-                const date = new Date(d);
-                const month = months[date.getMonth()];
-                const year = date.getFullYear();
-                const day = date.getDate();
-                modDate = document.createTextNode(
-                  month + " " + day + ", " + year
-                );
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.appendChild(modDate);
-              });
-          }
-          if ("last-updated" === "shorthand") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "shorthand" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = "<code>" + d + "</code>";
-              });
-          }
-          if ("last-updated" === "variable-description") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "variable_description.json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                console.log(JSON.parse(d));
-                tableData = JSON.parse(d);
-                
-                var keys = Object.keys(tableData);
-                var values = Object.values(tableData);
-                
-                var table = document.createElement("table");
-                var tr = table.insertRow(-1);
-                
-                var th1 = document.createElement("th");
-                th1.innerHTML = "Variable";
-                var th2 = document.createElement("th");
-                th2.innerHTML = "Description";
-                tr.appendChild(th1);
-                tr.appendChild(th2);
-                
-                for (var i = 0; i < keys.length; i++) {
-                  tr = table.insertRow(-1);
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.innerHTML = values[i];
-                }
-                table.style.fontSize = "90%";
-                div.appendChild(table);
-              });
+            var href = post[i].links.doi;
+            var insertText =
+              "<li><strong> Version " +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              "): " +
+              "<a target='_blank' href='" +
+              href +
+              "'><img src='" +
+              badgeUrl +
+              "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+            html = html + insertText;
           }
         }
-      }
-    });
+        html = html + "</ul></div>";
+        var div = document.getElementById("placeholder");
+        div.id = randID;
+        div.innerHTML = html;
+      });
+  } else {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            if ("last-updated" === "github-release") {
+              var link = document.createElement("a");
+              var href = post[i].metadata.related_identifiers[0].identifier;
+              link.innerText = "";
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              link.setAttribute("style", "color: unset !important");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(link);
+            }
+            if ("last-updated" === "last-updated") {
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              const d = new Date(post[i].modified);
+              const month = months[d.getMonth()];
+              const year = d.getFullYear();
+              const day = d.getDate();
+              modDate = document.createTextNode(
+                month + " " + day + ", " + year
+              );
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("last-updated" === "last-updated-year") {
+              const d = new Date(post[i].modified);
+              const year = d.getFullYear();
+              modDate = document.createTextNode("(" + year + ")");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("last-updated" === "version") {
+              const version = post[i].metadata.version;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("last-updated" === "doi") {
+              const version = post[i].links.conceptdoi;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("last-updated" === "badge") {
+              var badgeUrl = post[i].links.conceptbadge;
+              var href = post[i].links.conceptdoi;
+              var img = document.createElement("img");
+              var link = document.createElement("a");
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              img.setAttribute("src", badgeUrl);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              img.style.maxWidth = "unset !important";
+              img.style.height = "unset !important";
+              img.style.padding = 0;
+              img.style.margin = 0;
+              img.style.display = "inline";
+              link.appendChild(img);
+              div.appendChild(link);
+            }
+            if ("last-updated" === "authors") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "authors" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = d;
+                });
+            }
+            if ("last-updated" === "search-string") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "search_string" +
+                ".txt";
+              var links = document.createElement("a");
+              var href = readLink;
+              links.innerText = "";
+              links.setAttribute("href", href);
+              links.setAttribute("target", "blank");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              links.setAttribute("style", "color: unset !important");
+              div.appendChild(links);
+            }
+            if ("last-updated" === "last-search") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "last_search" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  const date = new Date(d);
+                  const month = months[date.getMonth()];
+                  const year = date.getFullYear();
+                  const day = date.getDate();
+                  modDate = document.createTextNode(
+                    month + " " + day + ", " + year
+                  );
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.appendChild(modDate);
+                });
+            }
+            if ("last-updated" === "shorthand") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "shorthand" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<code>" + d + "</code>";
+                });
+            }
+            if ("last-updated" === "variable-description") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "variable_description.json";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  tableData = JSON.parse(d);
+                  
+                  var keys = Object.keys(tableData);
+                  var values = Object.values(tableData);
+                  
+                  var table = document.createElement("table");
+                  var tr = table.insertRow(-1);
+                  
+                  var th1 = document.createElement("th");
+                  th1.innerHTML = "Variable";
+                  var th2 = document.createElement("th");
+                  th2.innerHTML = "Description";
+                  tr.appendChild(th1);
+                  tr.appendChild(th2);
+                  
+                  for (var i = 0; i < keys.length; i++) {
+                    tr = table.insertRow(-1);
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                    var tabCell2 = tr.insertCell(-1);
+                    tabCell2.innerHTML = values[i];
+                  }
+                  table.style.fontSize = "90%";
+                  div.appendChild(table);
+                });
+            }
+          }
+        }
+      });
+  }
 </script>
 </p>
 <p>Version number: <span id="placeholder"></span>
@@ -725,33 +905,35 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
 
-        if (searchDOI === inputDOI) {
-          if ("version" === "github-release") {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            link.setAttribute("style", "color: unset !important");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(link);
-          }
-          if ("version" === "last-updated") {
+  if ("version" === "all-versions") {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+        "&all_versions=1"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        var html =
+          "<button class='accbutton' style='border: none;" +
+          " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+          "Browse all versions</button> <div " +
+          "style='background-color: var(--body-color);" +
+          " padding: 20px 20px 20px 20px;" +
+          "overflow-y: scroll; height:150px;'><ul " +
+          "style='font-size: 90% !important;'>";
+
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            
             const months = [
               "January",
               "February",
@@ -770,185 +952,273 @@
             const month = months[d.getMonth()];
             const year = d.getFullYear();
             const day = d.getDate();
-            modDate = document.createTextNode(month + " " + day + ", " + year);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(modDate);
-          }
-          if ("version" === "version") {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(latestVersion);
-          }
-          if ("version" === "badge") {
+            modDate = month + " " + day + ", " + year;
+
+            
             var badgeUrl = post[i].links.conceptbadge;
-            var href = post[i].links.conceptdoi;
-            var img = document.createElement("img");
-            var link = document.createElement("a");
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            img.setAttribute("src", badgeUrl);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            img.style.maxWidth = "unset !important";
-            img.style.height = "unset !important";
-            img.style.padding = 0;
-            img.style.margin = 0;
-            img.style.display = "inline";
-            link.appendChild(img);
-            div.appendChild(link);
-          }
-          if ("version" === "authors") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = d;
-              });
-          }
-          if ("version" === "search-string") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_string" +
-              ".txt";
-            var links = document.createElement("a");
-            var href = readLink;
-            links.innerText = "";
-            links.setAttribute("href", href);
-            links.setAttribute("target", "blank");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            links.setAttribute("style", "color: unset !important");
-            div.appendChild(links);
-          }
-          if ("version" === "last-search") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "last_search" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-                const date = new Date(d);
-                const month = months[date.getMonth()];
-                const year = date.getFullYear();
-                const day = date.getDate();
-                modDate = document.createTextNode(
-                  month + " " + day + ", " + year
-                );
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.appendChild(modDate);
-              });
-          }
-          if ("version" === "shorthand") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "shorthand" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = "<code>" + d + "</code>";
-              });
-          }
-          if ("version" === "variable-description") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "variable_description.json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                console.log(JSON.parse(d));
-                tableData = JSON.parse(d);
-                
-                var keys = Object.keys(tableData);
-                var values = Object.values(tableData);
-                
-                var table = document.createElement("table");
-                var tr = table.insertRow(-1);
-                
-                var th1 = document.createElement("th");
-                th1.innerHTML = "Variable";
-                var th2 = document.createElement("th");
-                th2.innerHTML = "Description";
-                tr.appendChild(th1);
-                tr.appendChild(th2);
-                
-                for (var i = 0; i < keys.length; i++) {
-                  tr = table.insertRow(-1);
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.innerHTML = values[i];
-                }
-                table.style.fontSize = "90%";
-                div.appendChild(table);
-              });
+            var href = post[i].links.doi;
+            var insertText =
+              "<li><strong> Version " +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              "): " +
+              "<a target='_blank' href='" +
+              href +
+              "'><img src='" +
+              badgeUrl +
+              "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+            html = html + insertText;
           }
         }
-      }
-    });
+        html = html + "</ul></div>";
+        var div = document.getElementById("placeholder");
+        div.id = randID;
+        div.innerHTML = html;
+      });
+  } else {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            if ("version" === "github-release") {
+              var link = document.createElement("a");
+              var href = post[i].metadata.related_identifiers[0].identifier;
+              link.innerText = "";
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              link.setAttribute("style", "color: unset !important");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(link);
+            }
+            if ("version" === "last-updated") {
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              const d = new Date(post[i].modified);
+              const month = months[d.getMonth()];
+              const year = d.getFullYear();
+              const day = d.getDate();
+              modDate = document.createTextNode(
+                month + " " + day + ", " + year
+              );
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("version" === "last-updated-year") {
+              const d = new Date(post[i].modified);
+              const year = d.getFullYear();
+              modDate = document.createTextNode("(" + year + ")");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("version" === "version") {
+              const version = post[i].metadata.version;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("version" === "doi") {
+              const version = post[i].links.conceptdoi;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("version" === "badge") {
+              var badgeUrl = post[i].links.conceptbadge;
+              var href = post[i].links.conceptdoi;
+              var img = document.createElement("img");
+              var link = document.createElement("a");
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              img.setAttribute("src", badgeUrl);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              img.style.maxWidth = "unset !important";
+              img.style.height = "unset !important";
+              img.style.padding = 0;
+              img.style.margin = 0;
+              img.style.display = "inline";
+              link.appendChild(img);
+              div.appendChild(link);
+            }
+            if ("version" === "authors") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "authors" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = d;
+                });
+            }
+            if ("version" === "search-string") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "search_string" +
+                ".txt";
+              var links = document.createElement("a");
+              var href = readLink;
+              links.innerText = "";
+              links.setAttribute("href", href);
+              links.setAttribute("target", "blank");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              links.setAttribute("style", "color: unset !important");
+              div.appendChild(links);
+            }
+            if ("version" === "last-search") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "last_search" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  const date = new Date(d);
+                  const month = months[date.getMonth()];
+                  const year = date.getFullYear();
+                  const day = date.getDate();
+                  modDate = document.createTextNode(
+                    month + " " + day + ", " + year
+                  );
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.appendChild(modDate);
+                });
+            }
+            if ("version" === "shorthand") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "shorthand" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<code>" + d + "</code>";
+                });
+            }
+            if ("version" === "variable-description") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "variable_description.json";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  tableData = JSON.parse(d);
+                  
+                  var keys = Object.keys(tableData);
+                  var values = Object.values(tableData);
+                  
+                  var table = document.createElement("table");
+                  var tr = table.insertRow(-1);
+                  
+                  var th1 = document.createElement("th");
+                  th1.innerHTML = "Variable";
+                  var th2 = document.createElement("th");
+                  th2.innerHTML = "Description";
+                  tr.appendChild(th1);
+                  tr.appendChild(th2);
+                  
+                  for (var i = 0; i < keys.length; i++) {
+                    tr = table.insertRow(-1);
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                    var tabCell2 = tr.insertCell(-1);
+                    tabCell2.innerHTML = values[i];
+                  }
+                  table.style.fontSize = "90%";
+                  div.appendChild(table);
+                });
+            }
+          }
+        }
+      });
+  }
 </script>
 </p>
 <p>(Concept) Badge: <span id="placeholder"></span>
@@ -965,33 +1235,35 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
 
-        if (searchDOI === inputDOI) {
-          if ("badge" === "github-release") {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            link.setAttribute("style", "color: unset !important");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(link);
-          }
-          if ("badge" === "last-updated") {
+  if ("badge" === "all-versions") {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+        "&all_versions=1"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        var html =
+          "<button class='accbutton' style='border: none;" +
+          " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+          "Browse all versions</button> <div " +
+          "style='background-color: var(--body-color);" +
+          " padding: 20px 20px 20px 20px;" +
+          "overflow-y: scroll; height:150px;'><ul " +
+          "style='font-size: 90% !important;'>";
+
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            
             const months = [
               "January",
               "February",
@@ -1010,185 +1282,273 @@
             const month = months[d.getMonth()];
             const year = d.getFullYear();
             const day = d.getDate();
-            modDate = document.createTextNode(month + " " + day + ", " + year);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(modDate);
-          }
-          if ("badge" === "version") {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            div.appendChild(latestVersion);
-          }
-          if ("badge" === "badge") {
+            modDate = month + " " + day + ", " + year;
+
+            
             var badgeUrl = post[i].links.conceptbadge;
-            var href = post[i].links.conceptdoi;
-            var img = document.createElement("img");
-            var link = document.createElement("a");
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            img.setAttribute("src", badgeUrl);
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            img.style.maxWidth = "unset !important";
-            img.style.height = "unset !important";
-            img.style.padding = 0;
-            img.style.margin = 0;
-            img.style.display = "inline";
-            link.appendChild(img);
-            div.appendChild(link);
-          }
-          if ("badge" === "authors") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = d;
-              });
-          }
-          if ("badge" === "search-string") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_string" +
-              ".txt";
-            var links = document.createElement("a");
-            var href = readLink;
-            links.innerText = "";
-            links.setAttribute("href", href);
-            links.setAttribute("target", "blank");
-            var div = document.getElementById("placeholder");
-            div.id = randID;
-            links.setAttribute("style", "color: unset !important");
-            div.appendChild(links);
-          }
-          if ("badge" === "last-search") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "last_search" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-                const date = new Date(d);
-                const month = months[date.getMonth()];
-                const year = date.getFullYear();
-                const day = date.getDate();
-                modDate = document.createTextNode(
-                  month + " " + day + ", " + year
-                );
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.appendChild(modDate);
-              });
-          }
-          if ("badge" === "shorthand") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "shorthand" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                div.innerHTML = "<code>" + d + "</code>";
-              });
-          }
-          if ("badge" === "variable-description") {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "variable_description.json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("placeholder");
-                div.id = randID;
-                console.log(JSON.parse(d));
-                tableData = JSON.parse(d);
-                
-                var keys = Object.keys(tableData);
-                var values = Object.values(tableData);
-                
-                var table = document.createElement("table");
-                var tr = table.insertRow(-1);
-                
-                var th1 = document.createElement("th");
-                th1.innerHTML = "Variable";
-                var th2 = document.createElement("th");
-                th2.innerHTML = "Description";
-                tr.appendChild(th1);
-                tr.appendChild(th2);
-                
-                for (var i = 0; i < keys.length; i++) {
-                  tr = table.insertRow(-1);
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.innerHTML = values[i];
-                }
-                table.style.fontSize = "90%";
-                div.appendChild(table);
-              });
+            var href = post[i].links.doi;
+            var insertText =
+              "<li><strong> Version " +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              "): " +
+              "<a target='_blank' href='" +
+              href +
+              "'><img src='" +
+              badgeUrl +
+              "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+            html = html + insertText;
           }
         }
-      }
-    });
+        html = html + "</ul></div>";
+        var div = document.getElementById("placeholder");
+        div.id = randID;
+        div.innerHTML = html;
+      });
+  } else {
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6566924");
+
+          if (searchDOI === inputDOI) {
+            if ("badge" === "github-release") {
+              var link = document.createElement("a");
+              var href = post[i].metadata.related_identifiers[0].identifier;
+              link.innerText = "";
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              link.setAttribute("style", "color: unset !important");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(link);
+            }
+            if ("badge" === "last-updated") {
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              const d = new Date(post[i].modified);
+              const month = months[d.getMonth()];
+              const year = d.getFullYear();
+              const day = d.getDate();
+              modDate = document.createTextNode(
+                month + " " + day + ", " + year
+              );
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("badge" === "last-updated-year") {
+              const d = new Date(post[i].modified);
+              const year = d.getFullYear();
+              modDate = document.createTextNode("(" + year + ")");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
+            if ("badge" === "version") {
+              const version = post[i].metadata.version;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("badge" === "doi") {
+              const version = post[i].links.conceptdoi;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("badge" === "badge") {
+              var badgeUrl = post[i].links.conceptbadge;
+              var href = post[i].links.conceptdoi;
+              var img = document.createElement("img");
+              var link = document.createElement("a");
+              link.setAttribute("href", href);
+              link.setAttribute("target", "blank");
+              img.setAttribute("src", badgeUrl);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              img.style.maxWidth = "unset !important";
+              img.style.height = "unset !important";
+              img.style.padding = 0;
+              img.style.margin = 0;
+              img.style.display = "inline";
+              link.appendChild(img);
+              div.appendChild(link);
+            }
+            if ("badge" === "authors") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "authors" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = d;
+                });
+            }
+            if ("badge" === "search-string") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "search_string" +
+                ".txt";
+              var links = document.createElement("a");
+              var href = readLink;
+              links.innerText = "";
+              links.setAttribute("href", href);
+              links.setAttribute("target", "blank");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              links.setAttribute("style", "color: unset !important");
+              div.appendChild(links);
+            }
+            if ("badge" === "last-search") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "last_search" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  const date = new Date(d);
+                  const month = months[date.getMonth()];
+                  const year = date.getFullYear();
+                  const day = date.getDate();
+                  modDate = document.createTextNode(
+                    month + " " + day + ", " + year
+                  );
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.appendChild(modDate);
+                });
+            }
+            if ("badge" === "shorthand") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "shorthand" +
+                ".txt";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<code>" + d + "</code>";
+                });
+            }
+            if ("badge" === "variable-description") {
+              var ghLink = post[i].metadata.related_identifiers[0].identifier;
+              var repoName = ghLink.split("/")[4];
+              var repoVersion = ghLink.split("/")[6];
+              var readLink =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "variable_description.json";
+              fetch(readLink)
+                .then((d) => d.text())
+                .then((d) => {
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  tableData = JSON.parse(d);
+                  
+                  var keys = Object.keys(tableData);
+                  var values = Object.values(tableData);
+                  
+                  var table = document.createElement("table");
+                  var tr = table.insertRow(-1);
+                  
+                  var th1 = document.createElement("th");
+                  th1.innerHTML = "Variable";
+                  var th2 = document.createElement("th");
+                  th2.innerHTML = "Description";
+                  tr.appendChild(th1);
+                  tr.appendChild(th2);
+                  
+                  for (var i = 0; i < keys.length; i++) {
+                    tr = table.insertRow(-1);
+                    var tabCell1 = tr.insertCell(-1);
+                    tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                    var tabCell2 = tr.insertCell(-1);
+                    tabCell2.innerHTML = values[i];
+                  }
+                  table.style.fontSize = "90%";
+                  div.appendChild(table);
+                });
+            }
+          }
+        }
+      });
+  }
 </script>
 </p>
 <hr>

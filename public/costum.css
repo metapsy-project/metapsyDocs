@@ -89,30 +89,10 @@ div#content a:hover {
     top: 150px !important;
 }
 
-  /* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    cursor: pointer !important;
-    padding: 18px !important;
-    width: 100% !important;
-    text-align: left !important;
-    border: none !important;
-    outline: none !important;
-    transition: 0.4s !important;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
-    background-color: #ccc !important;
-  }
-  
-  /* Style the accordion panel. Note: hidden by default */
-  .panel {
-    padding: 0 18px !important;
-    background-color: white !important;
-    display: none !important;
-    overflow: hidden !important;
-  }
-
 button:hover {
     background-color: var(--bs-primary) !important;
+}
+
+ul {
+    margin-bottom: 0px !important;
 }
