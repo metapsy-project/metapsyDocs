@@ -6,7 +6,7 @@ description: Documentation of the databases included in Metapsy
 type: docs
 
 ---
-This page provides documentation entries for all databases included in Metapsy. 
+This page provides documentation entries for all databases included in Metapsy.
 
 #### Naming Convention
 
@@ -14,11 +14,13 @@ Entries are ordered alphabetically by indication. An additional specification is
 
 #### Repository
 
-Each released database has an associated [Github repository](https://github.com/metapsy-project) in which the latest and all previous versions of the database are stored. The repository also contains a folder called `metadata`, in which additional information is provided for each release. 
+Each released database has an associated [Github repository](https://github.com/metapsy-project) in which the latest and all previous versions of the database are stored. The repository also contains a folder called `metadata`, in which additional information is provided for each release.
 
 #### Digital Object Identifier
 
 Each released database is automatically indexed using Zenodo. In the documentation entries, a Digital Object Identifier (DOI) is provided, which will always resolve to the latest database version (see "Database DOI"). In the "Browse all versions" section, you can access previous versions of the databases. These previous versions are also provided with a unique DOI in case you want to reference a specific database version in the past.
+
+![](/uploads/browse.png)
 
 #### Shorthand
 
