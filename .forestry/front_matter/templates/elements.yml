@@ -14,6 +14,5 @@ fields:
   name: keywords
   label: keywords
 pages:
-- content/databases/_index.en-1.md
 - content/databases/depression-inpatients/_index.en.md
 - content/databases/suicide/_index.en.md
