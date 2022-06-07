@@ -9,3 +9,5 @@ Metapsy consists of a collection of software tools and websites. Together, this 
 ![](/uploads/metapsy-flow.png)
 
 _Components of the Metapsy data flow_.
+
+1. **Meta-analytic databases** are maintained and regularly updated by specialized university-based research teams. 
