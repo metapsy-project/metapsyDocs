@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/databases/depression-inpatients/</loc>
+  </url><url>
     <loc>/databases/depression-psy-ctr/</loc>
   </url><url>
     <loc>/data-preparation/first-page/</loc>
