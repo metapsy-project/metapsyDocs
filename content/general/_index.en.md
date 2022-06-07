@@ -18,6 +18,8 @@ Metapsy aims to provide a **unified framework** for all available meta-analytic 
 * ... are created by university-based research teams using a state-of-the-art methodology, as well as updated regularly.
 * ... are formatted using an identical and transparent coding scheme.
 * ... receive extensive documentation and metadata, including versioning and persistent data identifiers, following the [FAIR principles](https://www.go-fair.org/fair-principles/).
+* ... are made publically available via data repositories (Github, Zenodo). Researchers can also easily access the databases using the designated R package {metapsyData}.
+* ... can be analyzed using state-of-the-art meta-analytic methods, either using the {metapsyTools} R package or using an [Online Meta-Analysis Tool]().
 
 collection of meta-analytic research domains
 
