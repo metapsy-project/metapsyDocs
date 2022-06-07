@@ -24,7 +24,7 @@ Each released database has an associated [**Github repository**](https://github.
 
 #### Digital Object Identifier
 
-Each released database is **automatically indexed using** [**Zenodo**](www.zenodo.org). In the documentation entries, a **Digital Object Identifier (**[**DOI**](https://en.wikipedia.org/wiki/Digital_object_identifier)**)** is provided, which will always resolve to the latest database version (see "Database DOI"). In the **"Browse all versions"** section, you can access previous versions of the databases. These previous versions are **also provided with a unique DOI** in case you want to reference a specific database version in the past.
+Each released database is **automatically indexed using** [**Zenodo**](https://www.zenodo.org). In the documentation entries, a **Digital Object Identifier (**[**DOI**](https://en.wikipedia.org/wiki/Digital_object_identifier)**)** is provided, which will always resolve to the latest database version (see "Database DOI"). In the **"Browse all versions"** section, you can access previous versions of the databases. These previous versions are **also provided with a unique DOI** in case you want to reference a specific database version in the past.
 
 ![](/uploads/browse.png)
 
@@ -32,6 +32,6 @@ Each released database is **automatically indexed using** [**Zenodo**](www.zenod
 
 #### Shorthand
 
-As part of the metadata, each database is also provided with a **shorthand**. This shorthand is used, e.g. in [**{metapsyData}**](www.metapsy.org/r-package) to retrieve a specific database using R.
+As part of the metadata, each database is also provided with a **shorthand**. This shorthand is used, e.g. in [**{metapsyData}**](https://www.metapsy.org/r-package) to retrieve a specific database using R.
 
 <br></br>
