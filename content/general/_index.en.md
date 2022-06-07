@@ -31,8 +31,10 @@ All meta-analytic databases...
 
 Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of **meta-analytic research domains (MARDs)**, thus benefitting both research and practice.  
 
+<br>
+
 {{< youtube OSCAiLE3Q_s >}}
 
-_A presentation introducing meta-analytic research domains_
+_A presentation introducing meta-analytic research domains._
 
 <br></br>
