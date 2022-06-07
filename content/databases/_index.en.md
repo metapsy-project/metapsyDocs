@@ -6,6 +6,8 @@ description: Documentation of the databases included in Metapsy
 type: docs
 
 ---
+![](/uploads/library.jpg)
+
 This page provides documentation entries for all databases included in Metapsy.
 
 <br>
