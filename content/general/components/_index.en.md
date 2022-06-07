@@ -8,7 +8,7 @@ weight = 1
 Metapsy consists of a collection of software tools and websites. Together, this infrastructure provides an integrated meta-analysis workflow.  
 ![](/uploads/metapsy-flow.png)
 
-Components of the Metapsy data flow:
+**Components of the Metapsy data flow:**
 
 * **Meta-analytic databases** are maintained and regularly updated by specialized university-based research teams. 
 * Updated or newly created databases are then transformed into a consistent format (**Metapsy data format**).
