@@ -11,4 +11,8 @@ keywords:
 - general
 
 ---
-Metapsy is a research project lead by the VU University Amsterdam (Prof. Pim Cuijpers).
+Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). The goal of Metapsy is to provide access to meta-analytic databases of clinical trials investigating the effect of psychological interventions (e.g. psychotherapy, preventive interventions, psychoeducation) on various mental disorders or mental health problems.
+
+Metapsy aims to provide a **unified framework** for all available meta-analytic data for these different indications:
+
+* The meta-analytic databases are 
