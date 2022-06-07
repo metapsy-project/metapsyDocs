@@ -8,13 +8,19 @@ type: docs
 ---
 This page provides documentation entries for all databases included in Metapsy.
 
+<br>
+
 #### Naming Convention
 
 Entries are ordered alphabetically by indication. An additional specification is provided after a colon if multiple databases are available for one indication.
 
+<br>
+
 #### Repository
 
 Each released database has an associated [Github repository](https://github.com/metapsy-project) in which the latest and all previous versions of the database are stored. The repository also contains a folder called `metadata`, in which additional information is provided for each release.
+
+<br>
 
 #### Digital Object Identifier
 
@@ -22,6 +28,10 @@ Each released database is automatically indexed using Zenodo. In the documentati
 
 ![](/uploads/browse.png)
 
+<br>
+
 #### Shorthand
 
 As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in [{metapsyData}](www.metapsy.org/r-package) to retrieve a specific database using R.
+
+<br></br>
