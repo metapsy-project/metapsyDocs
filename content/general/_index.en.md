@@ -25,6 +25,6 @@ Metapsy aims to provide a unified framework for all available meta-analytic data
 * ... are made publically available via data repositories (Github, Zenodo). Researchers can also easily access the databases using the designated R package {metapsyData}.
 * ... can be analyzed using state-of-the-art meta-analytic methods, either using the {metapsyTools} R package or using an [Online Meta-Analysis Tool](/meta-analysis-tool/).
 
-Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of **meta-analytic research domains (MARDs)**, benefitting both research and practice.  
+Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of **meta-analytic research domains (MARDs)**, thus benefitting both research and practice.  
 
 <br></br>
