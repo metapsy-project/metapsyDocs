@@ -4,7 +4,6 @@ title = "Depression"
 weight = 1
 
 +++
-
 ### "Psychotherapy versus Control" Database {#psych-vs-ctr}
 
 {{< zenodoref doi="10.5281/zenodo.6617815" type="authors">}}
@@ -80,6 +79,3 @@ DOI {{< zenodoref doi="10.5281/zenodo.6617815" type="doi" >}}.
 
 <br></br>
 
-### "Inpatients" Database {#inpatients}
-
----
