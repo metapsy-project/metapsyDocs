@@ -16,6 +16,6 @@ _Components of the Metapsy data flow_.
 * Database repositories are then **officially released** using [Zenodo](https://zenodo.org/). At this step, a unique version number and digital object identifier (DOI) is created.
 * The [**database documentation**](/databases) hosted on this website is automatically updated with each new release. The documentation entry contains metadata and additional information for each database. 
 * The **{metapsyData} R package** allows to access all Metapsy databases directly in an R environment.
-* The **{metapsyTools} R package** s
+* The [**{metapsyTools} R package**](https://tools.metapsy.org) provides helper functions that allow to conveniently run state-of-the-art meta-analyses using Metapsy data, or data prepared in the same format. 
 
 <br></br>
