@@ -37,6 +37,4 @@ Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy 
 
 {{< youtube OSCAiLE3Q_s?t=199 >}}
 
-_A presentation introducing meta-analytic research domains._
-
 <br></br>
