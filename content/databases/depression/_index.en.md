@@ -4,6 +4,13 @@ title = "Depression"
 weight = 1
 
 +++
+The Metapsy project currently provides access to the following databases focusing on depression:
+
+* [Psychotherapy versus Control](/#psych-vs-ctr)
+* Inpatients
+
+<br></br>
+
 ***
 
 ### "Psychotherapy versus Control" Database {#psych-vs-ctr}
