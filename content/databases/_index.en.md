@@ -26,7 +26,7 @@ Each released database has an associated [Github repository](https://github.com/
 
 Each released database is automatically indexed using Zenodo. In the documentation entries, a Digital Object Identifier (DOI) is provided, which will always resolve to the latest database version (see "Database DOI"). In the "Browse all versions" section, you can access previous versions of the databases. These previous versions are also provided with a unique DOI in case you want to reference a specific database version in the past.
 
-![](/uploads/browse.png)
+![](/uploads/browse.png){ width: 50px;}
 
 <br>
 
