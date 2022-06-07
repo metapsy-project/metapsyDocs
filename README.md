@@ -14,12 +14,16 @@ The forestry CMS provides you with a **code-free, visual text editor**. Using th
 
 Besides the visual editing functionality, there are also several **elements** that you can add to the documentation page via **shortcodes**. Here is an overview of the most important ones:
 
+#### Database Template Snippet
+
+In the visual editor on forestry, **snippets** can be added by clicking on the **{ }** button on the bottom. This way, one can include the **Template database** snippet. This is a template for database documentation entries; you only have to adapt the specific contents, as well as the database DOI.
+
 #### Zenodo DOI Badge 🛡️
 
 Simply provide the "overall" (not version-specific) DOI created for the dataset or package. The badge will also automatically contain a link to the Zenodo repository.
 
 ```
-{{< zenodoref doi="<INSERT DOI>" type="badge" >}}
+{{< zenodo-badge doi="<INSERT DOI>" >}}
 ```
 
 #### Zenodo GitHub Release Link 😺
@@ -28,7 +32,7 @@ Simply provide the "overall" (not version-specific) DOI created for the dataset 
 The link text to be displayed can be specified in `text`.
 
 ```
-{{< zenodoref doi="<INSERT DOI>" type="github-release" text="link" >}}
+{{< zenodo-github-release doi="<INSERT DOI>" text="link" >}}
 ```
 
 #### Zenodo Last Update Date 📅
@@ -36,7 +40,15 @@ The link text to be displayed can be specified in `text`.
 Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
 
 ```
-{{< zenodoref doi="<INSERT DOI>" type="last-updated" >}}
+{{< zenodo-last-updated doi="<INSERT DOI>" >}}
+```
+
+#### Zenodo Last Search Date 🔍
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodo-last-search doi="<INSERT DOI>" >}}
 ```
 
 #### Zenodo Latest Version 🔢
@@ -44,7 +56,31 @@ Simply provide the "overall" (not version-specific) DOI created for the dataset 
 Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
 
 ```
-{{< zenodoref doi="<INSERT DOI>" type="version" >}}
+{{< zenodo-version doi="<INSERT DOI>" >}}
+```
+
+#### Zenodo "Browse All Versions" Block 🔢
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodo-all-versions doi="<INSERT DOI>" >}}
+```
+
+#### Zenodo Database Authors ✍🏽
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodo-authors doi="<INSERT DOI>" >}}
+```
+
+#### Zenodo Variable Description 📓 
+
+Simply provide the "overall" (not version-specific) DOI created for the dataset or package.
+
+```
+{{< zenodo-variable-description doi="<INSERT DOI>" >}}
 ```
 
 
