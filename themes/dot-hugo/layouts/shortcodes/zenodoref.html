@@ -137,8 +137,23 @@
               div.id = randID;
               div.appendChild(modDate);
             }
+            if ("{{.Get `type`}}" === "last-updated-year") {
+              const d = new Date(post[i].modified);
+              const year = d.getFullYear();
+              modDate = document.createTextNode("(" + year + ")");
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(modDate);
+            }
             if ("{{.Get `type`}}" === "version") {
               const version = post[i].metadata.version;
+              latestVersion = document.createTextNode(version);
+              var div = document.getElementById("placeholder");
+              div.id = randID;
+              div.appendChild(latestVersion);
+            }
+            if ("{{.Get `type`}}" === "doi") {
+              const version = post[i].links.conceptdoi;
               latestVersion = document.createTextNode(version);
               var div = document.getElementById("placeholder");
               div.id = randID;

@@ -531,7 +531,7 @@ textarea.form-control {
 /* single page */
 
 .content * {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .content img {
@@ -544,7 +544,7 @@ textarea.form-control {
 
 .content ul {
   padding-left: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0px !important;
 }
 
 .content ul li {

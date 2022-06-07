@@ -92,3 +92,7 @@ div#content a:hover {
 button:hover {
     background-color: var(--bs-primary) !important;
 }
+
+ul {
+    margin-bottom: 0px !important;
+}
