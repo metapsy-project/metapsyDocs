@@ -6,8 +6,6 @@ description: Documentation of the databases included in Metapsy
 type: docs
 
 ---
-![books](/uploads/library.jpg)
-
 <img src="/uploads/library.jpg" width="100%">
 
 <br>
