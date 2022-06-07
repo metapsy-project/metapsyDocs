@@ -6,8 +6,8 @@ weight = 1
 +++
 The Metapsy project currently provides access to the following databases focusing on depression:
 
-* [Psychotherapy versus Control](/#psych-vs-ctr)
-* Inpatients
+* [Psychotherapy versus Control](/databases/depression//#psych-vs-ctr)
+* [Inpatients](/databases/depression//#inpatients)
 
 <br></br>
 
