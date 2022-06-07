@@ -6,7 +6,11 @@ description: Documentation of the databases included in Metapsy
 type: docs
 
 ---
-![](/uploads/library.jpg)
+![books](/uploads/library.jpg)
+
+<img src="/uploads/library.jpg" width="100%">
+
+<br>
 
 This page provides documentation entries for all databases included in Metapsy.
 
