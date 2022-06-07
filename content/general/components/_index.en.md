@@ -14,3 +14,5 @@ _Components of the Metapsy data flow_.
 * Updated or newly created databases are then transformed into a consistent format (**Metapsy data format**).
 * Each database is then pushed to its own **Github repository**, hosted by the [metapsy-project](https://github.com/metapsy-project) account. 
 * Database repositories are then **released** to [Zenodo](https://zenodo.org/) s
+
+<br></br>
