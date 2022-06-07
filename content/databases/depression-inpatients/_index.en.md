@@ -1,5 +1,4 @@
 +++
-draft = true
 keywords = []
 title = "Depression: Inpatients"
 weight = 1
