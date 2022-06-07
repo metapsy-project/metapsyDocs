@@ -1,6 +1,6 @@
 +++
 keywords = ["about", "overview", "components"]
-title = "_index.en"
+title = "Components"
 weight = 1
 
 +++
