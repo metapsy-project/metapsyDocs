@@ -12,4 +12,4 @@ _Components of the Metapsy data flow_.
 
 * **Meta-analytic databases** are maintained and regularly updated by specialized university-based research teams. 
 * Updated or newly created databases are then transformed into a consistent format (**Metapsy data format**).
-* 
+* Each database is then pushed to its own **Github repository**, hosted by the [metapsy-project](https://github.com/metapsy-project) account. 
