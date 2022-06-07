@@ -11,13 +11,17 @@ keywords:
 - general
 
 ---
+#### About Metapsy
+
 Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
 
 <br>
 
 #### A Unified Framework of Meta-Analytic Databases
 
-Metapsy aims to provide a unified framework for all available meta-analytic data for these different indications. All meta-analytic databases...
+Metapsy aims to provide a unified framework for all available meta-analytic data for these different indications. 
+
+All meta-analytic databases...
 
 * ... are created by university-based research teams using a state-of-the-art methodology and updated regularly.
 * ... are formatted using an identical and transparent coding scheme.
@@ -26,5 +30,9 @@ Metapsy aims to provide a unified framework for all available meta-analytic data
 * ... can be analyzed using state-of-the-art meta-analytic methods, either using the {metapsyTools} R package or using an [Online Meta-Analysis Tool](/meta-analysis-tool/).
 
 Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of **meta-analytic research domains (MARDs)**, thus benefitting both research and practice.  
+
+{{< youtube OSCAiLE3Q_s >}}
+
+_A presentation on the idea of meta-analytic research domains_
 
 <br></br>
