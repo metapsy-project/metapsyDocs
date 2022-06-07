@@ -1,8 +1,7 @@
 +++
-keywords = ["data", "depression"]
+keywords = ["suicide"]
 title = "Depression: Psychotherapy versus Control"
 weight = 1
-
 +++
 
 {{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
