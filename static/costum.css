@@ -72,8 +72,34 @@ ul .nav-item gh-logo-container.nav-item:hover {
     color: var(--bs-info) !important;
 }
 
+.d-md-block {
+    color: var(--primary-color) !important;
+    transition: .2s ease;
+}
+
+.d-md-block:hover {
+    color: var(--bs-info) !important;
+    transition: .2s ease;
+}
+
 div#content a:link {
     color: var(--bs-primary) !important;
+}
+
+a.nav-next:hover>i {
+    color: var(--bs-info) !important;
+}
+
+a.nav-prev:hover>i {
+    color: var(--bs-info) !important;
+}
+
+.dropdown-menu>a {
+    color: var(--primary-color) !important;
+}
+
+.dropdown-item:hover {
+    color: var(--bs-info) !important;
 }
 
 a {
@@ -85,7 +111,7 @@ a.navbar-brand {
 }
 
 li.sidelist>a {
-    color: black !important;
+    color: var(--primary-color) !important;
 }
 
 div#content a:hover {
