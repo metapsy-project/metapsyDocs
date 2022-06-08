@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/general/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url><url>
+    <loc>/general/components/</loc>
+  </url><url>
     <loc>/databases/depression-inpatients/</loc>
   </url><url>
     <loc>/databases/depression-psy-ctr/</loc>
@@ -16,6 +21,9 @@
   </url><url>
     <loc>/databases/suicide/</loc>
   </url><url>
+    <loc>/databases/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url><url>
     <loc>/data-preparation/elements/</loc>
   </url><url>
     <loc>/deployment/elements/</loc>
@@ -28,9 +36,6 @@
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/data-preparation/</loc>
-    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
-  </url><url>
-    <loc>/databases/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/deployment/</loc>

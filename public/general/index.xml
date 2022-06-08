@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General Information on Metapsy Documentation</title>
+    <link>/general/</link>
+    <description>Recent content in General Information on Metapsy Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright>
+    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="/general/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

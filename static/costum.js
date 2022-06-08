@@ -1,6 +1,6 @@
 // Add costum metapsy logo
 var brand = document.getElementsByClassName('navbar-brand');
-brand[0].innerHTML = "<img src='/images/logo.png' alt='logo' height='30px'> METAPSY";
+brand[0].innerHTML = "<img src='/images/hexagon2.png' alt='logo' height='30px'> METAPSY";
 brand[0].style.fontWeight = '500'; 
 
 var navbar = document.querySelectorAll('.navbar-nav,.ml-auto');

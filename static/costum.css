@@ -76,6 +76,18 @@ div#content a:link {
     color: var(--bs-primary) !important;
 }
 
+a {
+    color: var(--bs-primary) !important;
+}
+
+a.navbar-brand {
+    color: black !important;
+}
+
+li.sidelist>a {
+    color: black !important;
+}
+
 div#content a:hover {
     color: var(--bs-info) !important;
 }

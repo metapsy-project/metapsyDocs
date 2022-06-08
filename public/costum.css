@@ -72,11 +72,11 @@ ul .nav-item gh-logo-container.nav-item:hover {
     color: var(--bs-info) !important;
 }
 
-div#content a:link {
+a:link {
     color: var(--bs-primary) !important;
 }
 
-div#content a:hover {
+a:hover {
     color: var(--bs-info) !important;
 }
 

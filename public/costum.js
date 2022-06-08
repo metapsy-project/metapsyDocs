@@ -1,6 +1,6 @@
 // Add costum metapsy logo
 var brand = document.getElementsByClassName('navbar-brand');
-brand[0].innerHTML = "<img src='/images/hexagon2.png' alt='logo' height='30px'> METAPSY";
+brand[0].innerHTML = "<img src='/images/logo.png' alt='logo' height='30px'> METAPSY";
 brand[0].style.fontWeight = '500'; 
 
 var navbar = document.querySelectorAll('.navbar-nav,.ml-auto');
@@ -42,7 +42,3 @@ constructionDiv.style.fontSize = "18px";
 constructionDiv.style.padding = "10px 0 10px 0";
 body.insertBefore(constructionDiv, body.firstChild);
 
-//
-var allLinks = document.getElementsByTagName("*");
-console.log("hel");
-console.log(allLinks);
