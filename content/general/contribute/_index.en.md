@@ -4,7 +4,7 @@ title = "Contributors"
 weight = 2
 
 +++
-<div>
+<p>
 
 <div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
 
@@ -14,7 +14,7 @@ weight = 2
 
 <div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
 
-</div>
+</p>
 
 Lorem ipsum
 
