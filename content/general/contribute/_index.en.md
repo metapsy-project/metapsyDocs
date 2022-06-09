@@ -16,7 +16,7 @@ weight = 2
 
 <div class="logo-gallery"> <img src="/uploads/verona.jpg" width="600" height="400"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/113.png" width="600" height="400"> </div>
 
 </div>
 
