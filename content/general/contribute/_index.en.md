@@ -4,10 +4,9 @@ title = "Contributors"
 weight = 2
 
 +++
-
 <div class="gallery">
-<div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/vu.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/tum.png" width="600" height="400"> </div>
 <div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
 <div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
 <div class="logo-gallery"> <img src="/uploads/logo.png" width="600" height="400"> </div>
@@ -17,3 +16,4 @@ weight = 2
 </div>
 
 <br></br>
+
