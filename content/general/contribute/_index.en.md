@@ -1,6 +1,6 @@
 +++
 keywords = ["contact", "universities", "contributors", "contribute"]
-title = "Contribute"
+title = "Contributors"
 weight = 2
 
 +++
