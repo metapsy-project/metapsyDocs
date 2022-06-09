@@ -1,6 +1,6 @@
 +++
 keywords = ["contact", "universities", "contributors", "contribute"]
-title = "_index.en"
+title = "Contribute"
 weight = 2
 
 +++
