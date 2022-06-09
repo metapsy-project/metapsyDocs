@@ -4,18 +4,16 @@ title = "Contributors"
 weight = 2
 
 +++
+<div class="gallery"> <img src="/upload/logo.png" width="600" height="400"> </div>
+
 <div class="gallery">
-<img src="logo" width="600" height="400">
+<img src="/upload/logo.png" width="600" height="400">
 </div>
 
 <div class="gallery">
-<img src="logo" width="600" height="400">
+<img src="/upload/logo.png" width="600" height="400">
 </div>
 
 <div class="gallery">
-<img src="logo" width="600" height="400">
-</div>
-
-<div class="gallery">
-<img src="logo" width="600" height="400">
+<img src="/upload/logo.png" width="600" height="400">
 </div>
