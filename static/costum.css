@@ -134,14 +134,20 @@ ul {
     margin-bottom: 0px !important;
 }
 
-.logo-gallery {
-    margin: 5px;
+div.gallery {
+    display: inline-block;
+}
+
+div.logo-gallery {
+    margin: 0px 5px 0px 5px;
     border: none;
     float: left;
     width: 150px;
-  }
+    display: subgrid;
+}
   
-.logo-gallery img {
+div.logo-gallery img {
     width: 100%;
     height: auto;
-  }
+    margin: 5px;
+}
