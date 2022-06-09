@@ -134,14 +134,14 @@ ul {
     margin-bottom: 0px !important;
 }
 
-div.logo-gallery {
+.logo-gallery {
     margin: 5px;
     border: none;
     float: left;
     width: 150px;
   }
   
-div.logo-gallery img {
+.logo-gallery img {
     width: 100%;
     height: auto;
   }
