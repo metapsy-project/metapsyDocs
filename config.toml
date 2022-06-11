@@ -104,8 +104,8 @@ hasChildren = true
 
   [[Languages.en.menu.main]]
   parent = "documentation"
-  name = "Data Preparation"
-  url = "data-preparation/"
+  name = "General Information"
+  url = "general/"
   weight = 1
 
   [[Languages.en.menu.main]]
@@ -113,24 +113,30 @@ hasChildren = true
   name = "Databases"
   url = "databases/"
   weight = 2
+  
+   [[Languages.en.menu.main]]
+  parent = "documentation"
+  name = "Data Preparation"
+  url = "data-preparation/"
+  weight = 3
 
   [[Languages.en.menu.main]]
   parent = "documentation"
   name = "Deployment"
   url = "deployment/"
-  weight = 3
+  weight = 4
 
   [[Languages.en.menu.main]]
   parent = "documentation"
   name = "Meta-Analysis Tool"
   url = "meta-analysis-tool/"
-  weight = 4
+  weight = 5
 
   [[Languages.en.menu.main]]
   parent = "documentation"
   name = "R Packages"
   url = "r-packages/"
-  weight = 5
+  weight = 6
 
 custom_css = ["css/custom.css"]
 custom_js = ["js/custom.js"]
