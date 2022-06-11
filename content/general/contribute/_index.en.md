@@ -34,4 +34,6 @@ weight = 2
 
 #### Contributing to Metapsy 
 
+Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](www.pimcuijpers.com).
+
 <br></br>
