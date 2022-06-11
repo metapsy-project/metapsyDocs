@@ -158,3 +158,15 @@ div.logo-gallery img {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+i.ti-home:hover{
+    color: var(--bs-info) !important;
+}
+
+a.nav-link:hover > i {
+    color: var(--bs-info) !important;
+}
+
+li.nav-item:hover > i {
+    color: var(--bs-info) !important;
+}

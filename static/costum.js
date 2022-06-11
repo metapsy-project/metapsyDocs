@@ -20,6 +20,12 @@ li.appendChild(innerLink);
 
 ul.appendChild(li);
 
+// Change home button
+var navItem = document.getElementsByClassName('navbar-nav');
+navItem[0].firstChild.nextSibling.innerHTML = 
+    "<a class='nav-link text-dark' href='//localhost:1313/'>" + 
+    "<i class='ti-home'></i></a>"
+
 
 // remove 'updated on'
 var dateSection = document.getElementsByClassName('post-meta');
