@@ -122,20 +122,20 @@ hasChildren = true
 
   [[Languages.en.menu.main]]
   parent = "documentation"
-  name = "Deployment"
-  url = "deployment/"
+  name = "Data Release"
+  url = "release/"
   weight = 4
-
-  [[Languages.en.menu.main]]
-  parent = "documentation"
-  name = "Meta-Analysis Tool"
-  url = "meta-analysis-tool/"
-  weight = 5
 
   [[Languages.en.menu.main]]
   parent = "documentation"
   name = "R Packages"
   url = "r-packages/"
+  weight = 5
+
+  [[Languages.en.menu.main]]
+  parent = "documentation"
+  name = "Meta-Analysis Tool"
+  url = "meta-analysis-tool/"
   weight = 6
 
 custom_css = ["css/custom.css"]
