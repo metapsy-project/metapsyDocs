@@ -30,6 +30,8 @@ weight = 2
 * Mathias Harrer, Technical University Munich & University of Erlangen
 * David Ebert, Technical University Munich
 
-<br></br>
+<br>
 
 #### Contributing to Metapsy 
+
+<br></br>
