@@ -31,3 +31,5 @@ weight = 2
 * David Ebert, Technical University Munich
 
 <br></br>
+
+#### Contributing to Metapsy 
