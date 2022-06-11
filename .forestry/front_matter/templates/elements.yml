@@ -15,6 +15,7 @@ fields:
   label: keywords
 pages:
 - content/data-preparation/format/_index.en.md
+- content/data-preparation/metadata/_index.en.md
 - content/databases/depression-inpatients/_index.en.md
 - content/databases/suicide/_index.en.md
 - content/general/components/_index.en.md
