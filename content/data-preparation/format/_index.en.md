@@ -1,7 +1,7 @@
 +++
 draft = true
-keywords = []
-title = "_index.en"
+keywords = ["format", "formatting", "data", "harmonization", "standard", "data"]
+title = "Data Format"
 weight = 1
 
 +++
