@@ -34,6 +34,10 @@ weight = 2
 
 #### Contributing to Metapsy 
 
-Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](www.pimcuijpers.com).
+Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](https://www.pimcuijpers.com). 
+
+There are various ways in which you can contribute to Metapsy:
+
+* 
 
 <br></br>
