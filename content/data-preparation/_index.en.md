@@ -7,7 +7,7 @@ type: docs
 weight: "3"
 
 ---
-<img src="/uploads/magnify.jpg" width="100%" style="border-radius: 5px;">
+<img src="/uploads/preparation.jpg" width="100%" style="border-radius: 5px;">
 
 <br>
 
