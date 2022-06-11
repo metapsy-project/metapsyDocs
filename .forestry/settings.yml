@@ -24,6 +24,11 @@ sections:
   create: all
   match: "**/*"
 - type: directory
+  path: content/data-preparation
+  label: Data preparation
+  create: all
+  match: "**/*"
+- type: directory
   path: content/r-packages
   label: R packages
   create: all
@@ -36,11 +41,6 @@ sections:
 - type: directory
   path: content/deployment
   label: Deployment
-  create: all
-  match: "**/*"
-- type: directory
-  path: content/data-preparation
-  label: Data preparation
   create: all
   match: "**/*"
 upload_dir: static/uploads
