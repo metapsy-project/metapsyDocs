@@ -1,6 +1,6 @@
 +++
 keywords = ["metadata"]
-title = "_index.en"
+title = "Metadata"
 weight = 2
 
 +++
