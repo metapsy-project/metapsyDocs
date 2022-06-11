@@ -43,7 +43,7 @@ Metapsy is an open project. If you want to join the Metapsy collaboration, feel 
 **If you want to add an existing meta-analytic database** to Metapsy, we can assist you by:
 
 * harmonizing the data into a consistent format used across meta-analytic research domains;
-* storing, documenting, and versioning your database in a FAIR-complaint way
+* storing, documenting, publishing and versioning your database in a FAIR-complaint way
 * making your database more visible and accessible to the public via integration in our {metapsyData} R package and our online meta-analysis tool.
 
 <br></br>
