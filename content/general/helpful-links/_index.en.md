@@ -1,6 +1,6 @@
 +++
 keywords = ["information", "helpful", "links"]
-title = "_index.en"
+title = "Helpful Links"
 weight = 3
 
 +++
