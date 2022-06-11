@@ -36,8 +36,10 @@ weight = 2
 
 Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](https://www.pimcuijpers.com). 
 
-There are various ways in which you can contribute to Metapsy:
+There are various ways in which you can contribute to Metapsy. For example, it is possible to contribute:
 
-* 
+* to the development and update of new or existing databases included in the project;
+* to the meta-analytic software included in the Metapsy infrastructure (e.g. the Online Meta-Analysis Tool or the Metapsy R packages). 
+*  
 
 <br></br>
