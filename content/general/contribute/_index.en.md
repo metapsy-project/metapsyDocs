@@ -37,7 +37,7 @@ weight = 2
 Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](https://www.pimcuijpers.com). For example, it is possible to contribute:
 
 * to the development and update of new or existing databases included in the project;
-* to the meta-analytic software included in the Metapsy infrastructure (e.g. the Online Meta-Analysis Tool or the Metapsy R packages);
+* to the meta-analytic software included in the Metapsy infrastructure (e.g. the online meta-analysis tool or the Metapsy R packages);
 *  to new functionalities that can be integrated into the Metapsy workflow.
 
 If you want to add an existing meta-analytic database to Metapsy, we can assist you by:
