@@ -1,6 +1,6 @@
 +++
-keywords = ["github", "upload"]
-title = "_index.en"
+keywords = ["pull", "github", "upload"]
+title = "Upload"
 weight = 3
 
 +++
