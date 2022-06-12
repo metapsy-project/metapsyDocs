@@ -50,13 +50,13 @@ Metapsy aims to serve as a centralized hub for meta-analytic research domains (M
 
 Countless randomized controlled trials and meta-analyses are published each year. This makes it increasingly difficult to keep track of all existing evidence and draw actionable conclusions from it. MARDs provide a higher level of aggregation, in which all relevant evidence in a research field is provided in a consistent, transparent, and re-usable manner.
 
-Like [living systematic reviews](https://www.jclinepi.com/article/S0895-4356(17)30636-4/fulltext), MARDs are updated regularly and therefore provide up-to-date evidence; but the scope of MARDs is much larger than what can be covered in one "living" meta-analysis or systematic review. 
+Like [living systematic reviews](https://www.jclinepi.com/article/S0895-4356(17)30636-4/fulltext), MARDs are updated regularly and therefore provide up-to-date evidence; but the scope of MARDs is much larger than what can be covered in one "living" meta-analysis or systematic review.
 
 Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a whole research field. However, MARDs do not "lag behind" like umbrella reviews. Furthermore, information included in MARDs is established using transparent and consistent standards, and can be easily reused or repurposed by the entire research community. Other advantages of MARDs include:
 
-* **Reduction of research waste**. In the biomedical field, a great amount of [redundant, misleading, and biased research]() is produced on a regular basis. This is also the case in [psychotherapy research](https://www.sciencedirect.com/science/article/abs/pii/S0005796719301652). By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.
+* **Reduction of research waste**. In the biomedical field, a great amount of [redundant, misleading, and biased research](https://www.thelancet.com/pdfs/journals/lancet/PIIS0140-6736(13)62329-6.pdf) is produced on a regular basis. This is also the case in [psychotherapy research](https://www.sciencedirect.com/science/article/abs/pii/S0005796719301652). By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.
 * **Evidence Mapping.** MARDs provide an overview of limitations and gaps in knowledge and make it possible to see emerging trends in the field
-* **Meta-Research ("Research on Research")**. MARDs allow examining the methods and research practices of an entire field, and how they changed over time. 
+* **Meta-Research ("Research on Research")**. MARDs allow examining the methods and research practices of an entire field, and how they changed over time.
 * **Stakeholders outside the scientific community**. MARDs can enable just-in-time evidence generation for specific research questions. This can be used by e.g. treatment guideline developers or clinicians, to get an overview of the current evidence.
 * **Open Science**. MARDs provide data in a transparent, accessible, and interoperable way. This allows other members of the scientific community to re-use or repurpose the provided information.
 
