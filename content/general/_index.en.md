@@ -52,9 +52,7 @@ Countless randomized controlled trials and meta-analyses are published each year
 
 Like [living systematic reviews](https://www.jclinepi.com/article/S0895-4356(17)30636-4/fulltext), MARDs are updated regularly and therefore provide up-to-date evidence; but the scope of MARDs is much larger than what can be covered in one "living" meta-analysis or systematic review. 
 
-Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a whole research field. However, MARDs do not "lag behind" like umbrella reviews. Furthermore, information included in MARDs is established using transparent and consistent standards, and can be easily reused or repurposed by the entire research community.
-
-Other advantages of MARDs include:
+Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a whole research field. However, MARDs do not "lag behind" like umbrella reviews. Furthermore, information included in MARDs is established using transparent and consistent standards, and can be easily reused or repurposed by the entire research community. Other advantages of MARDs include:
 
 * **Reduction of research waste**. In the biomedical field, a great amount of redundant, misleading, and biased research is produced on a regular basis. This is also the case in psychotherapy research. By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.
 * **Evidence Mapping.** MARDs provide an overview of limitations and gaps in knowledge and make it possible to see emerging trends in the field
