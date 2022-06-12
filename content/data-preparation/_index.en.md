@@ -11,4 +11,6 @@ weight: "3"
 
 <br>
 
+This documentation section describes how the databases included in Metapsy are prepared. Before being released, all data is converted into a consistent, standardized format. This format ensures that data is compatible with other components of the Metapsy infrastructure. 
+
 <br></br>
