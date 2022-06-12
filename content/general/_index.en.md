@@ -40,6 +40,10 @@ Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy 
 
 #### Introducing Meta-Analytic Research Domains
 
+{{< youtube y3AosOKX-Q4 >}}
+
+<br>
+
 Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).
 
 > MARDs are living systematic reviews of an entire research domain. In contrast to conventional systematic reviews and meta-analyses, MARDs do not focus on one specific population, intervention, comparison, or outcome (PICO), but on an entire research field that is too broad to be covered by one meta-analysis.
@@ -57,9 +61,5 @@ Other advantages of MARDs include:
 * **Meta-Research ("Research on Research")**. MARDs allow examining the methods and research practices of an entire field, and how they changed over time. 
 * **Stakeholders outside the scientific community**. MARDs can enable just-in-time evidence generation for specific research questions. This can be used by e.g. treatment guideline developers or clinicians, to get an overview of the current evidence.
 * **Open Science**. MARDs provide data in a transparent, accessible, and interoperable way. This allows other members of the scientific community to re-use or repurpose the provided information.
-
-{{< youtube y3AosOKX-Q4 >}}
-
-_A presentation introducing the concept of meta-analytic research domains_
 
 <br></br>
