@@ -48,6 +48,8 @@ Countless randomized controlled trials and meta-analyses are published each year
 
 Like [living systematic reviews](https://www.jclinepi.com/article/S0895-4356(17)30636-4/fulltext), MARDs are updated regularly and therefore provide up-to-date evidence; but the scope of MARDs is much larger than what can be covered in one "living" meta-analysis or systematic review. 
 
+Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a whole research field. However, MARDs do not "lag behind" like umbrella reviews. Furthermore, information included in MARDs is established using transparent and consistent standards, and can be easily reused or repurposed by the entire research community.
+
 {{< youtube y3AosOKX-Q4 >}}
 
 _A presentation introducing the concept of meta-analytic research domains_
