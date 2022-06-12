@@ -53,7 +53,10 @@ Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a
 Other advantages of MARDs include:
 
 * **Reduction of research waste**. In the biomedical field, a great amount of redundant, misleading, and biased research is produced on a regular basis. This is also the case in psychotherapy research. By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.
-* **Accessibility & Reusability**. 
+* **Evidence Mapping.** MARDs provide an overview of limitations and gaps in knowledge and make it possible to see emerging trends in the field
+* **Meta-Research ("Research on Research")**. MARDs allow examining the methods and research practices of an entire field, and how they changed over time. 
+* **Stakeholders outside the scientific community**. MARDs can enable just-in-time evidence generation for specific research questions. This can be used by e.g. treatment guideline developers or clinicians, to get an overview of the current evidence.
+* **Open Science**. MARDs provide data in a transparent, accessible, and interoperable way. This allows other members of the scientific community to re-use or repurpose the provided information.
 
 {{< youtube y3AosOKX-Q4 >}}
 
