@@ -40,11 +40,7 @@ Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy 
 
 #### Introducing Meta-Analytic Research Domains {#mard}
 
-![](/uploads/mard.png)
-
-<br>
-
-Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).
+![](/uploads/mard2.png)Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).
 
 > MARDs are living systematic reviews of an entire research domain. In contrast to conventional systematic reviews and meta-analyses, MARDs do not focus on one specific population, intervention, comparison, or outcome (PICO), but on an entire research field that is too broad to be covered by one meta-analysis.
 
