@@ -42,6 +42,8 @@ Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy 
 
 {{< youtube y3AosOKX-Q4 >}}
 
+![](/uploads/mard.png)
+
 <br>
 
 Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).
