@@ -170,3 +170,11 @@ a.nav-link:hover > i {
 li.nav-item:hover > i {
     color: var(--bs-info) !important;
 }
+
+code {
+    color: unset !important;
+    font-size: 87% !important;
+    background-color: #f6f6f6;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+}
