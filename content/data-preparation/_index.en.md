@@ -13,6 +13,6 @@ weight: "3"
 
 This documentation section describes how the databases included in Metapsy are prepared. Before being released, all data is converted into a consistent, standardized format. This format ensures that data is compatible with other components of the Metapsy infrastructure.
 
-All released databases live in an online [Github repository](https://www.youtube.com/watch?v=w3jLJU7DT5E&ab_channel=GitHub) s
+All released databases live in an online [Github repository](https://www.youtube.com/watch?v=21Gl97tkbHU&ab_channel=Kinsta) s
 
 <br></br>
