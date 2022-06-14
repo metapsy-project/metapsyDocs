@@ -3,19 +3,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
-:root {
+.theme-light {
+    --primary-color: #313f45 !important;
+    --body-color: #f9f9f9 !important;
+    --text-color: #636363 !important;
+    --text-color-dark: #242738 !important;
+    --white-color: #ffffff !important;
+    --light-color: #f8f9fa !important;
+    --code-bg-color: #f6f6f6 !important;
+    --color-table: #f8f8f8 !important;
+    --hr-color: rgba(0,0,0,.1) !important;
+    --header-color: rgba(94, 186, 189, 1) !important;
+    --col-shadow-1: rgba(12, 13, 14, 0.1) !important;
+    --col-shadow-2: rgba(255, 255, 255, 0.1) !important;
+    --bg-image: url("https://docs.metapsy.org/images/banner.jpg");
     --bs-dark2: #313f45;
     --bs-primary: #0372b7;
     --bs-secondary: #6c757d;
     --bs-info: rgba(94, 186, 189, 1);
+    --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
 }
+
+.theme-dark {
+    --primary-color: #9ecce0 !important;
+    --body-color: #313f45 !important;
+    --text-color: #ffffff !important;
+    --text-color-dark: #f8f9fa !important;
+    --white-color: #222d32 !important;
+    --light-color: #222d32 !important;
+    --code-bg-color: #313f45 !important;
+    --hr-color: rgba(255, 255, 255, 0.1) !important;
+    --color-table: #313f45 !important;
+    --header-color: #222d32 !important;
+    --bg-image: revert !important;
+    --col-shadow-1: rgba(233, 236, 240, 0.1) !important;
+    --col-shadow-2: rgba(244, 240, 240, 0.1) !important;
+    --bs-dark2: #636363;
+    --bs-primary: #069cf9;
+    --bs-secondary: #a8b6c3;
+    --bs-info: rgba(94, 186, 189, 1);
+    --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
+}
+
 
 h1, h2, h3 {
     font-family: "Roboto Slab" !important;
 }
 
 .text-white.mb-3{
-    color: var(--bs-info) !important;
+    color: var(--header-color) !important;
 }
 
 #title {
@@ -107,7 +143,7 @@ a {
 }
 
 a.navbar-brand {
-    color: black !important;
+    color: var(--text-color-dark) !important;
 }
 
 li.sidelist>a {
@@ -174,7 +210,41 @@ li.nav-item:hover > i {
 code {
     color: unset !important;
     font-size: 87% !important;
-    background-color: #f6f6f6;
+    background-color: var(--code-bg-color);
     border-radius: 0.25rem;
     padding: 0.125rem 0.25rem;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--hr-color) !important;
+}
+
+
+tbody {
+    background-color: var(--color-table) !important;
+}
+
+.ti-search{
+    color: var(--bs-secondary) !important;
+}
+
+header.banner.overlay.bg-cover {
+    background-image: var(--bg-image) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
+    color: black !important;
+}
+
+.shadow-bottom {
+    box-shadow: 0 1px var(--col-shadow-1), 0 1px 6px var(--col-shadow-2) !important;
+}
+
+.ti-shine:visited {
+    color: red !important;
+}
+
+#strip {
+    background-image: var(--bs-gradient2) !important;
 }
