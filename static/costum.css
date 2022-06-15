@@ -247,3 +247,7 @@ header.banner.overlay.bg-cover {
 #strip {
     background-image: var(--bs-gradient2) !important;
 }
+
+td > code {
+    padding: 0 !important;   
+}
