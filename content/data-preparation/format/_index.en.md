@@ -35,5 +35,6 @@ It is also possible that one trial included more than one relevant outcome. In t
 - **`instrument`**: This variable describes the instrument through which the relevant outcome was measured.
 - **`time`**: The measurement point at which the outcome was obtained (e.g. `post` or `follow-up`).
 - **`time_weeks`**: The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).
+- **`rating`**: This variable encodes if the reported outcome was self-reported (`"self-report"`) or clinician-rated (`"clinician"`).
 
 <br>
