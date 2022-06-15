@@ -4,7 +4,7 @@ title = "Metadata"
 weight = 2
 
 +++
-mm
+Besides the actual data file, each Metapsy database repository also contains a **folder** in which **metadata** is stored. Metadata items may vary between repositories, but a core selection of files is always included. We focus on these metadata items here.
 
 * 💾 **`data.csv`**
 * 📁 **`metadata`**
