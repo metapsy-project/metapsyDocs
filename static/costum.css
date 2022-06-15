@@ -23,7 +23,7 @@
     --bs-info: rgba(94, 186, 189, 1);
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
     --color-tip: #e6f9e6 !important;
-    --color-tip-above: lightgreen;
+    --color-tip-above: #78c578;
 }
 
 .theme-dark {
