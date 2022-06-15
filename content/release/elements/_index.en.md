@@ -8,6 +8,8 @@ keywords: ["keyword", "keyword2"]
 
 # Heading 1
 
+$y = \alpha + \beta x + \epsilon + \frac{2}{3}$
+
 ## Heading 2
 
 ### Heading 3

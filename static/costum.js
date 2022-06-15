@@ -63,7 +63,6 @@ var header = document.getElementsByTagName('header');
 var strip = document.createElement('div');
 var navbar = document.getElementsByClassName('navbar');
 strip.id = "strip";
-strip.style.backgroundColor = "red";
 strip.style.marginTop = "-20px";
 strip.style.fontSize = "13px";
 strip.style.paddingBottom = "10px";
@@ -74,6 +73,7 @@ navbar[0].style.paddingTop = "20px";
 
 // Light mode switch
 function setTheme(themeName) {
+    var y = window.scrollY;
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 }
@@ -95,3 +95,4 @@ function toggleTheme() {
        setTheme('theme-light');
    }
 })();
+
