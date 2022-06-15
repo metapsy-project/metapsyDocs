@@ -137,7 +137,7 @@ Metapsy databases also contain additional variables. These are used, for example
 
 Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files _always_ use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). An example can be seen below.
 
-<img src="/uploads/carbon.svg" alt="codechunk" width="400" >
+<img src="/uploads/carbon.svg" alt="codechunk" width="550" >
 
 
 <br>
