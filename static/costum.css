@@ -255,5 +255,7 @@ td > code {
 }
 
 .notices.tip p {
+    border-top: 30px solid var(--bs-info) !important;
     background: var(--color-tip) !important;
 }
+
