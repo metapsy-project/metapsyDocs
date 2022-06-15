@@ -24,7 +24,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 <br>
 
-#### Required Variables
+#### Standard Variables
 
 There are several variables which are included in every Metapsy database. These variables are required to **uniquely identify** each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using [`metapsyTools`](https://tools.metapsy.org)). In particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data. 
 
