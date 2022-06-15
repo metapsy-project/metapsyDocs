@@ -33,7 +33,7 @@
 
       // loop through all elements
       for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.tqoString() || "";
+        var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
         var inputDOI = JSON.stringify("{{.Get `doi`}}");
 
