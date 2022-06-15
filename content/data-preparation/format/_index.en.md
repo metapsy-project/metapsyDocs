@@ -12,6 +12,10 @@ Collectively, we refer to this set of data formatting and storage rules as the *
 
 <br>
 
-#### Required Variables
+#### Overview
 
-All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with one comparison.
+All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one treatment arm comparison (e.g. cognitive-behavioral therapy versus.
+
+<br>
+
+#### Required Variables
