@@ -34,7 +34,7 @@ There are several variables which are included in every Metapsy database. These 
 
 <br>
 
-**Study Design Variables**
+**I. Study Design Variables**
 
 - **`study`**: The study name, formatted as "last name of the first author", "year" (e.g. `"Smith, 2011"`). 
 - **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
@@ -49,7 +49,7 @@ There are several variables which are included in every Metapsy database. These 
 
 <br>
 
-**Effect Size Data Variables**
+**II. Effect Size Data Variables**
 
 Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
 
@@ -84,5 +84,7 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 - **`log_rr_se`**: The standard error of the log-risk ratio $\log_e RR$, comparing events in the first arm to events in the second arm.
 
 <br>
+
+**III. Additional Variables**
 
 <br>
