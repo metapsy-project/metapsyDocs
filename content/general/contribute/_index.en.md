@@ -4,6 +4,8 @@ title = "Contributors"
 weight = 2
 
 +++
+***
+
 <div class="gallery">
 
 <div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400"> </div>
@@ -33,6 +35,8 @@ weight = 2
 <br>
 
 #### Contributing to Metapsy
+
+***
 
 Metapsy is an open project. If you want to join the Metapsy collaboration, feel free to contact [Pim Cuijpers](https://www.metapsy.org/contact). For example, it is possible to contribute to:
 
