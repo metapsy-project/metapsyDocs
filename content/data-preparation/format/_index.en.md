@@ -26,6 +26,8 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 #### Required Variables
 
+There are several variables which are included in every Metapsy database. These variables are required to because they are needed to **uniquely identify** each comparison. This is necessary to run meta-analyses of the databases later on. In particular, this information allows to calculate variance-covariance matrices that approximate the dependence structure in the data. 
+
 - **`study`**: The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). 
 - **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
 - **`condition_arm2`**: Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. `wlc` for all trial arms that employed a waitlist control group).
@@ -36,5 +38,6 @@ It is also possible that one trial included more than one relevant outcome. In t
 - **`time`**: The measurement point at which the outcome was obtained (e.g. `post` or `follow-up`).
 - **`time_weeks`**: The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).
 - **`rating`**: This variable encodes if the reported outcome was self-reported (`"self-report"`) or clinician-rated (`"clinician"`).
+
 
 <br>
