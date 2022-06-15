@@ -21,4 +21,6 @@ All Metapsy databases hosted on Github follow the same folder structure. In part
 
 After a new database version has been uploaded to Github, **data validators** are used to check if the format conforms to the standard required by other components of the Metapsy infrastructure (e.g. {metapsyData} and {metapsyTools}).
 
+Finalized database repositories are then officially [**released**](/release) via the Github Zenodo integration.
+
 <br></br>
