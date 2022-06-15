@@ -80,8 +80,8 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 <br> 
 
 **(d)** Pre-calculated log-risk ratio
-- **`log_rr`**: The pre-calculated value of the log-risk ratio $\log_e RR$, comparing events in the first arm to events in the second arm.
-- **`log_rr_se`**: The standard error of the log-risk ratio $\log_e RR$, comparing events in the first arm to events in the second arm.
+- **`log_rr`**: The pre-calculated value of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.
+- **`log_rr_se`**: The standard error of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.
 
 <br>
 
