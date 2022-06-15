@@ -32,7 +32,7 @@ There are several variables which are included in every Metapsy database. These 
 
 **Study Design Variables**
 
-- **`study`**: The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). 
+- **`study`**: The study name, formatted as "last name of the first author", "year" (e.g. `"Smith, 2011"`). 
 - **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
 - **`condition_arm2`**: Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. `wlc` for all trial arms that employed a waitlist control group).
 - **`specification_arm1`**: In multiarm trials, this variable provides a "specification" of the type of treatment used in the first arm. This variable is set to `NA` (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of CBT interventions, face-to-face and Internet-based, this variable would be set to `f2f` and `Internet`, respectively.
