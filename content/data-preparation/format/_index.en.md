@@ -51,25 +51,25 @@ There are several variables which are included in every Metapsy database. These 
 
 **Effect Size Data Variables**
 
-Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a)-(d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
+Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
 
 <br>
 
 **(a)** Continuous Outcome Data
-- **`mean_arm1`**:
-- **`mean_arm2`**:
-- **`sd_arm1`**:
-- **`sd_arm2`**:
-- **`n_arm1`**:
-- **`n_arm2`**:
+- **`mean_arm1`**: Mean of the outcome in the first arm at the measured time point.
+- **`mean_arm2`**: Mean of the outcome in the second arm at the measured time point.
+- **`sd_arm1`**: Standard deviation of the outcome in the first arm at the measured time point.
+- **`sd_arm2`**: Standard deviation of the outcome in the second arm at the measured time point.
+- **`n_arm1`**: Sample size in the first trial arm.
+- **`n_arm2`**: Sample size in the second trial arm.
 
 <br>
 
 **(b)** Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
-- **`event_arm1`**:
-- **`event_arm2`**:
-- **`totaln_arm1`**:
-- **`totaln_arm2`**:
+- **`event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm.
+- **`event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
+- **`totaln_arm1`**: Sample size in the first trial arm.
+- **`totaln_arm2`**: Sample size in the second trial arm.
 
 <br>
   
@@ -80,7 +80,8 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 <br> 
 
 **(d)** Pre-calculated log-risk ratio
-- **`log_rr`**: The pre-calculated value of Hedges'
+- **`log_rr`**: The pre-calculated value of the log-risk ratio $\log_e RR$, comparing events in the first arm to events in the second arm.
+- **`log_rr_se`**: The standard error of the log-risk ratio $\log_e RR$, comparing events in the first arm to events in the second arm.
 
 <br>
 
