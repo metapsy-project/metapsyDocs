@@ -27,7 +27,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 #### Required Variables
 
 | Variable Name | Description |
-|...|...|
+| ... | ... |
 | `study` | The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). | 
 | `condition_arm1` |   Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy). | 
 | `condition_arm2` |   Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. `wlc` for all trial arms that employed a waitlist control group).    |
