@@ -23,6 +23,7 @@
     --bs-info: rgba(94, 186, 189, 1);
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
     --color-tip: #e6f9e6 !important;
+    --color-tip-above: lightgreen;
 }
 
 .theme-dark {
@@ -45,6 +46,7 @@
     --bs-info: rgba(94, 186, 189, 1);
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
     --color-tip: #313f45 !important;
+    --color-tip-above: rgba(94, 186, 189, 1);
 }
 
 
@@ -255,7 +257,7 @@ td > code {
 }
 
 .notices.tip p {
-    border-top: 30px solid var(--bs-info) !important;
+    border-top: 30px solid var(--color-tip-above) !important;
     background: var(--color-tip) !important;
 }
 
