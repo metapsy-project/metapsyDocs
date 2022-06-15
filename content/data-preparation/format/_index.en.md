@@ -47,7 +47,7 @@ There are several variables which are included in every Metapsy database. These 
 
 **Effect Size Data Variables**
 
-Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a)-(d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that specific row.
+Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a)-(d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
 
 <br>
 
