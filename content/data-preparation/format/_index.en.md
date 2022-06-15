@@ -61,7 +61,7 @@ There are several variables which are included in every Metapsy database. These 
 	- **`totaln_arm2`**:
 - (c) Pre-calculated Hedges' $g$
 	- **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
-    - **`g_se`**: Standard error of $g$ ($sqrt{V_g}$).
+    - **`g_se`**: Standard error of $g$ ($\sqrt{V_g}$).
 - (d) Pre-calculated log-risk ratio
     - **`log_rr`**: The pre-calculated value of Hedges'
 
