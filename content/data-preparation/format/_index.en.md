@@ -85,6 +85,6 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 <br>
 
-**III. Additional Variables**
+**III. `metapsyTools` Variables**
 
 <br>
