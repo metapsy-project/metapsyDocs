@@ -102,6 +102,8 @@ The Metapsy database standard includes eight additional variables that all start
 
 **IV. Additional Variables**
 
+Metapsy databases also contain additional variables. These are used, for example, to collect subject-specific information that is not relevant for all indications. 
+
 - **✓**
 - **✓**
 - **✓**
