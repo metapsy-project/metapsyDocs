@@ -91,6 +91,11 @@ The Metapsy database standard includes eight additional variables that all start
 
 - **`.id`**: Unique identifier for a trial arm comparison/row.
 - **`.es`**: Calculated effect size. Either $g$ or $\log_{e}\text{RR}$.
-- **`.se`**:
+- **`.se`**: Standard error of the effect size. Either the standard error of $g$ or $\log_{e}\text{RR}$.
+- **`.event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm (`NA` if `es` is Hedges' $g$).
+- **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm (`NA` if `es` is Hedges' $g$).
+- **`.n_event_arm1`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the first trial arm (`NA` if `es` is Hedges' $g$).
+- **`.n_event_arm2`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the second trial arm (`NA` if `es` is Hedges' $g$).
+- **`.es_type`**: The type of calculated effect size; either `"g"` or `"log_rr"`.
 
 <br>
