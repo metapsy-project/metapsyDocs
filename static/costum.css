@@ -22,6 +22,7 @@
     --bs-secondary: #6c757d;
     --bs-info: rgba(94, 186, 189, 1);
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
+    --color-tip: #e6f9e6 !important;
 }
 
 .theme-dark {
@@ -43,6 +44,7 @@
     --bs-secondary: #a8b6c3;
     --bs-info: rgba(94, 186, 189, 1);
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
+    --color-tip: #f8f8f8 !important;
 }
 
 
@@ -250,4 +252,9 @@ header.banner.overlay.bg-cover {
 
 td > code {
     padding: 0 !important;   
+}
+
+.notices.tip > p {
+    border-top: 30px solid #78c578;
+    background: var(--color-tip) !important;
 }
