@@ -26,6 +26,6 @@ Of course, it is also possible for RCTs included in a database to provide more t
 
 | Variable Name | Description |
 | --- | --- | 
-| `study`      | The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). | 
-| <code>condition_arm1</code>      |   Treatment condition in the first treatment arm. The condition name is standardized to ensure comparability across trials (.e.g     | 
+| `study` | The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). | 
+| `condition_arm1` |   Treatment condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy). | 
 | zebra stripes |   are neat    |
