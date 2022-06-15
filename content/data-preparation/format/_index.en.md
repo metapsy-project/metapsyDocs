@@ -47,6 +47,8 @@ There are several variables which are included in every Metapsy database. These 
 
 **Effect Size Data Variables**
 
+<br>
+
 **(a)** Continuous Outcome Data
 - **`mean_arm1`**:
 - **`mean_arm2`**:
