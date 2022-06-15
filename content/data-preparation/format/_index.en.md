@@ -10,6 +10,10 @@ Database repositories themselves also follow a predefined folder structure. All 
 
 Collectively, we refer to this set of data formatting and storage rules as the **Metapsy data standard**.
 
+{{< notice tip >}}
+An example repository following the Metapsy data standard can be found [here](https://github.com/metapsy-project/data-template).
+{{</notice>}}
+
 <br>
 
 #### Overview
