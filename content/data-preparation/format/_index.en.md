@@ -10,6 +10,8 @@ Database repositories themselves also follow a predefined folder structure. All 
 
 Collectively, we refer to this set of data formatting and storage rules as the **Metapsy data standard**. 
 
+<br>
+
 #### Required Variables
 
 m
