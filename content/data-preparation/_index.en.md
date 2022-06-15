@@ -7,6 +7,8 @@ type: docs
 weight: "3"
 
 ---
+***
+
 <img src="/uploads/preparation.jpg" width="100%" style="border-radius: 5px;">
 
 <br>
