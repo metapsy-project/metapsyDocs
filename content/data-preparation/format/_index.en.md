@@ -27,6 +27,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 #### Required Variables
 
 | Variable Name | Description |
+|...|...|
 | `study` | The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). | 
 | `condition_arm1` |   Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy). | 
 | `condition_arm2` |   Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. `wlc` for all trial arms that employed a waitlist control group).    |
@@ -34,6 +35,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 | `specification_arm2` | In multiarm trials, this variable provides a "specification" of the type of treatment used in the second arm. This variable is set to `NA` (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of control groups, waitlist and placebo, this variable would be set to `wl` and `plac`, respectively. |
 | `outcome_type` | This variable encodes the type of outcome that builds the basis of the comparison, e.g. `response`, `remission` or `deterioration`. This is typically only relevant for dichotomous effect size data, and coded `NA` when effect size data is collected as the mean, standard deviation, and sample size. |
 | `instrument` | This variable describes the instrument through which the relevant outcome was measured.  |
-
+| `time` | The measurement point at which the outcome was obtained (e.g. `post` or `follow-up`).  |
+| `time_weeks` | The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).  |
 
 <br>
