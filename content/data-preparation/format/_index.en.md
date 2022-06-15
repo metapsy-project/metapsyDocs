@@ -16,10 +16,16 @@ Collectively, we refer to this set of data formatting and storage rules as the *
 
 All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one treatment arm comparison (e.g. cognitive-behavioral therapy versus waitlist). 
 
-Metapsy databases only contain evidence from randomized-controlled trials (RCTs). Therefore, if an RCT only contained two groups, and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
+Metapsy databases only contain evidence from randomized-controlled trials (RCTs). Therefore, if an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
 
-Of course, it is also possible for RCTs included in a database to provide more than one 
+Of course, it is also possible for RCTs included in a database to provide more than one row; for example because the study was a **multi-arm trial**, or because 
 
 <br>
 
 #### Required Variables
+
+    | Variable Name | Description |
+    | --- | --- | 
+    | col 3 is      | right-aligned | 
+    | col 2 is      |   centered    | 
+    | zebra stripes |   are neat    |
