@@ -26,6 +26,6 @@ Of course, it is also possible for RCTs included in a database to provide more t
 
 | Variable Name | Description |
 | --- | --- | 
-| col 3 is      | right-aligned | 
+| <code>study</code>      | right-aligned | 
 | col 2 is      |   centered    | 
 | zebra stripes |   are neat    |
