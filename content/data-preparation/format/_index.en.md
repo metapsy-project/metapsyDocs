@@ -99,3 +99,11 @@ The Metapsy database standard includes eight additional variables that all start
 - **`.es_type`**: The type of calculated effect size; either `"g"` or `"log_rr"`.
 
 <br>
+
+**IV. Additional Variables**
+
+- **✓**
+- **✓**
+- **✓**
+
+<br>
