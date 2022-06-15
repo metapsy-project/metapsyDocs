@@ -54,6 +54,7 @@ There are several variables which are included in every Metapsy database. These 
 - **`sd_arm2`**:
 - **`n_arm1`**:
 - **`n_arm2`**:
+
 <br>
 
 **(b)** Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
@@ -61,15 +62,18 @@ There are several variables which are included in every Metapsy database. These 
 - **`event_arm2`**:
 - **`totaln_arm1`**:
 - **`totaln_arm2`**:
+
 <br>
   
 **(c)** Pre-calculated Hedges' $g$
 - **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
 - **`g_se`**: Standard error of $g$, viz. $\sqrt{V_g}$.
+
 <br> 
 
 **(d)** Pre-calculated log-risk ratio
 - **`log_rr`**: The pre-calculated value of Hedges'
+
 <br>
 
 <br>
