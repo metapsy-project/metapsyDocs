@@ -87,4 +87,6 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 **III. `metapsyTools` Variables**
 
+The Metapsy database standard includes eight additional variables that all start with a dot (`.`). These are variables created by the `calculateEffectSizes` function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box". 
+
 <br>
