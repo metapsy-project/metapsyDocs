@@ -28,7 +28,9 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 There are several variables which are included in every Metapsy database. These variables are required to **uniquely identify** each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using [{metapsyTools}](https://tools.metapsy.org)). In particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data. 
 
-##### Study Design Variables
+<br>
+
+**Study Design Variables**
 
 - **`study`**: The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). 
 - **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
