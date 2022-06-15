@@ -137,18 +137,18 @@ Metapsy databases also contain additional variables. These are used, for example
 
 Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files _always_ use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). An example can be seen below.
 
-```
-;study;intervention;comparison;total_number_participants;number;
-1;Alavi 2013;Cognitive;Waitlist;30;-2,930378418;
-2;Albert 2017;Mixed/other;TAU;400;-0,345065472;
-3;Amianto 2011;Psychodynamic;Other control;35;0,129726796;
-4;Andreoli 2016 ;Psychodynamic;TAU;85;-1,080765269;
-6;Armitage 2016;Mixed/other;Other control;111,5;-0,478609185;
-7;Armitage 2016;Mixed/other;Other control;114,5;-0,4785362;
-9;Asarnow 2011;Family;TAU;181;NA;NA;0,009895345;
-10;Asarnow 2017;Family;TAU;42;NA;NA;0,193625932;
-11;Bannan 2010;Problem solving;TAU;18;-0,747980561;
-12;Barnhofer 2009;Cognitive;Waitlist;31;-0,572118585;
-```
+    ;study;intervention;comparison;total_number_participants;number;
+    1;Alavi 2013;Cognitive;Waitlist;30;-2,930378418;
+    2;Albert 2017;Mixed/other;TAU;400;-0,345065472;
+    3;Amianto 2011;Psychodynamic;Other control;35;0,129726796;
+    4;Andreoli 2016 ;Psychodynamic;TAU;85;-1,080765269;
+    6;Armitage 2016;Mixed/other;Other control;111,5;-0,478609185;
+    7;Armitage 2016;Mixed/other;Other control;114,5;-0,4785362;
+    9;Asarnow 2011;Family;TAU;181;NA;NA;0,009895345;
+    10;Asarnow 2017;Family;TAU;42;NA;NA;0,193625932;
+    11;Bannan 2010;Problem solving;TAU;18;-0,747980561;
+    12;Barnhofer 2009;Cognitive;Waitlist;31;-0,572118585;
+
+![](/uploads/carbon.svg)
 
 <br>
