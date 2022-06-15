@@ -26,7 +26,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 #### Required Variables
 
-There are several variables which are included in every Metapsy database. These variables are required to because they are needed to **uniquely identify** each comparison. This is necessary to run meta-analyses of the databases later on. In particular, this information allows to calculate variance-covariance matrices that approximate the dependence structure in the data. 
+There are several variables which are included in every Metapsy database. These variables are required to **uniquely identify** each comparison. This is necessary to run meta-analyses of the databases later on. In particular, this information allows to calculate variance-covariance matrices that approximate the dependence structure in the data. 
 
 - **`study`**: The study name, formatted as "Last Name of the first author", "year" (e.g. `"Smith, 2011"`). 
 - **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
