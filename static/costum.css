@@ -254,7 +254,7 @@ td > code {
     padding: 0 !important;   
 }
 
-.notices.tip {
+.notices.tip p {
     border-top: 30px solid #78c578;
     background: var(--color-tip) !important;
 }
