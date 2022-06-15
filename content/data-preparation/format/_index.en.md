@@ -129,3 +129,11 @@ Metapsy databases also contain additional variables. These are used, for example
 * **✓** Missing values are encoded using `NA`.
 
 <br>
+
+##### Data File Type 
+
+***
+
+ss
+
+<br>
