@@ -26,6 +26,6 @@ Of course, it is also possible for RCTs included in a database to provide more t
 
 | Variable Name | Description |
 | --- | --- | 
-| <code>study</code>      | right-aligned | 
+| <code>study</code>      | The study name, formatted as "Last Name of the first author", "year" (e.g. "Smith, 2011"). | 
 | col 2 is      |   centered    | 
 | zebra stripes |   are neat    |
