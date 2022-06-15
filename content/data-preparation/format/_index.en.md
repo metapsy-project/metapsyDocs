@@ -24,8 +24,8 @@ Of course, it is also possible for RCTs included in a database to provide more t
 
 #### Required Variables
 
-    | Variable Name | Description |
-    | --- | --- | 
-    | col 3 is      | right-aligned | 
-    | col 2 is      |   centered    | 
-    | zebra stripes |   are neat    |
+| Variable Name | Description |
+| --- | --- | 
+| col 3 is      | right-aligned | 
+| col 2 is      |   centered    | 
+| zebra stripes |   are neat    |
