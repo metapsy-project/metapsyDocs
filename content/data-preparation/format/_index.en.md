@@ -54,8 +54,10 @@ There are several variables which are included in every Metapsy database. These 
 	- **`sd_arm2`**:
 	- **`n_arm1`**:
 	- **`n_arm2`**:
-- **`event_arm1`**:
-- **`event_arm2`**:
-- **`event_
+ - Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
+	- **`event_arm1`**:
+	- **`event_arm2`**:
+	- **`totaln_arm1`**:
+	- **`totaln_arm2`**:
 
 <br>
