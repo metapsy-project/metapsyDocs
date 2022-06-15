@@ -48,24 +48,24 @@ There are several variables which are included in every Metapsy database. These 
 **Effect Size Data Variables**
 
 **(a)** Continuous Outcome Data
-	- **`mean_arm1`**:
-	- **`mean_arm2`**:
-	- **`sd_arm1`**:
-	- **`sd_arm2`**:
-	- **`n_arm1`**:
-	- **`n_arm2`**:
+- **`mean_arm1`**:
+- **`mean_arm2`**:
+- **`sd_arm1`**:
+- **`sd_arm2`**:
+- **`n_arm1`**:
+- **`n_arm2`**:
     
 **(b)** Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
-	- **`event_arm1`**:
-	- **`event_arm2`**:
-	- **`totaln_arm1`**:
-	- **`totaln_arm2`**:
+- **`event_arm1`**:
+- **`event_arm2`**:
+- **`totaln_arm1`**:
+- **`totaln_arm2`**:
     
 **(c)** Pre-calculated Hedges' $g$
-	- **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
-    - **`g_se`**: Standard error of $g$ ($\sqrt{V_g}$).
+- **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
+- **`g_se`**: Standard error of $g$ ($\sqrt{V_g}$).
     
 **(d)** Pre-calculated log-risk ratio
-    - **`log_rr`**: The pre-calculated value of Hedges'
+- **`log_rr`**: The pre-calculated value of Hedges'
 
 <br>
