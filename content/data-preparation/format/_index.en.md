@@ -43,5 +43,19 @@ There are several variables which are included in every Metapsy database. These 
 - **`time_weeks`**: The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).
 - **`rating`**: This variable encodes if the reported outcome was self-reported (`"self-report"`) or clinician-rated (`"clinician"`).
 
+<br>
+
+**Effect Size Data Variables**
+
+- Continuous Outcome Data
+	- **`mean_arm1`**:
+	- **`mean_arm2`**:
+	- **`sd_arm1`**:
+	- **`sd_arm2`**:
+	- **`n_arm1`**:
+	- **`n_arm2`**:
+- **`event_arm1`**:
+- **`event_arm2`**:
+- **`event_
 
 <br>
