@@ -45,3 +45,5 @@ Using a Github integration, all releases are automatically indexed at [Zenodo](h
 * **Version DOI**. This is a version-specific DOI that allows referencing specific states of the database in the past. 
 
 ![](/uploads/release-flow.png)
+
+<br></br>
