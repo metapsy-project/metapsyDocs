@@ -11,6 +11,8 @@ weight: "4"
 
 Once uploaded to a Github repository, databases are officially released from the `master` branch.
 
+![](/uploads/releases.png)
+
 <br>
 
 #### Versioning Convention {#versioning}
