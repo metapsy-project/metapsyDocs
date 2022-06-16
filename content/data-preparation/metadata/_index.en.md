@@ -18,12 +18,12 @@ Besides the actual data file, each Metapsy database repository also contains a *
 
 The following standard metadata items are always included in the `metadata` repository folder:
 
-* 📄 **`authors.txt`**:
-* 📄 **`last_search.txt`**:
-* 📄 **`number_studies.txt`**:
-* 📄 **`search_string.txt`**:
-* 📄 **`shorthand.txt`**:
-* 📄 **`variable_description.json`**:
+* 📄 [**`authors.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/authors.txt) 
+* 📄 [**`last_search.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/last_search.txt):
+* 📄 [**`number_studies.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/number_studies.txt):
+* 📄 [**`search_string.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt):
+* 📄 [**`shorthand.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt):
+* 📄 [**`variable_description.json`**](https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json):
 
 * 💾 **`data.csv`**
 * 📁 **`metadata`**
