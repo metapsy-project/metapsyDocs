@@ -9,10 +9,6 @@ weight: "4"
 ---
 ***
 
-<img src="/uploads/release-header.jpg" width="100%" style="border-radius: 5px;">
-
-<br>
-
 Once uploaded to a Github repository, databases are officially released from the `master` branch.
 
 ![](/uploads/releases.png)
