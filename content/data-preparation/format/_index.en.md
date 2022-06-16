@@ -105,7 +105,7 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 ***
 
-The Metapsy database standard includes eight additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
+The Metapsy database standard includes nine additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
 
 * **`.id`**: Unique identifier for a trial arm comparison/row.
 * **`.g`**: Calculated effect size (Hedges' $g$).
