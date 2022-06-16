@@ -35,4 +35,8 @@ Therefore, if a database was updated (via a new search) in 2023, the first relea
 
 <br>
 
+#### Zenodo Integration {#zenodo}
+
+***
+
 ![](/uploads/release-flow.png)
