@@ -21,7 +21,7 @@ All released databases live in their own online [Github](https://github.com/) re
 
 All Metapsy databases hosted on Github follow the same folder structure. In particular, a [**metadata**](https://docs.metapsy.org/data-preparation/metadata/) folder is included in each repository. This folder contains additional information associated with the dataset (e.g. the search date, the number of studies, or a variable description).
 
-After a new database version has been uploaded to Github, **data validators** are used to check if the format conforms to the standard required by other components of the Metapsy infrastructure (e.g. {metapsyData} and {metapsyTools}).
+After a new database version has been uploaded to Github, **data validators** are used to check if the format conforms to the standard required by other components of the Metapsy infrastructure (e.g. `metapsyData` and `metapsyTools`).
 
 Finalized database repositories are then officially [**released**](/release) via the Github Zenodo integration.
 
