@@ -123,11 +123,11 @@ The Metapsy database standard includes eight additional variables that all start
 Metapsy databases also contain additional variables. These are used, for example, to collect subject-specific information that is not relevant for all indications. Nevertheless, there are several formatting rules that all variables/columns follow:
 
 * <strong style="color: green;">✓</strong> All variable names are in [`snake_case`](https://en.wikipedia.org/wiki/Snake_case?oldformat=true).
-* **✓** Variable names start with a standard letter (`_` is not allowed, `.` is only allowed for `metapsyTools` variables).
-* **✓** Variable names do not contain special characters (like ö, @, è, ğ).
-* **✓** Semicolons (`;`) are not used; neither as variable names nor as cell content.
-* **✓** Character values contain no leading/trailing whitespaces.
-* **✓** Missing values are encoded using `NA`.
+* <strong style="color: green;">✓</strong> Variable names start with a standard letter (`_` is not allowed, `.` is only allowed for `metapsyTools` variables).
+* <strong style="color: green;">✓</strong> Variable names do not contain special characters (like ö, @, è, ğ).
+* <strong style="color: green;">✓</strong> Semicolons (`;`) are not used; neither as variable names nor as cell content.
+* <strong style="color: green;">✓</strong> Character values contain no leading/trailing whitespaces.
+* <strong style="color: green;">✓</strong> Missing values are encoded using `NA`.
 
 <br>
 
