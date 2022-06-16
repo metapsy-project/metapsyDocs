@@ -6,7 +6,7 @@ weight = 1
 +++
 ***
 
-All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the metadata provided for the data. Database repositories themselves also follow a predefined folder structure. 
+All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the metadata provided for the data. Database repositories themselves also follow a predefined folder structure.
 
 All database objects (datasets, metadata) are provided in a **machine-readable format** (.csv, .json, .txt). This ensures interoperability with other Metapsy software components (e.g. the automatized [database documentation](/databases), `metapsyData`), as well as external software and programming languages in general.
 
@@ -22,7 +22,7 @@ An example repository following the Metapsy data standard can be found [here](ht
 
 ***
 
-All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist).
+All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.
 
 Metapsy databases only contain evidence from randomized-controlled trials (RCTs). If an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
 
@@ -140,6 +140,5 @@ Metapsy databases also contain additional variables. These are used, for example
 Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files _always_ use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). An example can be seen below.
 
 <img src="/uploads/carbon.svg" alt="codechunk" width="550" >
-
 
 <br>
