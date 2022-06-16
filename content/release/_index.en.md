@@ -39,6 +39,9 @@ Therefore, if a database was updated (via a new search) in 2023, the first relea
 
 ***
 
-mm
+Using a Github integration, all releases are automatically indexed at [Zenodo](https://zenodo.org/). Zenodo automatically issues a Digital Object Identifier (DOI) for the latest release. For each database, there are two types of DOIs:
+
+* **Database DOI**. The Zenodo system refers to this as the "concept identifier". It is an overall DOI for all versions of the database that will always resolve to the latest version.
+* **Version DOI**. This is a version-specific DOI that allows referencing specific states of the database in the past. 
 
 ![](/uploads/release-flow.png)
