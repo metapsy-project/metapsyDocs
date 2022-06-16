@@ -18,7 +18,7 @@ Besides the actual data file, each Metapsy database repository also contains a *
 
 The following standard metadata items are always included in the `metadata` repository folder:
 
-* 📄 [**`authors.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/authors.txt) 
+* 📄 [**`authors.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/authors.txt): A `.txt` file containing the authors or owners of the the database, as well as their [ORCID](https://orcid.org/) research ID. 
 * 📄 [**`last_search.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/last_search.txt):
 * 📄 [**`number_studies.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/number_studies.txt):
 * 📄 [**`search_string.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt):
