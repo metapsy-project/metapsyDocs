@@ -11,7 +11,13 @@ weight: "4"
 
 Once uploaded to a Github repository, databases are officially released from the `master` branch. 
 
-Annotated releases are published on the Github. During this process, an ascending version number is created for the release. The version numbering convention used in Metapsy is derived from the [Semantic Versioning 2.0.0](https://semver.org/) standard:
+<br>
+
+#### Versioning Convention {#versioning}
+
+***
+
+Annotated releases are published on Github. During this process, an ascending version number is created for the release. The version numbering convention used in Metapsy is derived from the [Semantic Versioning 2.0.0](https://semver.org/) standard:
 
 <center>
 
