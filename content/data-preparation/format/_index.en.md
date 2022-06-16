@@ -108,13 +108,15 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 The Metapsy database standard includes eight additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
 
 * **`.id`**: Unique identifier for a trial arm comparison/row.
-* **`.es`**: Calculated effect size. Either $g$ or $\\log_{e}\\text{RR}$.
-* **`.se`**: Standard error of the effect size. Either the standard error of $g$ or $\\log_{e}\\text{RR}$.
-* **`.event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm (`NA` if `es` is Hedges' $g$).
-* **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm (`NA` if `es` is Hedges' $g$).
-* **`.n_event_arm1`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the first trial arm (`NA` if `es` is Hedges' $g$).
-* **`.n_event_arm2`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the second trial arm (`NA` if `es` is Hedges' $g$).
-* **`.es_type`**: The type of calculated effect size; either `"g"` or `"log_rr"`.
+* **`.g`**: Calculated effect size (Hedges' $g$).
+* **`.g_se`**: Standard error of Hedges' $g$.
+* **`.log_rr`**: Calculated effect size ($\\log_{e}\\text{RR}$).
+* **`.log_rr_se`**: Standard error of $\\log_{e}\\text{RR}$.
+* **`.event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm.
+* **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
+* **`.totaln_arm1`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the first trial arm.
+* **`.totaln_arm2`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the second trial arm.
+
 
 <br>
 
