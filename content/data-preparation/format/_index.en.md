@@ -26,7 +26,7 @@ All Metapsy databases are provided as "rectangular", **wide-format** datasets. T
 
 Metapsy databases only contain evidence from randomized-controlled trials (RCTs). If an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
 
-It is also possible for RCTs included in a database to provide more than one row; for example because the study was a **multi-arm trial**. In a multi-arm trial with $a$ arms, there are $\\frac{a!}{2!(a-2)!}$ unique trial arm comparisons. Therefore, there will (typically) be one row for each unique trial arm comparison included in the data.
+It is also possible for RCTs included in a database to provide more than one row; for example because the study was a **multi-arm trial**. In a multi-arm trial with $a$ arms, there are $\\frac{a!}{2!(a-2)!}$ unique trial arm comparisons. Therefore, typically, there will be one row for each unique trial arm comparison included in the data.
 
 It is also possible that one trial included more than one relevant outcome. In this case, it is also possible that one trial provides more than one row in the database, with each row representing the results for a different outcome.
 
