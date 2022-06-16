@@ -18,20 +18,11 @@ Besides the actual data file, each Metapsy database repository also contains a *
 
 The following standard metadata items are always included in the `metadata` repository folder:
 
-* 📄 [**`authors.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/authors.txt): A `.txt` file containing the authors or owners of the the database, as well as their [ORCID](https://orcid.org/) research ID. 
+* 📄 [**`authors.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/authors.txt): A `.txt` file containing the authors or owners of the the database, as well as their [ORCID](https://orcid.org/) research ID.
 * 📄 [**`last_search.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/last_search.txt): A `.txt` file containing the date of the last search update, in the `YYYY-MM-DD` format.
 * 📄 [**`number_studies.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/number_studies.txt): A `.txt` file containing the number of studies included in the current version of the database.
-* 📄 [**`search_string.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt): A `.txt` file showing the employed search string(s). 
+* 📄 [**`search_string.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt): A `.txt` file showing the employed search string(s).
 * 📄 [**`shorthand.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt): A `.txt` file with the `metapsyData` [shorthand](https://docs.metapsy.org/databases/#shorthand) of the database.
 * 📄 [**`variable_description.json`**](https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json): A [`.json`](https://www.json.org/json-en.html) file; containing a JSON object (key-value pairs). The key represents the variable name, while the value component includes a description or explanation provided for the database variable (e.g. information on the meaning of factor levels).
 
-mu
-
-* 💾 **`data.csv`**
-* 📁 **`metadata`**
-  * 📄 **`authors.txt`**
-  * 📄 **`last_search.txt`**
-  * 📄 **`number_studies.txt`**
-  * 📄 **`search_string.txt`**
-  * 📄 **`shorthand.txt`**
-  * 📄 **`variable_description.json`**
+<br></br>
