@@ -22,8 +22,10 @@ The following standard metadata items are always included in the `metadata` repo
 * 📄 [**`last_search.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/last_search.txt): A `.txt` file containing the date of the last search update, in the `YYYY-MM-DD` format.
 * 📄 [**`number_studies.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/number_studies.txt): A `.txt` file containing the number of studies included in the current version of the database.
 * 📄 [**`search_string.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt): A `.txt` file showing the employed search string(s). 
-* 📄 [**`shorthand.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt): A `.txt` file with the `metapsyData` shorthand of the database.
+* 📄 [**`shorthand.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt): A `.txt` file with the `metapsyData` [shorthand](https://docs.metapsy.org/databases/#shorthand) of the database.
 * 📄 [**`variable_description.json`**](https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json):
+
+mu
 
 * 💾 **`data.csv`**
 * 📁 **`metadata`**
