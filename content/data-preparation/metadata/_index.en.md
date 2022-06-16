@@ -12,7 +12,7 @@ Besides the actual data file, each Metapsy database repository also contains a *
 
 <br>
 
-#### Metadata Item
+#### Metadata Items
 
 ***
 
