@@ -29,4 +29,9 @@ In the "About" section on the Github repository page, one can find a brief descr
 
 <img src="/uploads/gh-info.png" width="250px">
 
+<br>
+
+Once a repository has been created (or updated) this way, an official database [release](https://docs.metapsy.org/release/) is published. 
+
+
 <br></br>
