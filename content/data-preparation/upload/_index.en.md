@@ -27,6 +27,6 @@ In the "About" section on the Github repository page, one can find a brief descr
 
 <br>
 
-<img src="/uploads/gh-info.png" width="120px">
+<img src="/uploads/gh-info.png" width="250px">
 
 <br></br>
