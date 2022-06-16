@@ -25,6 +25,8 @@ All database repositories are hosted by the [`metapsy-project`](https://github.c
 
 In the "About" section on the Github repository page, one can find a brief description of the database, as well as a link to the specific [database documentation](https://docs.metapsy.org/databases/) entry.  
 
+<br>
+
 <img src="/uploads/gh-info.png" width="120px">
 
 <br></br>
