@@ -18,5 +18,7 @@ Following the data preparation according to the Metapsy data standard, the prepa
   * 📄 **`search_string.txt`**
   * 📄 **`shorthand.txt`**
   * 📄 **`variable_description.json`**
+  
+ <br>
 
 All database repositories are hosted by the [`metapsy-project`](https://github.com/metapsy-project) organization account. The repository name is also standardized: it is `data-`, followed by the [shorthand](https://docs.metapsy.org/databases/#shorthand) of the database (e.g. `data-depression-psyctr`).
