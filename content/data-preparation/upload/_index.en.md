@@ -6,7 +6,7 @@ weight = 3
 +++
 ***
 
-Following the data preparation according to the Metapsy data standard, the prepared files are compiled in a Github repository. The standard folder structure can be seen below:
+Following the data preparation according to the Metapsy data standard, the prepared files are collected in a Github repository. The standard folder structure can be seen below:
 
 <br>
 
