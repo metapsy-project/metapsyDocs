@@ -114,8 +114,8 @@ The Metapsy database standard includes nine additional variables that all start 
 * **`.log_rr_se`**: Standard error of $\\log_{e}\\text{RR}$.
 * **`.event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm.
 * **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
-* **`.totaln_arm1`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the first trial arm.
-* **`.totaln_arm2`**: Number of non-events (non-responders, non-remission, non-deterioration cases) in the second trial arm.
+* **`.totaln_arm1`**: Total sample size in the first trial arm.
+* **`.totaln_arm2`**: Total sample size in the second trial arm.
 
 
 <br>
