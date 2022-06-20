@@ -281,3 +281,7 @@ td > code {
     background-color: var(--bs-primary);
     color: var(--body-color);
 }
+
+.overlay::before {
+    top: 10px !important;
+}
