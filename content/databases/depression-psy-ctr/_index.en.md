@@ -76,4 +76,10 @@ URL docs.metapsy.org/depression/psych-vs-ctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.6617815" >}}.
 </div>
 
+<br>
+
+#### Download
+
+{{< zenodo-download doi="10.5281/zenodo.6617815" >}}
+
 <br></br>

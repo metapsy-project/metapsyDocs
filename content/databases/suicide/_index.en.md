@@ -7,7 +7,7 @@ weight = 1
 
 {{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
 
-***
+---
 
 <br>
 
@@ -31,14 +31,14 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 
 #### Metadata
 
-* Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6617815" >}}
-* Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6617815" >}}
-* Latest Version: {{< zenodo-version doi="10.5281/zenodo.6617815" >}}
-* Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6617815" >}}
-* Last search: {{< zenodo-last-search doi="10.5281/zenodo.6617815" type="last-search" >}}
-* Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6617815" text="↗" >}}
-* Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6617815" text="↗" >}}
-* Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6617815" >}}
+- Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6617815" >}}
+- Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6617815" >}}
+- Latest Version: {{< zenodo-version doi="10.5281/zenodo.6617815" >}}
+- Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6617815" >}}
+- Last search: {{< zenodo-last-search doi="10.5281/zenodo.6617815" type="last-search" >}}
+- Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6617815" text="↗" >}}
+- Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6617815" text="↗" >}}
+- Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6617815" >}}
 
 <br>
 
@@ -76,5 +76,11 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 URL docs.metapsy.org/depression/psych-vs-ctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.6617815" >}}.
 </div>
+
+<br>
+
+#### Download
+
+{{< zenodo-download doi="10.5281/zenodo.6617815" >}}
 
 <br></br>

@@ -261,3 +261,23 @@ td > code {
     background: var(--color-tip) !important;
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 125px;
+    overflow-x: hidden;
+    width: 350px;
+    background-color: var(--body-color) !important;
+    border-radius: 0 !important;
+    font-size: 15px !important;
+    margin: 0px !important;
+    margin-top: 5px !important;
+}
+
+.scrollable-menu > li::before {
+    display: none;
+}
+
+.download-btn {
+    background-color: var(--bs-primary);
+    color: var(--body-color);
+}

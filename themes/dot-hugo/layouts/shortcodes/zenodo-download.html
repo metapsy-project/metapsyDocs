@@ -1,0 +1,153 @@
+<button
+  type="button"
+  class="btn btn-default dropdown-toggle download-btn"
+  data-toggle="dropdown"
+>
+  <i class="ti-download"></i>&nbsp;&nbsp;Download .CSV
+  <span class="caret"></span>
+</button>
+<ul class="dropdown-menu scrollable-menu" role="menu" id="ph-download"></ul>
+
+<script>
+  // Download function
+  function downloadData(version) {
+    function makeid(length) {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    }
+    function download(filename, text) {
+      var element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      element.setAttribute("download", filename);
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+
+    var randID = makeid(10);
+    // fetch zenodo API entries
+    fetch(
+      "https://zenodo.org/api/deposit/depositions?" +
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        // loop through all elements
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+          // if DOI fits, do operation
+          if (searchDOI === inputDOI) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              version +
+              "/data" +
+              ".csv";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var dataName = repoName + "_v" + version;
+                var dataName =
+                  dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
+                download(dataName, d);
+              });
+          }
+        }
+      });
+  }
+
+  // Create selector element
+  fetch(
+    "https://zenodo.org/api/deposit/depositions?" +
+      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+      "&all_versions=1"
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((post) => {
+      var html = "";
+      // loop through all elements
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        if (searchDOI === inputDOI) {
+          // get last modified date
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          const d = new Date(post[i].created);
+          const month = months[d.getMonth()];
+          const year = d.getFullYear();
+          const day = d.getDate();
+          modDate = month + " " + day + ", " + year;
+
+          // get zenodo DOI badge
+          var badgeUrl = post[i].links.badge;
+          var href = post[i].links.doi;
+          if (i === 0) {
+            var insertText =
+              '<li><a onclick="downloadData(' +
+              "'" +
+              post[i].metadata.version +
+              "'" +
+              ')"><strong> Version ' +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              "; latest)</a></li>";
+            html = html + insertText;
+          } else {
+            var insertText =
+              '<li><a onclick="downloadData(' +
+              "'" +
+              post[i].metadata.version +
+              "'" +
+              ')"><strong> Version ' +
+              post[i].metadata.version +
+              "</strong> (" +
+              String(modDate) +
+              ")</a></li>";
+            html = html + insertText;
+          }
+        }
+      }
+      var div = document.getElementById("ph-download");
+      div.id = randID;
+      div.innerHTML = html;
+    });
+</script>
