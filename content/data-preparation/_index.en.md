@@ -1,7 +1,7 @@
 ---
 title: Data Preparation
 date: 2018-12-29T11:02:05.000+06:00
-icon: ti-layout-grid4
+icon: fa-solid fa-binary-circle-check
 description: Formatting requirements for databases
 type: docs
 weight: "3"
