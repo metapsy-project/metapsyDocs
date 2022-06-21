@@ -33,7 +33,7 @@ The `metapsyData` package serves as an API-like interface that allows accessing 
 
 {{< notice info >}} The `metapsyData` package has its own documentation page, which you can find [here](https://data.metapsy.org/). {{</notice>}}
 
-<br></br>
+<br>
 
 #### `metapsyTools`
 
