@@ -64,6 +64,7 @@ h1, h2, h3 {
 
 .section-title {
     color: var(--bs-primary) !important;
+    display: none;
 }
 
 p {
@@ -289,4 +290,8 @@ td > code {
 
 .overlay::before {
     top: 10px !important;
+}
+
+.section.text-center.pb-0 {
+    margin-bottom: -30px;
 }
