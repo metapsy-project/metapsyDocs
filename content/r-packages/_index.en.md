@@ -18,3 +18,7 @@ Collectively, these packages create an integrated meta-analysis workflow. Using 
 * data can be synthesized using a variety of meta-analytic models;
 * meta-regression, publication bias/small-study-effect and subgroup analysis models can be applied;
 * summary tables of the results can be generated, which can easily be copied to e.g. MS Word.
+
+![](/uploads/flow-r.png)
+
+<br></br>
