@@ -1,7 +1,7 @@
 ---
 title: General Information
 date: '2018-12-29T11:02:05.000+06:00'
-icon: 'fa-light fa-square-info'
+icon: 'fa-solid fa-square-info'
 description: Overview the Metapsy project
 type: docs
 weight: 1
