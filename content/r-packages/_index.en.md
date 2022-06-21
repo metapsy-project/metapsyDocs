@@ -23,4 +23,14 @@ Collectively, these packages create an integrated meta-analysis workflow. Using 
 
 ![](/uploads/flow-r.png)
 
+<br>
+
+#### `metapsyData`
+
+<br>
+
+#### `metapsyTools`
+
+<br>
+
 <br></br>
