@@ -1,7 +1,7 @@
 ---
 title: R Packages
 date: 2018-12-28T11:02:05.000+06:00
-icon: ti-package
+icon: fa-brands fa-r-project
 description: Technical Documentation for the Metapsy R Packages
 type: docs
 weight: "5"
