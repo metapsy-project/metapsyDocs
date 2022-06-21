@@ -13,11 +13,11 @@ weight: "5"
 
 The Metapsy infrastructure includes **two R packages**. The first package, **`metapsyData`**, allows researchers to directly access all Metapsy databases from an R environment. The second package, **`metapsyTools`**, provides state-of-the-art meta-analysis functions that can be applied to databases without any prior preprocessing steps. Collectively, these packages create an integrated meta-analysis workflow. Using the packages:
 
-* the latest update or older versions of a database can be downloaded;
-* databases can be filtered to address specific research questions;
-* data can be synthesized using a variety of meta-analytic models;
-* meta-regression, small-study-effect and subgroup analysis models can be applied;
-* summary tables of the results can be generated, which can easily be copied to e.g. MS Word.
+* 📥 the latest update or older versions of a database can be downloaded;
+* [👉](https://emojipedia.org/backhand-index-pointing-right/) databases can be filtered to address specific research questions;
+* [📊](https://emojipedia.org/bar-chart/) data can be synthesized using a variety of meta-analytic models;
+* [📈](https://emojipedia.org/chart-increasing/) meta-regression, small-study-effect and subgroup analysis models can be applied;
+* [📋](https://emojipedia.org/clipboard/) summary tables of the results can be generated, which can easily be copied to e.g. MS Word.
 
 ![](/uploads/flow-r.png)
 
