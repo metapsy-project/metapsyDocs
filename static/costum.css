@@ -261,6 +261,11 @@ td > code {
     background: var(--color-tip) !important;
 }
 
+.notices.info p {
+    border-top: 30px solid var(--color-tip-above) !important;
+    background: var(--color-tip) !important;
+}
+
 .scrollable-menu {
     height: auto;
     max-height: 125px;
