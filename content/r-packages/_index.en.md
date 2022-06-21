@@ -35,6 +35,19 @@ The `metapsyData` package has its own documentation page, which you can find [he
 
 #### `metapsyTools`
 
-<br>
+The `metapsyTools` package facilitates the calculation of effect sizes (i.e. Hedges’ $g$ or risk ratios) and meta-analyses for data included in Metapsy databases (or databases adhering to the same format).
+
+The package consists of **two modules**:
+
+1. A module to check if data follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/), and to calculate effect sizes for all possible study comparisons (**preparation** module);
+2. A module to select relevant comparisons for a specific meta-analysis, calculate the results (including subgroup analyses, meta-regression, small-study-effect/publication bias analyses), and generate tables (**analysis** module).
+
+The idea is to use the two modules in different contexts. For example, the **preparation** module can be used every time the database is updated to gather all information, calculate effect sizes, and bring the data into a format suitable for further analyses.
+
+This final dataset then builds the basis for the **analysis** module. Researchers simply have to filter out the comparisons that are relevant for their investigation, and can then use functions of the package to run a full meta-analysis.
+
+Databases downloaded into the R environment using `metapsyData` can be analyzed "out of the box" using the analysis module in `metapsyTools`.
+
+The `metapsyTools` package has its own documentation page, which you can find [here](https://tools.metapsy.org/). 
 
 <br></br>
