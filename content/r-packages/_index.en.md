@@ -52,6 +52,6 @@ This final dataset then builds the basis for the **analysis** module. Researcher
 
 Databases downloaded into the R environment using `metapsyData` can be analyzed "out of the box" using the analysis module in `metapsyTools`.
 
-{{< notice info >}} Like `metapsyData`, the `metapsyTools` package has its own documentation page, which you can find [here](https://tools.metapsy.org/). {{</notice>}}
+{{< notice info >}} Like `metapsyData`, the `metapsyTools` package has its own documentation page. You can find it [here](https://tools.metapsy.org/). {{</notice>}}
 
 <br></br>
