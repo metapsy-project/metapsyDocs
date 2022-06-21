@@ -31,7 +31,7 @@ The Metapsy infrastructure includes **two R packages**. The first package, **`me
 
 The `metapsyData` package serves as an API-like interface that allows accessing the Metapsy databases from R. Using the `getData()` function, available databases can be downloaded based on their [shorthand](https://docs.metapsy.org/databases/#shorthand). The function returns an R6 `metapsyDatabase` object, which contains extensive metadata and helper functions along with the actual dataset.
 
-{{< notice note >}} The `metapsyData` package has its own documentation page, which you can find [here](https://data.metapsy.org/). {{</notice>}}
+{{< notice info >}} The `metapsyData` package has its own documentation page, which you can find [here](https://data.metapsy.org/). {{</notice>}}
 
 <br></br>
 
@@ -52,6 +52,6 @@ This final dataset then builds the basis for the **analysis** module. Researcher
 
 Databases downloaded into the R environment using `metapsyData` can be analyzed "out of the box" using the analysis module in `metapsyTools`.
 
-{{< notice note >}} The `metapsyTools` package has its own documentation page, which you can find [here](https://tools.metapsy.org/). {{</notice>}}
+{{< notice info >}} The `metapsyTools` package has its own documentation page, which you can find [here](https://tools.metapsy.org/). {{</notice>}}
 
 <br></br>
