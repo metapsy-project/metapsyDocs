@@ -11,6 +11,8 @@ weight: "5"
 
 <img src="/uploads/code-header.jpg" width="100%" style="border-radius: 5px;">
 
+<br>
+
 The Metapsy infrastructure includes **two R packages**. The first package, **`metapsyData`**, allows researchers to directly access all Metapsy databases from an R environment. The second package, **`metapsyTools`**, provides state-of-the-art meta-analysis functions that can be applied to databases without any prior preprocessing steps. Collectively, these packages create an integrated meta-analysis workflow. Using the packages:
 
 * 📥 the latest update or older versions of a database can be **downloaded**;
