@@ -13,7 +13,8 @@ The Metapsy infrastructure includes **two R packages**. The first package, **`me
 
 Collectively, these packages create an integrated meta-analysis workflow. Using the packages:
 
-* the latest update, or older versions of a database can be downloaded;
+* the latest update or older versions of a database can be downloaded;
 * databases can be filtered to address specific research questions;
-* data can be synthesized using a variety of meta-analytic models
-* 
+* data can be synthesized using a variety of meta-analytic models;
+* meta-regression, publication bias/small-study-effect and subgroup analysis models can be applied;
+* summary tables of the results can be generated, which can easily be copied to e.g. MS Word.
