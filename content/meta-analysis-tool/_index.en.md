@@ -10,3 +10,5 @@ weight: "6"
 ***
 
 <img src="/uploads/ma-tool.jpg" width="100%" style="border-radius: 5px;">
+
+{{< notice info >}} A technical description of the Metapsy [online meta-analysis tool](https://www.metapsy.org/#databases) can be found in the "About" section of each application. We are currently working on a fully revised new version of the meta-analysis tool. This new version will be documented on this page. {{</notice>}}
