@@ -43,8 +43,8 @@ The `metapsyTools` package facilitates the calculation of effect sizes (i.e. Hed
 
 The package consists of **two modules**:
 
-1. A module to check if data follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/), and to calculate effect sizes for all possible study comparisons (**preparation** module);
-2. A module to select relevant comparisons for a specific meta-analysis, calculate the results (including subgroup analyses, meta-regression, small-study-effect/publication bias analyses), and generate tables (**analysis** module).
+* A module to check if data follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/), and to calculate effect sizes for all possible study comparisons (**preparation** module);
+* A module to select relevant comparisons for a specific meta-analysis, calculate the results (including subgroup analyses, meta-regression, small-study-effect/publication bias analyses), and generate tables (**analysis** module).
 
 The idea is to use the two modules in different contexts. For example, the **preparation** module can be used every time the database is updated to gather all information, calculate effect sizes, and bring the data into a format suitable for further analyses.
 
