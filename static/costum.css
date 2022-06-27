@@ -295,3 +295,7 @@ td > code {
 .section.text-center.pb-0 {
     margin-bottom: -30px;
 }
+
+header.banner #documentationText {
+    display: none;
+}
