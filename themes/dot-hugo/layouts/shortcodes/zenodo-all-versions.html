@@ -15,7 +15,7 @@
   fetch(
     "https://zenodo.org/api/deposit/depositions?" +
       "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1"
+      "&all_versions=1&size=10000"
   )
     .then((data) => {
       return data.json();

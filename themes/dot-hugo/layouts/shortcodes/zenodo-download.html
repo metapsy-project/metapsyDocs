@@ -40,12 +40,14 @@
     // fetch zenodo API entries
     fetch(
       "https://zenodo.org/api/deposit/depositions?" +
-        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
+        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+        "&all_versions=1&size=10000"
     )
       .then((data) => {
         return data.json();
       })
       .then((post) => {
+        var firstIter = true;
         // loop through all elements
         for (let i = 0; i < post.length; i++) {
           var searchDOI = post[i].conceptdoi?.toString() || "";
@@ -70,7 +72,10 @@
                 var dataName = repoName + "_v" + version;
                 var dataName =
                   dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
-                download(dataName, d);
+                if (firstIter === true) {
+                  download(dataName, d);
+                  firstIter = false;
+                }
               });
           }
         }
@@ -81,13 +86,14 @@
   fetch(
     "https://zenodo.org/api/deposit/depositions?" +
       "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1"
+      "&all_versions=1&size=10000"
   )
     .then((data) => {
       return data.json();
     })
     .then((post) => {
       var html = "";
+      var first = true;
       // loop through all elements
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
@@ -119,7 +125,7 @@
           // get zenodo DOI badge
           var badgeUrl = post[i].links.badge;
           var href = post[i].links.doi;
-          if (i === 0) {
+          if (first === true) {
             var insertText =
               '<li><a onclick="downloadData(' +
               "'" +
@@ -131,6 +137,7 @@
               String(modDate) +
               "; latest)</a></li>";
             html = html + insertText;
+            var first = false;
           } else {
             var insertText =
               '<li><a onclick="downloadData(' +

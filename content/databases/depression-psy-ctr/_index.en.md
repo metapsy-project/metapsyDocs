@@ -1,7 +1,8 @@
 +++
-keywords = ["suicide"]
-title = "Depression: Psychotherapy versus Control"
+keywords = []
+title = "Depression: Psychotherapy vs. Control"
 weight = 1
+
 +++
 
 {{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
@@ -30,7 +31,7 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 
 #### Metadata
 
-- Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6617815" >}}
+- <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6617815" >}}
 - Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6617815" >}}
 - Latest Version: {{< zenodo-version doi="10.5281/zenodo.6617815" >}}
 - Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6617815" >}}
@@ -51,16 +52,21 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 
 <br>
 
+#### Study References
+
+{{< zenodo-references doi="10.5281/zenodo.6617815" >}}
+
+<br>
+
 #### Further Information
 
 <ul>
-  <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
-  <li>Definitions of types of psychotherapies that are included in the METAPSY database<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
-  <li>The database flowchart<a href="/uploads/flowchart.pdf" target="_blank"> ↗</a></li>
-  <li>References of the 661 studies in the database<a href="/uploads/references.pdf" target="_blank"> ↗</a></li>
-  <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
-  <li>A paper summarizing main results of the METAPSY database<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-  <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
+<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
+<li>Definitions of types of psychotherapies that are included in the METAPSY database<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
+<li>The database flowchart<a href="/uploads/flowchart.pdf" target="_blank"> ↗</a></li>
+<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
+<li>A paper summarizing main results of the METAPSY database<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
+<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
 </ul>
 
 <br>
@@ -68,11 +74,11 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 #### Citation
 
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
-{{< zenodo-authors doi="10.5281/zenodo.6617815" >}} 
-{{< zenodo-last-updated-year doi="10.5281/zenodo.6617815" >}}. 
-<i>Title or Name of the Database</i> 
+{{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
+{{< zenodo-last-updated-year doi="10.5281/zenodo.6617815" >}}.
+<i>Title or Name of the Database</i>
 (Version {{< zenodo-version doi="10.5281/zenodo.6617815" >}}).
-URL docs.metapsy.org/depression/psych-vs-ctr. 
+URL docs.metapsy.org/depression/psych-vs-ctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.6617815" >}}.
 </div>
 

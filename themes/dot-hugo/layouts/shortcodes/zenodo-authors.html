@@ -40,13 +40,26 @@
             repoVersion +
             "/metadata/" +
             "authors" +
-            ".txt";
+            ".json";
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              d = JSON.parse(d);
+              text = "";
+              for (let i = 0; i < d.length; i++) {
+                text =
+                  text +
+                  d[i].name +
+                  ' <a target="_blank" href="https://orcid.org/' +
+                  d[i].orcid +
+                  '"><img style="display: inline-block !important"' +
+                  ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
+                  ", ";
+              }
+              text = text.slice(0, -2);
               var div = document.getElementById("ph-authors");
               div.id = div.id + "-" + randID;
-              div.innerHTML = d;
+              div.innerHTML = text;
             });
         }
       }

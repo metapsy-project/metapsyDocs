@@ -7,45 +7,39 @@
   </url><url>
     <loc>/general/components/</loc>
   </url><url>
+    <loc>/data-preparation/format/</loc>
+  </url><url>
     <loc>/databases/depression-inpatients/</loc>
   </url><url>
     <loc>/databases/depression-psy-ctr/</loc>
-  </url><url>
-    <loc>/data-preparation/first-page/</loc>
-  </url><url>
-    <loc>/deployment/first-page/</loc>
-  </url><url>
-    <loc>/meta-analysis-tool/first-page/</loc>
-  </url><url>
-    <loc>/r-packages/first-page/</loc>
   </url><url>
     <loc>/databases/suicide/</loc>
   </url><url>
     <loc>/databases/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
-    <loc>/data-preparation/elements/</loc>
+    <loc>/general/contribute/</loc>
   </url><url>
-    <loc>/deployment/elements/</loc>
-  </url><url>
-    <loc>/meta-analysis-tool/elements/</loc>
-  </url><url>
-    <loc>/r-packages/elements/</loc>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+    <loc>/data-preparation/metadata/</loc>
   </url><url>
     <loc>/data-preparation/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
-    <loc>/deployment/</loc>
+    <loc>/general/helpful-links/</loc>
+  </url><url>
+    <loc>/data-preparation/upload/</loc>
+  </url><url>
+    <loc>/release/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url><url>
+    <loc>/r-packages/</loc>
+    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/meta-analysis-tool/</loc>
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
-    <loc>/r-packages/</loc>
-    <lastmod>2018-12-28T11:02:05+06:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
   </url><url>

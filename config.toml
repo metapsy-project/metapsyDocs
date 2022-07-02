@@ -99,41 +99,41 @@ weight = 1
 # Dropdown menu
 [[Languages.en.menu.main]]
 weight = 4
-name = "documentation"
+name = "topics"
 hasChildren = true
 
   [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "General Information"
   url = "general/"
   weight = 1
 
   [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "Databases"
   url = "databases/"
   weight = 2
   
    [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "Data Preparation"
   url = "data-preparation/"
   weight = 3
 
   [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "Data Release"
   url = "release/"
   weight = 4
 
   [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "R Packages"
   url = "r-packages/"
   weight = 5
 
   [[Languages.en.menu.main]]
-  parent = "documentation"
+  parent = "topics"
   name = "Meta-Analysis Tool"
   url = "meta-analysis-tool/"
   weight = 6

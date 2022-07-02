@@ -38,6 +38,7 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 - Last search: {{< zenodo-last-search doi="10.5281/zenodo.6617815" type="last-search" >}}
 - Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6617815" text="↗" >}}
 - Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6617815" text="↗" >}}
+- Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6617815" text="↗" >}}
 - Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6617815" >}}
 
 <br>
@@ -52,13 +53,18 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 
 <br>
 
+#### Study References
+
+{{< zenodo-references doi="10.5281/zenodo.6617815" >}}
+
+<br>
+
 #### Further Information
 
 <ul>
 <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
 <li>Definitions of types of psychotherapies that are included in the METAPSY database<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
 <li>The database flowchart<a href="/uploads/flowchart.pdf" target="_blank"> ↗</a></li>
-<li>References of the 661 studies in the database<a href="/uploads/references.pdf" target="_blank"> ↗</a></li>
 <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>A paper summarizing main results of the METAPSY database<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
