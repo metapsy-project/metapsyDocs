@@ -300,3 +300,6 @@ td > code {
 header.banner #documentationText {
     display: none;
 }
+@media only screen and (max-width: 800px) {
+    #documentationText{ display: none !important; }
+ }
