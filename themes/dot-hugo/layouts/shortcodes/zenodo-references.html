@@ -12,15 +12,25 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1&size=10000"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  // get api response if not in sessions storage
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      // Run function code
       // loop through all elements
       var first = true;
       for (let i = 0; i < post.length; i++) {
@@ -71,5 +81,60 @@
           }
         }
       }
-    });
+    }
+    saveApiResponse();
+  } else {
+    // Retrieve from session storage
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    // loop through all elements
+    var first = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+      if (searchDOI === inputDOI) {
+        if (first === true) {
+          // get references JSON
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            repoVersion +
+            "/metadata/" +
+            "references" +
+            ".json";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              d = JSON.parse(d);
+              var keys = Object.keys(d);
+              var html =
+                " <div " +
+                "style='background-color: var(--body-color);" +
+                " padding: 20px 20px 20px 20px;" +
+                "overflow-y: scroll; height:300px;'><ul " +
+                "style='font-size: 90% !important;'>";
+              for (let j = 0; j < keys.length; j++) {
+                var addHtml =
+                  "<li><strong>" +
+                  String(keys[j]) +
+                  ":</strong> " +
+                  String(d[keys[j]]) +
+                  "</li>";
+                html = html + addHtml;
+              }
+              html = html + "</ul></div>";
+              var div = document.getElementById("ph-references");
+              div.id = randID;
+              div.innerHTML = html;
+            });
+          first = false;
+        }
+      }
+    }
+  }
 </script>

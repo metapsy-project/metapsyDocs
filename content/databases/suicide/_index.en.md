@@ -38,6 +38,7 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 - Last search: {{< zenodo-last-search doi="10.5281/zenodo.6617815" type="last-search" >}}
 - Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6617815" text="↗" >}}
 - Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6617815" text="↗" >}}
+- Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6617815" text="↗" >}}
 - Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6617815" >}}
 
 <br>

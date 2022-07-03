@@ -12,15 +12,26 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1&size=10000"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+
+  // get api response if not in sessions storage
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      // Run function code
       // start div
       var html =
         "<button class='accbutton' style='border: none;" +
@@ -60,7 +71,8 @@
           modDate = month + " " + day + ", " + year;
 
           // get zenodo DOI badge
-          var badgeUrl = post[i].links.badge;
+          var badgeUrl =
+            "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
           var href = post[i].links.doi;
           var insertText =
             "<li><strong> Version " +
@@ -81,5 +93,71 @@
       var div = document.getElementById("ph-all-versions");
       div.id = randID;
       div.innerHTML = html;
-    });
+    }
+    saveApiResponse();
+  } else {
+    // Retrieve from session storage
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    // start div
+    var html =
+      "<button class='accbutton' style='border: none;" +
+      " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+      "Browse all versions</button> <div " +
+      "style='background-color: var(--body-color);" +
+      " padding: 20px 20px 20px 20px;" +
+      "overflow-y: scroll; height:150px;'><ul " +
+      "style='font-size: 90% !important;'>";
+
+    // loop through all elements
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+      if (searchDOI === inputDOI) {
+        // get last modified date
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const d = new Date(post[i].created);
+        const month = months[d.getMonth()];
+        const year = d.getFullYear();
+        const day = d.getDate();
+        modDate = month + " " + day + ", " + year;
+
+        // get zenodo DOI badge
+        var badgeUrl =
+          "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
+        var href = post[i].links.doi;
+        var insertText =
+          "<li><strong> Version " +
+          post[i].metadata.version +
+          "</strong> (" +
+          String(modDate) +
+          "): " +
+          "<a target='_blank' href='" +
+          href +
+          "'><img src='" +
+          badgeUrl +
+          "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+        html = html + insertText;
+      }
+    }
+    html = html + "</ul></div>";
+    var div = document.getElementById("ph-all-versions");
+    div.id = randID;
+    div.innerHTML = html;
+  }
 </script>
