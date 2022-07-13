@@ -21,7 +21,7 @@ keywords:
 
 ***
 
-Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). Metapsy **provides access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
+Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). Metapsy aims to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
 
 <br>
 
