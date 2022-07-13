@@ -1,7 +1,7 @@
 ---
 title: General Information
 date: '2018-12-29T11:02:05.000+06:00'
-icon: 'ti-light-bulb'
+icon: ti-light-bulb
 description: Overview the Metapsy project
 type: docs
 weight: 1
@@ -21,7 +21,7 @@ keywords:
 
 ***
 
-Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
+Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). Metapsy **provides access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
 
 <br>
 
