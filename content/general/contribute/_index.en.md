@@ -8,15 +8,15 @@ weight = 2
 
 <div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400" title="Vrije Universiteit Amsterdam"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/tum-logo2.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/tum-logo2.png" width="600" height="400" title="Technical University Munich"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/fau.jpg" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/fau.jpg" width="600" height="400" title="Friederich-Alexander-University Erlangen-Nuremberg"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/va2.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/va2.png" width="600" height="400" title="U.S. Department of Veterans Affairs"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/verona-1.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/verona-1.png" width="600" height="400" title="University of Verona"> </div>
 
-<div class="logo-gallery"> <img src="/uploads/113.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/113.png" width="600" height="400" title="113 Zelfmoordpreventie"> </div>
 
 </div>
 
