@@ -31,7 +31,7 @@ Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cui
 
 Metapsy aims to provide a unified framework for all available meta-analytic data across different indications and settings. All meta-analytic databases...
 
-* ... are created by university-based research teams using a state-of-the-art methodology
+* ... are created by university-based research teams using state-of-the-art methodology
 * ... are updated regularly, at least once each year.
 * ... are formatted using an identical and transparent coding scheme.
 * ... receive extensive documentation and metadata, including versioning and persistent data identifiers, following the [FAIR principles](https://www.go-fair.org/fair-principles/).
