@@ -6,7 +6,7 @@ weight = 2
 +++
 <div class="gallery">
 
-<div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400" alt="Vrije Universiteit Amsterdam"> </div>
+<div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400" title="Vrije Universiteit Amsterdam"> </div>
 
 <div class="logo-gallery"> <img src="/uploads/tum-logo2.png" width="600" height="400"> </div>
 
