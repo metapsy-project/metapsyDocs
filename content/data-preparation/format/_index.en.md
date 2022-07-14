@@ -36,9 +36,9 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 ***
 
-There are several variables which are included in every Metapsy database. These variables are required, for example, to **uniquely identify** each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using [`metapsyTools`](https://tools.metapsy.org); in particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data).
+There are several variables which are included in every Metapsy database. These variables are required, for example, to **uniquely identify** each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using [{metapsyTools}](https://tools.metapsy.org); in particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data).
 
-We differentiate between standard (I.) study design, (II.) effect size data, and (III.) `metapsyData` variables. Apart from these standard variables, additional (often database-specific) variables are included.
+We differentiate between standard (I.) study design, (II.) effect size data, and (III.) {metapsyData} variables. Apart from these standard variables, additional (often database-specific) variables are included.
 
 <br>
 
