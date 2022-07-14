@@ -8,7 +8,7 @@ weight = 1
 
 Metapsy consists of a collection of software tools and websites. Together, this infrastructure provides an integrated meta-analysis workflow.
 
-<img src="/uploads/metapsy-flow.png" width="100%" style="border-radius: 5px; margin-top: 20px; margin-bottom: 20px;">
+<img src="/uploads/metapsy-flow.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 
 **Components of the Metapsy data flow:**
 
