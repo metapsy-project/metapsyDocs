@@ -12,6 +12,8 @@ Two GET requests are defined for the Metapsy API. The `list_data` request allows
   
 All response bodies are JSON encoded. No authentication is required to use the API. The API has a rate limit, and we kindly ask users to restrict requests to once per minute.
 
+<br></br>
+
 **Further Information:**
 - 📄 API Documentation (OAS3) [↗](https://metapsy.org/api) 
 - 🕹️ API Live Demo [↗](https://app.swaggerhub.com/apis-docs/t38169/metapsy/1.0.0)
