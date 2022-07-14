@@ -100,15 +100,15 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 **(d)** Pre-calculated Hedges' $g$
 
-* **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
-* **`g_se`**: Standard error of $g$, viz. $\\sqrt{V_g}$.
+* **`precalc_g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
+* **`precalc_g_se`**: Standard error of $g$, viz. $\\sqrt{V_g}$.
 
 <br>
 
 **(e)** Pre-calculated log-risk ratio
 
-* **`log_rr`**: The pre-calculated value of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
-* **`log_rr_se`**: The standard error of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
+* **`precalc_log_rr`**: The pre-calculated value of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
+* **`precalc_log_rr_se`**: The standard error of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
 
 <br>
 
