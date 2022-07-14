@@ -44,7 +44,7 @@ Using a Github integration, all releases are automatically indexed in [Zenodo](h
 * **Database DOI**. The Zenodo system refers to this as the "concept identifier". It is an overall DOI for all versions of the database that will always resolve to the latest version.
 * **Version DOI**. This is a version-specific DOI that allows referencing specific states of the database in the past.
 
-![](/uploads/release-flow.png)
+<img src="/uploads/release-flow.png" width="100%" style="border-radius: 5px;">
 
 Once indexed in Zenodo, the released database and its metadata is automatically propagated to other components of the Metapsy infrastructure, including the [database documentation entry](https://docs.metapsy.org/databases/), [`metapsyData`](https://data.metapsy.org), and the [Metapsy API](https://docs.metapsy.org/r-packages/api/). This means that the new database version is publicly available to the entire research community. Preferred citations included in each database documentation entry are also automatically updated to reflect the year and version of the new release. This process is partially handled via the [Zenodo REST API](https://developers.zenodo.org/).
 
