@@ -16,7 +16,7 @@ All response bodies are JSON encoded. No authentication is required to use the A
 
 **Further Information:**
 
-* 📄 API Documentation (OAS3) [↗](https://metapsy.org/api)
+* 📄 API Documentation ([OAS3](https://swagger.io/specification/)) [↗](https://metapsy.org/api)
 * 🕹️ API Live Demo [↗](https://app.swaggerhub.com/apis-docs/t38169/metapsy/1.0.0)
 
 <br></br>
