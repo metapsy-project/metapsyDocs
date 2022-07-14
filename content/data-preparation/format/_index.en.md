@@ -59,7 +59,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 
 <br>
 
-**II. Effect Size Data Variables**
+**II. Effect Size Data Variables** 📐
 
 ***
 
@@ -112,7 +112,7 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 <br>
 
-**III. `metapsyTools` Variables**
+**III. `metapsyTools` Variables** 📦
 
 ***
 
@@ -130,7 +130,7 @@ The Metapsy database standard includes nine additional variables that all start 
 
 <br>
 
-**IV. Additional Variables**
+**IV. Additional Variables** [🎒](https://emojipedia.org/backpack/)
 
 ***
 
