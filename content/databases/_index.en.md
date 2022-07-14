@@ -47,6 +47,6 @@ Each released database is automatically indexed using [**Zenodo**](https://www.z
 
 ***
 
-As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in [**{metapsyData}**](https://www.metapsy.org/r-package) to retrieve a specific database using R.
+As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in [**`metapsyData`**](https://www.metapsy.org/r-package) to retrieve a specific database using R.
 
 <br></br>
