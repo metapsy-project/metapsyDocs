@@ -48,7 +48,7 @@ Overall, the Metapsy project tries to make meta-analytic psychotherapy research 
 
 ***
 
-<img src="/uploads/mard2.png" width="100%" style="border-radius: 5px; margin-top: 20px; margin-bottom: 20px;">
+<img src="/uploads/mard2.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 
 Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).
 
