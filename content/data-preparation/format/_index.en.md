@@ -78,14 +78,14 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 <br>
 
-**(b)** Continuous Outcome Data
+**(b)** Within-Group Change Data
 
-* **`mean_arm1`**: Mean of the outcome in the first arm at the measured time point.
-* **`mean_arm2`**: Mean of the outcome in the second arm at the measured time point.
-* **`sd_arm1`**: Standard deviation of the outcome in the first arm at the measured time point.
-* **`sd_arm2`**: Standard deviation of the outcome in the second arm at the measured time point.
-* **`n_arm1`**: Sample size in the first trial arm.
-* **`n_arm2`**: Sample size in the second trial arm.
+* **`mean_change_arm1`**: Mean score change between baseline and the  measured time point in the first arm.
+* **`mean_change_arm2`**: Mean score change between baseline and the  measured time point in the second arm.
+* **`sd_change_arm1`**: Standard deviation of the mean change in the first arm.
+* **`sd_change_arm2`**: Standard deviation of the mean change in the second arm.
+* **`n_change_arm1`**: Sample size in the first trial arm.
+* **`n_change_arm2`**: Sample size in the second trial arm.
 
 <br>
 
