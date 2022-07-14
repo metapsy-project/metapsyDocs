@@ -63,7 +63,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 
 ***
 
-Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
+Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (e) is specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
 
 <br>
 
@@ -78,7 +78,18 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 <br>
 
-**(b)** Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
+**(b)** Continuous Outcome Data
+
+* **`mean_arm1`**: Mean of the outcome in the first arm at the measured time point.
+* **`mean_arm2`**: Mean of the outcome in the second arm at the measured time point.
+* **`sd_arm1`**: Standard deviation of the outcome in the first arm at the measured time point.
+* **`sd_arm2`**: Standard deviation of the outcome in the second arm at the measured time point.
+* **`n_arm1`**: Sample size in the first trial arm.
+* **`n_arm2`**: Sample size in the second trial arm.
+
+<br>
+
+**(c)** Dichotomous Outcome Data (Response, Remission, Deterioration, ...)
 
 * **`event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm.
 * **`event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
@@ -87,14 +98,14 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 <br>
 
-**(c)** Pre-calculated Hedges' $g$
+**(d)** Pre-calculated Hedges' $g$
 
 * **`g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
 * **`g_se`**: Standard error of $g$, viz. $\\sqrt{V_g}$.
 
 <br>
 
-**(d)** Pre-calculated log-risk ratio
+**(e)** Pre-calculated log-risk ratio
 
 * **`log_rr`**: The pre-calculated value of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
 * **`log_rr_se`**: The standard error of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
