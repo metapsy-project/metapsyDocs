@@ -9,7 +9,7 @@ weight: "4"
 ---
 ***
 
-Once uploaded to a Github repository, databases are officially released from the `master` branch.
+Once uploaded to a Github repository, databases are officially released from the `master`/`main` branch.
 
 ![](/uploads/releases.png)
 
@@ -42,10 +42,10 @@ Therefore, if a database was updated (via a new search) in 2023, the first relea
 Using a Github integration, all releases are automatically indexed at [Zenodo](https://zenodo.org/). Zenodo automatically issues a Digital Object Identifier (DOI) for the latest release. For each database, there are two types of DOIs:
 
 * **Database DOI**. The Zenodo system refers to this as the "concept identifier". It is an overall DOI for all versions of the database that will always resolve to the latest version.
-* **Version DOI**. This is a version-specific DOI that allows referencing specific states of the database in the past. 
+* **Version DOI**. This is a version-specific DOI that allows referencing specific states of the database in the past.
 
 ![](/uploads/release-flow.png)
 
-Once indexed in Zenodo, the released database and its metadata is automatically propagated to other components of the Metapsy infrastructure, including the [database documentation entry](https://docs.metapsy.org/databases/) and The [`metapsyData`](https://data.metapsy.org). This means that the new database version is publicly available to the entire research community. Preferred citations included in each database documentation entry are also automatically updated to reflect the year and version of the new release. This process is partially handled via the [Zenodo REST API](https://developers.zenodo.org/). 
+Once indexed in Zenodo, the released database and its metadata is automatically propagated to other components of the Metapsy infrastructure, including the [database documentation entry](https://docs.metapsy.org/databases/) and The [`metapsyData`](https://data.metapsy.org). This means that the new database version is publicly available to the entire research community. Preferred citations included in each database documentation entry are also automatically updated to reflect the year and version of the new release. This process is partially handled via the [Zenodo REST API](https://developers.zenodo.org/).
 
 <br></br>
