@@ -21,7 +21,7 @@ The Metapsy infrastructure includes **two R packages**. The first package, **`me
 * [📈](https://emojipedia.org/chart-increasing/) meta-regression, small-study-effect and subgroup **analysis models** can be applied;
 * [📋](https://emojipedia.org/clipboard/) **summary tables** of the results can be generated, which can easily be copied to e.g. MS Word.
 
-![](/uploads/flow-r.png)
+<img src="/uploads/r-flow.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 
 <br>
 
