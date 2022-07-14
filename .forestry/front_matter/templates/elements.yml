@@ -21,3 +21,5 @@ pages:
 - content/databases/suicide/_index.en.md
 - content/general/components/_index.en.md
 - content/general/contribute/_index.en.md
+- content/r-packages/api/_index.en.md
+- content/r-packages/r-packages/_index.en.md
