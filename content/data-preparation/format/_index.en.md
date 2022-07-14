@@ -8,7 +8,7 @@ weight = 1
 
 All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the metadata provided for the data. Database repositories themselves also follow a predefined folder structure.
 
-All database objects (datasets, metadata) are provided in a **machine-readable format** (.csv, .json, .txt). This ensures interoperability with other Metapsy software components (e.g. the automatized [database documentation](/databases), `metapsyData`), as well as external software and programming languages in general.
+All database objects (datasets, metadata) are provided in a **machine-readable format** (.csv, .json, .txt). This ensures interoperability with other Metapsy software components (e.g. the automatized [database documentation](/databases), [{metapsyData}](https://data.metapsy.org/), the [Metapsy API](https://docs.metapsy.org/r-packages/api/)), as well as external software and programming languages in general.
 
 Collectively, we refer to this set of data formatting and storage rules as the **Metapsy data standard**.
 
@@ -51,7 +51,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 * **`condition_arm2`**: Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. `wlc` for all trial arms that employed a waitlist control group).
 * **`specification_arm1`**: In multiarm trials, this variable provides a "specification" of the type of treatment used in the first arm. This variable is set to `NA` (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of CBT interventions, face-to-face and Internet-based, this variable would be set to `f2f` and `Internet`, respectively.
 * **`specification_arm2`**: In multiarm trials, this variable provides a "specification" of the type of treatment used in the second arm. This variable is set to `NA` (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of control groups, waitlist and placebo, this variable would be set to `wl` and `plac`, respectively.
-* **`outcome_type`**: This variable encodes the type of outcome that builds the basis of the comparison, e.g. `response`, `remission` or `deterioration`. This is variable is particularly relevant for dichotomous effect size data, because it indicates what the event counts refer to. The `msd` factor level is used for outcomes expressed in means and standard deviations. 
+* **`outcome_type`**: This variable encodes the type of outcome that builds the basis of the comparison, e.g. `response`, `remission` or `deterioration`. This is variable is particularly relevant for dichotomous effect size data, because it indicates what the event counts refer to. The `msd` factor level is used for outcomes expressed in means and standard deviations.
 * **`instrument`**: This variable describes the instrument through which the relevant outcome was measured.
 * **`time`**: The measurement point at which the outcome was obtained (e.g. `post` or `follow-up`).
 * **`time_weeks`**: The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).
@@ -116,7 +116,6 @@ The Metapsy database standard includes nine additional variables that all start 
 * **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
 * **`.totaln_arm1`**: Total sample size in the first trial arm.
 * **`.totaln_arm2`**: Total sample size in the second trial arm.
-
 
 <br>
 
