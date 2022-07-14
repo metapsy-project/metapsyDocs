@@ -42,7 +42,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 
 <br>
 
-**I. Study Design Variables** [🗒️](https://emojipedia.org/spiral-notepad/)
+**I. Study Design Variables** 📝
 
 ***
 
