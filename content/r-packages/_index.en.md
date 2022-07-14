@@ -15,6 +15,6 @@ weight: "5"
 
 After being released, all Metapsy databases (including all released versions) can be retrieved and analyzed using two designated R packages, `metapsyData` and `metapsyTools`. We also provide a lightweight API, which can be used to export released databases and their metadata as [JSON](https://www.json.org/json-en.html) objects. 
 
-This documentation section describes the two R packages, as well as the Metapsy API.
+This documentation section provides further information on the two R packages, as well as the Metapsy API.
 
 <br></br>
