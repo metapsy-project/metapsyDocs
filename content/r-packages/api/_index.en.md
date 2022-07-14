@@ -12,7 +12,7 @@ Two [GET requests](https://restfulapi.net/http-methods/#get) are defined for the
 
 All response bodies are JSON encoded. No authentication is required to use the API. The API has a rate limit, and we kindly ask users to restrict requests to once per minute.
 
-<br></br>
+</br>
 
 **Further Information:**
 
