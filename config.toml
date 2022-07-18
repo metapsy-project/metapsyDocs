@@ -128,7 +128,7 @@ hasChildren = true
 
   [[Languages.en.menu.main]]
   parent = "topics"
-  name = "R Packages"
+  name = "R Packages & API"
   url = "r-packages/"
   weight = 5
 
