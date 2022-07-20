@@ -33,7 +33,7 @@ Metapsy aims to provide a unified framework for all available meta-analytic data
 
 * ... are created by university-based research teams using state-of-the-art methodology
 * ... are updated regularly, at least once each year.
-* ... are formatted using an i[dentical and transparent coding scheme](https://docs.metapsy.org/data-preparation/format/).
+* ... are formatted using an [identical and transparent coding scheme](https://docs.metapsy.org/data-preparation/format/).
 * ... receive extensive [documentation](https://docs.metapsy.org/databases/) and [metadata](https://docs.metapsy.org/data-preparation/metadata/), including [versioning](https://docs.metapsy.org/release/#versioning) and persistent [data identifiers](https://docs.metapsy.org/databases/#digital-object-identifier) (DOIs), following the [FAIR principles](https://www.go-fair.org/fair-principles/).
 * ... are made [publically available](https://docs.metapsy.org/release/) via data repositories (Github, Zenodo). Researchers can also easily access the databases using the designated R package [`metapsyData`](https://data.metapsy.org).
 * ... can be analyzed using state-of-the-art meta-analytic methods, either using the [`metapsyTools`](https://tools.metapsy.org) R package or using an [Online Meta-Analysis Tool](/meta-analysis-tool/).
