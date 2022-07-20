@@ -303,3 +303,13 @@ header.banner #documentationText {
 @media only screen and (max-width: 800px) {
     #documentationText{ display: none !important; }
  }
+
+ ::-moz-selection { /* Code for Firefox */
+    background: #ACCEF7 !important;
+    color: revert !important;
+  }
+  
+  ::selection {
+    background: #ACCEF7 !important;
+    color: revert !important;
+  }
