@@ -50,7 +50,7 @@ Overall, the Metapsy project tries to make meta-analytic psychotherapy research 
 
 <img src="/uploads/mard2.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 
-Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs; <a href="https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf" target="_blank">Cuijpers, Miguel, Papola, Harrer & Karyotaki, 2022</a>).
+Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs; <a href="https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf" target="_blank">Cuijpers et al., 2022</a>).
 
 > MARDs are living systematic reviews of an entire research domain. In contrast to conventional systematic reviews and meta-analyses, MARDs do not focus on one specific population, intervention, comparison, or outcome (PICO), but on an entire research field that is too broad to be covered by one meta-analysis.
 
