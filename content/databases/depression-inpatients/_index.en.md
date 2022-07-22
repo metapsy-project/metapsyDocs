@@ -80,7 +80,7 @@ An online meta-analysis tool for this database will made available soon.
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 {{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.6881064" >}}.
-<i>Title or Name of the Database</i>
+<i>Database of depression psychotherapy trials in inpatient settings. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.6881064" >}}).
 URL docs.metapsy.org/depression/psych-vs-ctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.6881064" >}}.
