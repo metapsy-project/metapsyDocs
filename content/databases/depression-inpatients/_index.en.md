@@ -16,7 +16,7 @@ The Inpatients dataset is part of the meta-analytic research domain ([MARD](http
 
 This dataset includes psychotherapy vs. control (`psy vs ctr`) and psychotherapy vs. psychotherapy comparisons (`psy vs psy`; this information is included in the `comparison` column). It also includes multiple outcome calculation types within studies (e.g. means and SD *and* remission).
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
 
 <br>
 
