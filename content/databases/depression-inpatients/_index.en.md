@@ -68,8 +68,8 @@ An online meta-analysis tool for this database will made available soon.
 <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
 <li>Definitions of types of psychotherapies that are included in the depression Metapsy domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
 <li>The database flowchart<a href="/uploads/flowchart.pdf" target="_blank"> ↗</a></li>
-<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>A paper summarizing main results of the Metapsy depresssion domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
+<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
 </ul>
 
