@@ -4,10 +4,9 @@ title = "Depression: Inpatients"
 weight = 1
 
 +++
+{{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 
-{{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
-
----
+***
 
 <br>
 
@@ -19,7 +18,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 #### Affiliated Institutions
 
-Vrije Universiteit Amsterdam, Other University
+Vrije Universiteit Amsterdam
 
 <br>
 
@@ -31,31 +30,31 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 
 #### Metadata
 
-- <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6617815" >}}
-- Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6617815" >}}
-- Latest Version: {{< zenodo-version doi="10.5281/zenodo.6617815" >}}
-- Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6617815" >}}
-- Last search: {{< zenodo-last-search doi="10.5281/zenodo.6617815" type="last-search" >}}
-- Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6617815" text="↗" >}}
-- Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6617815" text="↗" >}}
-- Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6617815" text="↗" >}}
-- Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6617815" >}}
+* <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6881064" >}}
+* Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6881064" >}}
+* Latest Version: {{< zenodo-version doi="10.5281/zenodo.6881064" >}}
+* Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6881064" >}}
+* Last search: {{< zenodo-last-search doi="10.5281/zenodo.6881064" type="last-search" >}}
+* Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6881064" text="↗" >}}
+* Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6881064" text="↗" >}}
+* Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6881064" text="↗" >}}
+* Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
-{{< zenodo-all-versions doi="10.5281/zenodo.6617815" >}}
+{{< zenodo-all-versions doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
 #### Variable Description
 
-{{< zenodo-variable-description doi="10.5281/zenodo.6617815" >}}
+{{< zenodo-variable-description doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
 #### Study References
 
-{{< zenodo-references doi="10.5281/zenodo.6617815" >}}
+{{< zenodo-references doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
@@ -75,18 +74,18 @@ A simplified version of this database can be analyzed at <a href="https://www.me
 #### Citation
 
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
-{{< zenodo-authors doi="10.5281/zenodo.6617815" >}}
-{{< zenodo-last-updated-year doi="10.5281/zenodo.6617815" >}}.
+{{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
+{{< zenodo-last-updated-year doi="10.5281/zenodo.6881064" >}}.
 <i>Title or Name of the Database</i>
-(Version {{< zenodo-version doi="10.5281/zenodo.6617815" >}}).
+(Version {{< zenodo-version doi="10.5281/zenodo.6881064" >}}).
 URL docs.metapsy.org/depression/psych-vs-ctr.
-DOI {{< zenodo-doi doi="10.5281/zenodo.6617815" >}}.
+DOI {{< zenodo-doi doi="10.5281/zenodo.6881064" >}}.
 </div>
 
 <br>
 
 #### Download
 
-{{< zenodo-download doi="10.5281/zenodo.6617815" >}}
+{{< zenodo-download doi="10.5281/zenodo.6881064" >}}
 
 <br></br>
