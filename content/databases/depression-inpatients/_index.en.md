@@ -28,7 +28,7 @@ Vrije Universiteit Amsterdam
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/depression-psychotherapy" target="_blank">metapsy.org/depression-psychotherapy</a>.
+An online meta-analysis tool for this database will made available soon.
 
 <br>
 
