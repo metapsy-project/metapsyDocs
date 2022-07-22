@@ -12,7 +12,11 @@ weight = 1
 
 #### General Description
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+The Inpatients dataset is part of the meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for depression. The dataset contains study information and effect size data of depression psychotherapy trials in inpatients. Metadata and other information on this dataset is provided on this website.
+
+This dataset includes psychotherapy vs. control (`psy vs ctr`) and psychotherapy vs. psychotherapy comparisons (`psy vs psy`; this information is included in the `comparison` column). It also includes multiple outcome calculation types within studies (e.g. means and SD *and* remission).
+
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
 
 <br>
 
