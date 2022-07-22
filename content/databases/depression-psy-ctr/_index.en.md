@@ -4,7 +4,7 @@ title = "Depression: Psychotherapy vs. Control"
 weight = 1
 
 +++
-{{< notice info >}} The documentation entry for this database is under construction and more information will be published soon. {{</notice>}}
+{{< notice info >}} The documentation entry for this database is **under construction** and more information will be **published soon**. {{</notice>}}
 
 <br>
 
