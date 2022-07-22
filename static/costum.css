@@ -313,3 +313,8 @@ header.banner #documentationText {
     background: #ACCEF7 !important;
     color: revert !important;
   }
+
+  .citation {
+    line-height: 200%;
+  }
+  
