@@ -48,19 +48,19 @@ if (dateSection.length > 0){
 }
 
 // add construction bar
-var constructionDiv = document.createElement('div');
-var body = document.body;
-var header = document.getElementsByClassName('banner')[0];
-constructionDiv.setAttribute('id', 'construction');
-constructionDiv.innerHTML = 
-    '<i class="fa-solid fa-helmet-safety"></i>' +
-    '<strong> This site is under construction.</strong>';
-constructionDiv.style.backgroundColor = "var(--bs-info)";
-constructionDiv.style.color = "white";
-constructionDiv.style.textAlign = "center";
-constructionDiv.style.fontSize = "18px";
-constructionDiv.style.padding = "10px 0 10px 0";
-body.insertBefore(constructionDiv, body.firstChild);
+// var constructionDiv = document.createElement('div');
+// var body = document.body;
+// var header = document.getElementsByClassName('banner')[0];
+// constructionDiv.setAttribute('id', 'construction');
+// constructionDiv.innerHTML = 
+//    '<i class="fa-solid fa-helmet-safety"></i>' +
+//    '<strong> This site is under construction.</strong>';
+// constructionDiv.style.backgroundColor = "var(--bs-info)";
+// constructionDiv.style.color = "white";
+// constructionDiv.style.textAlign = "center";
+// constructionDiv.style.fontSize = "18px";
+// constructionDiv.style.padding = "10px 0 10px 0";
+// body.insertBefore(constructionDiv, body.firstChild);
 
 // add gradient bar
 var header = document.getElementsByTagName('header');
