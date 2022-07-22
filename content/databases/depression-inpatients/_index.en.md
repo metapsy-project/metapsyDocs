@@ -82,7 +82,7 @@ An online meta-analysis tool for this database will made available soon.
 {{< zenodo-last-updated-year doi="10.5281/zenodo.6881064" >}}.
 <i>Database of depression psychotherapy trials in inpatient settings. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.6881064" >}}).
-URL docs.metapsy.org/databases/depression-inpatients/.
+URL docs.metapsy.org/databases/depression-inpatients.
 DOI {{< zenodo-doi doi="10.5281/zenodo.6881064" >}}.
 </div>
 
