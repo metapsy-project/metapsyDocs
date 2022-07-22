@@ -1,9 +1,9 @@
 // Add costum metapsy logo
 var brand = document.getElementsByClassName('navbar-brand');
 brand[0].innerHTML = "<img src='/images/hexagon2.png' alt='logo' height='30px'>"+ 
-    "<span style='padding-right: 20px; padding-left: 10px'>METAPSY</span>" + 
-    "<span id='documentationText' style='border-left: 2px solid #dfdfdf;" +
-    " padding: 10px 0 10px 15px; font-family: var(--font-family),sans-serif; font-weight: 500 !important; color: var(--text-color)'>" +
+    "<span style='padding-right: 20px; padding-left: 10px; color: white'>METAPSY</span>" + 
+    "<span id='documentationText' style='border-left: 1px solid #adadad;" +
+    " padding: 10px 0 10px 15px; font-family: var(--font-family),sans-serif; font-weight: 500 !important; color: #adadad'>" +
     "Documentation</span>";
 brand[0].style.fontWeight = '500'; 
 
@@ -16,6 +16,7 @@ li.setAttribute('id', 'gh-logo-container');
 var innerLink = document.createElement('a');
 innerLink.href = "https://github.com/metapsy-project";
 innerLink.target = "_blank";
+innerLink.style = "color: white !important;";
 innerLink.classList.add('nav-link');
 innerLink.classList.add('text-dark');
 innerLink.setAttribute('id', 'gh-logo');
@@ -27,7 +28,7 @@ ul.appendChild(li);
 var navItem = document.getElementsByClassName('navbar-nav');
 navItem[0].firstChild.nextSibling.innerHTML = 
     "<a class='nav-link text-dark' href='https://docs.metapsy.org'>" + 
-    "<i class='ti-home'></i></a>"
+    "<i class='ti-home' style='color: white;'></i></a>"
 
 // Add mode switcher
 var switcher = document.createElement('li');
@@ -37,7 +38,7 @@ switcher.innerHTML = '<a href="#"' +
     'class="nav-link text-dark"' + 
     'onclick="toggleTheme()"' +
     'id="mode-switch-inner">' + 
-    '<i class="ti-shine" style="font-size: 170%;"></i>' +
+    '<i class="ti-shine" style="font-size: 170%; color: white;"></i>' +
     '</a>'
 navItem[0].appendChild(switcher);
 
@@ -86,15 +87,15 @@ function toggleTheme() {
        setTheme('theme-light');
    } else {
        setTheme('theme-dark');
-       var shine = body.getElementsByClassName('ti-shine');
-       shine[0].style.color = "var(--text-color-dark)";
+       //var shine = body.getElementsByClassName('ti-shine');
+       //shine[0].style.color = "var(--text-color-dark)";
    }
 }
 (function () {
    if (localStorage.getItem('theme') === 'theme-dark') {
        setTheme('theme-dark');
-       var shine = body.getElementsByClassName('ti-shine');
-       shine[0].style.color = "var(--text-color-dark)";
+       //var shine = body.getElementsByClassName('ti-shine');
+       //shine[0].style.color = "var(--text-color-dark)";
    } else {
        setTheme('theme-light');
    }

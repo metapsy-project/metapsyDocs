@@ -76,11 +76,6 @@ ul {
     text-align: left !important;
 }
 
-header {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-}
-
 .navbar-brand {
     font-family: "Lexend Tera" !important;
 }
@@ -242,7 +237,6 @@ header.banner.overlay.bg-cover {
 }
 
 .shadow-bottom {
-    box-shadow: 0 1px var(--col-shadow-1), 0 1px 6px var(--col-shadow-2) !important;
 }
 
 .ti-shine:visited {
@@ -318,3 +312,29 @@ header.banner #documentationText {
     line-height: 200%;
   }
   
+header.shadow-bottom.sticky-top.bg-white {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background-color: #222d32 !important;
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px rgba(59,64,69,1) !important;
+}
+
+header.banner.overlay.bg-cover > #strip {
+    margin-top: 0px !important;
+}
+
+span.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+a.nav-link.dropdown-toggle.text-dark {
+    color: white !important;
+}
+
+#content {
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px 3px rgba(59,64,69,0.12) !important;
+}
+
+.sidebar {
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px 3px rgba(59,64,69,0.05) !important;
+}
