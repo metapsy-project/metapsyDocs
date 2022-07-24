@@ -47,7 +47,6 @@
             link.innerText = "{{.Get `text`}}";
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
-            link.setAttribute("style", "color: unset !important");
             var div = document.getElementById("ph-github-release");
             div.id = div.id + "-" + randID;
             div.appendChild(link);
@@ -75,7 +74,6 @@
           link.innerText = "{{.Get `text`}}";
           link.setAttribute("href", href);
           link.setAttribute("target", "blank");
-          link.setAttribute("style", "color: unset !important");
           var div = document.getElementById("ph-github-release");
           div.id = div.id + "-" + randID;
           div.appendChild(link);
