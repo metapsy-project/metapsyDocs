@@ -27,7 +27,7 @@ ul.appendChild(li);
 // Change home button
 var navItem = document.getElementsByClassName('navbar-nav');
 navItem[0].firstChild.nextSibling.innerHTML = 
-    "<a class='nav-link text-dark' href='https://docs.metapsy.org'>" + 
+    "<a class='nav-link text-dark' href='https://www.metapsy.org'>" + 
     "<i class='ti-home' style='color: white;'></i></a>"
 
 // Add mode switcher
