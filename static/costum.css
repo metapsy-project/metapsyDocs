@@ -282,6 +282,24 @@ td > code {
     color: var(--body-color);
 }
 
+.expand-btn {
+    background-color: var(--bs-text);
+    color: var(--text-color);
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important; 
+}
+.expand-btn:hover {
+    color: var(--bs-primary) !important;
+    background-color: var(--bs-text) !important;
+}
+
+.card-body {
+    background-color: var(--body-color) !important;
+    padding: 0rem !important;
+}
+
 .overlay::before {
     top: 10px !important;
 }
@@ -296,6 +314,9 @@ header.banner #documentationText {
 
 @media only screen and (max-width: 800px) {
     #documentationText{ display: none !important; }
+    #flow-svg {
+       height: 250px !important;
+    }
  }
 
  ::-moz-selection { /* Code for Firefox */

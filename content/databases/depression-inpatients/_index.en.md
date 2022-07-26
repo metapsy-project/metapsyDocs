@@ -4,9 +4,10 @@ title = "Depression: Inpatients"
 weight = 1
 
 +++
+
 {{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 
-***
+---
 
 <br>
 
@@ -14,7 +15,7 @@ weight = 1
 
 The Inpatients dataset is part of the meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for depression. The dataset contains study information and effect size data of depression psychotherapy trials in inpatients. Metadata and other information on this dataset is provided on this website.
 
-This dataset includes psychotherapy vs. control (`psy vs ctr`) and psychotherapy vs. psychotherapy comparisons (`psy vs psy`; this information is included in the `comparison` column). It also includes multiple outcome calculation types within studies (e.g. means and SD *and* remission).
+This dataset includes psychotherapy vs. control (`psy vs ctr`) and psychotherapy vs. psychotherapy comparisons (`psy vs psy`; this information is included in the `comparison` column). It also includes multiple outcome calculation types within studies (e.g. means and SD _and_ remission).
 
 The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
 
@@ -34,15 +35,15 @@ An online meta-analysis tool for this database will made available soon.
 
 #### Metadata
 
-* <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6881064" >}}
-* Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6881064" >}}
-* Latest Version: {{< zenodo-version doi="10.5281/zenodo.6881064" >}}
-* Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6881064" >}}
-* Last search: {{< zenodo-last-search doi="10.5281/zenodo.6881064" type="last-search" >}}
-* Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6881064" text="↗" >}}
-* Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6881064" text="↗" >}}
-* Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6881064" text="↗" >}}
-* Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6881064" >}}
+- <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6881064" >}}
+- Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6881064" >}}
+- Latest Version: {{< zenodo-version doi="10.5281/zenodo.6881064" >}}
+- Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6881064" >}}
+- Last search: {{< zenodo-last-search doi="10.5281/zenodo.6881064" type="last-search" >}}
+- Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6881064" text="↗" >}}
+- Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6881064" text="↗" >}}
+- Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6881064" text="↗" >}}
+- Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
@@ -59,6 +60,14 @@ An online meta-analysis tool for this database will made available soon.
 #### Study References
 
 {{< zenodo-references doi="10.5281/zenodo.6881064" >}}
+
+<br>
+
+#### Database Flowchart
+
+Studies in the "inpatients" dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+
+{{< zenodo-flowchart doi="10.5281/zenodo.6881064" >}}
 
 <br>
 

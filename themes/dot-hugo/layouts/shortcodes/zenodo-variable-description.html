@@ -1,6 +1,23 @@
-<div style="overflow-y: scroll; height: 300px">
-  <span id="ph-variable-description"></span>
-</div>
+<span id="variable-description-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseVariableDescription"
+    role="button"
+    aria-expanded="false"
+  >
+    Show Variable Description<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseVariableDescription">
+    <div class="card card-body" style="padding: 0.15rem !important">
+      <div style="overflow-y: scroll; height: 300px">
+        <span id="ph-variable-description"></span>
+      </div>
+    </div>
+  </div>
+  <br />
+</span>
 <script>
   // random id generator function
   function makeid(length) {
