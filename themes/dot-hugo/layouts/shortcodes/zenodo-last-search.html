@@ -69,6 +69,10 @@
                   "November",
                   "December",
                 ];
+                d = new String(d);
+                if (d.length > 10) {
+                  d = d.substring(0, 10);
+                }
                 const date = new Date(d);
                 const month = months[date.getMonth()];
                 const year = date.getFullYear();
@@ -127,6 +131,10 @@
                 "November",
                 "December",
               ];
+              d = new String(d);
+              if (d.length > 10) {
+                d = d.substring(0, 10);
+              }
               const date = new Date(d);
               const month = months[date.getMonth()];
               const year = date.getFullYear();
