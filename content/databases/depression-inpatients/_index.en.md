@@ -4,10 +4,9 @@ title = "Depression: Inpatients"
 weight = 1
 
 +++
-
 {{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 
----
+***
 
 <br>
 
@@ -35,15 +34,15 @@ An online meta-analysis tool for this database will made available soon.
 
 #### Metadata
 
-- <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6881064" >}}
-- Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6881064" >}}
-- Latest Version: {{< zenodo-version doi="10.5281/zenodo.6881064" >}}
-- Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6881064" >}}
-- Last search: {{< zenodo-last-search doi="10.5281/zenodo.6881064" type="last-search" >}}
-- Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6881064" text="↗" >}}
-- Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6881064" text="↗" >}}
-- Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6881064" text="↗" >}}
-- Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6881064" >}}
+* <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.6881064" >}}
+* Number of Studies: {{< zenodo-number-studies doi="10.5281/zenodo.6881064" >}}
+* Latest Version: {{< zenodo-version doi="10.5281/zenodo.6881064" >}}
+* Last updated: {{< zenodo-last-updated doi="10.5281/zenodo.6881064" >}}
+* Last search: {{< zenodo-last-search doi="10.5281/zenodo.6881064" type="last-search" >}}
+* Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.6881064" text="↗" >}}
+* Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.6881064" text="↗" >}}
+* Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.6881064" text="↗" >}}
+* Database DOI: {{< zenodo-badge doi="10.5281/zenodo.6881064" >}}
 
 <br>
 
@@ -65,7 +64,7 @@ An online meta-analysis tool for this database will made available soon.
 
 #### Database Flowchart
 
-Studies in the "inpatients" dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+Studies in the "depression-inpatients" dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.6881064" >}}
 
