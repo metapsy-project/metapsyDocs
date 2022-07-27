@@ -22,7 +22,7 @@ The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-pr
 
 #### Affiliated Institutions
 
-Vrije Universiteit Amsterdam
+Vrije Universiteit Amsterdam, Technische Universität München
 
 <br>
 
