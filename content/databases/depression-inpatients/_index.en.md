@@ -28,7 +28,7 @@ Vrije Universiteit Amsterdam
 
 #### Online Meta-Analysis Tool
 
-An online meta-analysis tool for this database will made available soon.
+A simplified version of this database can be analyzed at [metapsy.org/depression-inpatients](https://www.metapsy.org/depression-inpatients).
 
 <br>
 
