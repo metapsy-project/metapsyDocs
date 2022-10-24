@@ -65,7 +65,7 @@ We are currently working on an online meta-analysis tool for this dataset, which
 
 #### Database Flowchart
 
-Studies in the "depression-anxiety-transdiagnostic" dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+Studies in the "depression-anxiety-transdiagnostic" dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below. Next to the searches in the bibliographic databases, we also checked the references of earlier meta-analyses on the topic to identify additional studies.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.7243836" >}}
 
@@ -79,14 +79,7 @@ Studies in the "depression-anxiety-transdiagnostic" dataset were extracted from 
 
 #### Citation
 
-<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
-{{< zenodo-authors doi="10.5281/zenodo.7243836" >}}
-{{< zenodo-last-updated-year doi="10.5281/zenodo.7243836" >}}.
-<i>Database of transdiagnostic psychotherapy trials for depression and anxiety. Part of the Metapsy project </i>
-(Version {{< zenodo-version doi="10.5281/zenodo.7243836" >}}).
-URL docs.metapsy.org/databases/depression-inpatients.
-DOI {{< zenodo-doi doi="10.5281/zenodo.7243836" >}}.
-</div>
+<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'> {{< zenodo-authors doi="10.5281/zenodo.7243836" >}} {{< zenodo-last-updated-year doi="10.5281/zenodo.7243836" >}}. <i>Database of transdiagnostic psychotherapy trials for depression and anxiety. Part of the Metapsy project </i> (Version {{< zenodo-version doi="10.5281/zenodo.7243836" >}}). URL [docs.metapsy.org/databases/depression-anxiety-transdiagnostic/](https://docs.metapsy.org/databases/depression-anxiety-transdiagnostic/ "https://docs.metapsy.org/databases/depression-anxiety-transdiagnostic/"). DOI {{< zenodo-doi doi="10.5281/zenodo.7243836" >}}. </div>
 
 <br>
 
