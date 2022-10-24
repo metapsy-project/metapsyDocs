@@ -1,6 +1,6 @@
 +++
 keywords = []
-title = "index.md"
+title = "Depression: Psychotherapy vs. Control"
 weight = 1
 
 +++
