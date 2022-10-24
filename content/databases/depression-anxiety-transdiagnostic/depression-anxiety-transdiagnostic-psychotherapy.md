@@ -1,5 +1,4 @@
 +++
-draft = true
 keywords = []
 title = "Depression & Anxiety: Transdiagnostic Psychotherapy"
 weight = 1
