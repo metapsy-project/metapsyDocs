@@ -1,6 +1,6 @@
 +++
 keywords = []
-title = "Depression/Anxiety: Transdiagnostic Psychotherapy"
+title = "Depression & Anxiety: Transdiagnostic Psychotherapy"
 weight = 1
 
 +++
