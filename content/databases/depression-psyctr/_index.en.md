@@ -88,7 +88,7 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 {{< zenodo-authors doi="10.5281/zenodo.7254845" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.7254845" >}}.
-<i>Database of depression psychotherapy trials in inpatient settings. Part of the Metapsy project </i>
+<i>Database of depression psychotherapy trials with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.7254845" >}}).
 URL docs.metapsy.org/databases/depression-inpatients.
 DOI {{< zenodo-doi doi="10.5281/zenodo.7254845" >}}.
