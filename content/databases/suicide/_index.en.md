@@ -16,6 +16,6 @@ Vrije Universiteit Amsterdam
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/suicide-prevention" target="_blank">metapsy.org/suicide-prevention</a>.
+A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/database/suicide-prevention" target="_blank">metapsy.org/suicide-prevention</a>.
 
 <br>
