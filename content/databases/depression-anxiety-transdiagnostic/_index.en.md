@@ -29,7 +29,7 @@ Vrije Universiteit Amsterdam, Technical University Munich
 
 #### Online Meta-Analysis Tool
 
-We are currently working on an online meta-analysis tool for this dataset, which will be available soon.
+A simplified version of this database can be analyzed at [metapsy.org/database/transdiagnostic-depression-anxiety](https://www.metapsy.org/database/transdiagnostic-depression-anxiety).
 
 <br>
 
