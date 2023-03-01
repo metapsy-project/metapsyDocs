@@ -24,6 +24,7 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'databases'
     folder: 'content/databases'
+    label: 'Databases'
     create: true
     editor:
       preview: true
