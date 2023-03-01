@@ -33,7 +33,7 @@ collections:
         widget: string
   - name: 'data-preparation'
     label: 'Data Preparation'
-    folder: 'content/databases'
+    folder: 'content/data-preparation'
     # adding a nested object will show the collection folder structure
     nested:
       depth: 100 # max depth to show in the collection tree
