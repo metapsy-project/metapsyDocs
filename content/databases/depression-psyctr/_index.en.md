@@ -1,9 +1,9 @@
-+++
-keywords = []
-title = "Depression: Psychotherapy vs. Control"
-weight = 1
-
-+++
+---
+keywords: []
+title: "Depression: Psychotherapy vs. Control"
+weight: 1
+url: depression-psyctr
+---
 {{< zenodo-authors doi="10.5281/zenodo.7254845" >}}
 
 ***
