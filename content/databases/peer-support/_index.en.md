@@ -17,7 +17,7 @@ The `data-peer-support` dataset is a meta-analytic research domain [MARD](https:
 
 This dataset includes peer support interventions (PSIs) vs. control (`PSIs vs ctr`) comparisons. Effect sizes are provided for three types of recovery outcomes at post-test: clinical recovery, personal recovery, and functional recovery. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. 
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted by two researchers. 
 
 <br>
 
