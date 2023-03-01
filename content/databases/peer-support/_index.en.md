@@ -6,13 +6,13 @@ url: databases/peer-support
 ---
 {{< zenodo-authors doi="10.5281/zenodo.7687898" >}}
 
-***
+- - -
 
 <br>
 
 #### General Description
 
-The `data-peer-support` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on peer support interventions for individuals with mental illness. More details about this database can be accessed in the published [meta-analysis](https://pubmed.ncbi.nlm.nih.gov/36066104/).
+The `data-peer-support` dataset is a meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on peer support interventions for individuals with mental illness. More details about this database can be accessed in the published [meta-analysis](https://pubmed.ncbi.nlm.nih.gov/36066104/).
 
 This dataset includes peer support interventions (PSIs) vs. control (`PSIs vs ctr`) comparisons. Effect sizes are provided for three types of recovery outcomes at post-test: clinical recovery, personal recovery, and functional recovery. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
 
