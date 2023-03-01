@@ -74,13 +74,7 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 
 <ul>
 
-<li>A paper reporting the results of a meta-analysis using the peer support database<a href="[https://www.sciencedirect.com/science/article/pii/S0165032721002421](https://www.cambridge.org/core/journals/psychological-medicine/article/effectiveness-of-peer-support-for-individuals-with-mental-illness-systematic-review-and-metaanalysis/92E0C2FA17EC13A33193B05CFB8D4179)"target="blank_"> ↗</a></li>_ 
-
-<li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" targe_="_blank"> ↗</a></li>
-<li>_Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
-<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li_>
-
-<li>The full protocol of the METAPSY depression MARD <a href="/uploads/protocol.pdf" target="_blank">↗</a></li> </ul>
+ <li>The full protocol of the METAPSY project, depression MARD <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>  <li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li> <li>A paper reporting the results of a meta-analysis using the peer support database<a href="[https://www.sciencedirect.com/science/article/pii/S0165032721002421](https://www.sciencedirect.com/science/article/pii/S0165032721002421 "https://www.sciencedirect.com/science/article/pii/S0165032721002421")" target="_blank"> ↗</a></li> <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li> <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li> </ul>
 
 <br>
 
