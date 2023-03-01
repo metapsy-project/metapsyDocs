@@ -24,6 +24,7 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'databases'
     label: 'Databases'
+    identifier_field: 'url'
     label_singular: 'Database'
     folder: 'content/databases'
     create: true
@@ -38,7 +39,7 @@ collections:
       - label: Body
         name: body
         widget: markdown
-      - label: URL
-        name: identifier_field
+      - label: url
+        name: url
         widget: string
 
