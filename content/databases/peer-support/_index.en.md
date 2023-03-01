@@ -4,7 +4,6 @@ title = "Peer Support"
 weight = 1
 
 +++
-
 {{< zenodo-authors doi="10.5281/zenodo.7687898" >}}
 
 ***
@@ -17,7 +16,7 @@ The `data-peer-support` dataset is a meta-analytic research domain [MARD](https:
 
 This dataset includes peer support interventions (PSIs) vs. control (`PSIs vs ctr`) comparisons. Effect sizes are provided for three types of recovery outcomes at post-test: clinical recovery, personal recovery, and functional recovery. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted by two researchers. 
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted by two researchers.
 
 <br>
 
@@ -74,12 +73,12 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 #### Further Information
 
 <ul>
-<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
-<li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
+
+<li>A paper reporting the results of a meta-analysis using the peer support database<a href="[https://www.sciencedirect.com/science/article/pii/S0165032721002421](https://www.cambridge.org/core/journals/psychological-medicine/article/effectiveness-of-peer-support-for-individuals-with-mental-illness-systematic-review-and-metaanalysis/92E0C2FA17EC13A33193B05CFB8D4179)" target="_blank"> ↗</a></li>_
 <li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
+<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
 <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
-<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
+<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li_>
 </ul>
 
 <br>
