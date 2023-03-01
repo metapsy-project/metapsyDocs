@@ -2,7 +2,7 @@
 keywords: []
 title: "Depression: Inpatients"
 weight: 1
-url: depression-inpatients
+url: databases/depression-inpatients
 ---
 {{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 
