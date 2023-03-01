@@ -38,4 +38,7 @@ collections:
       - label: Body
         name: body
         widget: markdown
+      - label: URL
+        name: identifier_field
+        widget: string
 
