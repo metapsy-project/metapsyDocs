@@ -23,10 +23,11 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'databases'
-    folder: 'content/databases'
     label: 'Databases'
+    folder: 'content/databases/'
     create: true
     editor:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
