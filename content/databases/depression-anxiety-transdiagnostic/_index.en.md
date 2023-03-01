@@ -2,7 +2,7 @@
 keywords: []
 title: "Depression & Anxiety: Transdiagnostic Psychotherapy"
 weight: 1
-url: depression-anxiety-transdiagnostic
+url: databases/depression-anxiety-transdiagnostic
 ---
 {{< zenodo-authors doi="10.5281/zenodo.7243836" >}}
 
