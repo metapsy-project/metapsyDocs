@@ -2,7 +2,7 @@
 keywords: []
 title: "Depression: Psychotherapy vs. Control"
 weight: 1
-url: depression-psyctr
+url: databases/depression-psyctr
 ---
 {{< zenodo-authors doi="10.5281/zenodo.7254845" >}}
 
