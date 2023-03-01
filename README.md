@@ -3,20 +3,17 @@
 This is the code repository of the [docs.metapsy.org](https://luxury-syrniki-6a53eb.netlify.app/) documentation website. 📄
 
 
-## Using the `forestry.io` CMS
+## Using the Netlify CMS
 
-The Metapsy documentation site is built using [Hugo](https://gohugo.io/). We have created a **Content Management System (CMS)** for the website, which is provided on [forestry.io](https://app.forestry.io/). If you want to have access to the backend, please approach [@cyplessen](www.github.com/cyplessen), [@clara-miguel](www.github.com/clara-miguel), or [@MathiasHarrer](www.github.com/MathiasHarrer).
+The Metapsy documentation site is built using [Hugo](https://gohugo.io/). We have created a **Content Management System (CMS)** for the website, which is provided on [docs.metapsy.org/admin](https://docs.metapsy.org/admin). If you want to have access to the backend, please approach [@cyplessen](www.github.com/cyplessen), [@clara-miguel](www.github.com/clara-miguel), or [@MathiasHarrer](www.github.com/MathiasHarrer).
 
 
-The forestry CMS provides you with a **code-free, visual text editor**. Using the CMS, you can change existing content, add new pages and entries, and upload media files. It is also possible to **preview** your changes (please note that this functionality may not work at times). After clicking on **save**, your changes are **automatically deployed to this [Github repository](www.github.com/metapsy-project/metapsyDocs)**, and then released to the website shortly after.
+The forestry CMS provides you with a **code-free, visual text editor**. Using the CMS, you can change existing content, add new pages and entries, and upload media files.  After clicking on **save**, set the status to **ready**, and then click on **publish now**. Your changes are then **automatically deployed to this [Github repository](www.github.com/metapsy-project/metapsyDocs)**, and then released to the website shortly after.
 
 ### Pre-Defined Elements
 
 Besides the visual editing functionality, there are also several **elements** that you can add to the documentation page via **shortcodes**. Here is an overview of the most important ones:
 
-#### Database Template Snippet
-
-In the visual editor on forestry, **snippets** can be added by clicking on the **{ }** button on the bottom. This way, one can include the **Template database** snippet. This is a template for database documentation entries; you only have to adapt the specific contents, as well as the database DOI.
 
 #### Zenodo DOI Badge 🛡️
 
@@ -166,7 +163,7 @@ raw Markdown line up prettily. You can also use inline Markdown.
 
 ### Media Upload
 
-Using the `Media` menu in forestry, you can upload images, PDFs, files etc. After the upload, files are saved in the `upload` folder. So, if you want to use e.g. `sample.pdf` in a documentation entry, you have to use `/uploads/sample.pdf` as the URL. 
+Using the `Media` menu in the CMS, you can upload images, PDFs, files etc. After the upload, files are saved in the `images/uploads` folder. So, if you want to use e.g. `sample.pdf` in a documentation entry, you have to use `images/uploads/sample.pdf` as the URL. 
 
 **Please note that all uploads go directly into the Github repo of this website!** So please only upload files that are actually used in the documentation, and make sure that the size is below 50MB.
 
