@@ -11,18 +11,6 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 logo_url: https://docs.metapsy.org/images/hexagon2.png
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'databases'
     label: 'Databases'
     identifier_field: 'url'
@@ -32,7 +20,7 @@ collections:
     # adding a nested object will show the collection folder structure
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: '{{url}}' # optional summary for a tree node, defaults to the inferred title field
+      summary: 'databases/{{url}}' # optional summary for a tree node, defaults to the inferred title field
     fields:
       - label: Title
         name: title
