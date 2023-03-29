@@ -9,7 +9,7 @@ keywords:
 title: Data Format
 weight: 1
 ---
-***
+- - -
 
 All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the meta-data provided for the data. Database repositories themselves also follow a predefined folder structure.
 
@@ -25,13 +25,13 @@ An example repository following the Metapsy data standard can be found [here](ht
 
 #### Overview
 
-***
+- - -
 
 All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.
 
 Metapsy databases only contain evidence from randomized-controlled trials (RCTs). If an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
 
-It is also possible for RCTs included in a database to provide more than one row; for example because the study was a **multi-arm trial**. In a multi-arm trial with $a$ arms, there are $\\frac{a!}{2!(a-2)!}$ unique trial arm comparisons. Therefore, typically, there will be one row for each unique trial arm comparison included in the data.
+It is also possible for RCTs included in a database to provide more than one row; for example because the study was a **multi-arm trial**. In a multi-arm trial with $a$ arms, there are $\frac{a!}{2!(a-2)!}$ unique trial arm comparisons. Therefore, typically, there will be one row for each unique trial arm comparison included in the data.
 
 It is also possible that one trial included more than one relevant outcome. In this case, one trial also provides more than one row in the database, with each row representing the results for a different outcome.
 
@@ -39,7 +39,7 @@ It is also possible that one trial included more than one relevant outcome. In t
 
 #### Standard Variables
 
-***
+- - -
 
 There are several variables which are included in every Metapsy database. These variables are required, for example, to **uniquely identify** each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using [`metapsyTools`](https://tools.metapsy.org); in particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data).
 
@@ -49,7 +49,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 
 **I. Study Design Variables** 📝
 
-***
+- - -
 
 * **`study`**: The study name, formatted as "last name of the first author", "year" (e.g. `"Smith, 2011"`).
 * **`condition_arm1`**: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. `cbt` for all trial arms that employed cognitive-behavioral psychotherapy).
@@ -66,7 +66,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 
 **II. Effect Size Data Variables** 📐
 
-***
+- - -
 
 Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (e) is specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain `NA` in that row.
 
@@ -106,28 +106,28 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 **(d)** Pre-calculated Hedges' $g$
 
 * **`precalc_g`**: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; [Hedges, 1981](https://journals.sagepub.com/doi/10.3102/10769986006002107)).
-* **`precalc_g_se`**: Standard error of $g$, viz. $\\sqrt{V_g}$.
+* **`precalc_g_se`**: Standard error of $g$, viz. $\sqrt{V_g}$.
 
 <br>
 
 **(e)** Pre-calculated log-risk ratio
 
-* **`precalc_log_rr`**: The pre-calculated value of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
-* **`precalc_log_rr_se`**: The standard error of the log-risk ratio $\\log_{e}\\text{RR}$, comparing events in the first arm to events in the second arm.
+* **`precalc_log_rr`**: The pre-calculated value of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.
+* **`precalc_log_rr_se`**: The standard error of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.
 
 <br>
 
 **III. `metapsyTools` Variables** 📦
 
-***
+- - -
 
 The Metapsy database standard includes nine additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
 
 * **`.id`**: Unique identifier for a trial arm comparison/row.
 * **`.g`**: Calculated effect size (Hedges' $g$).
 * **`.g_se`**: Standard error of Hedges' $g$.
-* **`.log_rr`**: Calculated effect size ($\\log_{e}\\text{RR}$).
-* **`.log_rr_se`**: Standard error of $\\log_{e}\\text{RR}$.
+* **`.log_rr`**: Calculated effect size ($\log_{e}\text{RR}$).
+* **`.log_rr_se`**: Standard error of $\log_{e}\text{RR}$.
 * **`.event_arm1`**: Number of events (responders, remission, deterioration cases) in the first trial arm.
 * **`.event_arm2`**: Number of events (responders, remission, deterioration cases) in the second trial arm.
 * **`.totaln_arm1`**: Total sample size in the first trial arm.
@@ -137,7 +137,7 @@ The Metapsy database standard includes nine additional variables that all start 
 
 **IV. Additional Variables** [🎒](https://emojipedia.org/backpack/)
 
-***
+- - -
 
 Metapsy databases also contain additional variables. These are used, for example, to collect subject-specific information that is not relevant for all indications. Nevertheless, there are several formatting rules that all variables/columns follow:
 
@@ -152,10 +152,10 @@ Metapsy databases also contain additional variables. These are used, for example
 
 ##### Data File Type
 
-***
+- - -
 
-Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files _always_ use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). 
-A﻿nother method to create the .csv files in the correct format is to export the dataset from R using the [<﻿tt>write.csv</tt>](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html) function.
+Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files *always* use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). 
+A﻿nother method to create the .csv files in the correct format is to export the dataset from R using the  <tt>[write.csv2](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html) function.
 
 An example can be seen below.
 
