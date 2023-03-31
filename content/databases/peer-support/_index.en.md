@@ -64,7 +64,7 @@ We are currently working on an online meta-analysis tool for this database, whic
 
 #### Database Flowchart
 
-Studies in the `depression-psyctr` dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+ The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.7687898" >}}
 
