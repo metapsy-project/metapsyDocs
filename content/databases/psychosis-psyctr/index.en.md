@@ -63,7 +63,7 @@ We are currently working on an online meta-analysis tool for this database, whic
 
 #### Database Flowchart
 
-Studies in the `depression-psyctr` dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+Studies in the `psychosis-psyctr` dataset were extracted from the larger database on psychological interventions for psychosis. The current dataset includes the subset of psychological interventions compared to control conditions.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.7782324" >}}
 
@@ -73,12 +73,11 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 
 <ul>
 <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
-<li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
 <li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
-<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
+<li>A network meta-analysis using the psychosis database <a href="https://www.sciencedirect.com/science/article/abs/pii/S0920996421000219" target="_blank"> ↗</a></li>
+<li>Published meta-analyses using the depression database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
-</ul>
+</ul
 
 <br>
 
