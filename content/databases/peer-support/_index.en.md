@@ -28,7 +28,7 @@ Radboud University Medical Center, Vrije Universiteit Amsterdam
 
 #### Online Meta-Analysis Tool
 
-We are currently working on an online meta-analysis tool for this database, which will be released soon.
+A simplified version of this database can be analyzed at [metapsy.org/database/psychosis](https://www.metapsy.org/database/psychosis).
 
 <br>
 
