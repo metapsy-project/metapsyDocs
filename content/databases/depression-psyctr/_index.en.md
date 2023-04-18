@@ -18,7 +18,6 @@ This dataset includes psychotherapy vs. control (`psy vs ctr`) comparisons. Effe
 
 The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
 
 <br>
 
