@@ -28,7 +28,7 @@ University of Verona
 
 #### Online Meta-Analysis Tool
 
-We are currently working on an online meta-analysis tool for this database, which will be released soon.
+A simplified version of this database can be analyzed at [metapsy.org/database/panic](https://www.metapsy.org/database/panic).
 
 <br>
 
