@@ -2,7 +2,7 @@
 keywords: []
 title: "Panic Disorder: Psychotherapy vs. Control"
 weight: 1
-url: https://docs.metapsy.org/databases/panic-psyctr/
+url: databases/panic-psyctr/
 ---
 {{< zenodo-authors doi="10.5281/zenodo.7863722" >}}
 
