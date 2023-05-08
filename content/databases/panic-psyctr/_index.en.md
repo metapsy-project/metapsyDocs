@@ -1,9 +1,9 @@
-+++
-keywords = []
-title = "Panic Disorder: Psychotherapy vs. Control"
-weight = 1
-
-+++
+---
+keywords: []
+title: "Panic Disorder: Psychotherapy vs. Control"
+weight: 1
+url: https://docs.metapsy.org/databases/panic-psyctr/
+---
 {{< zenodo-authors doi="10.5281/zenodo.7863722" >}}
 
 ***
@@ -12,11 +12,11 @@ weight = 1
 
 #### General Description
 
-The `panic-psyctr` dataset is part of the meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for panic disorder. This MARD is part of the [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials on psychotherapy for adult depression.
+The `panic-psyctr` dataset is part of the meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for panic disorder. This MARD is part of the [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials on psychotherapy for panic disorder (with and without agoraphobia) in adults.
 
 This dataset includes psychotherapy vs. control (`psy vs ctr`) comparisons. Effect sizes are provided for outcomes at post-test. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 2).
 
 <br>
 
@@ -76,7 +76,7 @@ Studies in the `panic-psyctr` dataset were extracted from the larger "panic diso
 <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
 <li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
 <li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
+<li>A meta-analysis based on the panic database<a href="https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/comparative-efficacy-and-acceptability-of-psychotherapies-for-panic-disorder-with-or-without-agoraphobia-systematic-review-and-network-metaanalysis-of-randomised-controlled-trials/28067C572FEE0D11A7F0E8EABCD182F4" target="_blank"> ↗</a></li>
 <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
 </ul>
