@@ -6,7 +6,7 @@ url: databases/depression-childadol-psyctr
 ---
 {{< zenodo-authors doi="10.5281/zenodo.8096828" >}}
 
-***
+- - -
 
 <br>
 
@@ -18,7 +18,6 @@ This dataset includes psychological interventions vs. control (`psy vs ctr`) com
 It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test.
 
 The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
-
 
 <br>
 
@@ -78,7 +77,7 @@ Studies in the `depression-childadol-psyctr` dataset were extracted from the lar
 <li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
 <li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
 <li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
+<li>A meta-analysis using the children and adolescents database<a href="https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2762981" target="_blank"> ↗</a></li>
 <li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
 </ul>
