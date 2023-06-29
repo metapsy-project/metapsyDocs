@@ -12,7 +12,7 @@ url: databases/depression-childadol-psyctr
 
 #### General Description
 
-The `depression-childadol-psyctr` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on psychological interventions for treating depression in children and adolescents. 
+The `depression-childadol-psyctr` dataset is a meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on psychological interventions for treating depression in children and adolescents. 
 
 This dataset includes psychological interventions vs. control (`psy vs ctr`) comparisons. 
 It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test.
