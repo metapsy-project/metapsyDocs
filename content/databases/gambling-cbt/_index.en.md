@@ -1,6 +1,6 @@
 ---
 keywords: []
-title: "Cognitive Behavioral Techniques for Gambling"
+title: "Gambling: Cognitive Behavioral Techniques vs. Control"
 weight: 1
 url: databases/gambling-cbt
 ---
@@ -44,6 +44,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/g
 * Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.8115993" text="↗" >}}
 * Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.8115993" text="↗" >}}
 * Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.8115993" text="↗" >}}
+* {{< license >}}
 * Database DOI: {{< zenodo-badge doi="10.5281/zenodo.8115993" >}}
 
 <br>

@@ -20,7 +20,7 @@ This page provides documentation entries for all databases included in Metapsy.
 
 - - -
 
-Entries are ordered alphabetically by indication. An additional specification is provided after a colon if multiple databases are available for one indication.
+Entries are ordered alphabetically by indication. An additional specification is provided after a colon if datasets focus on a specific comparison or other subset.
 
 <br>
 
