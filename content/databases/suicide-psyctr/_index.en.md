@@ -43,7 +43,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/s
 * Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.8364508" text="↗" >}}
 * Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.8364508" text="↗" >}}
 * Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.8364508" text="↗" >}}
-* License: ODC-By v1.0 <a h﻿ref="https://opendatacommons.org/licenses/by/summary/" target="_blank">↗</a>
+* {{< license >}}
 * Database DOI: {{< zenodo-badge doi="10.5281/zenodo.8364508" >}}
 
 <br>
