@@ -12,11 +12,11 @@ url: databases/suicide-psyctr
 
 #### General Description
 
-The `depression-psyctr` dataset is part of the meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for depression. This MARD is part of the [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials on psychotherapy for adult depression.
+The `data-suicide-psyctr` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) on psychotherapy for suicidal ideation and suicide attempts. This MARD is part of the  [Metapsy project](https://www.metapsy.org/). 
 
-This dataset includes psychotherapy vs. control (`psy vs ctr`) comparisons. Effect sizes are provided for depression outcomes at post-test. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
+The dataset contains study information and effect size data of trials that report the effect of psychotherapy on suicidal ideation, suicide attempts (including self-harm leading to hospitalisation) or completed suicides. This dataset includes psychotherapy vs. control ('psy vs ctr') comparisons. Effect sizes are provided for outcomes at post-test. Suicidal ideation and suicide attempts are different outcomes and are analysed separately.
 
-The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted by two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 2).
 
 
 <br>
@@ -43,6 +43,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/s
 * Search String (Latest Version): {{< zenodo-search-string doi="10.5281/zenodo.8364508" text="↗" >}}
 * Data Repository (Latest Version): {{< zenodo-github-release doi="10.5281/zenodo.8364508" text="↗" >}}
 * Preregistration (Research Domain): {{< zenodo-registration doi="10.5281/zenodo.8364508" text="↗" >}}
+* License: ODC-By v1.0 <a h﻿ref="https://opendatacommons.org/licenses/by/summary/" target="_blank">↗</a>
 * Database DOI: {{< zenodo-badge doi="10.5281/zenodo.8364508" >}}
 
 <br>
@@ -65,7 +66,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/s
 
 #### Database Flowchart
 
-Studies in the `depression-psyctr` dataset were extracted from the larger "depression psychotherapy" database. The study flow of this database can be found below.
+Studies in the `suicide-psyctr` dataset were extracted from the larger "p﻿sychological interventions for suicide prevention" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.8364508" >}}
 
@@ -74,12 +75,7 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 #### Further Information
 
 <ul>
-<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
-<li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
-<li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
-<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
-<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
+<li>A paper summarizing the methodology of the "p﻿sychological interventions for suicide prevention" database<a href="https://bmjopen.bmj.com/content/10/12/e037566" target="_blank">↗</a></li>
 </ul>
 
 <br>
@@ -89,9 +85,9 @@ Studies in the `depression-psyctr` dataset were extracted from the larger "depre
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 {{< zenodo-authors doi="10.5281/zenodo.8364508" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.8364508" >}}.
-<i>Database of depression psychotherapy trials with control conditions. Part of the Metapsy project </i>
+<i>Database of psychological interventions for suicide prevention trials with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.8364508" >}}).
-URL docs.metapsy.org/databases/depression-psyctr.
+URL docs.metapsy.org/databases/suicide-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.8364508" >}}.
 </div>
 
