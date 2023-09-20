@@ -360,6 +360,11 @@ a.nav-link.dropdown-toggle.text-dark {
     box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px 3px rgba(59,64,69,0.05) !important;
 }
 
+.col-lg-3 > .sidebar {
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
 /* Tooltip container */
 .tooltip {
     position: relative;
