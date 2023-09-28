@@ -890,3 +890,15 @@ pre code::-webkit-scrollbar-thumb {
   color: var(--white-color);
 }
 
+
+
+.sidebar::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: lightgray;
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
