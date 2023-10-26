@@ -3,7 +3,7 @@ keywords: []
 title: "PTSD: Psychotherapy vs. Control"
 weight: 1
 url: databases/ptsd-psyctr/
-hidden: true
+hidden: false
 ---
 {{< zenodo-authors doi="10.5281/zenodo.10027042" >}}
 

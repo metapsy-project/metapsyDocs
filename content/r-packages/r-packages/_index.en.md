@@ -63,6 +63,6 @@ The application automatically runs a test to identify potential formatting issue
 Lastly, users can check if a meta-analysis can be run with `metapsyTools` using the formatted data (5), and it is possible to download the final dataset (6). 
 
 ![](/uploads/validator.webp)
-
+ 
 
 <br>
