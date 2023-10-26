@@ -24,6 +24,8 @@ The Metapsy infrastructure includes **two R packages**. The first package, **`me
 
 The `metapsyData` package serves as an API-like interface that allows accessing the Metapsy databases from R. Using the `getData()` function, available databases can be downloaded based on their [shorthand](https://docs.metapsy.org/databases/#shorthand). The function returns an R6 `metapsyDatabase` object, which contains extensive metadata and helper functions along with the actual dataset.
 
+Using the `listData()` function in `metapsyData`, it is possible to list all datasets that are currently available, as well as their shorthands. Databases and shorthands are also presented on the [Metapsy website](https://www.metapsy.org/database).
+
 {{< notice info >}} The `metapsyData` package has its own documentation page, which you can find [here](https://data.metapsy.org/). {{</notice>}}
 
 <br>
@@ -47,4 +49,20 @@ Databases downloaded into the R environment using `metapsyData` can be analyzed 
 
 {{< notice info >}} Like `metapsyData`, the `metapsyTools` package has its own documentation page. You can find it [here](https://tools.metapsy.org/). {{</notice>}}
 
-<br></br>
+
+<br>
+
+#### Data Validator
+
+***
+
+The preparation module of the `metapsyTools` package has also been implemented in a digital web application, the [**Metapsy data validator**](https://www.metapsy.dev/data-validator/). This tools allows to upload an existing dataset whose compatibility with the Metapsy data standard should be checked (see 1 in the figure below). 
+
+The application automatically runs a test to identify potential formatting issues (2), which can be resolved using the graphical user interface (3). The tools then calculates all effect sizes for the dataset and saves them in the correct format (4). 
+
+Lastly, users can check if a meta-analysis can be run with `metapsyTools` using the formatted data (5), and it is possible to download the final dataset (6). 
+
+![](/uploads/validator.webp)
+
+
+<br>

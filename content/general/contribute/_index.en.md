@@ -20,15 +20,31 @@ weight = 2
 
 </div>
 
-* Pim Cuijpers, Vrije Universiteit Amsterdam
-* Eirini Karyotaki, Vrije Universiteit Amsterdam
-* Wouter van Ballegooijen, Vrije Universiteit Amsterdam
-* Clara Miguel Sanz, Vrije Universiteit Amsterdam
-* C. Yves Plessen, Charité Berlin & Vrije Universiteit Amsterdam
-* Josine Rawee, 113 Zelfmoordpreventie
-* Davide Papola, University of Verona
-* Mathias Harrer, Technical University Munich & University of Erlangen
-* David Ebert, Technical University Munich
+**Contributors to the Metapsy project include:**
+
+* Čihařová, Markéta, Vrije Universiteit Amsterdam
+* Cuijpers, Pim, Vrije Universiteit Amsterdam
+* de Ponti, Nino Vrije Universiteit Amsterdam
+* Ebert, David Daniel, Technical University Munich
+* Franco, Pamela, Pontificia Universidad Católica de Chile
+* Gómez Gómez, Irene, Universidad Loyola
+* Hamblen, Jessica L., National Center for PTSD
+* Harrer, Mathias, Technical University Munich & University of Erlangen
+* Karyotaki, Eirini, Vrije Universiteit Amsterdam
+* Kuper, Paula, Otto-von-Guericke University Magdeburg
+* Miguel Sanz, Clara, Vrije Universiteit Amsterdam
+* Motrico Martínez, Emma, Universidad Loyola
+* Panagiotopoulou, Olga, Vrije Universiteit Amsterdam
+* Papola, Davide, Harvard Medical School & University of Verona
+* Pfund, Rory A., The University of Memphis
+* Plessen, C. Yves, Charité Berlin & Vrije Universiteit Amsterdam
+* Rawee, Josine, 113 Zelfmoordpreventie
+* Sprenger, Antonia A., Otto-von-Guericke University Magdeburg
+* Tong, Lingyao, Vrije Universiteit Amsterdam
+* van Ballegooijen, Wouter, Vrije Universiteit Amsterdam
+* Zhao, Ruiying Vrije Universiteit Amsterdam
+
+A more complete overview of the core maintenance team behind Metapsy is provided on the [project website](https://www.metapsy.org/team). 
 
 <br>
 

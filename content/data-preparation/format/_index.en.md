@@ -27,7 +27,9 @@ An example repository following the Metapsy data standard can be found [here](ht
 
 - - -
 
-All Metapsy databases are provided as "rectangular", **wide-format** datasets. This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.
+As part of the release, larger databases are typically first partitioned into smaller **"scientific use files"** (SUFs) that concentrate on a particular research field (e.g., all depression trials that compared psychotherapy with control groups). These SUFs are always provided as "rectangular", **wide-format** datasets.
+
+This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.
 
 Metapsy databases only contain evidence from randomized-controlled trials (RCTs). If an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.
 

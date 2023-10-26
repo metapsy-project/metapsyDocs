@@ -11,6 +11,7 @@ Following the data preparation according to the Metapsy data standard, all files
 <br>
 
 * 💾 **`data.csv`**
+* 📄 **`license`**
 * 📁 **`metadata`**
   * 📄 **`authors.json`**
   * 📄 **`last_search.txt`**

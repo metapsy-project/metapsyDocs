@@ -25,4 +25,8 @@ The following standard metadata items are always included in the `metadata` repo
 * 📄 [**`shorthand.txt`**](https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt): A `.txt` file with the `metapsyData` [shorthand](https://docs.metapsy.org/databases/#shorthand) of the database.
 * 📄 [**`variable_description.json`**](https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json): A [`.json`](https://www.json.org/json-en.html) file; containing a JSON object (key-value pairs). The key represents the variable name, while the value component includes a description or explanation provided for the database variable (e.g. information on the meaning of factor levels).
 
+There is also one additional metadata item stored at the **base** of the repository:
+
+* 📄 [**`license`**](https://github.com/metapsy-project/data-template/blob/master/license): A file that contains the license under which the data is shared. This is either the license text itself, or a persistent identifier to the license. By default, all datasets are assigned with a [Open Data Commons Attribution License (ODC-By) v1.0](https://opendatacommons.org/licenses/by/1-0/) license, which allows anyone to share and adapt the data, as well as to create works from the it, provided that the original database is attributed.
+   
 <br></br>
