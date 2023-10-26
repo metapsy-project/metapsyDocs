@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -230,19 +238,6 @@
   </a>
    
 </li>
-           
- 
-<li
-  data-nav-id="/general/helpful-links/"
-  title="Helpful Links"
-  class="sidelist
-  "
->
-  <a href="/general/helpful-links/">
-    Helpful Links
-  </a>
-   
-</li>
    
   </ul>
   
@@ -256,18 +251,18 @@
           <h2 class="mb-5" id="title">Components</h2>
           
           <div class="content"><hr>
-<p>Metapsy consists of a collection of software tools and websites. Together, this infrastructure provides an integrated meta-analysis workflow.<br>
-<img src="/uploads/metapsy-flow.png" alt=""></p>
+<p>Metapsy consists of a collection of software tools and websites. Together, this infrastructure provides an integrated meta-analysis workflow.</p>
+<img src="/uploads/metapsy-flow.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 <p><strong>Components of the Metapsy data flow:</strong></p>
 <ul>
-<li><strong>Meta-analytic databases</strong> are maintained and regularly updated by specialized university-based research teams.</li>
-<li>Updated or newly created databases are then transformed into a consistent format (<strong>Metapsy data format</strong>).</li>
-<li>Each database is then pushed to its own <strong>Github repository</strong>, hosted by the <a href="https://github.com/metapsy-project" title="metapsy-project">metapsy-project</a> account.</li>
-<li>Database repositories are then <strong>officially released</strong> using <a href="https://zenodo.org/">Zenodo</a>. At this step, a unique version number and digital object identifier (DOI) is created.</li>
-<li>The <a href="/databases"><strong>database documentation</strong></a> hosted on this website is automatically updated with each new release. The documentation entry contains metadata and additional information for each database.</li>
-<li>The <a href="https://data.metapsy.org"><strong>{metapsyData} R package</strong></a> allows to access all Metapsy databases directly in an R environment.</li>
-<li>The <a href="https://tools.metapsy.org"><strong>{metapsyTools} R package</strong></a> provides helper functions that allow to conveniently run state-of-the-art meta-analyses using Metapsy data, or data prepared in the same format.</li>
-<li>The released databases can also be analyzed using a user-friendly <a href="https://www.metapsy.org"><strong>meta-analysis tool</strong></a>. The application provides a graphical user interface that allows running meta-analyses of the data online.</li>
+<li>Meta-analytic databases are maintained and regularly updated by specialized university-based research teams.</li>
+<li>Updated or newly created databases are then transformed into a consistent format (<a href="https://docs.metapsy.org/data-preparation/format/">Metapsy data format</a>).</li>
+<li>Each database is then pushed to its own Github repository, hosted by the <a href="https://github.com/metapsy-project" title="metapsy-project">metapsy-project</a> account.</li>
+<li>Database repositories are then officially released using <a href="https://zenodo.org/">Zenodo</a>. At this step, a unique version number and digital object identifier (DOI) is created.</li>
+<li>The <a href="/databases">database documentation</a> hosted on this website is automatically updated with each new release. The documentation entry contains metadata and additional information for each database.</li>
+<li>The <a href="https://data.metapsy.org"><code>metapsyData</code> R package</a> allows to access all Metapsy databases directly in an R environment. JSON-encoded exports can be retrieved using the <a href="https://docs.metapsy.org/r-packages/api/">Metapsy API</a>.</li>
+<li>The <a href="https://tools.metapsy.org"><code>metapsyTools</code> R package</a> provides helper functions that allow to conveniently run state-of-the-art meta-analyses using Metapsy data, or data prepared in the same format.</li>
+<li>The released databases can also be analyzed using a user-friendly <a href="https://www.metapsy.org">meta-analysis tool</a>. The application provides a graphical user interface that allows running meta-analyses of the data online.</li>
 </ul>
 <p><br></br></p>
 </div>
@@ -281,18 +276,27 @@
                                            
                   
                      
+              
+                                      
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                       
                          
                          
               
+                         
                                       
                          
-                         
               
-                         
-                         
                          
                 
             <a

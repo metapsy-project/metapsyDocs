@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R Packages on Metapsy Documentation</title>
+    <title>R Packages &amp; API on Metapsy Documentation</title>
     <link>/r-packages/</link>
-    <description>Recent content in R Packages on Metapsy Documentation</description>
+    <description>Recent content in R Packages &amp; API on Metapsy Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright>

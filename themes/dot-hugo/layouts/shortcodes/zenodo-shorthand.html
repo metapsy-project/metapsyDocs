@@ -1,4 +1,13 @@
 <span id="ph-shorthand"></span>
+
+<span id="spinner-ph-shorthand" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script>
   // random id generator function
   function makeid(length) {
@@ -55,6 +64,7 @@
             fetch(readLink)
               .then((d) => d.text())
               .then((d) => {
+                document.getElementById('spinner-ph-shorthand').style.display = 'none';
                 var div = document.getElementById("ph-shorthand");
                 div.id = div.id + "-" + randID;
                 div.innerHTML = "<code>" + d + "</code>";
@@ -92,6 +102,7 @@
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              document.getElementById('spinner-ph-shorthand').style.display = 'none';
               var div = document.getElementById("ph-shorthand");
               div.id = div.id + "-" + randID;
               div.innerHTML = "<code>" + d + "</code>";

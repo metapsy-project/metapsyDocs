@@ -1,4 +1,11 @@
 <span id="ph-flowchart">
+  <span id="spinner-ph-flowchart" class="loader-spinner"></span>
+  <style>
+  #spinner-ph-flowchart { width: 20px; height: 20px; margin-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+      border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+      box-sizing: border-box; animation: rotation 1s linear infinite;}
+      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+  </style>
   <div id="flowchart-div">
     <center>
       <svg
@@ -25,6 +32,13 @@
   <div class="collapse" id="collapseFlowchartExcludedReasons">
     <div class="card card-body">
       <span id="ph-excluded-reasons"></span>
+      <span id="spinner-ph-excluded-reasons" class="loader-spinner"></span>
+      <style>
+      #spinner-ph-excluded-reasons { width: 20px; height: 20px; margin-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+      </style>
     </div>
   </div>
   <br />
@@ -416,6 +430,7 @@
                   });
 
                 // set random ID
+                document.getElementById('spinner-ph-flowchart').style.display = 'none';
                 var div = document.getElementById("ph-flowchart");
                 div.id = div.id + "-" + randID;
 
@@ -438,6 +453,7 @@
                   html = html + addHtml;
                 }
                 html = html + "</ul></div>";
+                document.getElementById('spinner-ph-excluded-reasons').style.display = 'none';
                 var div = document.getElementById("ph-excluded-reasons");
                 div.id = "ph-excluded-reasons" + randID;
                 div.innerHTML = html;
@@ -567,6 +583,7 @@
                 });
 
               // set random ID
+              document.getElementById('spinner-ph-flowchart').style.display = 'none';
               var div = document.getElementById("ph-flowchart");
               div.id = div.id + "-" + randID;
 
@@ -589,6 +606,7 @@
                 html = html + addHtml;
               }
               html = html + "</ul></div>";
+              document.getElementById('spinner-ph-excluded-reasons').style.display = 'none';
               var div = document.getElementById("ph-excluded-reasons");
               div.id = "ph-excluded-reasons" + randID;
               div.innerHTML = html;

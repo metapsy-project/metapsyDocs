@@ -1,4 +1,13 @@
 <span id="ph-last-updated"></span>
+
+<span id="spinner-ph-last-updated" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script>
   // random id generator function
   function makeid(length) {
@@ -61,6 +70,7 @@
             const year = d.getFullYear();
             const day = d.getDate();
             modDate = document.createTextNode(month + " " + day + ", " + year);
+            document.getElementById('spinner-ph-last-updated').style.display = 'none';
             var div = document.getElementById("ph-last-updated");
             div.id = div.id + "-" + randID;
             div.appendChild(modDate);
@@ -102,6 +112,7 @@
           const year = d.getFullYear();
           const day = d.getDate();
           modDate = document.createTextNode(month + " " + day + ", " + year);
+          document.getElementById('spinner-ph-last-updated').style.display = 'none';
           var div = document.getElementById("ph-last-updated");
           div.id = div.id + "-" + randID;
           div.appendChild(modDate);

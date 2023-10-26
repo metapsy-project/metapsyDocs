@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -256,13 +264,14 @@
           <h2 class="mb-5" id="title">Upload</h2>
           
           <div class="content"><hr>
-<p>Following the data preparation according to the Metapsy data standard, the prepared files are collected in a Github repository. The standard folder structure can be seen below:</p>
+<p>Following the data preparation according to the Metapsy data standard, all files are collected in a Github repository. The standard folder structure can be seen below:</p>
 <br>
 <ul>
 <li>💾 <strong><code>data.csv</code></strong></li>
+<li>📄 <strong><code>license</code></strong></li>
 <li>📁 <strong><code>metadata</code></strong>
 <ul>
-<li>📄 <strong><code>authors.txt</code></strong></li>
+<li>📄 <strong><code>authors.json</code></strong></li>
 <li>📄 <strong><code>last_search.txt</code></strong></li>
 <li>📄 <strong><code>number_studies.txt</code></strong></li>
 <li>📄 <strong><code>search_string.txt</code></strong></li>
@@ -275,7 +284,7 @@
 <p>All database repositories are hosted by the <a href="https://github.com/metapsy-project"><code>metapsy-project</code></a> organization account. The repository name is also standardized: it is <code>data-</code>, followed by the <a href="https://docs.metapsy.org/databases/#shorthand">shorthand</a> of the database (e.g. <code>data-depression-psyctr</code>).</p>
 <p>In the &ldquo;About&rdquo; section on the Github repository page, one can find a brief description of the database, as well as a link to the specific <a href="https://docs.metapsy.org/databases/">database documentation</a> entry.</p>
 <br>
-<img src="/uploads/gh-info.png" width="250px">
+<img src="/uploads/gh-info.png" width="300px" style="border-radius:5px">
 <br>
 <p>Once a repository has been created (or updated) this way, an official database <a href="https://docs.metapsy.org/release/">release</a> is published. This workflow is documented in the next section.</p>
 <p><br></br></p>
@@ -290,10 +299,17 @@
                      
                                   
                          
-                         
               
                                       
                          
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                 
@@ -303,7 +319,9 @@
               
                   
                      
+                                      
                          
+              
                          
                 
             <a

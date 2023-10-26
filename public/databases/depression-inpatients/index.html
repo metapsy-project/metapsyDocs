@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -207,6 +215,32 @@
             
  
 <li
+  data-nav-id="/databases/depression-anxiety-transdiagnostic/"
+  title="Depression &amp; Anxiety: Transdiagnostic Psychotherapy"
+  class="sidelist
+  "
+>
+  <a href="/databases/depression-anxiety-transdiagnostic/">
+    Depression &amp; Anxiety: Transdiagnostic Psychotherapy
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/depression-childadol-psyctr/"
+  title="Depression in Children &amp; Adolescents: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/depression-childadol-psyctr/">
+    Depression in Children &amp; Adolescents: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
   data-nav-id="/databases/depression-inpatients/"
   title="Depression: Inpatients"
   class="sidelist
@@ -220,26 +254,92 @@
            
  
 <li
-  data-nav-id="/databases/depression-psy-ctr/"
-  title="Depression: Psychotherapy versus Control"
+  data-nav-id="/databases/depression-psyctr/"
+  title="Depression: Psychotherapy vs. Control"
   class="sidelist
   "
 >
-  <a href="/databases/depression-psy-ctr/">
-    Depression: Psychotherapy versus Control
+  <a href="/databases/depression-psyctr/">
+    Depression: Psychotherapy vs. Control
   </a>
    
 </li>
            
  
 <li
-  data-nav-id="/databases/suicide/"
-  title="Suicide Prevention"
+  data-nav-id="/databases/gambling-cbt/"
+  title="Gambling: Cognitive Behavioral Techniques vs. Control"
   class="sidelist
   "
 >
-  <a href="/databases/suicide/">
-    Suicide Prevention
+  <a href="/databases/gambling-cbt/">
+    Gambling: Cognitive Behavioral Techniques vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/panic-psyctr/"
+  title="Panic Disorder: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/panic-psyctr/">
+    Panic Disorder: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/peer-support/"
+  title="Peer Support Interventions"
+  class="sidelist
+  "
+>
+  <a href="/databases/peer-support/">
+    Peer Support Interventions
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/ptsd-psyctr/"
+  title="PTSD: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/ptsd-psyctr/">
+    PTSD: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/suicide-psyctr/"
+  title="Suicide Prevention: Psychological Intervention vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/suicide-psyctr/">
+    Suicide Prevention: Psychological Intervention vs. Control
+  </a>
+   
+</li>
+    
+             
+ 
+<li
+  data-nav-id="/databases/psychosis-psyctr/"
+  title="Psychosis: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/psychosis-psyctr/">
+    Psychosis: Psychotherapy vs. Control
   </a>
    
 </li>
@@ -256,7 +356,8 @@
           <h2 class="mb-5" id="title">Depression: Inpatients</h2>
           
           <div class="content"><span id="ph-authors"></span>
-<script>
+<p>ABC</p>
+<script defer>
   
   function makeid(length) {
     var result = "";
@@ -271,22 +372,85 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                d = JSON.parse(d);
+                text = "";
+                for (let i = 0; i < d.length; i++) {
+                  text =
+                    text +
+                    d[i].name +
+                    ' <a target="_blank" href="https://orcid.org/' +
+                    d[i].orcid +
+                    '"><img style="display: inline-block !important"' +
+                    ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
+                    ", ";
+                }
+                text = text.slice(0, -2);
+                var div = document.getElementById("ph-authors");
+                div.id = div.id + "-" + randID;
+                div.innerHTML = text;
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -318,9 +482,11 @@
               div.id = div.id + "-" + randID;
               div.innerHTML = text;
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 
 <hr>
@@ -328,17 +494,19 @@
 <h4 id="general-description">General Description <a class="header-link" href="#general-description">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>The Inpatients dataset is part of the meta-analytic research domain (<a href="https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf">MARD</a>) on psychotherapy for depression. The dataset contains study information and effect size data of depression psychotherapy trials in inpatients. Metadata and other information on this dataset is provided on this website.</p>
+<p>This dataset includes psychotherapy vs. control (<code>psy vs ctr</code>) and psychotherapy vs. psychotherapy comparisons (<code>psy vs psy</code>; this information is included in the <code>comparison</code> column). It also includes multiple outcome calculation types within studies (e.g. means and SD <em>and</em> remission).</p>
+<p>The dataset follows the <a href="https://docs.metapsy.org/data-preparation/format/">Metapsy data standard</a>. All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1).</p>
 <br>
 <h4 id="affiliated-institutions">Affiliated Institutions <a class="header-link" href="#affiliated-institutions">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Vrije Universiteit Amsterdam, Other University</p>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Vrije Universiteit Amsterdam, Technical University Munich</p>
 <br>
 <h4 id="online-meta-analysis-tool">Online Meta-Analysis Tool <a class="header-link" href="#online-meta-analysis-tool">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/depression-psychotherapy" target="_blank">metapsy.org/depression-psychotherapy</a>.</p>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/database/depression-inpatients">metapsy.org/database/depression-inpatients</a>.</p>
 <br>
 <h4 id="metadata">Metadata <a class="header-link" href="#metadata">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
@@ -358,24 +526,72 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      var firstItem = true;
       
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "shorthand" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("ph-shorthand");
+                div.id = div.id + "-" + randID;
+                div.innerHTML = "<code>" + d + "</code>";
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var firstItem = true;
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -394,9 +610,11 @@
               div.id = div.id + "-" + randID;
               div.innerHTML = "<code>" + d + "</code>";
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Number of Studies: <span id="ph-number-studies"></span>
@@ -415,22 +633,71 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "number_studies" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("ph-number-studies");
+                div.id = div.id + "-" + randID;
+                div.innerHTML = d;
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -449,9 +716,11 @@
               div.id = div.id + "-" + randID;
               div.innerHTML = d;
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Latest Version: <span id="ph-version"></span>
@@ -468,32 +737,69 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      var firstItem = true;
       
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("ph-version");
+            div.id = div.id + "-" + randID;
+            div.appendChild(latestVersion);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var firstItem = true;
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           const version = post[i].metadata.version;
           latestVersion = document.createTextNode(version);
           var div = document.getElementById("ph-version");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Last updated: <span id="ph-last-updated"></span>
@@ -512,22 +818,75 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            const months = [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "August",
+              "September",
+              "October",
+              "November",
+              "December",
+            ];
+            const d = new Date(post[i].modified);
+            const month = months[d.getMonth()];
+            const year = d.getFullYear();
+            const day = d.getDate();
+            modDate = document.createTextNode(month + " " + day + ", " + year);
+            var div = document.getElementById("ph-last-updated");
+            div.id = div.id + "-" + randID;
+            div.appendChild(modDate);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           const months = [
             "January",
             "February",
@@ -550,9 +909,11 @@
           var div = document.getElementById("ph-last-updated");
           div.id = div.id + "-" + randID;
           div.appendChild(modDate);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Last search: <span id="ph-last-search"></span>
@@ -569,24 +930,97 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "last_search" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                const months = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                ];
+                d = new String(d);
+                if (d.length > 10) {
+                  d = d.substring(0, 10);
+                }
+                const date = new Date(d);
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const day = date.getDate();
+                modDate = document.createTextNode(
+                  month + " " + day + ", " + year
+                );
+                var div = document.getElementById("ph-last-search");
+                div.id = div.id + "-" + randID;
+                div.appendChild(modDate);
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -615,6 +1049,10 @@
                 "November",
                 "December",
               ];
+              d = new String(d);
+              if (d.length > 10) {
+                d = d.substring(0, 10);
+              }
               const date = new Date(d);
               const month = months[date.getMonth()];
               const year = date.getFullYear();
@@ -626,9 +1064,11 @@
               div.id = div.id + "-" + randID;
               div.appendChild(modDate);
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Search String (Latest Version): <span id="ph-search-string"></span>
@@ -645,24 +1085,73 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_string" +
+              ".txt";
+            var links = document.createElement("a");
+            var href = readLink;
+            links.innerText = "↗";
+            links.setAttribute("href", href);
+            links.setAttribute("target", "blank");
+            var div = document.getElementById("ph-search-string");
+            div.id = div.id + "-" + randID;
+            div.appendChild(links);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -681,11 +1170,12 @@
           links.setAttribute("target", "blank");
           var div = document.getElementById("ph-search-string");
           div.id = div.id + "-" + randID;
-          links.setAttribute("style", "color: unset !important");
           div.appendChild(links);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 <li>Data Repository (Latest Version): <span id="ph-github-release"></span>
@@ -704,35 +1194,195 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var link = document.createElement("a");
+            var href = post[i].metadata.related_identifiers[0].identifier;
+            link.innerText = "↗";
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            var div = document.getElementById("ph-github-release");
+            div.id = div.id + "-" + randID;
+            div.appendChild(link);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var link = document.createElement("a");
           var href = post[i].metadata.related_identifiers[0].identifier;
           link.innerText = "↗";
           link.setAttribute("href", href);
           link.setAttribute("target", "blank");
-          link.setAttribute("style", "color: unset !important");
           var div = document.getElementById("ph-github-release");
           div.id = div.id + "-" + randID;
           div.appendChild(link);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
+</li>
+<li>Preregistration (Research Domain): <span id="ph-registration"></span>
+<script>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+
+  
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      
+      var firstItem = true;
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+        
+        if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "registration" +
+              ".txt";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var href = d;
+                var links = document.createElement("a");
+                links.innerText = "↗";
+                links.setAttribute("href", href);
+                links.setAttribute("target", "blank");
+                var div = document.getElementById("ph-registration");
+                div.id = div.id + "-" + randID;
+                div.appendChild(links);
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+    
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            repoVersion +
+            "/metadata/" +
+            "registration" +
+            ".txt";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              var href = d;
+              var links = document.createElement("a");
+              links.innerText = "↗";
+              links.setAttribute("href", href);
+              links.setAttribute("target", "blank");
+              var div = document.getElementById("ph-registration");
+              div.id = div.id + "-" + randID;
+              div.appendChild(links);
+            });
+          firstItem = false;
+        }
+      }
+    }
+  }
+</script>
+</li>
+<li><span>License: ODC-By v1.0 <a href="https://opendatacommons.org/licenses/by/summary/" target="_blank">↗</a></span>
 </li>
 <li>Database DOI: <span id="ph-badge"></span>
 <script>
@@ -750,23 +1400,74 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
-          var badgeUrl = post[i].links.conceptbadge;
+          if (firstItem === true) {
+            var badgeUrl =
+              "https://img.shields.io/badge/DOI-" +
+              post[i].conceptdoi +
+              "-blue";
+            var href = post[i].links.conceptdoi;
+            var img = document.createElement("img");
+            var link = document.createElement("a");
+            link.setAttribute("href", href);
+            link.setAttribute("target", "blank");
+            img.setAttribute("src", badgeUrl);
+            var div = document.getElementById("ph-badge");
+            div.id = div.id + "-" + randID;
+            img.style.maxWidth = "unset !important";
+            img.style.height = "unset !important";
+            img.style.padding = 0;
+            img.style.margin = 0;
+            img.style.display = "inline";
+            link.appendChild(img);
+            div.appendChild(link);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
+          var badgeUrl =
+            "https://img.shields.io/badge/DOI-" + post[i].conceptdoi + "-blue";
           var href = post[i].links.conceptdoi;
           var img = document.createElement("img");
           var link = document.createElement("a");
@@ -782,9 +1483,11 @@
           img.style.display = "inline";
           link.appendChild(img);
           div.appendChild(link);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 </li>
 </ul>
@@ -803,16 +1506,26 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1&size=10000"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      console.log(post);
+
+  
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
       
       var html =
         "<button class='accbutton' style='border: none;" +
@@ -827,7 +1540,7 @@
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         if (searchDOI === inputDOI) {
           
@@ -852,7 +1565,8 @@
           modDate = month + " " + day + ", " + year;
 
           
-          var badgeUrl = post[i].links.badge;
+          var badgeUrl =
+            "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
           var href = post[i].links.doi;
           var insertText =
             "<li><strong> Version " +
@@ -873,14 +1587,99 @@
       var div = document.getElementById("ph-all-versions");
       div.id = randID;
       div.innerHTML = html;
-    });
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var html =
+      "<button class='accbutton' style='border: none;" +
+      " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
+      "Browse all versions</button> <div " +
+      "style='background-color: var(--body-color);" +
+      " padding: 20px 20px 20px 20px;" +
+      "overflow-y: scroll; height:150px;'><ul " +
+      "style='font-size: 90% !important;'>";
+
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      if (searchDOI === inputDOI) {
+        
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const d = new Date(post[i].created);
+        const month = months[d.getMonth()];
+        const year = d.getFullYear();
+        const day = d.getDate();
+        modDate = month + " " + day + ", " + year;
+
+        
+        var badgeUrl =
+          "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
+        var href = post[i].links.doi;
+        var insertText =
+          "<li><strong> Version " +
+          post[i].metadata.version +
+          "</strong> (" +
+          String(modDate) +
+          "): " +
+          "<a target='_blank' href='" +
+          href +
+          "'><img src='" +
+          badgeUrl +
+          "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
+
+        html = html + insertText;
+      }
+    }
+    html = html + "</ul></div>";
+    var div = document.getElementById("ph-all-versions");
+    div.id = randID;
+    div.innerHTML = html;
+  }
 </script>
 
 <br>
 <h4 id="variable-description">Variable Description <a class="header-link" href="#variable-description">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="ph-variable-description"></span>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="variable-description-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseVariableDescription"
+    role="button"
+    aria-expanded="false"
+  >
+    Show Variable Description<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseVariableDescription">
+    <div class="card card-body" style="padding: 0.15rem !important">
+      <div style="overflow-y: scroll; height: 300px">
+        <span id="ph-variable-description"></span>
+      </div>
+    </div>
+  </div>
+  <br />
+</span>
 <script>
   
   function makeid(length) {
@@ -894,24 +1693,94 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      var firstItem = true;
       
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "variable_description.json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var div = document.getElementById("ph-variable-description");
+                div.id = div.id + "-" + randID;
+                tableData = JSON.parse(d);
+                
+                var keys = Object.keys(tableData);
+                var values = Object.values(tableData);
+                
+                var table = document.createElement("table");
+                var tr = table.insertRow(-1);
+                
+                var th1 = document.createElement("th");
+                th1.innerHTML = "Variable";
+                var th2 = document.createElement("th");
+                th2.innerHTML = "Description";
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                
+                for (var i = 0; i < keys.length; i++) {
+                  tr = table.insertRow(-1);
+                  var tabCell1 = tr.insertCell(-1);
+                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                  var tabCell2 = tr.insertCell(-1);
+                  tabCell2.innerHTML = values[i];
+                }
+                table.style.fontSize = "90%";
+                div.appendChild(table);
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var firstItem = true;
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -952,16 +1821,35 @@
               table.style.fontSize = "90%";
               div.appendChild(table);
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 
 <br>
 <h4 id="study-references">Study References <a class="header-link" href="#study-references">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="ph-references"></span>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="references-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseReferences"
+    role="button"
+    aria-expanded="false"
+  >
+    Show References<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseReferences">
+    <div class="card card-body">
+      <span id="ph-references"></span>
+    </div>
+  </div>
+  <br />
+</span>
 <script>
   
   function makeid(length) {
@@ -975,32 +1863,91 @@
     return result;
   }
   var randID = makeid(10);
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      
-      var html =
-        " <div " +
-        "style='background-color: var(--body-color);" +
-        " padding: 20px 20px 20px 20px;" +
-        "overflow-y: scroll; height:300px;'><ul " +
-        "style='font-size: 90% !important;'>";
+  
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
 
       
+      
+      var first = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         if (searchDOI === inputDOI) {
+          if (first === true) {
+            
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "references" +
+              ".json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                d = JSON.parse(d);
+                var keys = Object.keys(d);
+                var html =
+                  " <div " +
+                  "style='background-color: var(--body-color);" +
+                  " padding: 20px 20px 20px 20px;" +
+                  "overflow-y: scroll; height:300px;'><ul " +
+                  "style='font-size: 90% !important;'>";
+                for (let j = 0; j < keys.length; j++) {
+                  var addHtml =
+                    "<li><strong>" +
+                    String(keys[j]) +
+                    ":</strong> " +
+                    String(d[keys[j]]) +
+                    "</li>";
+                  html = html + addHtml;
+                }
+                html = html + "</ul></div>";
+                var div = document.getElementById("ph-references");
+                div.id = randID;
+                div.innerHTML = html;
+              });
+            first = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var first = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      if (searchDOI === inputDOI) {
+        if (first === true) {
           
-          var ghLink = post[0].metadata.related_identifiers[0].identifier;
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
           var readLink =
@@ -1011,32 +1958,311 @@
             "/metadata/" +
             "references" +
             ".json";
-          console.log(readLink);
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              d = JSON.parse(d);
+              var keys = Object.keys(d);
+              var html =
+                " <div " +
+                "style='background-color: var(--body-color);" +
+                " padding: 20px 20px 20px 20px;" +
+                "overflow-y: scroll; height:300px;'><ul " +
+                "style='font-size: 90% !important;'>";
+              for (let j = 0; j < keys.length; j++) {
+                var addHtml =
+                  "<li><strong>" +
+                  String(keys[j]) +
+                  ":</strong> " +
+                  String(d[keys[j]]) +
+                  "</li>";
+                html = html + addHtml;
+              }
+              html = html + "</ul></div>";
+              var div = document.getElementById("ph-references");
+              div.id = randID;
+              div.innerHTML = html;
+            });
+          first = false;
         }
       }
-    });
+    }
+  }
 </script>
 
 <br>
-<h4 id="further-information">Further Information <a class="header-link" href="#further-information">
+<h4 id="database-flowchart">Database Flowchart <a class="header-link" href="#database-flowchart">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><ul>
-<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
-<li>Definitions of types of psychotherapies that are included in the METAPSY database<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
-<li>The database flowchart<a href="/uploads/flowchart.pdf" target="_blank"> ↗</a></li>
-<li>References of the 661 studies in the database<a href="/uploads/references.pdf" target="_blank"> ↗</a></li>
-<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
-<li>A paper summarizing main results of the METAPSY database<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
-<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
-</ul>
-<br>
-<h4 id="citation">Citation <a class="header-link" href="#citation">
-    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
-<span id="ph-authors"></span>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Studies in the &ldquo;depression-inpatients&rdquo; dataset were extracted from the larger &ldquo;depression psychotherapy&rdquo; database. The study flow of this database can be found below.</p>
+<span id="ph-flowchart">
+  <div id="flowchart-div">
+    <center>
+      <svg
+        id="flow-svg"
+        width="500"
+        height="400"
+        viewBox="0 0 500 400"
+        style="max-width: 100%; max-height: 100%"
+      ></svg>
+    </center>
+  </div>
+</span>
+<span id="flowchart-excluded-reasons-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseFlowchartExcludedReasons"
+    role="button"
+    aria-expanded="false"
+  >
+    Reasons for full-text exclusion<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseFlowchartExcludedReasons">
+    <div class="card card-body">
+      <span id="ph-excluded-reasons"></span>
+    </div>
+  </div>
+  <br />
+</span>
 <script>
+  
+
+  var dataFlowChart = {
+    nodes: [
+      {
+        id: "database-search",
+        label: {
+          name: "Records identified through database searches \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 240,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "other-sources",
+        label: {
+          name: "Records identified through other sources \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 220,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "duplicate",
+        label: {
+          name: "Records after duplicate removal \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 190,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "screen",
+        label: {
+          name: "Records screened \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 150,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "records-excluded",
+        label: {
+          name: "Records excluded \n ",
+          color: "black",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 150,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "white",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "full-text",
+        label: {
+          name: "Full-text articles assessed for eligibility \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 210,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "#0372b7",
+        },
+      },
+      {
+        id: "included",
+        label: {
+          name: "Studies included in database \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 180,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#0372b7",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "excluded-full-text",
+        label: {
+          name: "Full-text excluded \n ",
+          color: "black",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 150,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "white",
+          strokeColor: "gray",
+        },
+      },
+      {
+        id: "included-dataset",
+        label: {
+          name: "Studies included in dataset \n ",
+          color: "white",
+          dx: 0,
+          dy: 5,
+          textAnchor: "middle",
+          fontFamily: "sans-serif",
+          fontSize: "10px",
+        },
+        style: {
+          shape: "rect",
+          width: 180,
+          height: 40,
+          rx: 3,
+          ry: 3,
+          fillColor: "#636363",
+          strokeColor: "gray",
+        },
+      },
+    ],
+    map: [
+      ["database-search", "other-sources"],
+      ["duplicate", "drawIo"],
+      ["screen", "records-excluded"],
+      ["full-text", "excluded-full-text"],
+      ["included"],
+      ["included-dataset"],
+    ],
+    links: [
+      {
+        source: "database-search",
+        target: "duplicate",
+        style: { color: "gray" },
+      },
+      {
+        source: "other-sources",
+        target: "duplicate",
+        style: { color: "gray" },
+      },
+      { source: "duplicate", target: "screen", style: { color: "gray" } },
+      {
+        source: "screen",
+        target: "records-excluded",
+        style: { color: "gray" },
+      },
+      { source: "screen", target: "full-text", style: { color: "gray" } },
+      { source: "full-text", target: "included", style: { color: "gray" } },
+      {
+        source: "full-text",
+        target: "excluded-full-text",
+        style: { color: "gray" },
+      },
+      {
+        source: "included",
+        target: "included-dataset",
+        style: { color: "gray" },
+      },
+    ],
+  };
+
+  
+
   
   function makeid(length) {
     var result = "";
@@ -1051,22 +2277,439 @@
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "search_flow" +
+              ".json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                d = JSON.parse(d);
+                var databaseSearch = dataFlowChart.nodes.find(
+                  (node) => node.id === "database-search"
+                );
+                var otherSources = dataFlowChart.nodes.find(
+                  (node) => node.id === "other-sources"
+                );
+                var duplicate = dataFlowChart.nodes.find(
+                  (node) => node.id === "duplicate"
+                );
+                var screen = dataFlowChart.nodes.find(
+                  (node) => node.id === "screen"
+                );
+                var recordsExcluded = dataFlowChart.nodes.find(
+                  (node) => node.id === "records-excluded"
+                );
+                var fullText = dataFlowChart.nodes.find(
+                  (node) => node.id === "full-text"
+                );
+                var excludedFullText = dataFlowChart.nodes.find(
+                  (node) => node.id === "excluded-full-text"
+                );
+                var included = dataFlowChart.nodes.find(
+                  (node) => node.id === "included"
+                );
+                var includedDataset = dataFlowChart.nodes.find(
+                  (node) => node.id === "included-dataset"
+                );
+
+                
+                databaseSearch.label.name =
+                  databaseSearch.label.name + "(n=" + d["database.hits"] + ")";
+                
+                otherSources.label.name =
+                  otherSources.label.name +
+                  "(n=" +
+                  d["additional.records"] +
+                  ")";
+                
+                duplicate.label.name =
+                  duplicate.label.name +
+                  "(n=" +
+                  d["database.hits.duplicates.removed"] +
+                  ")";
+                
+                screen.label.name =
+                  screen.label.name + "(n=" + d["records.screened"] + ")";
+                
+                noExcludedRecords =
+                  d["records.screened"] -
+                  d["full.text.assessed.for.eligibility"];
+                recordsExcluded.label.name =
+                  recordsExcluded.label.name + "(n=" + noExcludedRecords + ")";
+                
+                fullText.label.name =
+                  fullText.label.name +
+                  "(n=" +
+                  d["full.text.assessed.for.eligibility"] +
+                  ")";
+                
+                noExcludedFullTextRecords =
+                  d["full.text.assessed.for.eligibility"] - d["included"];
+                excludedFullText.label.name =
+                  excludedFullText.label.name +
+                  "(n=" +
+                  noExcludedFullTextRecords +
+                  ")";
+                
+                included.label.name =
+                  included.label.name + "(n=" + d["included"] + ")";
+
+                var readLinkNrStudies =
+                  "https://raw.githubusercontent.com/metapsy-project/" +
+                  repoName +
+                  "/" +
+                  repoVersion +
+                  "/metadata/" +
+                  "number_studies" +
+                  ".txt";
+                fetch(readLinkNrStudies)
+                  .then((nrStudies) => nrStudies.text())
+                  .then((nrStudies) => {
+                    
+                    includedDataset.label.name =
+                      includedDataset.label.name +
+                      "(n=" +
+                      String(JSON.parse(nrStudies)) +
+                      ")";
+                    
+                    var flowcharty = new Flowcharty.default();
+                    flowcharty.render(d3.select("#flow-svg"), dataFlowChart);
+                  });
+
+                
+                var div = document.getElementById("ph-flowchart");
+                div.id = div.id + "-" + randID;
+
+                
+                var reasonsExcludedJSON = d["full.text.excluded.reasons"];
+                var keys = Object.keys(reasonsExcludedJSON);
+                var html =
+                  " <div " +
+                  "style='background-color: var(--body-color);" +
+                  " padding: 20px 20px 20px 20px;" +
+                  "overflow-y: scroll; height:300px;'><ul " +
+                  "style='font-size: 90% !important;'>";
+                for (let j = 0; j < keys.length; j++) {
+                  var addHtml =
+                    "<li><strong>" +
+                    String(keys[j]) +
+                    ":</strong> " +
+                    String(reasonsExcludedJSON[keys[j]]) +
+                    "</li>";
+                  html = html + addHtml;
+                }
+                html = html + "</ul></div>";
+                var div = document.getElementById("ph-excluded-reasons");
+                div.id = "ph-excluded-reasons" + randID;
+                div.innerHTML = html;
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+    
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            repoVersion +
+            "/metadata/" +
+            "search_flow" +
+            ".json";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              d = JSON.parse(d);
+              var databaseSearch = dataFlowChart.nodes.find(
+                (node) => node.id === "database-search"
+              );
+              var otherSources = dataFlowChart.nodes.find(
+                (node) => node.id === "other-sources"
+              );
+              var duplicate = dataFlowChart.nodes.find(
+                (node) => node.id === "duplicate"
+              );
+              var screen = dataFlowChart.nodes.find(
+                (node) => node.id === "screen"
+              );
+              var recordsExcluded = dataFlowChart.nodes.find(
+                (node) => node.id === "records-excluded"
+              );
+              var fullText = dataFlowChart.nodes.find(
+                (node) => node.id === "full-text"
+              );
+              var excludedFullText = dataFlowChart.nodes.find(
+                (node) => node.id === "excluded-full-text"
+              );
+              var included = dataFlowChart.nodes.find(
+                (node) => node.id === "included"
+              );
+              var includedDataset = dataFlowChart.nodes.find(
+                (node) => node.id === "included-dataset"
+              );
+
+              
+              databaseSearch.label.name =
+                databaseSearch.label.name + "(n=" + d["database.hits"] + ")";
+              
+              otherSources.label.name =
+                otherSources.label.name + "(n=" + d["additional.records"] + ")";
+              
+              duplicate.label.name =
+                duplicate.label.name +
+                "(n=" +
+                d["database.hits.duplicates.removed"] +
+                ")";
+              
+              screen.label.name =
+                screen.label.name + "(n=" + d["records.screened"] + ")";
+              
+              noExcludedRecords =
+                d["records.screened"] - d["full.text.assessed.for.eligibility"];
+              recordsExcluded.label.name =
+                recordsExcluded.label.name + "(n=" + noExcludedRecords + ")";
+              
+              fullText.label.name =
+                fullText.label.name +
+                "(n=" +
+                d["full.text.assessed.for.eligibility"] +
+                ")";
+              
+              noExcludedFullTextRecords =
+                d["full.text.assessed.for.eligibility"] - d["included"];
+              excludedFullText.label.name =
+                excludedFullText.label.name +
+                "(n=" +
+                noExcludedFullTextRecords +
+                ")";
+              
+              included.label.name =
+                included.label.name + "(n=" + d["included"] + ")";
+
+              var readLinkNrStudies =
+                "https://raw.githubusercontent.com/metapsy-project/" +
+                repoName +
+                "/" +
+                repoVersion +
+                "/metadata/" +
+                "number_studies" +
+                ".txt";
+              fetch(readLinkNrStudies)
+                .then((nrStudies) => nrStudies.text())
+                .then((nrStudies) => {
+                  
+                  includedDataset.label.name =
+                    includedDataset.label.name +
+                    "(n=" +
+                    String(JSON.parse(nrStudies)) +
+                    ")";
+                  
+                  var flowcharty = new Flowcharty.default();
+                  flowcharty.render(d3.select("#flow-svg"), dataFlowChart);
+                });
+
+              
+              var div = document.getElementById("ph-flowchart");
+              div.id = div.id + "-" + randID;
+
+              
+              var reasonsExcludedJSON = d["full.text.excluded.reasons"];
+              var keys = Object.keys(reasonsExcludedJSON);
+              var html =
+                " <div " +
+                "style='background-color: var(--body-color);" +
+                " padding: 20px 20px 0px 20px;" +
+                "height:auto;'><ul " +
+                "style='font-size: 90% !important;'>";
+              for (let j = 0; j < keys.length; j++) {
+                var addHtml =
+                  "<li><strong>" +
+                  String(keys[j]) +
+                  ":</strong> <i>n</i>=" +
+                  String(reasonsExcludedJSON[keys[j]]) +
+                  "</li>";
+                html = html + addHtml;
+              }
+              html = html + "</ul></div>";
+              var div = document.getElementById("ph-excluded-reasons");
+              div.id = "ph-excluded-reasons" + randID;
+              div.innerHTML = html;
+            });
+          firstItem = false;
+        }
+      }
+    }
+  }
+</script>
+
+<br>
+<h4 id="further-information">Further Information <a class="header-link" href="#further-information">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><ul>
+<li>The full protocol of the METAPSY project <a href="/uploads/protocol.pdf" target="_blank">↗</a></li>
+<li>Definitions of types of psychotherapies that are included in the Metapsy depression domain<a href="/uploads/psychotherapies.pdf" target="_blank"> ↗</a></li>
+<li>A paper summarizing main results of the Metapsy depression domain<a href="/uploads/summary_metapsy.pdf" target="_blank"> ↗</a></li>
+<li>A meta-analysis based on the inpatients database<a href="https://www.sciencedirect.com/science/article/pii/S0165032721002421" target="_blank"> ↗</a></li>
+<li>Published meta-analyses using the database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
+<li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
+</ul>
+<br>
+<h4 id="citation">Citation <a class="header-link" href="#citation">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<span id="ph-authors"></span>
+<p>ABC</p>
+<script defer>
+  
+  function makeid(length) {
+    var result = "";
+    var characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  var randID = makeid(10);
+
+  
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      
+      var firstItem = true;
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+        
+        if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              repoVersion +
+              "/metadata/" +
+              "authors" +
+              ".json";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                d = JSON.parse(d);
+                text = "";
+                for (let i = 0; i < d.length; i++) {
+                  text =
+                    text +
+                    d[i].name +
+                    ' <a target="_blank" href="https://orcid.org/' +
+                    d[i].orcid +
+                    '"><img style="display: inline-block !important"' +
+                    ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
+                    ", ";
+                }
+                text = text.slice(0, -2);
+                var div = document.getElementById("ph-authors");
+                div.id = div.id + "-" + randID;
+                div.innerHTML = text;
+              });
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           var ghLink = post[i].metadata.related_identifiers[0].identifier;
           var repoName = ghLink.split("/")[4];
           var repoVersion = ghLink.split("/")[6];
@@ -1098,9 +2741,11 @@
               div.id = div.id + "-" + randID;
               div.innerHTML = text;
             });
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 
 <span id="ph-last-updated-year"></span>
@@ -1117,36 +2762,74 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            const d = new Date(post[i].modified);
+            const year = d.getFullYear();
+            modDate = document.createTextNode("(" + year + ")");
+            var div = document.getElementById("ph-last-updated-year");
+            div.id = div.id + "-" + randID;
+            div.appendChild(modDate);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           const d = new Date(post[i].modified);
           const year = d.getFullYear();
           modDate = document.createTextNode("(" + year + ")");
           var div = document.getElementById("ph-last-updated-year");
           div.id = div.id + "-" + randID;
           div.appendChild(modDate);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 .
-<i>Title or Name of the Database</i>
+<i>Database of depression psychotherapy trials in inpatient settings. Part of the Metapsy project </i>
 (Version <span id="ph-version"></span>
 <script>
   
@@ -1161,35 +2844,72 @@
     return result;
   }
   var randID = makeid(10);
-
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      var firstItem = true;
       
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            const version = post[i].metadata.version;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("ph-version");
+            div.id = div.id + "-" + randID;
+            div.appendChild(latestVersion);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var firstItem = true;
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           const version = post[i].metadata.version;
           latestVersion = document.createTextNode(version);
           var div = document.getElementById("ph-version");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 ).
-URL docs.metapsy.org/depression/psych-vs-ctr.
+URL docs.metapsy.org/databases/depression-inpatients.
 DOI <span id="ph-doi"></span>
 <script>
   
@@ -1206,30 +2926,69 @@ DOI <span id="ph-doi"></span>
   var randID = makeid(10);
 
   
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
       
+      
+      var firstItem = true;
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         
         if (searchDOI === inputDOI) {
+          if (firstItem === true) {
+            const version = post[i].links.conceptdoi;
+            latestVersion = document.createTextNode(version);
+            var div = document.getElementById("ph-doi");
+            div.id = div.id + "-" + randID;
+            div.appendChild(latestVersion);
+            firstItem = false;
+          }
+        }
+      }
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+    
+    var firstItem = true;
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      
+      if (searchDOI === inputDOI) {
+        if (firstItem === true) {
           const version = post[i].links.conceptdoi;
           latestVersion = document.createTextNode(version);
           var div = document.getElementById("ph-doi");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);
+          firstItem = false;
         }
       }
-    });
+    }
+  }
 </script>
 .
 </div>
@@ -1277,20 +3036,30 @@ DOI <span id="ph-doi"></span>
 
     var randID = makeid(10);
     
-    fetch(
-      "https://zenodo.org/api/deposit/depositions?" +
-        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-        "&all_versions=1&size=10000"
-    )
-      .then((data) => {
-        return data.json();
-      })
-      .then((post) => {
+    if (sessionStorage.getItem("apiResponse") === null) {
+      async function fetchData() {
+        let response = await fetch(
+          "https://zenodo.org/api/deposit/depositions?" +
+            "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+            "&all_versions=1&size=10000"
+        );
+        let data = await response.json();
+        data = JSON.stringify(data);
+        data = JSON.parse(data);
+        return data;
+      }
+      async function saveApiResponse() {
+        let data = await fetchData();
+        sessionStorage.setItem("apiResponse", JSON.stringify(data));
+        var post = data;
+
+        
+        var firstIter = true;
         
         for (let i = 0; i < post.length; i++) {
           var searchDOI = post[i].conceptdoi?.toString() || "";
           searchDOI = JSON.stringify(searchDOI);
-          var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+          var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
           
           if (searchDOI === inputDOI) {
@@ -1310,29 +3079,79 @@ DOI <span id="ph-doi"></span>
                 var dataName = repoName + "_v" + version;
                 var dataName =
                   dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
-                download(dataName, d);
+                if (firstIter === true) {
+                  download(dataName, d);
+                  firstIter = false;
+                }
               });
           }
         }
-      });
-  }
-
-  
-  fetch(
-    "https://zenodo.org/api/deposit/depositions?" +
-      "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-      "&all_versions=1&size=10000"
-  )
-    .then((data) => {
-      return data.json();
-    })
-    .then((post) => {
-      var html = "";
+      }
+      saveApiResponse();
+    } else {
+      
+      var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      var firstIter = true;
       
       for (let i = 0; i < post.length; i++) {
         var searchDOI = post[i].conceptdoi?.toString() || "";
         searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.6617815");
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+        
+        if (searchDOI === inputDOI) {
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            version +
+            "/data" +
+            ".csv";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              var dataName = repoName + "_v" + version;
+              var dataName =
+                dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
+              if (firstIter === true) {
+                download(dataName, d);
+                firstIter = false;
+              }
+            });
+        }
+      }
+    }
+  }
+
+  
+  if (sessionStorage.getItem("apiResponse") === null) {
+    async function fetchData() {
+      let response = await fetch(
+        "https://zenodo.org/api/deposit/depositions?" +
+          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+          "&all_versions=1&size=10000"
+      );
+      let data = await response.json();
+      data = JSON.stringify(data);
+      data = JSON.parse(data);
+      return data;
+    }
+    async function saveApiResponse() {
+      let data = await fetchData();
+      sessionStorage.setItem("apiResponse", JSON.stringify(data));
+      var post = data;
+
+      
+      var html = "";
+      var first = true;
+      
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
 
         if (searchDOI === inputDOI) {
           
@@ -1359,7 +3178,7 @@ DOI <span id="ph-doi"></span>
           
           var badgeUrl = post[i].links.badge;
           var href = post[i].links.doi;
-          if (i === 0) {
+          if (first === true) {
             var insertText =
               '<li><a onclick="downloadData(' +
               "'" +
@@ -1371,6 +3190,7 @@ DOI <span id="ph-doi"></span>
               String(modDate) +
               "; latest)</a></li>";
             html = html + insertText;
+            var first = false;
           } else {
             var insertText =
               '<li><a onclick="downloadData(' +
@@ -1389,7 +3209,76 @@ DOI <span id="ph-doi"></span>
       var div = document.getElementById("ph-download");
       div.id = randID;
       div.innerHTML = html;
-    });
+    }
+    saveApiResponse();
+  } else {
+    
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var html = "";
+    var first = true;
+    
+    for (let i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi?.toString() || "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("10.5281\/zenodo.6881064");
+
+      if (searchDOI === inputDOI) {
+        
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const d = new Date(post[i].created);
+        const month = months[d.getMonth()];
+        const year = d.getFullYear();
+        const day = d.getDate();
+        modDate = month + " " + day + ", " + year;
+
+        
+        var badgeUrl = post[i].links.badge;
+        var href = post[i].links.doi;
+        if (first === true) {
+          var insertText =
+            '<li><a onclick="downloadData(' +
+            "'" +
+            post[i].metadata.version +
+            "'" +
+            ')"><strong> Version ' +
+            post[i].metadata.version +
+            "</strong> (" +
+            String(modDate) +
+            "; latest)</a></li>";
+          html = html + insertText;
+          var first = false;
+        } else {
+          var insertText =
+            '<li><a onclick="downloadData(' +
+            "'" +
+            post[i].metadata.version +
+            "'" +
+            ')"><strong> Version ' +
+            post[i].metadata.version +
+            "</strong> (" +
+            String(modDate) +
+            ")</a></li>";
+          html = html + insertText;
+        }
+      }
+    }
+    var div = document.getElementById("ph-download");
+    div.id = randID;
+    div.innerHTML = html;
+  }
 </script>
 
 <p><br></br></p>
@@ -1404,11 +3293,19 @@ DOI <span id="ph-doi"></span>
                      
                                   
                          
-                         
               
-                                        
+                                
+                     
+                         
+                          
                   
                      
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                       
@@ -1416,23 +3313,25 @@ DOI <span id="ph-doi"></span>
                          
               
                          
+                                      
                          
+              
                          
                 
             <a
               class="nav nav-prev"
-              href="/databases/"
+              href="/databases/depression-childadol-psyctr/"
               aria-label="Previous page"
               ><i class="ti-arrow-left mr-2"></i>
-              <span class="d-none d-md-block">Databases</span></a
+              <span class="d-none d-md-block">Depression in Children &amp; Adolescents: Psychotherapy vs. Control</span></a
             >
              
             <a
               class="nav nav-next"
-              href="/databases/depression-psy-ctr/"
+              href="/databases/depression-psyctr/"
               aria-label="Previous page"
             >
-              <span class="d-none d-md-block">Depression: Psychotherapy versus Control</span
+              <span class="d-none d-md-block">Depression: Psychotherapy vs. Control</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             

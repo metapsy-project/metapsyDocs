@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -207,6 +215,32 @@
             
  
 <li
+  data-nav-id="/databases/depression-anxiety-transdiagnostic/"
+  title="Depression &amp; Anxiety: Transdiagnostic Psychotherapy"
+  class="sidelist
+  "
+>
+  <a href="/databases/depression-anxiety-transdiagnostic/">
+    Depression &amp; Anxiety: Transdiagnostic Psychotherapy
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/depression-childadol-psyctr/"
+  title="Depression in Children &amp; Adolescents: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/depression-childadol-psyctr/">
+    Depression in Children &amp; Adolescents: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
   data-nav-id="/databases/depression-inpatients/"
   title="Depression: Inpatients"
   class="sidelist
@@ -220,26 +254,92 @@
            
  
 <li
-  data-nav-id="/databases/depression-psy-ctr/"
-  title="Depression: Psychotherapy versus Control"
+  data-nav-id="/databases/depression-psyctr/"
+  title="Depression: Psychotherapy vs. Control"
   class="sidelist
   "
 >
-  <a href="/databases/depression-psy-ctr/">
-    Depression: Psychotherapy versus Control
+  <a href="/databases/depression-psyctr/">
+    Depression: Psychotherapy vs. Control
   </a>
    
 </li>
            
  
 <li
-  data-nav-id="/databases/suicide/"
-  title="Suicide Prevention"
+  data-nav-id="/databases/gambling-cbt/"
+  title="Gambling: Cognitive Behavioral Techniques vs. Control"
   class="sidelist
   "
 >
-  <a href="/databases/suicide/">
-    Suicide Prevention
+  <a href="/databases/gambling-cbt/">
+    Gambling: Cognitive Behavioral Techniques vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/panic-psyctr/"
+  title="Panic Disorder: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/panic-psyctr/">
+    Panic Disorder: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/peer-support/"
+  title="Peer Support Interventions"
+  class="sidelist
+  "
+>
+  <a href="/databases/peer-support/">
+    Peer Support Interventions
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/ptsd-psyctr/"
+  title="PTSD: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/ptsd-psyctr/">
+    PTSD: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/suicide-psyctr/"
+  title="Suicide Prevention: Psychological Intervention vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/suicide-psyctr/">
+    Suicide Prevention: Psychological Intervention vs. Control
+  </a>
+   
+</li>
+    
+             
+ 
+<li
+  data-nav-id="/databases/psychosis-psyctr/"
+  title="Psychosis: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/psychosis-psyctr/">
+    Psychosis: Psychotherapy vs. Control
   </a>
    
 </li>
@@ -260,30 +360,30 @@
 <br>
 <p>This page provides documentation entries for all databases included in Metapsy.</p>
 <br>
-<h4 id="naming-convention">Naming Convention <a class="header-link" href="#naming-convention">
+<h4 id="naming-conventions">Naming Conventions <a class="header-link" href="#naming-conventions">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>Entries are ordered alphabetically by indication. An additional specification is provided after a colon if multiple databases are available for one indication.</p>
+<p>Entries are ordered alphabetically by indication. An additional specification is provided after a colon if datasets focus on a specific comparison or other subset.</p>
 <br>
 <h4 id="repository">Repository <a class="header-link" href="#repository">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>Each released database has an associated <a href="https://github.com/metapsy-project"><strong>Github repository</strong></a> in which the latest and all previous versions of the database are stored. The repository also contains a folder called <code>metadata</code>, in which additional information is provided for each release.</p>
+<p>Each released database has an associated <strong><a href="https://github.com/metapsy-project">Github repository</a></strong> in which the latest and all previous versions of the database are stored. The repository also contains a folder called <code>metadata</code>, in which additional information is provided for each release.</p>
 <br>
 <h4 id="digital-object-identifier">Digital Object Identifier <a class="header-link" href="#digital-object-identifier">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>Each released database is automatically indexed using <a href="https://www.zenodo.org"><strong>Zenodo</strong></a>. In the documentation entries, a Digital Object Identifier (<a href="https://en.wikipedia.org/wiki/Digital_object_identifier"><strong>DOI</strong></a>) is provided, which will always resolve to the latest database version (see &ldquo;Database DOI&rdquo;). In the &ldquo;Browse all versions&rdquo; section, you can access previous versions of the databases. These previous versions are also provided with a unique DOI in case you want to reference a specific database version in the past.</p>
+<p>Each released database is automatically indexed using <strong><a href="https://www.zenodo.org">Zenodo</a></strong>. In the documentation entries, a Digital Object Identifier (<strong><a href="https://en.wikipedia.org/wiki/Digital_object_identifier">DOI</a></strong>) is provided, which will always resolve to the latest database version (see &ldquo;Database DOI&rdquo;). In the &ldquo;Browse all versions&rdquo; section, you can access previous versions of the databases. These previous versions are also provided with a unique DOI in case you want to reference a specific database version in the past.</p>
 <p><img src="/uploads/browse.png" alt=""></p>
 <br>
 <h4 id="shorthand">Shorthand <a class="header-link" href="#shorthand">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in <a href="https://www.metapsy.org/r-package"><strong>{metapsyData}</strong></a> to retrieve a specific database using R.</p>
+<p>As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in <strong><a href="https://www.metapsy.org/r-package"><code>metapsyData</code></a></strong> to retrieve a specific database using R.</p>
 <p><br></br></p>
 </div>
           
@@ -296,11 +396,18 @@
                      
                                   
                          
-                         
               
                                 
                      
                          
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                       
@@ -308,23 +415,25 @@
                          
               
                          
+                                      
                          
+              
                          
                 
             <a
               class="nav nav-prev"
-              href="/general/helpful-links/"
+              href="/general/contribute/"
               aria-label="Previous page"
               ><i class="ti-arrow-left mr-2"></i>
-              <span class="d-none d-md-block">Helpful Links</span></a
+              <span class="d-none d-md-block">Contributors</span></a
             >
              
             <a
               class="nav nav-next"
-              href="/databases/depression-inpatients/"
+              href="/databases/depression-anxiety-transdiagnostic/"
               aria-label="Previous page"
             >
-              <span class="d-none d-md-block">Depression: Inpatients</span
+              <span class="d-none d-md-block">Depression &amp; Anxiety: Transdiagnostic Psychotherapy</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             

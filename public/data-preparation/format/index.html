@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -256,8 +264,8 @@
           <h2 class="mb-5" id="title">Data Format</h2>
           
           <div class="content"><hr>
-<p>All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the metadata provided for the data. Database repositories themselves also follow a predefined folder structure.</p>
-<p>All database objects (datasets, metadata) are provided in a <strong>machine-readable format</strong> (.csv, .json, .txt). This ensures interoperability with other Metapsy software components (e.g. the automatized <a href="/databases">database documentation</a>, <code>metapsyData</code>), as well as external software and programming languages in general.</p>
+<p>All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the meta-data provided for the data. Database repositories themselves also follow a predefined folder structure.</p>
+<p>All database objects (datasets, metadata) are provided in a <strong>machine-readable format</strong> (.csv, .json, .txt). This ensures interoperability with other Metapsy software components (e.g. the automatized <a href="/databases">database documentation</a>, <a href="https://data.metapsy.org/"><code>metapsyData</code></a>, the <a href="https://docs.metapsy.org/r-packages/api/">Metapsy API</a>), as well as external software and programming languages in general.</p>
 <p>Collectively, we refer to this set of data formatting and storage rules as the <strong>Metapsy data standard</strong>.</p>
 
 
@@ -267,36 +275,37 @@
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>All Metapsy databases are provided as &ldquo;rectangular&rdquo;, <strong>wide-format</strong> datasets. This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.</p>
+<p>As part of the release, larger databases are typically first partitioned into smaller <strong>&ldquo;scientific use files&rdquo;</strong> (SUFs) that concentrate on a particular research field (e.g., all depression trials that compared psychotherapy with control groups). These SUFs are always provided as &ldquo;rectangular&rdquo;, <strong>wide-format</strong> datasets.</p>
+<p>This means that each row in a dataset corresponds with the results of one trial arm comparison (e.g. cognitive-behavioral therapy versus waitlist) in one study.</p>
 <p>Metapsy databases only contain evidence from randomized-controlled trials (RCTs). If an RCT only contained two groups and only one relevant outcome, this means that the trial will only contribute one row to the dataset.</p>
 <p>It is also possible for RCTs included in a database to provide more than one row; for example because the study was a <strong>multi-arm trial</strong>. In a multi-arm trial with $a$ arms, there are $\frac{a!}{2!(a-2)!}$ unique trial arm comparisons. Therefore, typically, there will be one row for each unique trial arm comparison included in the data.</p>
-<p>It is also possible that one trial included more than one relevant outcome. In this case, it is also possible that one trial provides more than one row in the database, with each row representing the results for a different outcome.</p>
+<p>It is also possible that one trial included more than one relevant outcome. In this case, one trial also provides more than one row in the database, with each row representing the results for a different outcome.</p>
 <br>
 <h4 id="standard-variables">Standard Variables <a class="header-link" href="#standard-variables">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
 <p>There are several variables which are included in every Metapsy database. These variables are required, for example, to <strong>uniquely identify</strong> each comparison. They are also necessary to run meta-analyses of the databases later on (e.g. using <a href="https://tools.metapsy.org"><code>metapsyTools</code></a>; in particular, the variable information below allows to calculate variance-covariance matrices that approximate the dependence structure in the data).</p>
-<p>We differentiate between standard (I.) study design, (II.) effect size data, and (III.) <code>metapsyData</code> variables. Apart from these standard variables, additional (often database-specific) variables are included.</p>
+<p>We differentiate between standard (I.) study design, (II.) effect size data, and (III.) <code>metapsyTools</code> variables. Apart from these standard variables, additional (often database-specific) variables are included.</p>
 <br>
-<p><strong>I. Study Design Variables</strong></p>
+<p><strong>I. Study Design Variables</strong> 📝</p>
 <hr>
 <ul>
 <li><strong><code>study</code></strong>: The study name, formatted as &ldquo;last name of the first author&rdquo;, &ldquo;year&rdquo; (e.g. <code>&quot;Smith, 2011&quot;</code>).</li>
 <li><strong><code>condition_arm1</code></strong>: Condition in the first trial arm. The condition name is standardized to ensure comparability across trials (e.g. <code>cbt</code> for all trial arms that employed cognitive-behavioral psychotherapy).</li>
 <li><strong><code>condition_arm2</code></strong>: Condition in the second trial arm. The condition name is standardized to ensure comparability across trials (e.g. <code>wlc</code> for all trial arms that employed a waitlist control group).</li>
-<li><strong><code>specification_arm1</code></strong>: In multiarm trials, this variable provides a &ldquo;specification&rdquo; of the type of treatment used in the first arm. This variable is set to <code>NA</code> (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of CBT interventions, face-to-face and Internet-based, this variable would be set to <code>f2f</code> and <code>Internet</code>, respectively.</li>
-<li><strong><code>specification_arm2</code></strong>: In multiarm trials, this variable provides a &ldquo;specification&rdquo; of the type of treatment used in the second arm. This variable is set to <code>NA</code> (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of control groups, waitlist and placebo, this variable would be set to <code>wl</code> and <code>plac</code>, respectively.</li>
-<li><strong><code>outcome_type</code></strong>: This variable encodes the type of outcome that builds the basis of the comparison, e.g. <code>response</code>, <code>remission</code> or <code>deterioration</code>. This is variable is particularly relevant for dichotomous effect size data, because it indicates what the event counts refer to. The <code>msd</code> factor level is used for outcomes expressed in means and standard deviations.</li>
+<li><strong><code>multi_arm1</code></strong>: In multiarm trials, this variable provides a specification of the type of treatment used in the first arm. This variable is set to <code>NA</code> (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of CBT interventions, face-to-face and Internet-based, this variable would be set to <code>f2f</code> and <code>Internet</code>, respectively.</li>
+<li><strong><code>multi_arm2</code></strong>: In multiarm trials, this variable provides a specification of the type of treatment used in the second arm. This variable is set to <code>NA</code> (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of control groups, waitlist and placebo, this variable would be set to <code>wl</code> and <code>plac</code>, respectively. Typically, multiarm trials employ two or more active treatments (e.g. CBT and problem-solving therapy), which are compared to the same control group (e.g. a waitlist). This means that values in <code>multi_arm2</code> do not differ (e.g. they are always <code>wl</code> for this specific multiarm trial); nevertheless, the variable should be specified in the dataset.</li>
+<li><strong><code>outcome_type</code></strong>: This variable encodes the type of outcome that builds the basis of the comparison, e.g. <code>response</code>, <code>remission</code> or <code>deterioration</code>. This is variable is particularly relevant for dichotomous effect size data, because it indicates what the event counts refer to. The <code>msd</code> factor level is typically used for outcomes expressed in means and standard deviations.</li>
 <li><strong><code>instrument</code></strong>: This variable describes the instrument through which the relevant outcome was measured.</li>
 <li><strong><code>time</code></strong>: The measurement point at which the outcome was obtained (e.g. <code>post</code> or <code>follow-up</code>).</li>
 <li><strong><code>time_weeks</code></strong>: The measurement point at which the outcome was obtained, in weeks after randomization (set to <code>NA</code> if this information was not available).</li>
-<li><strong><code>rating</code></strong>: This variable encodes if the reported outcome was self-reported (<code>&quot;self-report&quot;</code>) or clinician-rated (<code>&quot;clinician&quot;</code>).</li>
+<li><strong><code>rating</code></strong>: This variable encodes if the measured outcome was self-reported (<code>&quot;self-report&quot;</code>) or clinician-rated (<code>&quot;clinician&quot;</code>).</li>
 </ul>
 <br>
-<p><strong>II. Effect Size Data Variables</strong></p>
+<p><strong>II. Effect Size Data Variables</strong> 📐</p>
 <hr>
-<p>Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (d) will be specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain <code>NA</code> in that row.</p>
+<p>Each Metapsy database also contains variables in which the (raw or pre-calculated) effect size data is stored. In each row, one of the following variable groups (a) to (e) is specified, depending on the type of outcome data reported in the paper. The rest of the variable groups will contain <code>NA</code> in that row.</p>
 <br>
 <p><strong>(a)</strong> Continuous Outcome Data</p>
 <ul>
@@ -308,7 +317,17 @@
 <li><strong><code>n_arm2</code></strong>: Sample size in the second trial arm.</li>
 </ul>
 <br>
-<p><strong>(b)</strong> Dichotomous Outcome Data (Response, Remission, Deterioration, &hellip;)</p>
+<p><strong>(b)</strong> Within-Group Change Data</p>
+<ul>
+<li><strong><code>mean_change_arm1</code></strong>: Mean score change between baseline and the  measured time point in the first arm.</li>
+<li><strong><code>mean_change_arm2</code></strong>: Mean score change between baseline and the  measured time point in the second arm.</li>
+<li><strong><code>sd_change_arm1</code></strong>: Standard deviation of the mean change in the first arm.</li>
+<li><strong><code>sd_change_arm2</code></strong>: Standard deviation of the mean change in the second arm.</li>
+<li><strong><code>n_change_arm1</code></strong>: Sample size in the first trial arm.</li>
+<li><strong><code>n_change_arm2</code></strong>: Sample size in the second trial arm.</li>
+</ul>
+<br>
+<p><strong>(c)</strong> Dichotomous Outcome Data (Response, Remission, Deterioration, &hellip;)</p>
 <ul>
 <li><strong><code>event_arm1</code></strong>: Number of events (responders, remission, deterioration cases) in the first trial arm.</li>
 <li><strong><code>event_arm2</code></strong>: Number of events (responders, remission, deterioration cases) in the second trial arm.</li>
@@ -316,19 +335,19 @@
 <li><strong><code>totaln_arm2</code></strong>: Sample size in the second trial arm.</li>
 </ul>
 <br>
-<p><strong>(c)</strong> Pre-calculated Hedges' $g$</p>
+<p><strong>(d)</strong> Pre-calculated Hedges' $g$</p>
 <ul>
-<li><strong><code>g</code></strong>: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; <a href="https://journals.sagepub.com/doi/10.3102/10769986006002107">Hedges, 1981</a>).</li>
-<li><strong><code>g_se</code></strong>: Standard error of $g$, viz. $\sqrt{V_g}$.</li>
+<li><strong><code>precalc_g</code></strong>: The pre-calculated value of Hedges' $g$ (small-sample bias corrected standardized mean difference; <a href="https://journals.sagepub.com/doi/10.3102/10769986006002107">Hedges, 1981</a>).</li>
+<li><strong><code>precalc_g_se</code></strong>: Standard error of $g$, viz. $\sqrt{V_g}$.</li>
 </ul>
 <br>
-<p><strong>(d)</strong> Pre-calculated log-risk ratio</p>
+<p><strong>(e)</strong> Pre-calculated log-risk ratio</p>
 <ul>
-<li><strong><code>log_rr</code></strong>: The pre-calculated value of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.</li>
-<li><strong><code>log_rr_se</code></strong>: The standard error of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.</li>
+<li><strong><code>precalc_log_rr</code></strong>: The pre-calculated value of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.</li>
+<li><strong><code>precalc_log_rr_se</code></strong>: The standard error of the log-risk ratio $\log_{e}\text{RR}$, comparing events in the first arm to events in the second arm.</li>
 </ul>
 <br>
-<p><strong>III. <code>metapsyTools</code> Variables</strong></p>
+<p><strong>III. <code>metapsyTools</code> Variables</strong> 📦</p>
 <hr>
 <p>The Metapsy database standard includes nine additional variables that all start with a dot (<code>.</code>). These are variables created by the <a href="https://tools.metapsy.org/reference/calculateeffectsizes"><code>calculateEffectSizes</code></a> function in <code>metapsyTools</code>. They are included so that meta-analysis functions in <code>metapsyTools</code> can be applied &ldquo;out of the box&rdquo;.</p>
 <ul>
@@ -343,7 +362,7 @@
 <li><strong><code>.totaln_arm2</code></strong>: Total sample size in the second trial arm.</li>
 </ul>
 <br>
-<p><strong>IV. Additional Variables</strong></p>
+<p><strong>IV. Additional Variables</strong> <a href="https://emojipedia.org/backpack/">🎒</a></p>
 <hr>
 <p>Metapsy databases also contain additional variables. These are used, for example, to collect subject-specific information that is not relevant for all indications. Nevertheless, there are several formatting rules that all variables/columns follow:</p>
 <ul>
@@ -356,7 +375,9 @@
 </ul>
 <br>
 <h5 id="data-file-type">Data File Type</h5><hr>
-<p>Finalized datasets are saved as <strong>comma-separated values</strong> (.csv) files. Importantly, in our case, .csv files <em>always</em> use a <strong>semicolon</strong> as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. <code>1,02</code> instead of <code>1.02</code>). This is typically how MS Excel exports sheets as .csv by default (with &ldquo;continental European&rdquo; settings). An example can be seen below.</p>
+<p>Finalized datasets are saved as <strong>comma-separated values</strong> (.csv) files. Importantly, in our case, .csv files <em>always</em> use a <strong>semicolon</strong> as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. <code>1,02</code> instead of <code>1.02</code>). This is typically how MS Excel exports sheets as .csv by default (with &ldquo;continental European&rdquo; settings).
+A﻿nother method to create the .csv files in the correct format is to export the dataset from R using the  <tt><a href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html">write.csv2</a></tt> function.</p>
+<p>An example can be seen below.</p>
 <p><img src="/uploads/carbon.svg" alt="codechunk" width="550" ></p>
 <br></div>
           
@@ -369,10 +390,17 @@
                      
                                   
                          
-                         
               
                                       
                          
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                         
@@ -381,7 +409,9 @@
                          
               
                          
+                                      
                          
+              
                          
                 
             <a

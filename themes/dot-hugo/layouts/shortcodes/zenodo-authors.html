@@ -1,5 +1,14 @@
 <span id="ph-authors"></span>
-<script>
+
+<span id="spinner-ph-authors" class="loader-spinner spinner-ph-authors"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   // random id generator function
   function makeid(length) {
     var result = "";
@@ -69,6 +78,9 @@
                     ", ";
                 }
                 text = text.slice(0, -2);
+                for (let i = 0; i < document.getElementsByClassName('spinner-ph-authors').length; i++) {
+                  document.getElementsByClassName('spinner-ph-authors')[i].style.display = 'none';
+                }
                 var div = document.getElementById("ph-authors");
                 div.id = div.id + "-" + randID;
                 div.innerHTML = text;
@@ -120,6 +132,9 @@
                   ", ";
               }
               text = text.slice(0, -2);
+              for (let i = 0; i < document.getElementsByClassName('spinner-ph-authors').length; i++) {
+                  document.getElementsByClassName('spinner-ph-authors')[i].style.display = 'none';
+              }
               var div = document.getElementById("ph-authors");
               div.id = div.id + "-" + randID;
               div.innerHTML = text;

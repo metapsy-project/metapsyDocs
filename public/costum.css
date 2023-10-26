@@ -76,11 +76,6 @@ ul {
     text-align: left !important;
 }
 
-header {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-}
-
 .navbar-brand {
     font-family: "Lexend Tera" !important;
 }
@@ -242,7 +237,6 @@ header.banner.overlay.bg-cover {
 }
 
 .shadow-bottom {
-    box-shadow: 0 1px var(--col-shadow-1), 0 1px 6px var(--col-shadow-2) !important;
 }
 
 .ti-shine:visited {
@@ -288,6 +282,24 @@ td > code {
     color: var(--body-color);
 }
 
+.expand-btn {
+    background-color: var(--bs-text);
+    color: var(--text-color);
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important; 
+}
+.expand-btn:hover {
+    color: var(--bs-primary) !important;
+    background-color: var(--bs-text) !important;
+}
+
+.card-body {
+    background-color: var(--body-color) !important;
+    padding: 0rem !important;
+}
+
 .overlay::before {
     top: 10px !important;
 }
@@ -302,4 +314,79 @@ header.banner #documentationText {
 
 @media only screen and (max-width: 800px) {
     #documentationText{ display: none !important; }
+    #flow-svg {
+       height: 250px !important;
+    }
  }
+
+ ::-moz-selection { /* Code for Firefox */
+    background: #ACCEF7 !important;
+    color: revert !important;
+  }
+  
+  ::selection {
+    background: #ACCEF7 !important;
+    color: revert !important;
+  }
+
+  .citation {
+    line-height: 200%;
+  }
+  
+header.shadow-bottom.sticky-top.bg-white {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background-color: #222d32 !important;
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px rgba(59,64,69,1) !important;
+}
+
+header.banner.overlay.bg-cover > #strip {
+    margin-top: 0px !important;
+}
+
+span.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+a.nav-link.dropdown-toggle.text-dark {
+    color: white !important;
+}
+
+#content {
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px 3px rgba(59,64,69,0.12) !important;
+}
+
+.sidebar {
+    box-shadow: 0 0px rgba(12,13,14,1),0 1px 6px 3px rgba(59,64,69,0.05) !important;
+}
+
+.col-lg-3 > .sidebar {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+

@@ -12,6 +12,13 @@
   <div class="collapse" id="collapseReferences">
     <div class="card card-body">
       <span id="ph-references"></span>
+      <span id="spinner-ph-references" class="loader-spinner" style="margin-left: 5px;"></span>
+      <style>
+        #spinner-ph-references { width: 20px; height: 20px; margin-bottom: 5px; padding-bottom: 5px; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+      </style>
     </div>
   </div>
   <br />
@@ -90,6 +97,7 @@
                   html = html + addHtml;
                 }
                 html = html + "</ul></div>";
+                document.getElementById('spinner-ph-references').style.display = 'none';
                 var div = document.getElementById("ph-references");
                 div.id = randID;
                 div.innerHTML = html;
@@ -145,6 +153,7 @@
                 html = html + addHtml;
               }
               html = html + "</ul></div>";
+              document.getElementById('spinner-ph-references').style.display = 'none';
               var div = document.getElementById("ph-references");
               div.id = randID;
               div.innerHTML = html;

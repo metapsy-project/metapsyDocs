@@ -2,10 +2,10 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8" />
-  <title>R Packages</title>
+  <title>R Packages &amp; API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content="Hugo 0.88.1" />
-  <meta name="description" content="R Packages - Metapsy Documentation " />
+  <meta name="description" content="R Packages &amp; API - Metapsy Documentation " />
 
   
   <link rel="stylesheet" href="/costum.css" />
@@ -13,6 +13,14 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
   />
+
+  
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
 
   
   
@@ -101,19 +109,19 @@
 
   
      
-  <meta name="twitter:title" content="R Packages" />
+  <meta name="twitter:title" content="R Packages &amp; API" />
   <meta
     name="twitter:description"
-    content="Technical Documentation for the Metapsy R Packages"
+    content="Technical Documentation for the Metapsy R Packages &amp; API"
   />
-    <meta property="og:title" content="R Packages" />
-<meta property="og:description" content="Technical Documentation for the Metapsy R Packages" />
+    <meta property="og:title" content="R Packages &amp; API" />
+<meta property="og:description" content="Technical Documentation for the Metapsy R Packages &amp; API" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/r-packages/" />
 
  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="R Packages"/>
-<meta name="twitter:description" content="Technical Documentation for the Metapsy R Packages"/>
+<meta name="twitter:title" content="R Packages &amp; API"/>
+<meta name="twitter:description" content="Technical Documentation for the Metapsy R Packages &amp; API"/>
 
 </head>
 
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -195,14 +203,44 @@
  
 <li
   data-nav-id="/r-packages/"
-  title="R Packages"
+  title="R Packages &amp; API"
   class="sidelist
   active"
 >
   <a href="/r-packages/">
+    R Packages &amp; API
+  </a>
+   
+  <ul>
+            
+ 
+<li
+  data-nav-id="/r-packages/r-packages/"
+  title="R Packages"
+  class="sidelist
+  "
+>
+  <a href="/r-packages/r-packages/">
     R Packages
   </a>
    
+</li>
+           
+ 
+<li
+  data-nav-id="/r-packages/api/"
+  title="Metapsy API"
+  class="sidelist
+  "
+>
+  <a href="/r-packages/api/">
+    Metapsy API
+  </a>
+   
+</li>
+   
+  </ul>
+  
 </li>
         
           </ul>
@@ -210,46 +248,13 @@
       </div>
       <div class="col-lg-9">
         <div class="p-lg-5 p-4 bg-white" id="content">
-          <h2 class="mb-5" id="title">R Packages</h2>
+          <h2 class="mb-5" id="title">R Packages &amp; API</h2>
           
           <div class="content"><hr>
 <img src="/uploads/code-header.jpg" width="100%" style="border-radius: 5px;">
 <br>
-<p>The Metapsy infrastructure includes <strong>two R packages</strong>. The first package, <strong><code>metapsyData</code></strong>, allows researchers to directly access all Metapsy databases from an R environment. The second package, <strong><code>metapsyTools</code></strong>, provides state-of-the-art meta-analysis functions that can be applied to databases without any prior preprocessing steps. Collectively, these packages create an integrated meta-analysis workflow. Using the packages:</p>
-<ul>
-<li>📥 the latest update or older versions of a database can be <strong>downloaded</strong>;</li>
-<li><a href="https://emojipedia.org/backhand-index-pointing-right/">👉</a> databases can be <strong>filtered</strong> to address specific research questions;</li>
-<li><a href="https://emojipedia.org/bar-chart/">📊</a> data can be <strong>synthesized</strong> using a variety of meta-analytic models;</li>
-<li><a href="https://emojipedia.org/chart-increasing/">📈</a> meta-regression, small-study-effect and subgroup <strong>analysis models</strong> can be applied;</li>
-<li><a href="https://emojipedia.org/clipboard/">📋</a> <strong>summary tables</strong> of the results can be generated, which can easily be copied to e.g. MS Word.</li>
-</ul>
-<p><img src="/uploads/flow-r.png" alt=""></p>
-<br>
-<h4 id="metapsydata"><code>metapsyData</code> <a class="header-link" href="#metapsydata">
-    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>The <code>metapsyData</code> package serves as an API-like interface that allows accessing the Metapsy databases from R. Using the <code>getData()</code> function, available databases can be downloaded based on their <a href="https://docs.metapsy.org/databases/#shorthand">shorthand</a>. The function returns an R6 <code>metapsyDatabase</code> object, which contains extensive metadata and helper functions along with the actual dataset.</p>
-
-
-<div class="notices info" ><p>The <code>metapsyData</code> package has its own documentation page, which you can find <a href="https://data.metapsy.org/">here</a>.</p></div>
-<br>
-<h4 id="metapsytools"><code>metapsyTools</code> <a class="header-link" href="#metapsytools">
-    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0h24v24H0z" fill="none"/>
-        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>The <code>metapsyTools</code> package facilitates the calculation of effect sizes (i.e. Hedges’ $g$ or risk ratios) and meta-analyses for data included in Metapsy databases (or databases adhering to the same format).</p>
-<p>The package consists of <strong>two modules</strong>:</p>
-<ul>
-<li>A module to check if data follows the <a href="https://docs.metapsy.org/data-preparation/format/">Metapsy data standard</a>, and to calculate effect sizes for all possible study comparisons (<strong>preparation</strong> module);</li>
-<li>A module to select relevant comparisons for a specific meta-analysis, calculate the results (including subgroup analyses, meta-regression, small-study-effect/publication bias analyses), and generate tables (<strong>analysis</strong> module).</li>
-</ul>
-<p>The idea is to use the two modules in different contexts. For example, the <strong>preparation</strong> module can be used every time the database is updated to gather all information, calculate effect sizes, and bring the data into a format suitable for further analyses.</p>
-<p>This final dataset then builds the basis for the <strong>analysis</strong> module. Researchers simply have to filter out the comparisons that are relevant for their investigation, and can then use functions of the package to run a full meta-analysis.</p>
-<p>Databases downloaded into the R environment using <code>metapsyData</code> can be analyzed &ldquo;out of the box&rdquo; using the analysis module in <code>metapsyTools</code>.</p>
-
-
-<div class="notices info" ><p>Like <code>metapsyData</code>, the <code>metapsyTools</code> package has its own documentation page. You can find it <a href="https://tools.metapsy.org/">here</a>.</p></div>
+<p>After being released, all Metapsy databases (including all released versions) can be retrieved and analyzed using two designated R packages, <code>metapsyData</code> and <code>metapsyTools</code>. We also provide a lightweight API, which can be used to export released databases and their metadata as <a href="https://www.json.org/json-en.html">JSON</a> objects.</p>
+<p>This documentation section provides further information on the two R packages, as well as the Metapsy API.</p>
 <p><br></br></p>
 </div>
           
@@ -262,20 +267,29 @@
                      
                                   
                          
+              
+                                      
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                       
                          
                          
               
-                                      
                          
-                         
-              
-                         
-                          
-                  
+                                
                      
+                         
+              
+                         
                 
             <a
               class="nav nav-prev"
@@ -287,10 +301,10 @@
              
             <a
               class="nav nav-next"
-              href="/meta-analysis-tool/"
+              href="/r-packages/r-packages/"
               aria-label="Previous page"
             >
-              <span class="d-none d-md-block">Meta-Analysis Tool</span
+              <span class="d-none d-md-block">R Packages</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             

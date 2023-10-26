@@ -1,4 +1,13 @@
 <span id="ph-all-versions"></span>
+
+<span id="spinner-ph-all-versions" class="loader-spinner" style="margin-bottom: 20px;"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script>
   // random id generator
   function makeid(length) {
@@ -90,6 +99,7 @@
         }
       }
       html = html + "</ul></div>";
+      document.getElementById('spinner-ph-all-versions').style.display = 'none';
       var div = document.getElementById("ph-all-versions");
       div.id = randID;
       div.innerHTML = html;
@@ -156,6 +166,7 @@
       }
     }
     html = html + "</ul></div>";
+    document.getElementById('spinner-ph-all-versions').style.display = 'none';
     var div = document.getElementById("ph-all-versions");
     div.id = randID;
     div.innerHTML = html;

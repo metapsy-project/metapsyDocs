@@ -9,11 +9,27 @@
   </url><url>
     <loc>/data-preparation/format/</loc>
   </url><url>
+    <loc>/databases/depression-anxiety-transdiagnostic/</loc>
+  </url><url>
+    <loc>/databases/depression-childadol-psyctr/</loc>
+  </url><url>
     <loc>/databases/depression-inpatients/</loc>
   </url><url>
-    <loc>/databases/depression-psy-ctr/</loc>
+    <loc>/databases/depression-psyctr/</loc>
   </url><url>
-    <loc>/databases/suicide/</loc>
+    <loc>/databases/gambling-cbt/</loc>
+  </url><url>
+    <loc>/databases/panic-psyctr/</loc>
+  </url><url>
+    <loc>/databases/peer-support/</loc>
+  </url><url>
+    <loc>/databases/ptsd-psyctr/</loc>
+  </url><url>
+    <loc>/r-packages/r-packages/</loc>
+  </url><url>
+    <loc>/databases/suicide-psyctr/</loc>
+  </url><url>
+    <loc>/databases/total-response/</loc>
   </url><url>
     <loc>/databases/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
@@ -22,10 +38,10 @@
   </url><url>
     <loc>/data-preparation/metadata/</loc>
   </url><url>
+    <loc>/r-packages/api/</loc>
+  </url><url>
     <loc>/data-preparation/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
-  </url><url>
-    <loc>/general/helpful-links/</loc>
   </url><url>
     <loc>/data-preparation/upload/</loc>
   </url><url>
@@ -42,6 +58,8 @@
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
+  </url><url>
+    <loc>/databases/psychosis-psyctr/</loc>
   </url><url>
     <loc>/tags/</loc>
   </url>

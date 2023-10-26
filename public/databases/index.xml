@@ -8,5 +8,15 @@
     <language>en-us</language>
     <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="/databases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Psychosis: Psychotherapy vs. Control</title>
+      <link>/databases/psychosis-psyctr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/databases/psychosis-psyctr/</guid>
+      <description>ABC
+function makeid(length) { var result = &#34;&#34;; var characters = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#34;; var charactersLength = characters.length; for (var i = 0; i d.text()) .then((d) = { d = JSON.parse(d); text = &#34;&#34;; for (let i = 0; i &#39; + &#34;, &#34;; } text = text.slice(0, -2); var div = document.getElementById(&#34;ph-authors&#34;); div.id = div.id + &#34;-&#34; + randID; div.innerHTML = text; }); firstItem = false; } } } } saveApiResponse(); } else { var post = JSON.</description>
+    </item>
+    
   </channel>
 </rss>

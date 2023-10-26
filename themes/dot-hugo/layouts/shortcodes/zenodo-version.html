@@ -1,4 +1,13 @@
 <span id="ph-version"></span>
+
+<span id="spinner-ph-version" class="loader-spinner spinner-ph-version"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script>
   // random id generator function
   function makeid(length) {
@@ -43,6 +52,9 @@
           if (firstItem === true) {
             const version = post[i].metadata.version;
             latestVersion = document.createTextNode(version);
+            for (let i = 0; i < document.getElementsByClassName('spinner-ph-version').length; i++) {
+              document.getElementsByClassName('spinner-ph-version')[i].style.display = 'none';
+            }
             var div = document.getElementById("ph-version");
             div.id = div.id + "-" + randID;
             div.appendChild(latestVersion);
@@ -67,6 +79,9 @@
         if (firstItem === true) {
           const version = post[i].metadata.version;
           latestVersion = document.createTextNode(version);
+          for (let i = 0; i < document.getElementsByClassName('spinner-ph-version').length; i++) {
+            document.getElementsByClassName('spinner-ph-version')[i].style.display = 'none';
+          }
           var div = document.getElementById("ph-version");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);

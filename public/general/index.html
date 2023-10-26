@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -230,19 +238,6 @@
   </a>
    
 </li>
-           
- 
-<li
-  data-nav-id="/general/helpful-links/"
-  title="Helpful Links"
-  class="sidelist
-  "
->
-  <a href="/general/helpful-links/">
-    Helpful Links
-  </a>
-   
-</li>
    
   </ul>
   
@@ -268,23 +263,24 @@
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>Metapsy aims to provide a unified framework for all available meta-analytic data for these different indications. All meta-analytic databases&hellip;</p>
+<p>Metapsy aims to provide a unified framework for all available meta-analytic data across different indications and settings. All meta-analytic databases&hellip;</p>
 <ul>
-<li>&hellip; are created by university-based research teams using a state-of-the-art methodology</li>
+<li>&hellip; are created by university-based research teams using state-of-the-art methodology</li>
 <li>&hellip; are updated regularly, at least once each year.</li>
-<li>&hellip; are formatted using an identical and transparent coding scheme.</li>
-<li>&hellip; receive extensive documentation and metadata, including versioning and persistent data identifiers, following the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a>.</li>
-<li>&hellip; are made publically available via data repositories (Github, Zenodo). Researchers can also easily access the databases using the designated R package {metapsyData}.</li>
-<li>&hellip; can be analyzed using state-of-the-art meta-analytic methods, either using the {metapsyTools} R package or using an <a href="/meta-analysis-tool/">Online Meta-Analysis Tool</a>.</li>
+<li>&hellip; are formatted using an <a href="https://docs.metapsy.org/data-preparation/format/">identical and transparent coding scheme</a>.</li>
+<li>&hellip; receive extensive <a href="https://docs.metapsy.org/databases/">documentation</a> and <a href="https://docs.metapsy.org/data-preparation/metadata/">metadata</a>, including <a href="https://docs.metapsy.org/release/#versioning">versioning</a> and persistent <a href="https://docs.metapsy.org/databases/#digital-object-identifier">data identifiers</a> (DOIs), following the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a>.</li>
+<li>&hellip; are made <a href="https://docs.metapsy.org/release/">publically available</a> via data repositories (Github, Zenodo). Researchers can also easily access the databases using the designated R package <a href="https://data.metapsy.org"><code>metapsyData</code></a>.</li>
+<li>&hellip; can be analyzed using state-of-the-art meta-analytic methods, either using the <a href="https://tools.metapsy.org"><code>metapsyTools</code></a> R package or using an <a href="/meta-analysis-tool/">Online Meta-Analysis Tool</a>.</li>
 </ul>
 <br>
-<p>Overall, the goal of the Metapsy project is to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of <strong>meta-analytic research domains (MARDs)</strong>, thus benefitting both research and practice.</p>
+<p>Overall, the Metapsy project tries to make meta-analytic psychotherapy research more transparent, flexible, and accessible. We want to facilitate a move from single, isolated meta-analyses toward a collection of <strong>meta-analytic research domains (MARDs)</strong>, thus benefitting both research and practice.</p>
 <br>
 <h4 id="mard">Introducing Meta-Analytic Research Domains <a class="header-link" href="#mard">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p><img src="/uploads/mard2.png" alt="">Metapsy aims to serve as a centralized hub for meta-analytic research domains (MARDs).</p>
+<img src="/uploads/mard2.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
+<p>Metapsy aims to serve as a centralized hub for <strong>meta-analytic research domains</strong> (MARDs; <a href="https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf" target="_blank">Cuijpers, Miguel, Papola, Harrer &amp; Karyotaki, 2022</a>).</p>
 <blockquote>
 <p>MARDs are living systematic reviews of an entire research domain. In contrast to conventional systematic reviews and meta-analyses, MARDs do not focus on one specific population, intervention, comparison, or outcome (PICO), but on an entire research field that is too broad to be covered by one meta-analysis.</p>
 </blockquote>
@@ -292,11 +288,11 @@
 <p>Like <a href="https://www.jclinepi.com/article/S0895-4356(17)30636-4/fulltext">living systematic reviews</a>, MARDs are updated regularly and therefore provide up-to-date evidence; but the scope of MARDs is much larger than what can be covered in one &ldquo;living&rdquo; meta-analysis or systematic review.</p>
 <p>Like <a href="https://ebmh.bmj.com/content/21/3/95">umbrella reviews</a>, MARDs can cover a whole research field. However, MARDs do not &ldquo;lag behind&rdquo; like umbrella reviews. Furthermore, information included in MARDs is established using transparent and consistent standards, and can be easily reused or repurposed by the entire research community. Other advantages of MARDs include:</p>
 <ul>
-<li><strong>Reduction of research waste</strong>. In the biomedical field, a great amount of redundant, misleading, and biased research is produced on a regular basis (<a href="https://www.thelancet.com/pdfs/journals/lancet/PIIS0140-6736(13)62329-6.pdf">MacLeod et al., 2014</a>). This is also the case in psychotherapy research (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0005796719301652">Cristea &amp; Naudet, 2019</a>). By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.</li>
-<li><strong>Evidence Mapping.</strong> MARDs provide an overview of limitations and gaps in knowledge and make it possible to see emerging trends in the field</li>
-<li><strong>Meta-Research (&ldquo;Research on Research&rdquo;)</strong>. MARDs allow examining the methods and research practices of an entire field, and how they changed over time.</li>
-<li><strong>Stakeholders outside the scientific community</strong>. MARDs can enable just-in-time evidence generation for specific research questions. This can be used by e.g. treatment guideline developers or clinicians, to get an overview of the current evidence.</li>
-<li><strong>Open Science</strong>. MARDs provide data in a transparent, accessible, and interoperable way. This allows other members of the scientific community to re-use or repurpose the provided information.</li>
+<li>🗑️ <strong>Reduction of research waste</strong>. In the biomedical field, a great amount of redundant, misleading, and biased research is produced on a regular basis (<a href="https://www.thelancet.com/pdfs/journals/lancet/PIIS0140-6736(13)62329-6.pdf">MacLeod et al., 2014</a>). This is also the case in psychotherapy research (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0005796719301652">Cristea &amp; Naudet, 2019</a>). By centralizing all available evidence, unnecessary work can be avoided. Transparent and consistent standards can lead to more trustworthy findings.</li>
+<li>🗺️ <strong>Evidence Mapping.</strong> MARDs provide an overview of limitations and gaps in knowledge and make it possible to see emerging trends in the field</li>
+<li>🔎 <strong>Meta-Research (&ldquo;Research on Research&rdquo;)</strong>. MARDs allow examining the methods and research practices of an entire field, and how they changed over time.</li>
+<li>🤝 <strong>Stakeholders outside the scientific community</strong>. MARDs can enable just-in-time evidence generation for specific research questions. This can be used by e.g. treatment guideline developers or clinicians, to get an overview of the current evidence.</li>
+<li>🔓 <strong>Open Science</strong>. MARDs provide data in a transparent, accessible, and interoperable way. This allows other members of the scientific community to re-use or repurpose the provided information.</li>
 </ul>
 <br>
 
@@ -317,18 +313,27 @@
                                    
                      
                          
+              
+                                      
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
                          
               
                                       
                          
                          
               
+                         
                                       
                          
-                         
               
-                         
-                         
                          
                 
             <a

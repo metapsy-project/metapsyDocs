@@ -15,6 +15,14 @@
   />
 
   
+  <link rel="preload" href="/zenodo.js" as="fetch">
+  <script src="/zenodo.js"></script>
+
+  
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/flowcharty.js"></script>
+
+  
   
   <link
     rel="stylesheet"
@@ -161,7 +169,7 @@
             
             <a class="dropdown-item" href="/release/">Data Release</a>
             
-            <a class="dropdown-item" href="/r-packages/">R Packages</a>
+            <a class="dropdown-item" href="/r-packages/">R Packages &amp; API</a>
             
             <a class="dropdown-item" href="/meta-analysis-tool/">Meta-Analysis Tool</a>
             
@@ -230,19 +238,6 @@
   </a>
    
 </li>
-           
- 
-<li
-  data-nav-id="/general/helpful-links/"
-  title="Helpful Links"
-  class="sidelist
-  "
->
-  <a href="/general/helpful-links/">
-    Helpful Links
-  </a>
-   
-</li>
    
   </ul>
   
@@ -256,24 +251,38 @@
           <h2 class="mb-5" id="title">Contributors</h2>
           
           <div class="content"><div class="gallery">
-<div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/tum.png" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/fau.jpg" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/va.png" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/verona.jpg" width="600" height="400"> </div>
-<div class="logo-gallery"> <img src="/uploads/113.png" width="600" height="400"> </div>
+<div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400" title="Vrije Universiteit Amsterdam"> </div>
+<div class="logo-gallery"> <img src="/uploads/tum-logo2.png" width="600" height="400" title="Technical University Munich"> </div>
+<div class="logo-gallery"> <img src="/uploads/fau.jpg" width="600" height="400" title="Friederich-Alexander-University Erlangen-Nuremberg"> </div>
+<div class="logo-gallery"> <img src="/uploads/va2.png" width="600" height="400" title="U.S. Department of Veterans Affairs"> </div>
+<div class="logo-gallery"> <img src="/uploads/verona-1.png" width="600" height="400" title="University of Verona"> </div>
+<div class="logo-gallery"> <img src="/uploads/113.png" width="600" height="400" title="113 Zelfmoordpreventie"> </div>
 </div>
+<p><strong>Contributors to the Metapsy project include:</strong></p>
 <ul>
-<li>Pim Cuijpers, Vrije Universiteit Amsterdam</li>
-<li>Eirini Karyotaki, Vrije Universiteit Amsterdam</li>
-<li>Wouter van Ballegooijen, Vrije Universiteit Amsterdam</li>
-<li>Clara Miguel Sanz, Vrije Universiteit Amsterdam</li>
-<li>C. Yves Plessen, Charité Berlin &amp; Vrije Universiteit Amsterdam</li>
-<li>Josine Rawee, 113 Zelfmoordpreventie</li>
-<li>Davide Papola, University of Verona</li>
-<li>Mathias Harrer, Technical University Munich &amp; University of Erlangen</li>
-<li>David Ebert, Technical University Munich</li>
+<li>Čihařová, Markéta, Vrije Universiteit Amsterdam</li>
+<li>Cuijpers, Pim, Vrije Universiteit Amsterdam</li>
+<li>de Ponti, Nino Vrije Universiteit Amsterdam</li>
+<li>Ebert, David Daniel, Technical University Munich</li>
+<li>Franco, Pamela, Pontificia Universidad Católica de Chile</li>
+<li>Gómez Gómez, Irene, Universidad Loyola</li>
+<li>Hamblen, Jessica L., National Center for PTSD</li>
+<li>Harrer, Mathias, Technical University Munich &amp; University of Erlangen</li>
+<li>Karyotaki, Eirini, Vrije Universiteit Amsterdam</li>
+<li>Kuper, Paula, Otto-von-Guericke University Magdeburg</li>
+<li>Miguel Sanz, Clara, Vrije Universiteit Amsterdam</li>
+<li>Motrico Martínez, Emma, Universidad Loyola</li>
+<li>Panagiotopoulou, Olga, Vrije Universiteit Amsterdam</li>
+<li>Papola, Davide, Harvard Medical School &amp; University of Verona</li>
+<li>Pfund, Rory A., The University of Memphis</li>
+<li>Plessen, C. Yves, Charité Berlin &amp; Vrije Universiteit Amsterdam</li>
+<li>Rawee, Josine, 113 Zelfmoordpreventie</li>
+<li>Sprenger, Antonia A., Otto-von-Guericke University Magdeburg</li>
+<li>Tong, Lingyao, Vrije Universiteit Amsterdam</li>
+<li>van Ballegooijen, Wouter, Vrije Universiteit Amsterdam</li>
+<li>Zhao, Ruiying Vrije Universiteit Amsterdam</li>
 </ul>
+<p>A more complete overview of the core maintenance team behind Metapsy is provided on the <a href="https://www.metapsy.org/team">project website</a>.</p>
 <br>
 <h4 id="contributing-to-metapsy">Contributing to Metapsy <a class="header-link" href="#contributing-to-metapsy">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
@@ -303,19 +312,28 @@
                                    
                      
                           
+              
                   
-                     
+                                  
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                
+                         
               
                                       
                          
                          
               
+                         
                                       
                          
-                         
               
-                         
-                         
                          
                 
             <a
@@ -328,10 +346,10 @@
              
             <a
               class="nav nav-next"
-              href="/general/helpful-links/"
+              href="/databases/"
               aria-label="Previous page"
             >
-              <span class="d-none d-md-block">Helpful Links</span
+              <span class="d-none d-md-block">Databases</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             

@@ -13,6 +13,13 @@
     <div class="card card-body" style="padding: 0.15rem !important">
       <div style="overflow-y: scroll; height: 300px">
         <span id="ph-variable-description"></span>
+        <span id="spinner-ph-variable-description" class="loader-spinner"></span>
+        <style>
+         #spinner-ph-variable-description { width: 20px; height: 20px; padding-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+            border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+            box-sizing: border-box; animation: rotation 1s linear infinite;}
+            @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+        </style>
       </div>
     </div>
   </div>
@@ -73,6 +80,7 @@
             fetch(readLink)
               .then((d) => d.text())
               .then((d) => {
+                document.getElementById('spinner-ph-variable-description').style.display = 'none';
                 var div = document.getElementById("ph-variable-description");
                 div.id = div.id + "-" + randID;
                 tableData = JSON.parse(d);
@@ -132,6 +140,7 @@
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              document.getElementById('spinner-ph-variable-description').style.display = 'none';
               var div = document.getElementById("ph-variable-description");
               div.id = div.id + "-" + randID;
               tableData = JSON.parse(d);

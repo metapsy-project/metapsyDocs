@@ -1,4 +1,13 @@
 <span id="ph-badge"></span>
+
+<span id="spinner-ph-badge" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script>
   // random id generator function
   function makeid(length) {
@@ -52,6 +61,7 @@
             link.setAttribute("href", href);
             link.setAttribute("target", "blank");
             img.setAttribute("src", badgeUrl);
+            document.getElementById('spinner-ph-badge').style.display = 'none';
             var div = document.getElementById("ph-badge");
             div.id = div.id + "-" + randID;
             img.style.maxWidth = "unset !important";
@@ -88,6 +98,7 @@
           link.setAttribute("href", href);
           link.setAttribute("target", "blank");
           img.setAttribute("src", badgeUrl);
+          document.getElementById('spinner-ph-badge').style.display = 'none';
           var div = document.getElementById("ph-badge");
           div.id = div.id + "-" + randID;
           img.style.maxWidth = "unset !important";
