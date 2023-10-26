@@ -55,7 +55,7 @@
               "https://img.shields.io/badge/DOI-" +
               post[i].conceptdoi +
               "-blue";
-            var href = post[i].links.conceptdoi;
+            var href = post[i].links.parent_doi;
             var img = document.createElement("img");
             var link = document.createElement("a");
             link.setAttribute("href", href);
@@ -92,7 +92,7 @@
         if (firstItem === true) {
           var badgeUrl =
             "https://img.shields.io/badge/DOI-" + post[i].conceptdoi + "-blue";
-          var href = post[i].links.conceptdoi;
+          var href = post[i].links.parent_doi;
           var img = document.createElement("img");
           var link = document.createElement("a");
           link.setAttribute("href", href);

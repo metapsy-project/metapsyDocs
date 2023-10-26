@@ -51,7 +51,7 @@
         // if DOI fits, do operation
         if (searchDOI === inputDOI) {
           if (firstItem === true) {
-            const version = post[i].links.conceptdoi;
+            const version = post[i].links.parent_doi;
             latestVersion = document.createTextNode(version);
             document.getElementById('spinner-ph-doi').style.display = 'none';
             var div = document.getElementById("ph-doi");
@@ -77,7 +77,7 @@
       // if DOI fits, do operation
       if (searchDOI === inputDOI) {
         if (firstItem === true) {
-          const version = post[i].links.conceptdoi;
+          const version = post[i].links.parent_doi;
           latestVersion = document.createTextNode(version);
           document.getElementById('spinner-ph-doi').style.display = 'none';
           var div = document.getElementById("ph-doi");
