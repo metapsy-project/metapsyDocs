@@ -68,7 +68,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/b
 
 #### Database Flowchart
 
-Studies in the `borderline-psyctr` dataset were extracted from the larger "psychological interventions for GAD" database. The study flow of this database can be found below.
+Studies in the `borderline-psyctr` dataset were extracted from the larger "psychological interventions for BPD" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.10185551" >}}
 
