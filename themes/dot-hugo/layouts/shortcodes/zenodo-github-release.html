@@ -1,6 +1,7 @@
 <span id="ph-github-release"></span>
 
 <span id="spinner-ph-github-release" class="loader-spinner"></span>
+
 <style>
 .loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
     border-bottom-color: transparent; border-radius: 50%; display: inline-block;
@@ -8,66 +9,19 @@
     @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
 </style>
 
-<script>
-  // random id generator function
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+<script defer>
   var randID = makeid(10);
 
-  // get api response if not in sessions storage
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  // main rendering function
+  async function renderGithubRelease() {
 
-      // Run function code
-      // loop through all elements
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-        // if DOI fits, do operation
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "{{.Get `text`}}";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            document.getElementById('spinner-ph-github-release').style.display = 'none';
-            var div = document.getElementById("ph-github-release");
-            div.id = div.id + "-" + randID;
-            div.appendChild(link);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
     }
-    saveApiResponse();
-  } else {
-    // Retrieve from session storage
+
+    /*            
+      render element
+    */
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     // loop through all elements
     var firstItem = true;
@@ -93,4 +47,7 @@
       }
     }
   }
+
+  // execute
+  renderGithubRelease();
 </script>

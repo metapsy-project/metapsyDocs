@@ -18,6 +18,7 @@
     </center>
   </div>
 </span>
+
 <span id="flowchart-excluded-reasons-box">
   <button
     type="button"
@@ -43,7 +44,10 @@
   </div>
   <br />
 </span>
-<script>
+
+<script defer>
+  var randID = makeid(10);
+
   /* template for flow chart
   -------------------------- */
   var dataFlowChart = {
@@ -278,194 +282,16 @@
     ],
   };
 
-  /* Get metadata
-  -------------------------- */
-  // random id generator function
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  // main rendering function
+  async function renderFlowchart() {
+
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
     }
-    return result;
-  }
-  var randID = makeid(10);
 
-  // get api response if not in sessions storage
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
-
-      // Run function code
-      // loop through all elements
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-        // if DOI fits, do operation
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_flow" +
-              ".json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                d = JSON.parse(d);
-                var databaseSearch = dataFlowChart.nodes.find(
-                  (node) => node.id === "database-search"
-                );
-                var otherSources = dataFlowChart.nodes.find(
-                  (node) => node.id === "other-sources"
-                );
-                var duplicate = dataFlowChart.nodes.find(
-                  (node) => node.id === "duplicate"
-                );
-                var screen = dataFlowChart.nodes.find(
-                  (node) => node.id === "screen"
-                );
-                var recordsExcluded = dataFlowChart.nodes.find(
-                  (node) => node.id === "records-excluded"
-                );
-                var fullText = dataFlowChart.nodes.find(
-                  (node) => node.id === "full-text"
-                );
-                var excludedFullText = dataFlowChart.nodes.find(
-                  (node) => node.id === "excluded-full-text"
-                );
-                var included = dataFlowChart.nodes.find(
-                  (node) => node.id === "included"
-                );
-                var includedDataset = dataFlowChart.nodes.find(
-                  (node) => node.id === "included-dataset"
-                );
-
-                // database hits
-                databaseSearch.label.name =
-                  databaseSearch.label.name + "(n=" + d["database.hits"] + ")";
-                // other sources
-                otherSources.label.name =
-                  otherSources.label.name +
-                  "(n=" +
-                  d["additional.records"] +
-                  ")";
-                // duplicates
-                duplicate.label.name =
-                  duplicate.label.name +
-                  "(n=" +
-                  d["database.hits.duplicates.removed"] +
-                  ")";
-                // screen
-                screen.label.name =
-                  screen.label.name + "(n=" + d["records.screened"] + ")";
-                // excluded records
-                noExcludedRecords =
-                  d["records.screened"] -
-                  d["full.text.assessed.for.eligibility"];
-                recordsExcluded.label.name =
-                  recordsExcluded.label.name + "(n=" + noExcludedRecords + ")";
-                // full text
-                fullText.label.name =
-                  fullText.label.name +
-                  "(n=" +
-                  d["full.text.assessed.for.eligibility"] +
-                  ")";
-                // excluded full text
-                noExcludedFullTextRecords =
-                  d["full.text.assessed.for.eligibility"] - d["included"];
-                excludedFullText.label.name =
-                  excludedFullText.label.name +
-                  "(n=" +
-                  noExcludedFullTextRecords +
-                  ")";
-                // included
-                included.label.name =
-                  included.label.name + "(n=" + d["included"] + ")";
-
-                var readLinkNrStudies =
-                  "https://raw.githubusercontent.com/metapsy-project/" +
-                  repoName +
-                  "/" +
-                  repoVersion +
-                  "/metadata/" +
-                  "number_studies" +
-                  ".txt";
-                fetch(readLinkNrStudies)
-                  .then((nrStudies) => nrStudies.text())
-                  .then((nrStudies) => {
-                    // included in dataset
-                    includedDataset.label.name =
-                      includedDataset.label.name +
-                      "(n=" +
-                      String(JSON.parse(nrStudies)) +
-                      ")";
-                    // render flowchart
-                    var flowcharty = new Flowcharty.default();
-                    flowcharty.render(d3.select("#flow-svg"), dataFlowChart);
-                  });
-
-                // set random ID
-                document.getElementById('spinner-ph-flowchart').style.display = 'none';
-                var div = document.getElementById("ph-flowchart");
-                div.id = div.id + "-" + randID;
-
-                // write exlcuded reasons section
-                var reasonsExcludedJSON = d["full.text.excluded.reasons"];
-                var keys = Object.keys(reasonsExcludedJSON);
-                var html =
-                  " <div " +
-                  "style='background-color: var(--body-color);" +
-                  " padding: 20px 20px 20px 20px;" +
-                  "overflow-y: scroll; height:300px;'><ul " +
-                  "style='font-size: 90% !important;'>";
-                for (let j = 0; j < keys.length; j++) {
-                  var addHtml =
-                    "<li><strong>" +
-                    String(keys[j]) +
-                    ":</strong> " +
-                    String(reasonsExcludedJSON[keys[j]]) +
-                    "</li>";
-                  html = html + addHtml;
-                }
-                html = html + "</ul></div>";
-                document.getElementById('spinner-ph-excluded-reasons').style.display = 'none';
-                var div = document.getElementById("ph-excluded-reasons");
-                div.id = "ph-excluded-reasons" + randID;
-                div.innerHTML = html;
-              });
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    // Retrieve from session storage
+    /*            
+      render element
+    */
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
 
     // Run function code
@@ -616,4 +442,7 @@
       }
     }
   }
+
+  // execute
+  renderFlowchart();
 </script>
