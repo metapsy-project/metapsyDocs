@@ -20,6 +20,125 @@
 <script defer>
   var randID = makeid(10);
 
+  // Download function
+  function downloadData(version) {
+    function makeid(length) {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    }
+    function download(filename, text) {
+      var element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      element.setAttribute("download", filename);
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+
+    var randID = makeid(10);
+    // get api response if not in sessions storage
+    if (sessionStorage.getItem("apiResponse") === null) {
+      async function fetchData() {
+        let response = await fetch(
+          "https://zenodo.org/api/deposit/depositions?" +
+            "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
+            "&all_versions=1&size=10000"
+        );
+        let data = await response.json();
+        data = JSON.stringify(data);
+        data = JSON.parse(data);
+        return data;
+      }
+      async function saveApiResponse() {
+        let data = await fetchData();
+        sessionStorage.setItem("apiResponse", JSON.stringify(data));
+        var post = data;
+
+        // Run function code
+        var firstIter = true;
+        // loop through all elements
+        for (let i = 0; i < post.length; i++) {
+          var searchDOI = post[i].conceptdoi?.toString() || "";
+          searchDOI = JSON.stringify(searchDOI);
+          var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+          // if DOI fits, do operation
+          if (searchDOI === inputDOI) {
+            var ghLink = post[i].metadata.related_identifiers[0].identifier;
+            var repoName = ghLink.split("/")[4];
+            var repoVersion = ghLink.split("/")[6];
+            var readLink =
+              "https://raw.githubusercontent.com/metapsy-project/" +
+              repoName +
+              "/" +
+              version +
+              "/data" +
+              ".csv";
+            fetch(readLink)
+              .then((d) => d.text())
+              .then((d) => {
+                var dataName = repoName + "_v" + version;
+                var dataName =
+                  dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
+                if (firstIter === true) {
+                  download(dataName, d);
+                  firstIter = false;
+                }
+              });
+          }
+        }
+      }
+      saveApiResponse();
+    } else {
+      // Retrieve from session storage
+      var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      var firstIter = true;
+      // loop through all elements
+      for (let i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi?.toString() || "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        // if DOI fits, do operation
+        if (searchDOI === inputDOI) {
+          var ghLink = post[i].metadata.related_identifiers[0].identifier;
+          var repoName = ghLink.split("/")[4];
+          var repoVersion = ghLink.split("/")[6];
+          var readLink =
+            "https://raw.githubusercontent.com/metapsy-project/" +
+            repoName +
+            "/" +
+            version +
+            "/data" +
+            ".csv";
+          fetch(readLink)
+            .then((d) => d.text())
+            .then((d) => {
+              var dataName = repoName + "_v" + version;
+              var dataName =
+                dataName.replaceAll(".", "_").replaceAll("-", "_") + ".csv";
+              if (firstIter === true) {
+                download(dataName, d);
+                firstIter = false;
+              }
+            });
+        }
+      }
+    }
+  }  
+
   // main rendering function
   async function renderDownload() {
 
