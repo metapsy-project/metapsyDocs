@@ -9,45 +9,5 @@
 </style>
 
 <script defer>
-  var randID = makeid(10);
-
-  // main rendering function
-  async function renderVersion() {
-
-    while (!isDataSaved()) {
-      console.log("waiting")
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
-    }
-
-    /*            
-      render element
-    */
-   // Retrieve from session storage
-   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    var firstItem = true;
-    // loop through all elements
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-      // if DOI fits, do operation
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          const version = post[i].metadata.version;
-          latestVersion = document.createTextNode(version);
-          for (let i = 0; i < document.getElementsByClassName('spinner-ph-version').length; i++) {
-            document.getElementsByClassName('spinner-ph-version')[i].style.display = 'none';
-          }
-          var div = document.getElementById("ph-version");
-          div.id = div.id + "-" + randID;
-          div.appendChild(latestVersion);
-          firstItem = false;
-        }
-      }
-    }
-  }
-
-  // execute
-  renderVersion();
+var randID=makeid(10);async function renderVersion(){for(;!isDataSaved();)console.log("waiting"),await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),n=!0;for(let t=0;t<e.length;t++){var r=e[t].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===n){let i=e[t].metadata.version;latestVersion=document.createTextNode(i);for(let a=0;a<document.getElementsByClassName("spinner-ph-version").length;a++)document.getElementsByClassName("spinner-ph-version")[a].style.display="none";var s=document.getElementById("ph-version");s.id=s.id+"-"+randID,s.appendChild(latestVersion),n=!1}}}renderVersion();
 </script>

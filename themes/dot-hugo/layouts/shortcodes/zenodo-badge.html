@@ -9,55 +9,5 @@
 </style>
 
 <script defer>
-  var randID = makeid(10);
-
-  // main rendering function
-  async function renderBadge() {
-
-    while (!isDataSaved()) {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
-    }
-
-    /*            
-      render element
-    */
-
-    // Retrieve from session storage
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    // loop through all elements
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-      // if DOI fits, do operation
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var badgeUrl =
-            "https://img.shields.io/badge/DOI-" + post[i].conceptdoi + "-blue";
-          var href = post[i].links.parent_doi;
-          var img = document.createElement("img");
-          var link = document.createElement("a");
-          link.setAttribute("href", href);
-          link.setAttribute("target", "blank");
-          img.setAttribute("src", badgeUrl);
-          document.getElementById('spinner-ph-badge').style.display = 'none';
-          var div = document.getElementById("ph-badge");
-          div.id = div.id + "-" + randID;
-          img.style.maxWidth = "unset !important";
-          img.style.height = "unset !important";
-          img.style.padding = 0;
-          img.style.margin = 0;
-          img.style.display = "inline";
-          link.appendChild(img);
-          div.appendChild(link);
-          firstItem = false;
-        }
-      }
-    }
-  }
-
-  // execute
-  renderBadge();
+var randID=makeid(10);async function renderBadge(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var n=e[i].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var a="https://img.shields.io/badge/DOI-"+e[i].conceptdoi+"-blue",r=e[i].links.parent_doi,d=document.createElement("img"),s=document.createElement("a");s.setAttribute("href",r),s.setAttribute("target","blank"),d.setAttribute("src",a),document.getElementById("spinner-ph-badge").style.display="none";var l=document.getElementById("ph-badge");l.id=l.id+"-"+randID,d.style.maxWidth="unset !important",d.style.height="unset !important",d.style.padding=0,d.style.margin=0,d.style.display="inline",s.appendChild(d),l.appendChild(s),t=!1}}}renderBadge();
 </script>

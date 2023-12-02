@@ -15,7 +15,6 @@
   />
 
   
-  <link rel="preload" href="/zenodo.js" as="fetch">
   <script src="/zenodo.js"></script>
 
   
@@ -215,6 +214,19 @@
             
  
 <li
+  data-nav-id="/databases/borderline-psyctr/"
+  title="Borderline Personality Disorder: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/borderline-psyctr/">
+    Borderline Personality Disorder: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
   data-nav-id="/databases/depression-anxiety-transdiagnostic/"
   title="Depression &amp; Anxiety: Transdiagnostic Psychotherapy"
   class="sidelist
@@ -274,6 +286,19 @@
 >
   <a href="/databases/gambling-cbt/">
     Gambling: Cognitive Behavioral Techniques vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/gad-psyctr/"
+  title="Generalized Anxiety Disorder: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/gad-psyctr/">
+    Generalized Anxiety Disorder: Psychotherapy vs. Control
   </a>
    
 </li>
@@ -356,137 +381,17 @@
           <h2 class="mb-5" id="title">PTSD: Psychotherapy vs. Control</h2>
           
           <div class="content"><span id="ph-authors"></span>
-<p>ABC</p>
+
+<span id="spinner-ph-authors" class="loader-spinner spinner-ph-authors"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script defer>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-  var randID = makeid(10);
-
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
-
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                d = JSON.parse(d);
-                text = "";
-                for (let i = 0; i < d.length; i++) {
-                  text =
-                    text +
-                    d[i].name +
-                    ' <a target="_blank" href="https://orcid.org/' +
-                    d[i].orcid +
-                    '"><img style="display: inline-block !important"' +
-                    ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
-                    ", ";
-                }
-                text = text.slice(0, -2);
-                var div = document.getElementById("ph-authors");
-                div.id = div.id + "-" + randID;
-                div.innerHTML = text;
-              });
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-
-    
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-      
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var ghLink = post[i].metadata.related_identifiers[0].identifier;
-          var repoName = ghLink.split("/")[4];
-          var repoVersion = ghLink.split("/")[6];
-          var readLink =
-            "https://raw.githubusercontent.com/metapsy-project/" +
-            repoName +
-            "/" +
-            repoVersion +
-            "/metadata/" +
-            "authors" +
-            ".json";
-          fetch(readLink)
-            .then((d) => d.text())
-            .then((d) => {
-              d = JSON.parse(d);
-              text = "";
-              for (let i = 0; i < d.length; i++) {
-                text =
-                  text +
-                  d[i].name +
-                  ' <a target="_blank" href="https://orcid.org/' +
-                  d[i].orcid +
-                  '"><img style="display: inline-block !important"' +
-                  ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
-                  ", ";
-              }
-              text = text.slice(0, -2);
-              var div = document.getElementById("ph-authors");
-              div.id = div.id + "-" + randID;
-              div.innerHTML = text;
-            });
-          firstItem = false;
-        }
-      }
-    }
-  }
+var randID=makeid(10);async function renderAuthors(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var n=t[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.10027042")&&!0===e){var a,i=t[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/authors.json").then(t=>t.text()).then(t=>{t=JSON.parse(t),text="";for(let e=0;e<t.length;e++)text=text+t[e].name+' <a target="_blank" href="https://orcid.org/'+t[e].orcid+'"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>, ';text=text.slice(0,-2);for(let r=0;r<document.getElementsByClassName("spinner-ph-authors").length;r++)document.getElementsByClassName("spinner-ph-authors")[r].style.display="none";var n=document.getElementById("ph-authors");n.id=n.id+"-"+randID,n.innerHTML=text}),e=!1}}}renderAuthors();
 </script>
 
 <hr>
@@ -514,73 +419,27 @@ The dataset contains study information and effect size data of randomized trials
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><ul>
 <li><a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: <span id="ph-shorthand"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-shorthand" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderShorthand() {
 
-      
-      var firstItem = true;
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "shorthand" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("ph-shorthand");
-                div.id = div.id + "-" + randID;
-                div.innerHTML = "<code>" + d + "</code>";
-              });
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
+    
+
     
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     var firstItem = true;
@@ -607,6 +466,7 @@ The dataset contains study information and effect size data of randomized trials
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              document.getElementById('spinner-ph-shorthand').style.display = 'none';
               var div = document.getElementById("ph-shorthand");
               div.id = div.id + "-" + randID;
               div.innerHTML = "<code>" + d + "</code>";
@@ -616,79 +476,34 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
-</li>
-<li>Number of Studies: <span id="ph-number-studies"></span>
-<script>
+
   
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+  renderShorthand();
+</script></li>
+<li>Number of Studies: <span id="ph-number-studies"></span>
+
+<span id="spinner-ph-number-studies" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
 
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderNumberStudies() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "number_studies" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("ph-number-studies");
-                div.id = div.id + "-" + randID;
-                div.innerHTML = d;
-              });
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
     var firstItem = true;
     for (let i = 0; i < post.length; i++) {
@@ -713,6 +528,7 @@ The dataset contains study information and effect size data of randomized trials
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              document.getElementById('spinner-ph-number-studies').style.display = 'none';
               var div = document.getElementById("ph-number-studies");
               div.id = div.id + "-" + randID;
               div.innerHTML = d;
@@ -722,65 +538,35 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
-</li>
+
+  
+  renderNumberStudies();
+</script></li>
 <li>Latest Version: <span id="ph-version"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-version" class="loader-spinner spinner-ph-version"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderVersion() {
 
-      
-      var firstItem = true;
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("ph-version");
-            div.id = div.id + "-" + randID;
-            div.appendChild(latestVersion);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      console.log("waiting")
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     var firstItem = true;
     
     for (let i = 0; i < post.length; i++) {
@@ -793,6 +579,9 @@ The dataset contains study information and effect size data of randomized trials
         if (firstItem === true) {
           const version = post[i].metadata.version;
           latestVersion = document.createTextNode(version);
+          for (let i = 0; i < document.getElementsByClassName('spinner-ph-version').length; i++) {
+            document.getElementsByClassName('spinner-ph-version')[i].style.display = 'none';
+          }
           var div = document.getElementById("ph-version");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);
@@ -801,81 +590,33 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
+
+  
+  renderVersion();
 </script>
 </li>
 <li>Last updated: <span id="ph-last-updated"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-last-updated" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
 
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderLastUpdated() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            const months = [
-              "January",
-              "February",
-              "March",
-              "April",
-              "May",
-              "June",
-              "July",
-              "August",
-              "September",
-              "October",
-              "November",
-              "December",
-            ];
-            const d = new Date(post[i].modified);
-            const month = months[d.getMonth()];
-            const year = d.getFullYear();
-            const day = d.getDate();
-            modDate = document.createTextNode(month + " " + day + ", " + year);
-            var div = document.getElementById("ph-last-updated");
-            div.id = div.id + "-" + randID;
-            div.appendChild(modDate);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
+    
+
     
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
@@ -907,6 +648,7 @@ The dataset contains study information and effect size data of randomized trials
           const year = d.getFullYear();
           const day = d.getDate();
           modDate = document.createTextNode(month + " " + day + ", " + year);
+          document.getElementById('spinner-ph-last-updated').style.display = 'none';
           var div = document.getElementById("ph-last-updated");
           div.id = div.id + "-" + randID;
           div.appendChild(modDate);
@@ -915,102 +657,33 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
+
+  
+  renderLastUpdated();
 </script>
 </li>
 <li>Last search: <span id="ph-last-search"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-last-search" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderLastSearch() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "last_search" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                const months = [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                  "October",
-                  "November",
-                  "December",
-                ];
-                d = new String(d);
-                if (d.length > 10) {
-                  d = d.substring(0, 10);
-                }
-                const date = new Date(d);
-                const month = months[date.getMonth()];
-                const year = date.getFullYear();
-                const day = date.getDate();
-                modDate = document.createTextNode(
-                  month + " " + day + ", " + year
-                );
-                var div = document.getElementById("ph-last-search");
-                div.id = div.id + "-" + randID;
-                div.appendChild(modDate);
-              });
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
+
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
     var firstItem = true;
@@ -1061,6 +734,7 @@ The dataset contains study information and effect size data of randomized trials
               modDate = document.createTextNode(
                 month + " " + day + ", " + year
               );
+              document.getElementById('spinner-ph-last-search').style.display = 'none';
               var div = document.getElementById("ph-last-search");
               div.id = div.id + "-" + randID;
               div.appendChild(modDate);
@@ -1070,77 +744,32 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
-</li>
+
+  
+  renderLastSearch();
+</script></li>
 <li>Search String (Latest Version): <span id="ph-search-string"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-search-string" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderSearchString() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_string" +
-              ".txt";
-            var links = document.createElement("a");
-            var href = readLink;
-            links.innerText = "↗";
-            links.setAttribute("href", href);
-            links.setAttribute("target", "blank");
-            var div = document.getElementById("ph-search-string");
-            div.id = div.id + "-" + randID;
-            div.appendChild(links);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
+    
+
     
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
@@ -1169,6 +798,7 @@ The dataset contains study information and effect size data of randomized trials
           links.innerText = "↗";
           links.setAttribute("href", href);
           links.setAttribute("target", "blank");
+          document.getElementById('spinner-ph-search-string').style.display = 'none';
           var div = document.getElementById("ph-search-string");
           div.id = div.id + "-" + randID;
           div.appendChild(links);
@@ -1177,68 +807,33 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
-</li>
-<li>Data Repository (Latest Version): <span id="ph-github-release"></span>
-<script>
+
   
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+  renderSearchString();
+</script></li>
+<li>Data Repository (Latest Version): <span id="ph-github-release"></span>
+
+<span id="spinner-ph-github-release" class="loader-spinner"></span>
+
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
 
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderGithubRelease() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var link = document.createElement("a");
-            var href = post[i].metadata.related_identifiers[0].identifier;
-            link.innerText = "↗";
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            var div = document.getElementById("ph-github-release");
-            div.id = div.id + "-" + randID;
-            div.appendChild(link);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
+
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
     var firstItem = true;
@@ -1255,6 +850,7 @@ The dataset contains study information and effect size data of randomized trials
           link.innerText = "↗";
           link.setAttribute("href", href);
           link.setAttribute("target", "blank");
+          document.getElementById('spinner-ph-github-release').style.display = 'none';
           var div = document.getElementById("ph-github-release");
           div.id = div.id + "-" + randID;
           div.appendChild(link);
@@ -1263,400 +859,110 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
-</li>
-<li>Preregistration (Research Domain): <span id="ph-registration"></span>
-<script>
+
   
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+  renderGithubRelease();
+</script></li>
+<li>Preregistration (Research Domain): <span id="ph-registration"></span>
+
+<span id="spinner-ph-registration" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
 
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
+  async function renderRegistration() {
+
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
-
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "registration" +
-              ".txt";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var href = d;
-                var links = document.createElement("a");
-                links.innerText = "↗";
-                links.setAttribute("href", href);
-                links.setAttribute("target", "blank");
-                var div = document.getElementById("ph-registration");
-                div.id = div.id + "-" + randID;
-                div.appendChild(links);
-              });
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
 
     
-    
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
 
-      
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var ghLink = post[i].metadata.related_identifiers[0].identifier;
-          var repoName = ghLink.split("/")[4];
-          var repoVersion = ghLink.split("/")[6];
-          var readLink =
-            "https://raw.githubusercontent.com/metapsy-project/" +
-            repoName +
-            "/" +
-            repoVersion +
-            "/metadata/" +
-            "registration" +
-            ".txt";
-          fetch(readLink)
-            .then((d) => d.text())
-            .then((d) => {
-              var href = d;
-              var links = document.createElement("a");
-              links.innerText = "↗";
-              links.setAttribute("href", href);
-              links.setAttribute("target", "blank");
-              var div = document.getElementById("ph-registration");
-              div.id = div.id + "-" + randID;
-              div.appendChild(links);
-            });
-          firstItem = false;
-        }
-      }
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+
+
+var firstItem = true;
+for (let i = 0; i < post.length; i++) {
+  var searchDOI = post[i].conceptdoi?.toString() || "";
+  searchDOI = JSON.stringify(searchDOI);
+  var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
+
+  
+  if (searchDOI === inputDOI) {
+    if (firstItem === true) {
+      var ghLink = post[i].metadata.related_identifiers[0].identifier;
+      var repoName = ghLink.split("/")[4];
+      var repoVersion = ghLink.split("/")[6];
+      var readLink =
+        "https://raw.githubusercontent.com/metapsy-project/" +
+        repoName +
+        "/" +
+        repoVersion +
+        "/metadata/" +
+        "registration" +
+        ".txt";
+      fetch(readLink)
+        .then((d) => d.text())
+        .then((d) => {
+          var href = d;
+          var links = document.createElement("a");
+          links.innerText = "↗";
+          links.setAttribute("href", href);
+          links.setAttribute("target", "blank");
+          document.getElementById('spinner-ph-registration').style.display = 'none';
+          var div = document.getElementById("ph-registration");
+          div.id = div.id + "-" + randID;
+          div.appendChild(links);
+        });
+      firstItem = false;
     }
   }
-</script>
-</li>
+}
+  }
+
+  
+  renderRegistration();
+</script></li>
 <li><span>License: ODC-By v1.0 <a href="https://opendatacommons.org/licenses/by/summary/" target="_blank">↗</a></span>
 </li>
 <li>Database DOI: <span id="ph-badge"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-  var randID = makeid(10);
 
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+<span id="spinner-ph-badge" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var badgeUrl =
-              "https://img.shields.io/badge/DOI-" +
-              post[i].conceptdoi +
-              "-blue";
-            var href = post[i].links.conceptdoi;
-            var img = document.createElement("img");
-            var link = document.createElement("a");
-            link.setAttribute("href", href);
-            link.setAttribute("target", "blank");
-            img.setAttribute("src", badgeUrl);
-            var div = document.getElementById("ph-badge");
-            div.id = div.id + "-" + randID;
-            img.style.maxWidth = "unset !important";
-            img.style.height = "unset !important";
-            img.style.padding = 0;
-            img.style.margin = 0;
-            img.style.display = "inline";
-            link.appendChild(img);
-            div.appendChild(link);
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-      
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var badgeUrl =
-            "https://img.shields.io/badge/DOI-" + post[i].conceptdoi + "-blue";
-          var href = post[i].links.conceptdoi;
-          var img = document.createElement("img");
-          var link = document.createElement("a");
-          link.setAttribute("href", href);
-          link.setAttribute("target", "blank");
-          img.setAttribute("src", badgeUrl);
-          var div = document.getElementById("ph-badge");
-          div.id = div.id + "-" + randID;
-          img.style.maxWidth = "unset !important";
-          img.style.height = "unset !important";
-          img.style.padding = 0;
-          img.style.margin = 0;
-          img.style.display = "inline";
-          link.appendChild(img);
-          div.appendChild(link);
-          firstItem = false;
-        }
-      }
-    }
-  }
+<script defer>
+var randID=makeid(10);async function renderBadge(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var n=e[i].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.10027042")&&!0===t){var a="https://img.shields.io/badge/DOI-"+e[i].conceptdoi+"-blue",r=e[i].links.parent_doi,d=document.createElement("img"),s=document.createElement("a");s.setAttribute("href",r),s.setAttribute("target","blank"),d.setAttribute("src",a),document.getElementById("spinner-ph-badge").style.display="none";var l=document.getElementById("ph-badge");l.id=l.id+"-"+randID,d.style.maxWidth="unset !important",d.style.height="unset !important",d.style.padding=0,d.style.margin=0,d.style.display="inline",s.appendChild(d),l.appendChild(s),t=!1}}}renderBadge();
 </script>
 </li>
 </ul>
 <br>
 <span id="ph-all-versions"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-  var randID = makeid(10);
 
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+<span id="spinner-ph-all-versions" class="loader-spinner" style="margin-bottom: 20px;"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
 
-      
-      
-      var html =
-        "<button class='accbutton' style='border: none;" +
-        " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
-        "Browse all versions</button> <div " +
-        "style='background-color: var(--body-color);" +
-        " padding: 20px 20px 20px 20px;" +
-        "overflow-y: scroll; height:150px;'><ul " +
-        "style='font-size: 90% !important;'>";
-
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        if (searchDOI === inputDOI) {
-          
-          const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ];
-          const d = new Date(post[i].created);
-          const month = months[d.getMonth()];
-          const year = d.getFullYear();
-          const day = d.getDate();
-          modDate = month + " " + day + ", " + year;
-
-          
-          var badgeUrl =
-            "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
-          var href = post[i].links.doi;
-          var insertText =
-            "<li><strong> Version " +
-            post[i].metadata.version +
-            "</strong> (" +
-            String(modDate) +
-            "): " +
-            "<a target='_blank' href='" +
-            href +
-            "'><img src='" +
-            badgeUrl +
-            "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
-
-          html = html + insertText;
-        }
-      }
-      html = html + "</ul></div>";
-      var div = document.getElementById("ph-all-versions");
-      div.id = randID;
-      div.innerHTML = html;
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    
-    var html =
-      "<button class='accbutton' style='border: none;" +
-      " font-size: 80%; margin-bottom: 0px; cursor: auto;'> " +
-      "Browse all versions</button> <div " +
-      "style='background-color: var(--body-color);" +
-      " padding: 20px 20px 20px 20px;" +
-      "overflow-y: scroll; height:150px;'><ul " +
-      "style='font-size: 90% !important;'>";
-
-    
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-      if (searchDOI === inputDOI) {
-        
-        const months = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
-        ];
-        const d = new Date(post[i].created);
-        const month = months[d.getMonth()];
-        const year = d.getFullYear();
-        const day = d.getDate();
-        modDate = month + " " + day + ", " + year;
-
-        
-        var badgeUrl =
-          "https://img.shields.io/badge/DOI-" + post[i].doi + "-blue";
-        var href = post[i].links.doi;
-        var insertText =
-          "<li><strong> Version " +
-          post[i].metadata.version +
-          "</strong> (" +
-          String(modDate) +
-          "): " +
-          "<a target='_blank' href='" +
-          href +
-          "'><img src='" +
-          badgeUrl +
-          "' style='padding: 0px; margin: 0px; display: inline;'></a></li>";
-
-        html = html + insertText;
-      }
-    }
-    html = html + "</ul></div>";
-    var div = document.getElementById("ph-all-versions");
-    div.id = randID;
-    div.innerHTML = html;
-  }
+<script defer>
+var randID=makeid(10);async function renderAllVersions(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),r="<button class='accbutton' style='border: none; font-size: 80%; margin-bottom: 0px; cursor: auto;'> Browse all versions</button> <div style='background-color: var(--body-color); padding: 20px 20px 20px 20px;overflow-y: scroll; height:150px;'><ul style='font-size: 90% !important;'>";for(let t=0;t<e.length;t++){var n=e[t].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.10027042")){let o=["January","February","March","April","May","June","July","August","September","October","November","December",],i=new Date(e[t].created),a=o[i.getMonth()],l=i.getFullYear(),s=i.getDate();modDate=a+" "+s+", "+l;var d="https://img.shields.io/badge/DOI-"+e[t].doi+"-blue",g=e[t].links.doi;r+="<li><strong> Version "+e[t].metadata.version+"</strong> ("+String(modDate)+"): <a target='_blank' href='"+g+"'><img src='"+d+"' style='padding: 0px; margin: 0px; display: inline;'></a></li>"}}r+="</ul></div>",document.getElementById("spinner-ph-all-versions").style.display="none";var p=document.getElementById("ph-all-versions");p.id=randID,p.innerHTML=r}renderAllVersions();
 </script>
-
 <br>
 <h4 id="variable-description">Variable Description <a class="header-link" href="#variable-description">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
@@ -1676,102 +982,33 @@ The dataset contains study information and effect size data of randomized trials
     <div class="card card-body" style="padding: 0.15rem !important">
       <div style="overflow-y: scroll; height: 300px">
         <span id="ph-variable-description"></span>
+        <span id="spinner-ph-variable-description" class="loader-spinner"></span>
+        <style>
+         #spinner-ph-variable-description { width: 20px; height: 20px; padding-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+            border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+            box-sizing: border-box; animation: rotation 1s linear infinite;}
+            @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+        </style>
       </div>
     </div>
   </div>
   <br />
 </span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderVariableDescription() {
 
-      
-      var firstItem = true;
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "variable_description.json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                var div = document.getElementById("ph-variable-description");
-                div.id = div.id + "-" + randID;
-                tableData = JSON.parse(d);
-                
-                var keys = Object.keys(tableData);
-                var values = Object.values(tableData);
-                
-                var table = document.createElement("table");
-                var tr = table.insertRow(-1);
-                
-                var th1 = document.createElement("th");
-                th1.innerHTML = "Variable";
-                var th2 = document.createElement("th");
-                th2.innerHTML = "Description";
-                tr.appendChild(th1);
-                tr.appendChild(th2);
-                
-                for (var i = 0; i < keys.length; i++) {
-                  tr = table.insertRow(-1);
-                  var tabCell1 = tr.insertCell(-1);
-                  tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
-                  var tabCell2 = tr.insertCell(-1);
-                  tabCell2.innerHTML = values[i];
-                }
-                table.style.fontSize = "90%";
-                div.appendChild(table);
-              });
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     var firstItem = true;
     
     for (let i = 0; i < post.length; i++) {
@@ -1795,6 +1032,7 @@ The dataset contains study information and effect size data of randomized trials
           fetch(readLink)
             .then((d) => d.text())
             .then((d) => {
+              document.getElementById('spinner-ph-variable-description').style.display = 'none';
               var div = document.getElementById("ph-variable-description");
               div.id = div.id + "-" + randID;
               tableData = JSON.parse(d);
@@ -1827,8 +1065,10 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
 
+  
+  renderVariableDescription();
+</script>
 <br>
 <h4 id="study-references">Study References <a class="header-link" href="#study-references">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
@@ -1847,97 +1087,32 @@ The dataset contains study information and effect size data of randomized trials
   <div class="collapse" id="collapseReferences">
     <div class="card card-body">
       <span id="ph-references"></span>
+      <span id="spinner-ph-references" class="loader-spinner" style="margin-left: 5px;"></span>
+      <style>
+        #spinner-ph-references { width: 20px; height: 20px; margin-bottom: 5px; padding-bottom: 5px; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+      </style>
     </div>
   </div>
   <br />
 </span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderReferences() {
 
-      
-      
-      var first = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        if (searchDOI === inputDOI) {
-          if (first === true) {
-            
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "references" +
-              ".json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                d = JSON.parse(d);
-                var keys = Object.keys(d);
-                var html =
-                  " <div " +
-                  "style='background-color: var(--body-color);" +
-                  " padding: 20px 20px 20px 20px;" +
-                  "overflow-y: scroll; height:300px;'><ul " +
-                  "style='font-size: 90% !important;'>";
-                for (let j = 0; j < keys.length; j++) {
-                  var addHtml =
-                    "<li><strong>" +
-                    String(keys[j]) +
-                    ":</strong> " +
-                    String(d[keys[j]]) +
-                    "</li>";
-                  html = html + addHtml;
-                }
-                html = html + "</ul></div>";
-                var div = document.getElementById("ph-references");
-                div.id = randID;
-                div.innerHTML = html;
-              });
-            first = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
     var first = true;
     for (let i = 0; i < post.length; i++) {
@@ -1980,6 +1155,7 @@ The dataset contains study information and effect size data of randomized trials
                 html = html + addHtml;
               }
               html = html + "</ul></div>";
+              document.getElementById('spinner-ph-references').style.display = 'none';
               var div = document.getElementById("ph-references");
               div.id = randID;
               div.innerHTML = html;
@@ -1989,14 +1165,23 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
-</script>
 
+  
+  renderReferences();
+</script>
 <br>
 <h4 id="database-flowchart">Database Flowchart <a class="header-link" href="#database-flowchart">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Studies in the <code>ptsd-psyctr</code> dataset were extracted from the larger &ldquo;psychological interventions for PTSD&rdquo; database. The study flow of this database can be found below.</p>
 <span id="ph-flowchart">
+  <span id="spinner-ph-flowchart" class="loader-spinner"></span>
+  <style>
+  #spinner-ph-flowchart { width: 20px; height: 20px; margin-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+      border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+      box-sizing: border-box; animation: rotation 1s linear infinite;}
+      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+  </style>
   <div id="flowchart-div">
     <center>
       <svg
@@ -2009,6 +1194,7 @@ The dataset contains study information and effect size data of randomized trials
     </center>
   </div>
 </span>
+
 <span id="flowchart-excluded-reasons-box">
   <button
     type="button"
@@ -2023,11 +1209,21 @@ The dataset contains study information and effect size data of randomized trials
   <div class="collapse" id="collapseFlowchartExcludedReasons">
     <div class="card card-body">
       <span id="ph-excluded-reasons"></span>
+      <span id="spinner-ph-excluded-reasons" class="loader-spinner"></span>
+      <style>
+      #spinner-ph-excluded-reasons { width: 20px; height: 20px; margin-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+      </style>
     </div>
   </div>
   <br />
 </span>
-<script>
+
+<script defer>
+  var randID = makeid(10);
+
   
 
   var dataFlowChart = {
@@ -2263,191 +1459,14 @@ The dataset contains study information and effect size data of randomized trials
   };
 
   
+  async function renderFlowchart() {
 
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    return result;
-  }
-  var randID = makeid(10);
 
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
-
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "search_flow" +
-              ".json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                d = JSON.parse(d);
-                var databaseSearch = dataFlowChart.nodes.find(
-                  (node) => node.id === "database-search"
-                );
-                var otherSources = dataFlowChart.nodes.find(
-                  (node) => node.id === "other-sources"
-                );
-                var duplicate = dataFlowChart.nodes.find(
-                  (node) => node.id === "duplicate"
-                );
-                var screen = dataFlowChart.nodes.find(
-                  (node) => node.id === "screen"
-                );
-                var recordsExcluded = dataFlowChart.nodes.find(
-                  (node) => node.id === "records-excluded"
-                );
-                var fullText = dataFlowChart.nodes.find(
-                  (node) => node.id === "full-text"
-                );
-                var excludedFullText = dataFlowChart.nodes.find(
-                  (node) => node.id === "excluded-full-text"
-                );
-                var included = dataFlowChart.nodes.find(
-                  (node) => node.id === "included"
-                );
-                var includedDataset = dataFlowChart.nodes.find(
-                  (node) => node.id === "included-dataset"
-                );
-
-                
-                databaseSearch.label.name =
-                  databaseSearch.label.name + "(n=" + d["database.hits"] + ")";
-                
-                otherSources.label.name =
-                  otherSources.label.name +
-                  "(n=" +
-                  d["additional.records"] +
-                  ")";
-                
-                duplicate.label.name =
-                  duplicate.label.name +
-                  "(n=" +
-                  d["database.hits.duplicates.removed"] +
-                  ")";
-                
-                screen.label.name =
-                  screen.label.name + "(n=" + d["records.screened"] + ")";
-                
-                noExcludedRecords =
-                  d["records.screened"] -
-                  d["full.text.assessed.for.eligibility"];
-                recordsExcluded.label.name =
-                  recordsExcluded.label.name + "(n=" + noExcludedRecords + ")";
-                
-                fullText.label.name =
-                  fullText.label.name +
-                  "(n=" +
-                  d["full.text.assessed.for.eligibility"] +
-                  ")";
-                
-                noExcludedFullTextRecords =
-                  d["full.text.assessed.for.eligibility"] - d["included"];
-                excludedFullText.label.name =
-                  excludedFullText.label.name +
-                  "(n=" +
-                  noExcludedFullTextRecords +
-                  ")";
-                
-                included.label.name =
-                  included.label.name + "(n=" + d["included"] + ")";
-
-                var readLinkNrStudies =
-                  "https://raw.githubusercontent.com/metapsy-project/" +
-                  repoName +
-                  "/" +
-                  repoVersion +
-                  "/metadata/" +
-                  "number_studies" +
-                  ".txt";
-                fetch(readLinkNrStudies)
-                  .then((nrStudies) => nrStudies.text())
-                  .then((nrStudies) => {
-                    
-                    includedDataset.label.name =
-                      includedDataset.label.name +
-                      "(n=" +
-                      String(JSON.parse(nrStudies)) +
-                      ")";
-                    
-                    var flowcharty = new Flowcharty.default();
-                    flowcharty.render(d3.select("#flow-svg"), dataFlowChart);
-                  });
-
-                
-                var div = document.getElementById("ph-flowchart");
-                div.id = div.id + "-" + randID;
-
-                
-                var reasonsExcludedJSON = d["full.text.excluded.reasons"];
-                var keys = Object.keys(reasonsExcludedJSON);
-                var html =
-                  " <div " +
-                  "style='background-color: var(--body-color);" +
-                  " padding: 20px 20px 20px 20px;" +
-                  "overflow-y: scroll; height:300px;'><ul " +
-                  "style='font-size: 90% !important;'>";
-                for (let j = 0; j < keys.length; j++) {
-                  var addHtml =
-                    "<li><strong>" +
-                    String(keys[j]) +
-                    ":</strong> " +
-                    String(reasonsExcludedJSON[keys[j]]) +
-                    "</li>";
-                  html = html + addHtml;
-                }
-                html = html + "</ul></div>";
-                var div = document.getElementById("ph-excluded-reasons");
-                div.id = "ph-excluded-reasons" + randID;
-                div.innerHTML = html;
-              });
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
     
+
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
 
     
@@ -2565,6 +1584,7 @@ The dataset contains study information and effect size data of randomized trials
                 });
 
               
+              document.getElementById('spinner-ph-flowchart').style.display = 'none';
               var div = document.getElementById("ph-flowchart");
               div.id = div.id + "-" + randID;
 
@@ -2587,6 +1607,7 @@ The dataset contains study information and effect size data of randomized trials
                 html = html + addHtml;
               }
               html = html + "</ul></div>";
+              document.getElementById('spinner-ph-excluded-reasons').style.display = 'none';
               var div = document.getElementById("ph-excluded-reasons");
               div.id = "ph-excluded-reasons" + randID;
               div.innerHTML = html;
@@ -2596,6 +1617,9 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
+
+  
+  renderFlowchart();
 </script>
 
 <br>
@@ -2611,195 +1635,41 @@ The dataset contains study information and effect size data of randomized trials
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 <span id="ph-authors"></span>
-<p>ABC</p>
+
+<span id="spinner-ph-authors" class="loader-spinner spinner-ph-authors"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
 <script defer>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-  var randID = makeid(10);
-
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
-
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            var ghLink = post[i].metadata.related_identifiers[0].identifier;
-            var repoName = ghLink.split("/")[4];
-            var repoVersion = ghLink.split("/")[6];
-            var readLink =
-              "https://raw.githubusercontent.com/metapsy-project/" +
-              repoName +
-              "/" +
-              repoVersion +
-              "/metadata/" +
-              "authors" +
-              ".json";
-            fetch(readLink)
-              .then((d) => d.text())
-              .then((d) => {
-                d = JSON.parse(d);
-                text = "";
-                for (let i = 0; i < d.length; i++) {
-                  text =
-                    text +
-                    d[i].name +
-                    ' <a target="_blank" href="https://orcid.org/' +
-                    d[i].orcid +
-                    '"><img style="display: inline-block !important"' +
-                    ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
-                    ", ";
-                }
-                text = text.slice(0, -2);
-                var div = document.getElementById("ph-authors");
-                div.id = div.id + "-" + randID;
-                div.innerHTML = text;
-              });
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-
-    
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-      
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var ghLink = post[i].metadata.related_identifiers[0].identifier;
-          var repoName = ghLink.split("/")[4];
-          var repoVersion = ghLink.split("/")[6];
-          var readLink =
-            "https://raw.githubusercontent.com/metapsy-project/" +
-            repoName +
-            "/" +
-            repoVersion +
-            "/metadata/" +
-            "authors" +
-            ".json";
-          fetch(readLink)
-            .then((d) => d.text())
-            .then((d) => {
-              d = JSON.parse(d);
-              text = "";
-              for (let i = 0; i < d.length; i++) {
-                text =
-                  text +
-                  d[i].name +
-                  ' <a target="_blank" href="https://orcid.org/' +
-                  d[i].orcid +
-                  '"><img style="display: inline-block !important"' +
-                  ' src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>' +
-                  ", ";
-              }
-              text = text.slice(0, -2);
-              var div = document.getElementById("ph-authors");
-              div.id = div.id + "-" + randID;
-              div.innerHTML = text;
-            });
-          firstItem = false;
-        }
-      }
-    }
-  }
+var randID=makeid(10);async function renderAuthors(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var n=t[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.10027042")&&!0===e){var a,i=t[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/authors.json").then(t=>t.text()).then(t=>{t=JSON.parse(t),text="";for(let e=0;e<t.length;e++)text=text+t[e].name+' <a target="_blank" href="https://orcid.org/'+t[e].orcid+'"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>, ';text=text.slice(0,-2);for(let r=0;r<document.getElementsByClassName("spinner-ph-authors").length;r++)document.getElementsByClassName("spinner-ph-authors")[r].style.display="none";var n=document.getElementById("ph-authors");n.id=n.id+"-"+randID,n.innerHTML=text}),e=!1}}}renderAuthors();
 </script>
 
 <span id="ph-last-updated-year"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-last-updated-year" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderLastUpdatedYear() {
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            const d = new Date(post[i].modified);
-            const year = d.getFullYear();
-            modDate = document.createTextNode("(" + year + ")");
-            var div = document.getElementById("ph-last-updated-year");
-            div.id = div.id + "-" + randID;
-            div.appendChild(modDate);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
+    
+
     
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     
@@ -2815,6 +1685,7 @@ The dataset contains study information and effect size data of randomized trials
           const d = new Date(post[i].modified);
           const year = d.getFullYear();
           modDate = document.createTextNode("(" + year + ")");
+          document.getElementById('spinner-ph-last-updated-year').style.display = 'none';
           var div = document.getElementById("ph-last-updated-year");
           div.id = div.id + "-" + randID;
           div.appendChild(modDate);
@@ -2823,66 +1694,37 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
+
+  
+  renderLastUpdatedYear();
 </script>
 .
 <i>Database of PTSD trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>
 (Version <span id="ph-version"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
+
+<span id="spinner-ph-version" class="loader-spinner spinner-ph-version"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
   var randID = makeid(10);
+
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+  async function renderVersion() {
 
-      
-      var firstItem = true;
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            const version = post[i].metadata.version;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("ph-version");
-            div.id = div.id + "-" + randID;
-            div.appendChild(latestVersion);
-            firstItem = false;
-          }
-        }
-      }
+    while (!isDataSaved()) {
+      console.log("waiting")
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    saveApiResponse();
-  } else {
+
     
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+
+   
+   var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     var firstItem = true;
     
     for (let i = 0; i < post.length; i++) {
@@ -2895,6 +1737,9 @@ The dataset contains study information and effect size data of randomized trials
         if (firstItem === true) {
           const version = post[i].metadata.version;
           latestVersion = document.createTextNode(version);
+          for (let i = 0; i < document.getElementsByClassName('spinner-ph-version').length; i++) {
+            document.getElementsByClassName('spinner-ph-version')[i].style.display = 'none';
+          }
           var div = document.getElementById("ph-version");
           div.id = div.id + "-" + randID;
           div.appendChild(latestVersion);
@@ -2903,90 +1748,25 @@ The dataset contains study information and effect size data of randomized trials
       }
     }
   }
+
+  
+  renderVersion();
 </script>
 ).
 URL docs.metapsy.org/databases/ptsd-psyctr.
 DOI <span id="ph-doi"></span>
-<script>
-  
-  function makeid(length) {
-    var result = "";
-    var characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  }
-  var randID = makeid(10);
 
-  
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
-    }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
+<span id="spinner-ph-doi" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
 
-      
-      
-      var firstItem = true;
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        
-        if (searchDOI === inputDOI) {
-          if (firstItem === true) {
-            const version = post[i].links.conceptdoi;
-            latestVersion = document.createTextNode(version);
-            var div = document.getElementById("ph-doi");
-            div.id = div.id + "-" + randID;
-            div.appendChild(latestVersion);
-            firstItem = false;
-          }
-        }
-      }
-    }
-    saveApiResponse();
-  } else {
-    
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-
-    
-    var firstItem = true;
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-      
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          const version = post[i].links.conceptdoi;
-          latestVersion = document.createTextNode(version);
-          var div = document.getElementById("ph-doi");
-          div.id = div.id + "-" + randID;
-          div.appendChild(latestVersion);
-          firstItem = false;
-        }
-      }
-    }
-  }
-</script>
-.
+<script defer>
+var randID=makeid(10);async function renderDoi(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),n=!0;for(let i=0;i<e.length;i++){var t=e[i].conceptdoi?.toString()||"";if((t=JSON.stringify(t))===JSON.stringify("10.5281\/zenodo.10027042")&&!0===n){let r=e[i].links.parent_doi;latestVersion=document.createTextNode(r),document.getElementById("spinner-ph-doi").style.display="none";var d=document.getElementById("ph-doi");d.id=d.id+"-"+randID,d.appendChild(latestVersion),n=!1}}}renderDoi();
+</script>.
 </div>
 <br>
 <h4 id="download">Download <a class="header-link" href="#download">
@@ -3000,9 +1780,20 @@ DOI <span id="ph-doi"></span>
   <i class="ti-download"></i>&nbsp;&nbsp;Download .CSV
   <span class="caret"></span>
 </button>
-<ul class="dropdown-menu scrollable-menu" role="menu" id="ph-download"></ul>
+<ul class="dropdown-menu scrollable-menu" role="menu" id="ph-download">
+  <span id="spinner-ph-doi2" class="loader-spinner"></span>
+</ul>
 
-<script>
+<style>
+  .loader-spinner { width: 20px; height: 20px; margin-left: 5px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+      border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+      box-sizing: border-box; animation: rotation 1s linear infinite;}
+      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+  </style>
+
+<script defer>
+  var randID = makeid(10);
+
   
   function downloadData(version) {
     function makeid(length) {
@@ -3120,95 +1911,17 @@ DOI <span id="ph-doi"></span>
         }
       }
     }
-  }
+  }  
 
   
-  if (sessionStorage.getItem("apiResponse") === null) {
-    async function fetchData() {
-      let response = await fetch(
-        "https://zenodo.org/api/deposit/depositions?" +
-          "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-          "&all_versions=1&size=10000"
-      );
-      let data = await response.json();
-      data = JSON.stringify(data);
-      data = JSON.parse(data);
-      return data;
+  async function renderDownload() {
+
+    while (!isDataSaved()) {
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
     }
-    async function saveApiResponse() {
-      let data = await fetchData();
-      sessionStorage.setItem("apiResponse", JSON.stringify(data));
-      var post = data;
 
-      
-      var html = "";
-      var first = true;
-      
-      for (let i = 0; i < post.length; i++) {
-        var searchDOI = post[i].conceptdoi?.toString() || "";
-        searchDOI = JSON.stringify(searchDOI);
-        var inputDOI = JSON.stringify("10.5281\/zenodo.10027042");
-
-        if (searchDOI === inputDOI) {
-          
-          const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ];
-          const d = new Date(post[i].created);
-          const month = months[d.getMonth()];
-          const year = d.getFullYear();
-          const day = d.getDate();
-          modDate = month + " " + day + ", " + year;
-
-          
-          var badgeUrl = post[i].links.badge;
-          var href = post[i].links.doi;
-          if (first === true) {
-            var insertText =
-              '<li><a onclick="downloadData(' +
-              "'" +
-              post[i].metadata.version +
-              "'" +
-              ')"><strong> Version ' +
-              post[i].metadata.version +
-              "</strong> (" +
-              String(modDate) +
-              "; latest)</a></li>";
-            html = html + insertText;
-            var first = false;
-          } else {
-            var insertText =
-              '<li><a onclick="downloadData(' +
-              "'" +
-              post[i].metadata.version +
-              "'" +
-              ')"><strong> Version ' +
-              post[i].metadata.version +
-              "</strong> (" +
-              String(modDate) +
-              ")</a></li>";
-            html = html + insertText;
-          }
-        }
-      }
-      var div = document.getElementById("ph-download");
-      div.id = randID;
-      div.innerHTML = html;
-    }
-    saveApiResponse();
-  } else {
     
+
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
     var html = "";
     var first = true;
@@ -3274,9 +1987,12 @@ DOI <span id="ph-doi"></span>
     var div = document.getElementById("ph-download");
     div.id = randID;
     div.innerHTML = html;
-  }
-</script>
 
+  }
+
+  
+  renderDownload();
+</script>
 <p><br></br></p>
 </div>
           
@@ -3292,6 +2008,8 @@ DOI <span id="ph-doi"></span>
               
                                 
                      
+                         
+                         
                          
                          
                          

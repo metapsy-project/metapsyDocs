@@ -9,55 +9,5 @@
 </style>
 
 <script defer>
-  var randID = makeid(10);
-
-  // main rendering function
-  async function renderShorthand() {
-
-    while (!isDataSaved()) {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay as needed
-    }
-
-    /*            
-      render element
-    */
-    // Retrieve from session storage
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    var firstItem = true;
-    // loop through all elements
-    for (let i = 0; i < post.length; i++) {
-      var searchDOI = post[i].conceptdoi?.toString() || "";
-      searchDOI = JSON.stringify(searchDOI);
-      var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-      // if DOI fits, do operation
-      if (searchDOI === inputDOI) {
-        if (firstItem === true) {
-          var ghLink = post[i].metadata.related_identifiers[0].identifier;
-          var repoName = ghLink.split("/")[4];
-          var repoVersion = ghLink.split("/")[6];
-          var readLink =
-            "https://raw.githubusercontent.com/metapsy-project/" +
-            repoName +
-            "/" +
-            repoVersion +
-            "/metadata/" +
-            "shorthand" +
-            ".txt";
-          fetch(readLink)
-            .then((d) => d.text())
-            .then((d) => {
-              document.getElementById('spinner-ph-shorthand').style.display = 'none';
-              var div = document.getElementById("ph-shorthand");
-              div.id = div.id + "-" + randID;
-              div.innerHTML = "<code>" + d + "</code>";
-            });
-          firstItem = false;
-        }
-      }
-    }
-  }
-
-  // execute
-  renderShorthand();
+var randID=makeid(10);async function renderShorthand(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let n=0;n<t.length;n++){var r=t[n].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===e){var a,i=t[n].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/shorthand.txt").then(t=>t.text()).then(t=>{document.getElementById("spinner-ph-shorthand").style.display="none";var e=document.getElementById("ph-shorthand");e.id=e.id+"-"+randID,e.innerHTML="<code>"+t+"</code>"}),e=!1}}}renderShorthand();
 </script>

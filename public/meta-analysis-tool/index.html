@@ -15,7 +15,6 @@
   />
 
   
-  <link rel="preload" href="/zenodo.js" as="fetch">
   <script src="/zenodo.js"></script>
 
   
@@ -222,20 +221,115 @@
           
           <div class="content"><hr>
 <img src="/uploads/ma-tool.jpg" width="100%" style="border-radius: 5px;">
-<p>The Metapsy meta-analysis tool has been developed to make the available datasets more accessible for various stakeholders, without requiring any programming skills. These graphical user interfaces allow to analyze existing versions of datasets using state-of-the-art meta-analytic methods. An overview of available tools is provided on the <a href="https://www.metapsy.org/database/">Metapsy website</a>.</p>
+<p>The Metapsy meta-analysis tool has been developed to make the available datasets more accessible for various stakeholders, without requiring programming skills. These graphical user interfaces allow to analyze existing versions of datasets using state-of-the-art meta-analytic methods. An overview of available tools is provided on the <a href="https://www.metapsy.org/database/">Metapsy website</a>.</p>
 <br>
 <h4 id="starting-page">Starting Page <a class="header-link" href="#starting-page">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
+<p>The starting page of each meta-analysis tool displays some basic information on the available dataset. To the right, the number of available studies and the <a href="/release/#versioning">dataset version</a> is shown.</p>
+<img src="/uploads/app-1.webp" width="500" style="box-shadow: 0px 0px 10px gray; pointer-events: none;">
+<br>
+<p>The <strong>additional information</strong> section at the bottom contains further links and information on the dataset. It also provides the link to the R <strong>script</strong> that was used to <strong>simplify the data</strong> for the online meta-analysis tool. Most datasets are simplified slightly to reduce the complexity of analyses within the app. A main step conducted in all simplification scripts is to <strong>aggregate</strong> all effect sizes within studies. This is done using the <a href="https://tools.metapsy.org/reference/runmetaanalysis"><code>runMetaAnalysis</code></a> function in <code>metapsyTools</code>, which by default assumes a constant sampling correlation of $\rho$ = 0.6 (i.e., it is assumed that multiple effect sizes collected in the same study are correlated by <em>r</em> = 0.6).</p>
 
 
-<div class="notices info" ><p>A technical description of the Metapsy <a href="https://www.metapsy.org/#databases">online meta-analysis tool</a> can be found in the &ldquo;About&rdquo; section of each application. We are currently working on a <strong>fully revised, new version</strong> of the meta-analysis tool. This new version will be documented on this page.</p></div>
+<div class="notices info" ><p>The aggregation is conducted on an <strong>arm level</strong>. This ensures that multiple treatment arms within the same trial are preserved in the provided data, and that differences can be analyzed in separate subgroup analyses. Please note that this approach may not fully remove effect size dependencies when there are multi-arm trials in the data (e.g., trials that compare two psychological treatments to the same control group). It may be advisable to conduct further sensitivity analyses (e.g. using <a href="/r-packages/r-packages/#metapsytools"><code>metapsyTools</code></a>) if a strict control for potential unit-of-analysis errors is desired.</p></div>
+<p>In the footer, the starting page also provides a link to the <a href="/databases">documentation entry</a> of the database; as well as a contact address in case the application does not function as intended.</p>
+<p>The green &ldquo;circle arrow&rdquo; button in the top-right can be used to re-load the application. Please note that this removes previous results obtained using the tool. The reload button is available on all pages of the application.</p>
+<br>
+<h4 id="data-selection">Data Selection <a class="header-link" href="#data-selection">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
+<p>The <strong>data selection pane</strong> can be opened by clicking the &ldquo;Starting Analyzing&rdquo; button. This page shows a table of the provided data, along with the calculated effect sizes (expressed as Hedges' <em>g</em>) and their estimated sampling variances.</p>
+<p>The right sidebar provides a selection of buttons and sliders that can be used to <strong>filter the database</strong> as needed. To open a filter, one has to click the &ldquo;<strong>+</strong>&rdquo; sign to the right of each provided variable. The blue box at the end of the sidebar can be used to <strong>exclude specific studies</strong> within the database.</p>
+<img src="/uploads/app-2.webp" width="250" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>Once the desired filters have been selected, the <strong><i class="bi bi-card-list"></i> Update Table</strong> button must be clicked to filter the database. The displayed table is then re-rendered and will only contain the studies fulfilling the selected criteria. A line at the very end of the table can be helpful to see how many effect sizes can be pooled using the current filters.</p>
+
+
+<div class="notices tip" ><p>Before running the meta-analysis, please make sure to <strong>always</strong> click on &ldquo;Update Table&rdquo; first. Otherwise, your selected filtering criteria will not be implemented by the application.</p></div>
+<p>The &ldquo;Download&rdquo; button in the top-left corner of the table can be used to download the selected dataset as a .csv, Microsoft <em>Excel</em> or PDF file.</p>
+<br>
+<img src="/uploads/app-3.webp" width="200" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>Once all filters have been applied as desired, the <i class="fa-solid fa-chart-line"></i> <strong>Run Meta-Analysis</strong> button can be clicked to perform a meta-analysis of the selected data.</p>
+<br>
+<h4 id="meta-analysis-results">Meta-Analysis Results <a class="header-link" href="#meta-analysis-results">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
+<p>This pane shows the results of the meta-analysis, which are organized into seven sections:</p>
+<br>
+<h5 id="main-results">Main Results</h5><p>This section displays the <strong>pooled treatment effects</strong>, its confidence interval and <em>P</em> value. The pooled effect is also expressed as the <strong>number needed to treat</strong> (NNT) to achieve one additional positive outcome (if the effect is negative, the NNT equals the number needed to harm). The NNT is calculated using the method by Furukawa and Leucht (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0019070">2011</a>). A <strong>control group event rate</strong> of CER=0.19 is assumed. This estimate is based on findings by Cuijpers et al. (<a href="https://doi.org/10.1016/j.jad.2014.02.026">2014</a>; 50% symptom reduction).</p>
+<br>
+<img src="/uploads/app-4.webp" width="400" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>The section also provides summary information on the <strong>number of included studies/effect sizes</strong>, and their sample sizes. On the right side, a graph of the estimated between-study heterogeneity is displayed. Heterogeneity is quantified using the <em>I</em><sup>2</sup> value. Please note that, while <em>I</em><sup>2</sup> is commonly used in meta-analyses, it is <strong>not an absolute measure of heterogeneity</strong> (Borenstein et al., <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jrsm.1230">2017</a>), and its value depends on the size of the included studies.</p>
+<p>Additionally, it is therefore also important to inspect the 95% <strong>prediction intervals</strong>, which are provided on the left side. These prediction intervals show the range of effect sizes to be expected in future studies, given the current evidence. These prediction intervals are a direct reflection of the <strong>between-study heterogeneity variance τ<sup>2</sup></strong>, but are much easier to interpret than the latter (Inthout et al., <a href="https://bmjopen.bmj.com/content/6/7/e010247.abstract">2016</a>). If the 95% prediction interval does not contain zero, we can be quite confident that the effect of the treatment is robust across the various settings and contexts included in our meta-analysis.</p>
+<br>
+<h5 id="plots">Plots</h5><p>By default, two plots are generated to provide a summary of the results: a <strong>forest plot</strong>, and a <strong>drapery plot</strong>. All forest plots are sorted by effect size, which can help spot specific studies with very extreme effects. The plot provides the effect size for each study, as well as the <strong>weight</strong> assigned to it. At the bottom, the summary effect size is displayed along with the prediction interval.</p>
+<br>
+<img src="/uploads/app-5.webp" width="400" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>Drapery plots (Rücker &amp; Schwarzer, <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jrsm.1410">2020</a>) are a less commonly used but highly helpful method to visualize a pooled effect. These plots show <strong>how the prediction and confidence intervals change</strong> for different <strong>significance thresholds</strong>. The shaded blue area in the plot displays the prediction region for a future study, while the solid blue line gives the <em>P</em>-value function of the pooled effect (see e.g. Amrhein &amp; Greenland, <a href="https://journals.sagepub.com/doi/10.1177/02683962221105904">2022</a>).</p>
+<br>
+<h5 id="outliers">Outliers</h5><p>The &ldquo;outliers&rdquo; section displays a <strong>recalculated pooled effect</strong> when <strong>potential outliers are removed</strong>. This can be seen as a sensitivity analysis when studies with very extreme effects are excluded. Typically, removing outliers will lead to a pooled effect estimate that is less heterogeneous.</p>
+<p>Outliers are identified as studies for which the 95% confidence interval lies outside the confidence interval of the pooled effect (Harrer et al., 2021, chap. <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/heterogeneity.html#basic-outlier">5.4.1</a>). This <strong>“brute force” algorithm</strong> is easy to compute and therefore used within the application to enhance the speed. However, <strong>more sophisticated outlier and influence diagnostics</strong> may typically be <strong>preferred</strong>, and these analyses can be conducted with the <code>metapsyTools</code> package (see <a href="https://tools.metapsy.org/reference/runmetaanalysis#:~:text=without%20influential%20cases"><code>influence</code></a> model).</p>
+<br>
+<img src="/uploads/app-6.webp" width="300" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>The right side of the section displays a <strong>Baujat plot</strong>, which visualizes studies' overall heterogeneity contribution against their influence on the overall result. This plot is based on a full influence analysis based on the &ldquo;leave-one-out method&rdquo; (Viechtbauer &amp; Cheung, <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jrsm.11">2010</a>). Studies in the right and top-right corners may be potential outliers or influential cases. Using the <a href="/meta-analysis-tool/#data-selection">&ldquo;exclude studies&rdquo; filter</a> in the study selection pane, it is possible to run a meta-analysis in which these studies are excluded specifically.</p>
+<br>
+<h5 id="publication-bias">Publication Bias</h5><p>The publication bias section displays the results of two methods: <strong>Egger&rsquo;s (<a href="https://www.bmj.com/content/315/7109/629.full">1997</a>) regression test</strong> and <strong><em>P</em>-curve</strong> (Simonsohn, Nelson &amp; Simmons, <a href="https://psycnet.apa.org/record/2013-25331-001">2014</a>).</p>
+<p>Egger&rsquo;s regression test is shown on the left side. This method tests for <strong>asymmetry of the funnel plot</strong>, which is displayed on top. The funnel plot has been <strong>contour-enhanced</strong> by providing shaded blue areas for different significance regions: if statistical significance (i.e., <em>P</em> values below 0.05) serves as a selection mechanism concerning which studies are published, we would expect an excess of effects in the regions shaded in dark blue, but fewer studies in the white part of the plot, in which effects are not significant. Overall, a <strong>&ldquo;lop-sided&rdquo; (asymmetric) distribution of effects</strong> along the funnel indicates small-study effects (i.e., an excess of small studies with high effects) that <strong><em>can</em> be indicative of publication bias</strong> (but does not have to).</p>
+<br>
+<img src="/uploads/app-7.webp" width="350" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<p>If Egger&rsquo;s test of the intercept is significant, the funnel plot displays substantial asymmetry, and effects might be exaggerated due to publication bias. It is important to note that the <strong>power of this test</strong> depends heavily on the <strong>number of included studies</strong>. When there are few studies (say, below 10), a non-significant result should be interpreted cautiously. Overall, a non-significant finding of Egger&rsquo;s test does not automatically indicate that no publication bias is present.</p>
+<p>The right side of the section shows a <strong><em>P</em>-curve</strong>. If there is a true effect and no selective publication, we would expect this curve to be <strong>right-skewed</strong>, with many highly significant findings, and fewer <em>P</em> values in the [0.3, 0.5) range. The <em>P</em>-curve method employs <strong>tests of flatness and right-skewness</strong>, which can be used to gauge if evidential evidence is present or absent. Please note that these two indicators are <strong>independent</strong>: it is also possible for <em>P</em>-curve to indicate that evidential evidence is neither present nor absent (for example because the analysis does not have sufficient power). More guidance on this method is provided in Harrer et al., 2021, <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/pub-bias.html#p-curve">chapter 9.2.2</a>.</p>
+<br>
+<h5 id="risk-of-bias">Risk of Bias</h5><p>This section displays a summary plot of the <strong>risk of bias judgments</strong> for all included studies. It also gives the number and percentage of studies with an overall low risk of bias, and high risk of bias. Please note that the type of risk of bias rating applied in each database varies, as does the version of the RoB tool (version 1 or 2). Further details are provided in the <a href="/databases">documentation entry</a> of each database.</p>
+<br>
+<img src="/uploads/app-8.webp" width="400" style="box-shadow: 0px 0px 10px gray;">
+<br>
+<br>
+<h5 id="moderator-analysis">Moderator Analysis</h5><p>This section gives the results of <strong>moderator and subgroup analyses</strong> conducted as part of the meta-analysis. The <strong>&ldquo;meta-regression&rdquo;</strong> table displays the results of continuous moderators (e.g., publication year), while the <strong>&ldquo;subgroup analysis&rdquo;</strong> table is reserved for categorical moderators. In each table, <em>P</em> values are given on the right for the overall test of moderation. For the subgroup analyses, an additional <em>P</em> value is provided for the subgroup-specific effect estimate. <strong>Significant effects</strong> are shaded in <strong>light green</strong>. The &ldquo;k&rdquo; column shows the number of effect sizes in each subgroup, and teal-colored bars indicate the size of each subgroup. The &ldquo;g&rdquo; column shows the subgroup-conditional effect estimate, expressed as Hedges' <em>g</em>. Here, blue bars indicate the size of the pooled effect. The size of this bar is determined with reference to all estimates within the table.</p>
+<p>By default, meta-regressions and subgroup analyses are presented for all variables included in the <strong>&ldquo;Analyzed Moderators&rdquo;</strong> field on top of the pane. Additional variables can be added by adjusting the selector, and then clicking on <i class="fa-solid fa-chart-line"></i> <strong>Re-run Meta-Analysis</strong>.</p>
+<br>
+<h5 id="analysis-settings">Analysis Settings</h5><p>In this section on top of the results pane, it is possible to change the <strong>settings of the analysis</strong>. First, it is possible to change the <strong>estimator of the between-study heterogeneity variance τ<sup>2</sup></strong>. Many different estimators are available, and which of them shows the best performance in specific settings is an ongoing research question (Langan et al., <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jrsm.1316">2019</a>).</p>
+<p>In most applications, the <strong>restricted maximum likelihood (REML)</strong> estimator is used by default. This is also the default estimator used in common meta-analysis packages, such as <code>metafor</code> or <code>meta</code>. For some applications, this default setting is changed to another estimator (e.g., the Paule-Mandel estimator) to reflect the specific type of data included in a database. It is also possible to run a common/fixed-effect model instead, in which τ<sup>2</sup> is fixed to zero.</p>
+<p>By default, the <strong>Knapp-Hartung adjustment</strong> is applied for random-effects meta-analyses (see e.g. Hartung &amp; Knapp, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1009">2001</a>). This correction does not apply to common/fixed-effect models. There can be <strong>rare cases</strong> when this correction leads to <strong>anticonservative results</strong> (Jackson et al., <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/sim.7411">2017</a>), so it can be helpful to re-run the model without the correction to check for this. To do this, one has to uncheck the &ldquo;Use Knapp-Hartung-Adjustments&rdquo; checkbox, and then click on <i class="fa-solid fa-chart-line"></i> <strong>Re-run Meta-Analysis</strong>. The re-run button also has to be clicked first when another τ<sup>2</sup> is to be used.</p>
+<br>
+<h5 id="report-generator">Report Generator</h5><p>Most applications provide a reproducible report generator. The generator can be started by clicking on the <strong><i class="fas fa-file-invoice"></i> Create Report</strong> button. The current state of the application is then compiled as a $\LaTeX$ file, and a PDF is downloaded.</p>
+<p>Each generated report is provided with a distinct <strong>tracking ID</strong>, and the <strong>data</strong> used for the analyses is <strong>attached</strong> to it. All <strong>utilized filters</strong> are <strong>documented</strong>, enabling others to verify and reproduce the analyses. The appendix of the report shows the <strong>references</strong> from all the used studies, along with a detailed overview of the R and package versions employed for the meta-analysis.</p>
+<br>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-4">
+        <img src="/uploads/rep-1.webp" width="200" style="box-shadow: 0px 0px 10px gray;">
+    </div>
+    <div class="col-lg-4">
+        <img src="/uploads/rep-2.webp" width="200" style="box-shadow: 0px 0px 10px gray;">
+    </div>
+    <div class="col-lg-4">
+        <img src="/uploads/rep-3.webp" width="200" style="box-shadow: 0px 0px 10px gray;">
+    </div>
+</div>
+</div>
+<br>
+<h4 id="effect-explorer">Effect Explorer <a class="header-link" href="#effect-explorer">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
+<p>A special meta-analysis application is the <strong><a href="https://www.metapsy.org/database/explore">Metapsy effect explorer</a></strong>. This application has been developed for a <strong>broader audience</strong> and therefore provides <strong>less technical details</strong> than the &ldquo;standard&rdquo; online meta-analysis tools. The effect explorer allows to examine the <strong>pooled response rates</strong> and <strong>relative &ldquo;risk&rdquo; of response</strong> of psychotherapies for <strong>eight mental disorders</strong> (Depression, Borderline Personality Disorder, Generalized Anxiety Disorder, Obsessive Compulsive Disorder, Panic Disorder, Post-Traumatic Stress Disorder, Social Anxiety Disorder, Specific Phobia).</p>
+<p>Like the other meta-analysis tools, this application also allows to generate a <strong>reproducible report</strong> of the results. This report also provides a more detailed <strong>technical description</strong> of the results and applied methodology. The underlying &ldquo;meta-dataset&rdquo; has been versioned and released with <a href="https://zenodo.org/records/8408318">Zenodo</a>.</p>
+<br>
 <h4 id="technical-stack">Technical Stack <a class="header-link" href="#technical-stack">
     <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
         <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><hr>
-<p>The online meta-analysis tools are hosted on the Linux server maintained by the Metapsy project (<a href="https://www.metapsy.dev">metapsy.dev</a>). This server runs on Ubuntu 22.04 x64. It uses an installation of R (version 4.2.2), Python (version 3.10.12), shiny-server (Posit, 2023) and <a href="https://tug.org/texlive/">TeX Live</a>.</p>
+<p>The online meta-analysis tools are hosted on the <strong>Linux server</strong> maintained by the Metapsy project (<a href="https://www.metapsy.dev">metapsy.dev</a>). This server runs on Ubuntu 22.04 x64. It uses an installation of R (version 4.2.2), Python (version 3.10.12), shiny-server (Posit, 2023) and <a href="https://tug.org/texlive/">TeX Live</a>.</p>
 <p><br></br></p>
 </div>
           
@@ -250,6 +344,8 @@
                          
               
                                       
+                         
+                         
                          
                          
                          
