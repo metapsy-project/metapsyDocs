@@ -2,7 +2,7 @@
 keywords: []
 title: "Depression: Self-Guided Interventions vs. Control"
 weight: 1
-url: databases/depression-selfguided-ctr
+url: databases/depression-selfguided-psyctr
 ---
 {{< zenodo-authors doi="10.5281/zenodo.12705748" >}}
 
