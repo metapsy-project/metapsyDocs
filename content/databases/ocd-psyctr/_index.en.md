@@ -13,7 +13,7 @@ hidden: false
 
 #### General Description
 
-The `data-ocd-psyctr` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf) on psychotherapy for adults with obsessive-compulsive disorder (OCD). This MARD is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials that report the effect of psychotherapy on OCD symptoms. 
+The `ocd-psyctr` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf) on psychotherapy for adults with obsessive-compulsive disorder (OCD). This MARD is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials that report the effect of psychotherapy on OCD symptoms. 
 
 This dataset includes **psychotherapy vs. control ('psy vs ctr')** comparisons. Effect sizes are provided for outcomes at post-test. The protocol describing the main meta-analytic project using the database can be accessed [here](https://archive.org/details/osf-registrations-n3rxf-v1).
 
@@ -67,7 +67,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/o
 
 #### Database Flowchart
 
-Studies in the `ptsd-psyctr` dataset were extracted from the larger "psychological interventions for PTSD" database. The study flow of this database can be found below.
+Studies in the `ocd-psyctr` dataset were extracted from the larger "psychological interventions for OCD" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.10471942" >}}
 
