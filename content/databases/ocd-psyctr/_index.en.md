@@ -30,7 +30,7 @@ Vrije Universiteit Amsterdam
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at [metapsy.org/database/ocd](https://www.metapsy.org/database/ocd).
+A simplified version of this database can be analyzed at [metapsy.org/database/sad](https://www.metapsy.org/database/sad).
 
 <br>
 
