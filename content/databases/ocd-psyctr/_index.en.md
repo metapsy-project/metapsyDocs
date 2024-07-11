@@ -81,7 +81,7 @@ Studies in the `ocd-psyctr` dataset were extracted from the larger "psychologica
 {{< zenodo-last-updated-year doi="10.5281/zenodo.10471942" >}}.
 <i>Database of OCD trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.10471942" >}}).
-URL docs.metapsy.org/databases/ptsd-psyctr.
+URL docs.metapsy.org/databases/ocd-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.10471942" >}}.
 </div>
 
