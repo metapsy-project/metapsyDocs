@@ -19,6 +19,11 @@ This dataset includes psychological interventions (CBT, motivational interventio
 
 The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
 
+{{< notice info >}}
+The `gambling-psyctr` database is a continuation of the earlier `gambling-cbt` database included in Metapsy. To retrieve versions of the `gambling-cbt` dataset using `metapsyData`, please use the new shorthand provided below, and specify the exact version to be downloaded (up to 23.0.5).
+{{</notice>}}
+
+
 
 <br>
 
@@ -86,9 +91,9 @@ Studies in the `gambling-cbt` dataset were extracted from the larger "problem ga
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 {{< zenodo-authors doi="10.5281/zenodo.8115993" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.8115993" >}}.
-<i>Database of cognitive behavioral techniques for problem gambling and gambling disorder trials with control conditions. Part of the Metapsy project </i>
+<i>Database of psychological interventions for problem gambling and gambling disorder trials with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.8115993" >}}).
-URL docs.metapsy.org/databases/depression-childadol-psyctr.
+URL docs.metapsy.org/databases/gambling-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.8115993" >}}.
 </div>
 
