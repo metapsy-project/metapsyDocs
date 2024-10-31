@@ -3,3 +3,6 @@ node_modules
 =======
 node_modules
 >>>>>>> e15931247696376ab9474b57757c1dec4ab6b513
+
+# Local Netlify folder
+.netlify

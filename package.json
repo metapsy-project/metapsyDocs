@@ -20,6 +20,7 @@
   "homepage": "https://github.com/metapsy-project/website#readme",
   "dependencies": {
     "@tinacms/cli": "^1.2.2",
+    "netlify": "^13.1.21",
     "tinacms": "^1.2.2",
     "yarn": "^1.22.19"
   }

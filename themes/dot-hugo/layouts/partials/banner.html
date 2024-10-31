@@ -17,7 +17,7 @@
         <i class="ti-search search-icon"></i>
         <!-- Javascript -->
         {{ $currentNode := . }} {{ $currentNode.Scratch.Set "pages" .Site.Pages
-        }} {{ $pages := ($currentNode.Scratch.Get "pages") }}
+        }} {{ $pages := ($currentNode.Scratch.Get "pages") }} 
         <script>
           $(function() {
           var projects = [

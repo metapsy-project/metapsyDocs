@@ -2,24 +2,24 @@
 <html lang="en-us">
   <head>
   <meta charset="utf-8" />
-  <title>Total Response Dataset</title>
+  <title>Mental Health: Response Rates in Psychotherapies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content="Hugo 0.88.1" />
-  <meta name="description" content="Total Response Dataset - Metapsy Documentation " />
+  <meta name="description" content="Mental Health: Response Rates in Psychotherapies - Metapsy Documentation " />
 
   
-  <link rel="stylesheet" href="/costum.css" />
+  <link rel="stylesheet" href="/costum.min.css" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
   />
 
   
-  <script src="/zenodo.js"></script>
+  <script src="/zenodo.min.js"></script>
 
   
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="/flowcharty.js"></script>
+  <script src="/flowcharty.min.js"></script>
 
   
   
@@ -108,18 +108,18 @@
 
   
      
-  <meta name="twitter:title" content="Total Response Dataset" />
+  <meta name="twitter:title" content="Mental Health: Response Rates in Psychotherapies" />
   <meta
     name="twitter:description"
     content="Metapsy Documentation"
   />
-    <meta property="og:title" content="Total Response Dataset" />
+    <meta property="og:title" content="Mental Health: Response Rates in Psychotherapies" />
 <meta property="og:description" content="Metapsy Documentation" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/databases/total-response/" />
 
  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Total Response Dataset"/>
+<meta name="twitter:title" content="Mental Health: Response Rates in Psychotherapies"/>
 <meta name="twitter:description" content="Metapsy Documentation"/>
 
 </head>
@@ -279,13 +279,26 @@
            
  
 <li
-  data-nav-id="/databases/gambling-cbt/"
-  title="Gambling: Cognitive Behavioral Techniques vs. Control"
+  data-nav-id="/databases/depression-selfguided-psyctr/"
+  title="Depression: Self-Guided Interventions vs. Control"
   class="sidelist
   "
 >
-  <a href="/databases/gambling-cbt/">
-    Gambling: Cognitive Behavioral Techniques vs. Control
+  <a href="/databases/depression-selfguided-psyctr/">
+    Depression: Self-Guided Interventions vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/gambling-psyctr/"
+  title="Gambling: Psychological Interventions vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/gambling-psyctr/">
+    Gambling: Psychological Interventions vs. Control
   </a>
    
 </li>
@@ -299,6 +312,32 @@
 >
   <a href="/databases/gad-psyctr/">
     Generalized Anxiety Disorder: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/total-response/"
+  title="Mental Health: Response Rates in Psychotherapies"
+  class="sidelist
+  active"
+>
+  <a href="/databases/total-response/">
+    Mental Health: Response Rates in Psychotherapies
+  </a>
+   
+</li>
+           
+ 
+<li
+  data-nav-id="/databases/ocd-psyctr/"
+  title="OCD: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/ocd-psyctr/">
+    OCD: Psychotherapy vs. Control
   </a>
    
 </li>
@@ -344,6 +383,19 @@
            
  
 <li
+  data-nav-id="/databases/sad-psyctr/"
+  title="Social Anxiety Disorder: Psychotherapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/sad-psyctr/">
+    Social Anxiety Disorder: Psychotherapy vs. Control
+  </a>
+   
+</li>
+           
+ 
+<li
   data-nav-id="/databases/suicide-psyctr/"
   title="Suicide Prevention: Psychological Intervention vs. Control"
   class="sidelist
@@ -354,8 +406,7 @@
   </a>
    
 </li>
-    
-             
+           
  
 <li
   data-nav-id="/databases/psychosis-psyctr/"
@@ -378,14 +429,290 @@
       </div>
       <div class="col-lg-9">
         <div class="p-lg-5 p-4 bg-white" id="content">
-          <h2 class="mb-5" id="title">Total Response Dataset</h2>
+          <h2 class="mb-5" id="title">Mental Health: Response Rates in Psychotherapies</h2>
           
-          <div class="content"><hr>
-<p>You are being redirected to Zenodo. If this does not work, please click <a href="https://zenodo.org/records/8408318">here</a>.</p>
-<p><br></br></p>
-<script>
-window.location.replace('https://zenodo.org/records/8408318');
+          <div class="content"><span id="ph-authors"></span>
+
+<span id="spinner-ph-authors" class="loader-spinner spinner-ph-authors"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderAuthors(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var n=t[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===e){var a,i=t[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/authors.json").then(t=>t.text()).then(t=>{t=JSON.parse(t),text="";for(let e=0;e<t.length;e++)text=text+t[e].name+' <a target="_blank" href="https://orcid.org/'+t[e].orcid+'"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>, ';text=text.slice(0,-2);for(let r=0;r<document.getElementsByClassName("spinner-ph-authors").length;r++)document.getElementsByClassName("spinner-ph-authors")[r].style.display="none";var n=document.getElementById("ph-authors");n.id=n.id+"-"+randID,n.innerHTML=text}),e=!1}}}renderAuthors();
 </script>
+
+<hr>
+<br>
+<h4 id="general-description">General Description <a class="header-link" href="#general-description">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>The <code>total-response</code> dataset is part of the Metapsy project. This meta-dataset combines information from 8 databases included within the project, focusing on the calculated response rates within the intervention and control groups. These databases are:</p>
+<ul>
+<li>Psychotherapies for <strong>Depression</strong> (<code>depression-psyctr</code>).</li>
+<li>Psychotherapies for <strong>Panic Disorder</strong> (<code>panic-psyctr</code>).</li>
+<li>Psychotherapies for <strong>Social Anxiety Disorder</strong>.</li>
+<li>Psychotherapies for <strong>Specific Phobias</strong>.</li>
+<li>Psychotherapies for <strong>Generalized Anxiety Disorder</strong> (<code>gad-psyctr</code>).</li>
+<li>Psychological Treatments for <strong>Post-Traumatic Stress Disorder</strong> (<code>ptsd-psyctr</code>).</li>
+<li>Psychotherapies for <strong>Borderline Personality Disorder</strong> (<code>borderline-psyctr</code>).</li>
+<li>Psychological Treatments for <strong>Obsessive-Compulsive Disorder</strong> (<code>ocd-psyctr</code>).</li>
+</ul>
+<p>The dataset includes psychotherapy vs. control (&lsquo;psy vs ctr&rsquo;) comparisons. Response rates and relative risks are provided for outcomes at post-test.</p>
+<p>The dataset follows the <a href="https://docs.metapsy.org/data-preparation/format/">Metapsy data standard</a>. All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 1 or Version 2, depending on the database from which studies were extracted).</p>
+<br>
+<h4 id="affiliated-institutions">Affiliated Institutions <a class="header-link" href="#affiliated-institutions">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>Vrije Universiteit Amsterdam</p>
+<br>
+<h4 id="online-meta-analysis-tool">Online Meta-Analysis Tool <a class="header-link" href="#online-meta-analysis-tool">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>A simplified version of this database can be analyzed at <a href="https://www.metapsy.org/database/explore">metapsy.org/database/explore</a>.</p>
+<br>
+<h4 id="metadata">Metadata <a class="header-link" href="#metadata">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><ul>
+<li><a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: <span id="ph-shorthand"></span>
+
+<span id="spinner-ph-shorthand" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderShorthand(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let n=0;n<t.length;n++){var r=t[n].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===e){var a,i=t[n].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/shorthand.txt").then(t=>t.text()).then(t=>{document.getElementById("spinner-ph-shorthand").style.display="none";var e=document.getElementById("ph-shorthand");e.id=e.id+"-"+randID,e.innerHTML="<code>"+t+"</code>"}),e=!1}}}renderShorthand();
+</script></li>
+<li>Number of Studies: <span id="ph-number-studies"></span>
+
+<span id="spinner-ph-number-studies" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderNumberStudies(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let n=0;n<e.length;n++){var i=e[n].conceptdoi?.toString()||"";if((i=JSON.stringify(i))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var r,s=e[n].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+s.split("/")[4]+"/"+s.split("/")[6]+"/metadata/number_studies.txt").then(e=>e.text()).then(e=>{document.getElementById("spinner-ph-number-studies").style.display="none";var t=document.getElementById("ph-number-studies");t.id=t.id+"-"+randID,t.innerHTML=e}),t=!1}}}renderNumberStudies();
+</script></li>
+<li>Latest Version: <span id="ph-version"></span>
+
+<span id="spinner-ph-version" class="loader-spinner spinner-ph-version"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderVersion(){for(;!isDataSaved();)console.log("waiting"),await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),n=!0;for(let t=0;t<e.length;t++){var r=e[t].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===n){let i=e[t].metadata.version;latestVersion=document.createTextNode(i);for(let a=0;a<document.getElementsByClassName("spinner-ph-version").length;a++)document.getElementsByClassName("spinner-ph-version")[a].style.display="none";var s=document.getElementById("ph-version");s.id=s.id+"-"+randID,s.appendChild(latestVersion),n=!1}}}renderVersion();
+</script>
+</li>
+<li>Last updated: <span id="ph-last-updated"></span>
+
+<span id="spinner-ph-last-updated" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderLastUpdated(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let a=0;a<e.length;a++){var r=e[a].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){let n=["January","February","March","April","May","June","July","August","September","October","November","December",],d=new Date(e[a].modified),i=n[d.getMonth()],p=d.getFullYear(),l=d.getDate();modDate=document.createTextNode(i+" "+l+", "+p),document.getElementById("spinner-ph-last-updated").style.display="none";var o=document.getElementById("ph-last-updated");o.id=o.id+"-"+randID,o.appendChild(modDate),t=!1}}}renderLastUpdated();
+</script>
+</li>
+<li>Last search: <span id="ph-last-search"></span>
+
+<span id="spinner-ph-last-search" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderLastSearch(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let a=0;a<e.length;a++){var r=e[a].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var n,i=e[a].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/last_search.txt").then(e=>e.text()).then(e=>{let t=["January","February","March","April","May","June","July","August","September","October","November","December",];(e=new String(e)).length>10&&(e=e.substring(0,10));let a=new Date(e),r=t[a.getMonth()],n=a.getFullYear(),i=a.getDate();modDate=document.createTextNode(r+" "+i+", "+n),document.getElementById("spinner-ph-last-search").style.display="none";var s=document.getElementById("ph-last-search");s.id=s.id+"-"+randID,s.appendChild(modDate)}),t=!1}}}renderLastSearch();
+</script></li>
+<li>Data Repository (Latest Version): <span id="ph-github-release"></span>
+
+<span id="spinner-ph-github-release" class="loader-spinner"></span>
+
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderGithubRelease(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var r=e[i].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var n=document.createElement("a"),a=e[i].metadata.related_identifiers[0].identifier;n.innerText="↗",n.setAttribute("href",a),n.setAttribute("target","blank"),document.getElementById("spinner-ph-github-release").style.display="none";var d=document.getElementById("ph-github-release");d.id=d.id+"-"+randID,d.appendChild(n),t=!1}}}renderGithubRelease();
+</script></li>
+<li>Preregistration (Research Domain): <span id="ph-registration"></span>
+
+<span id="spinner-ph-registration" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderRegistration(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var i=t[r].conceptdoi?.toString()||"";if((i=JSON.stringify(i))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===e){var n,a=t[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+a.split("/")[4]+"/"+a.split("/")[6]+"/metadata/registration.txt").then(t=>t.text()).then(t=>{var e=t,r=document.createElement("a");r.innerText="↗",r.setAttribute("href",e),r.setAttribute("target","blank"),document.getElementById("spinner-ph-registration").style.display="none";var i=document.getElementById("ph-registration");i.id=i.id+"-"+randID,i.appendChild(r)}),e=!1}}}renderRegistration();
+</script></li>
+<li><span>License: ODC-By v1.0 <a href="https://opendatacommons.org/licenses/by/summary/" target="_blank">↗</a></span>
+</li>
+<li>Database DOI: <span id="ph-badge"></span>
+
+<span id="spinner-ph-badge" class="loader-spinner"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderBadge(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var n=e[i].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var a="https://img.shields.io/badge/DOI-"+e[i].conceptdoi+"-blue",r=e[i].links.parent_doi,d=document.createElement("img"),s=document.createElement("a");s.setAttribute("href",r),s.setAttribute("target","blank"),d.setAttribute("src",a),document.getElementById("spinner-ph-badge").style.display="none";var l=document.getElementById("ph-badge");l.id=l.id+"-"+randID,d.style.maxWidth="unset !important",d.style.height="unset !important",d.style.padding=0,d.style.margin=0,d.style.display="inline",s.appendChild(d),l.appendChild(s),t=!1}}}renderBadge();
+</script>
+</li>
+</ul>
+<br>
+<span id="ph-all-versions"></span>
+
+<span id="spinner-ph-all-versions" class="loader-spinner" style="margin-bottom: 20px;"></span>
+<style>
+.loader-spinner { width: 20px; height: 20px; border: 2px solid rgb(133, 133, 133);
+    border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+    box-sizing: border-box; animation: rotation 1s linear infinite;}
+    @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+</style>
+
+<script defer>
+var randID=makeid(10);async function renderAllVersions(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),r="<button class='accbutton' style='border: none; font-size: 80%; margin-bottom: 0px; cursor: auto;'> Browse all versions</button> <div style='background-color: var(--body-color); padding: 20px 20px 20px 20px;overflow-y: scroll; height:150px;'><ul style='font-size: 90% !important;'>";for(let t=0;t<e.length;t++){var n=e[t].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.8408317")){let o=["January","February","March","April","May","June","July","August","September","October","November","December",],i=new Date(e[t].created),a=o[i.getMonth()],l=i.getFullYear(),s=i.getDate();modDate=a+" "+s+", "+l;var d="https://img.shields.io/badge/DOI-"+e[t].doi+"-blue",g=e[t].links.doi;r+="<li><strong> Version "+e[t].metadata.version+"</strong> ("+String(modDate)+"): <a target='_blank' href='"+g+"'><img src='"+d+"' style='padding: 0px; margin: 0px; display: inline;'></a></li>"}}r+="</ul></div>",document.getElementById("spinner-ph-all-versions").style.display="none";var p=document.getElementById("ph-all-versions");p.id=randID,p.innerHTML=r}renderAllVersions();
+</script>
+<br>
+<h4 id="variable-description">Variable Description <a class="header-link" href="#variable-description">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="variable-description-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseVariableDescription"
+    role="button"
+    aria-expanded="false"
+  >
+    Show Variable Description<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseVariableDescription">
+    <div class="card card-body" style="padding: 0.15rem !important">
+      <div style="overflow-y: scroll; height: 300px">
+        <span id="ph-variable-description"></span>
+        <span id="spinner-ph-variable-description" class="loader-spinner"></span>
+        <style>
+         #spinner-ph-variable-description { width: 20px; height: 20px; padding-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+            border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+            box-sizing: border-box; animation: rotation 1s linear infinite;}
+            @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+        </style>
+      </div>
+    </div>
+  </div>
+  <br />
+</span>
+
+<script defer>
+var randID=makeid(10);async function renderVariableDescription(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var n=e[i].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var r,a=e[i].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+a.split("/")[4]+"/"+a.split("/")[6]+"/metadata/variable_description.json").then(e=>e.text()).then(e=>{document.getElementById("spinner-ph-variable-description").style.display="none";var t=document.getElementById("ph-variable-description");t.id=t.id+"-"+randID;var i=Object.keys(tableData=JSON.parse(e)),n=Object.values(tableData),r=document.createElement("table"),a=r.insertRow(-1),s=document.createElement("th");s.innerHTML="Variable";var l=document.createElement("th");l.innerHTML="Description",a.appendChild(s),a.appendChild(l);for(var d=0;d<i.length;d++)(a=r.insertRow(-1)).insertCell(-1).innerHTML="<code>"+i[d]+"</code>",a.insertCell(-1).innerHTML=n[d];r.style.fontSize="90%",t.appendChild(r)}),t=!1}}}renderVariableDescription();
+</script>
+<br>
+<h4 id="study-references">Study References <a class="header-link" href="#study-references">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><span id="references-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseReferences"
+    role="button"
+    aria-expanded="false"
+  >
+    Show References<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseReferences">
+    <div class="card card-body">
+      <span id="ph-references"></span>
+      <span id="spinner-ph-references" class="loader-spinner" style="margin-left: 5px;"></span>
+      <style>
+        #spinner-ph-references { width: 20px; height: 20px; margin-bottom: 5px; padding-bottom: 5px; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+      </style>
+    </div>
+  </div>
+  <br />
+</span>
+
+<script defer>
+var randID=makeid(10);async function renderReferences(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let r=0;r<e.length;r++){var n=e[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("10.5281\/zenodo.8408317")&&!0===t){var i,s=e[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+s.split("/")[4]+"/"+s.split("/")[6]+"/metadata/references.json").then(e=>e.text()).then(e=>{var t=Object.keys(e=JSON.parse(e)),r=" <div style='background-color: var(--body-color); padding: 20px 20px 20px 20px;overflow-y: scroll; height:300px;'><ul style='font-size: 90% !important;'>";for(let n=0;n<t.length;n++)r+="<li><strong>"+String(t[n])+":</strong> "+String(e[t[n]])+"</li>";r+="</ul></div>",document.getElementById("spinner-ph-references").style.display="none";var i=document.getElementById("ph-references");i.id=randID,i.innerHTML=r}),t=!1}}}renderReferences();
+</script>
+<br>
+<h4 id="further-information">Further Information <a class="header-link" href="#further-information">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><ul>
+<li>Detailed results based on this database are presented in the paper "Absolute and relative outcomes of psychotherapies for eight mental disorders: a systematic review and meta-analysis", which will be published in <a href="https://onlinelibrary.wiley.com/journal/20515545" target="_blank"><i>World Psychiatry</i></a>.</li>
+</ul>
+<br>
+<h4 id="citation">Citation <a class="header-link" href="#citation">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><p>If you use this dataset for your own research, please provide this preferred citation:</p>
+<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+Cuijpers P, Miguel C, Ciharova M,  Harrer M, Basic D, Cristea IA, de Ponti N, Driessen E, Hamblen J, Larsen SE, Matbouriahi M, Papola D, Pauley D, Plessen CY Pfund RA, Setkowski K, Schnurr PP, van Ballegooijen W, Wang Y, Riper H, van Straten A, Sijbrandij M, Furukawa TA, Karyotaki E (2024). Absolute and relative outcomes of psychotherapies for eight mental disorders: a systematic review and meta-analysis. <a href="https://onlinelibrary.wiley.com/journal/20515545" target="_blank"><i>World Psychiatry</i></a>, in press.
+</div>
+<br>
+<h4 id="download">Download <a class="header-link" href="#download">
+    <svg class="fill-current o-60 hover-accent-color-light" height="22px" style="margin-bottom: 0px;" viewBox="0 0 24 24" width="22px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path fill="#878787" d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h4><button
+  type="button"
+  class="btn btn-default dropdown-toggle download-btn"
+  data-toggle="dropdown"
+>
+  <i class="ti-download"></i>&nbsp;&nbsp;Download .CSV
+  <span class="caret"></span>
+</button>
+<ul class="dropdown-menu scrollable-menu" role="menu" id="ph-download">
+  <span id="spinner-ph-doi2" class="loader-spinner"></span>
+</ul>
+
+<style>
+  .loader-spinner { width: 20px; height: 20px; margin-left: 5px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
+      border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+      box-sizing: border-box; animation: rotation 1s linear infinite;}
+      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+  </style>
+
+<script defer>
+var randID=makeid(10);function downloadData(e){function t(e,t){var a=document.createElement("a");a.setAttribute("href","data:text/plain;charset=utf-8,"+encodeURIComponent(t)),a.setAttribute("download",e),a.style.display="none",document.body.appendChild(a),a.click(),document.body.removeChild(a)}if(function e(t){for(var a="",n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",r=n.length,i=0;i<10;i++)a+=n.charAt(Math.floor(Math.random()*r));return a}(10),null===sessionStorage.getItem("apiResponse")){async function a(){let e=await (await fetch("https://zenodo.org/api/deposit/depositions?access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX&all_versions=1&size=10000")).json();return JSON.parse(e=JSON.stringify(e))}async function n(){let n=await a();sessionStorage.setItem("apiResponse",JSON.stringify(n));var r=n,i=!0;for(let o=0;o<r.length;o++){var s=r[o].conceptdoi?.toString()||"";if((s=JSON.stringify(s))===JSON.stringify("10.5281\/zenodo.8408317")){var l=r[o].metadata.related_identifiers[0].identifier,d=l.split("/")[4];l.split("/")[6],fetch("https://raw.githubusercontent.com/metapsy-project/"+d+"/"+e+"/data.csv").then(e=>e.text()).then(a=>{var n=d+"_v"+e,n=n.replaceAll(".","_").replaceAll("-","_")+".csv";!0===i&&(t(n,a),i=!1)})}}}n()}else{var r=JSON.parse(sessionStorage.getItem("apiResponse")),i=!0;for(let o=0;o<r.length;o++){var s=r[o].conceptdoi?.toString()||"";if((s=JSON.stringify(s))===JSON.stringify("10.5281\/zenodo.8408317")){var l=r[o].metadata.related_identifiers[0].identifier,d=l.split("/")[4];l.split("/")[6],fetch("https://raw.githubusercontent.com/metapsy-project/"+d+"/"+e+"/data.csv").then(e=>e.text()).then(a=>{var n=d+"_v"+e,n=n.replaceAll(".","_").replaceAll("-","_")+".csv";!0===i&&(t(n,a),i=!1)})}}}}async function renderDownload(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t="",a=!0;for(let n=0;n<e.length;n++){var r=e[n].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("10.5281\/zenodo.8408317")){let i=["January","February","March","April","May","June","July","August","September","October","November","December",],o=new Date(e[n].created),s=i[o.getMonth()],l=o.getFullYear(),d=o.getDate();if(modDate=s+" "+d+", "+l,e[n].links.badge,e[n].links.doi,!0===a){var c="<li><a onclick=\"downloadData('"+e[n].metadata.version+"')\"><strong> Version "+e[n].metadata.version+"</strong> ("+String(modDate)+"; latest)</a></li>";t+=c;var a=!1}else{var c="<li><a onclick=\"downloadData('"+e[n].metadata.version+"')\"><strong> Version "+e[n].metadata.version+"</strong> ("+String(modDate)+")</a></li>";t+=c}}}var p=document.getElementById("ph-download");p.id=randID,p.innerHTML=t}renderDownload();
+</script>
+<p><br></br></p>
 </div>
           
           <p class="post-meta border-bottom pb-3 mb-0 mt-3">
@@ -407,10 +734,14 @@ window.location.replace('https://zenodo.org/records/8408318');
                          
                          
                          
+                          
+                  
+                     
                          
                          
                          
-                
+                         
+                         
                          
               
                                       
@@ -425,18 +756,18 @@ window.location.replace('https://zenodo.org/records/8408318');
                 
             <a
               class="nav nav-prev"
-              href="/general/contribute/"
+              href="/databases/gad-psyctr/"
               aria-label="Previous page"
               ><i class="ti-arrow-left mr-2"></i>
-              <span class="d-none d-md-block">Contributors</span></a
+              <span class="d-none d-md-block">Generalized Anxiety Disorder: Psychotherapy vs. Control</span></a
             >
              
             <a
               class="nav nav-next"
-              href="/databases/borderline-psyctr/"
+              href="/databases/ocd-psyctr/"
               aria-label="Previous page"
             >
-              <span class="d-none d-md-block">Borderline Personality Disorder: Psychotherapy vs. Control</span
+              <span class="d-none d-md-block">OCD: Psychotherapy vs. Control</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             
@@ -455,7 +786,7 @@ window.location.replace('https://zenodo.org/records/8408318');
  
 <footer class="section pb-4">
   
-  <script src="/costum.js"></script>
+  <script src="/costum.min.js"></script>
   <div class="container">
     <div
       class="row align-items-center"

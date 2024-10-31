@@ -14,7 +14,7 @@
             eq .FirstSection $currentNode.FirstSection }} {{ template
             "section-tree-nav" dict "sect" . "currentnode" $currentNode}} {{ end
             }} {{ end }} {{ if .Content }} {{ if eq .Params.downloadBtn "true"
-            }}
+            }} 
             <div>
               <button class="btn btn-primary btn-block" id="generatePDF">
                 Get Pdf

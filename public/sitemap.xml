@@ -19,9 +19,15 @@
   </url><url>
     <loc>/databases/depression-psyctr/</loc>
   </url><url>
-    <loc>/databases/gambling-cbt/</loc>
+    <loc>/databases/depression-selfguided-psyctr/</loc>
+  </url><url>
+    <loc>/databases/gambling-psyctr/</loc>
   </url><url>
     <loc>/databases/gad-psyctr/</loc>
+  </url><url>
+    <loc>/databases/total-response/</loc>
+  </url><url>
+    <loc>/databases/ocd-psyctr/</loc>
   </url><url>
     <loc>/databases/panic-psyctr/</loc>
   </url><url>
@@ -31,9 +37,9 @@
   </url><url>
     <loc>/r-packages/r-packages/</loc>
   </url><url>
-    <loc>/databases/suicide-psyctr/</loc>
+    <loc>/databases/sad-psyctr/</loc>
   </url><url>
-    <loc>/databases/total-response/</loc>
+    <loc>/databases/suicide-psyctr/</loc>
   </url><url>
     <loc>/databases/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
