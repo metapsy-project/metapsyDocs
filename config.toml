@@ -138,5 +138,11 @@ hasChildren = true
   url = "meta-analysis-tool/"
   weight = 6
 
+  [[Languages.en.menu.main]]
+  parent = "topics"
+  name = "Risk of Bias"
+  url = "rob/"
+  weight = 7
+
 custom_css = ["css/custom.css"]
 custom_js = ["js/custom.js"]
