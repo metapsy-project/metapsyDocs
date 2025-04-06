@@ -1,33 +1,34 @@
 ---
 title: General Information
-date: '2018-12-29T11:02:05.000+06:00'
+date: 2018-12-29T11:02:05.000+06:00
 icon: ti-light-bulb
 description: Overview the Metapsy project
 type: docs
 weight: 1
 keywords:
-- about
-- information
-- general
-
+  - about
+  - information
+  - general
 ---
-***
+- - -
 
 <img src="/uploads/magnify.jpg" width="100%" style="border-radius: 5px;">
 
 <br>
 
+
+
 #### About Metapsy
 
-***
+- - -
 
-Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
+Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers](<>)). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
 
 <br>
 
 #### A Unified Framework of Meta-Analytic Databases
 
-***
+- - -
 
 Metapsy aims to provide a unified framework for all available meta-analytic data across different indications and settings. All meta-analytic databases...
 
@@ -46,7 +47,7 @@ Overall, the Metapsy project tries to make meta-analytic psychotherapy research 
 
 #### Introducing Meta-Analytic Research Domains {#mard}
 
-***
+- - -
 
 <img src="/uploads/mard2.png" width="100%" style="border-radius: 5px; border: 3px solid white; margin-top: 30px; margin-bottom: 30px;">
 
@@ -70,6 +71,6 @@ Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a
 
 {{< youtube y3AosOKX-Q4 >}}
 
-_A presentation introducing the concept of meta-analytic research domains._
+*A presentation introducing the concept of meta-analytic research domains.*
 
 <br></br>
