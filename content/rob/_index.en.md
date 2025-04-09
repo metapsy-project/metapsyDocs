@@ -10,10 +10,37 @@ weight: "7"
 
 <img src="/uploads/glass-header.webp" width="100%" style="border-radius: 5px;">
 
+<br>
 
-{{< notice info >}}
-👷‍♀️ This documentation page is still **under construction**.
-{{</notice>}}
+#### Introduction
+---
+
+As part of the Metapsy initiative, we developed a version of the widely used **Cochrane RoB 2 tool** ([Sterne et al., 2019](https://www.bmj.com/content/366/bmj.l4898.short)). Our version is tailored for psychological intervention trials and provides clear, detailed guidance for answering RoB 2's signalling questions in this field. To make it easier to use, we also created digital assistants to help with the rating process. All materials and tools are freely available at [**metapsy.org/rob**](https://www.metapsy.org/rob).
+
+The tool can be applied in two ways: using (1) an **online RoB assistant**, or (2) **Excel** version of the tool.
+
+<br>
+
+##### 🤖 Online RoB Tool
+
+The most user-friendly option is the [**online RoB assistant**](https://www.metapsy.org/rob/assistant/), in which each of the items can be directly answered as an online questionnaire. Brief guidance is provided with each item, and extended guideline can be found in the [online handbook](#online-handbook) or in the current PDF version of the handbook. 
+
+With this assistant, reviewers can go through all relevant signalling questions step by step. Based on their answers, the assistant automatically skips any questions that aren't needed for the rating. Once all questions are answered, domain scores and overall scores are calculated instantly by the built-in algorithm. The results can then be downloaded in various formats.
+
+<br>
+
+##### 📄 Excel Version
+
+If you prefer using **Excel**, you can rate studies with the [**rob-template**](https://www.metapsy.org/assets/files/rob-template.xlsx). This version is more flexible than the online RoB assistant and can be quicker for experienced users.
+
+One key benefit is that some items (like unbalanced clinical severity) in the Excel can be calculated automatically from a [Metapsy database](/data-preparation/), _if_ certain data has already been collected. This includes the baseline means and standard deviations, the type of rating (clinician or self-report), the number of participants and dropouts in each group, and the randomization ratio. To link this data correctly, the extraction sheet of the database should follow the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/) (see the “Metapsy database” [example](https://www.metapsy.org/assets/files/data.xlsx)).
+
+You can then use the [**Database Application**](https://www.metapsy.org/rob/database-app/) or the [**`createRobRatings`**](https://tools.metapsy.org/reference/createrobratings) function from the metapsyTools R package to populate some of the domain ratings in the RoB template, and generate overall RoB ratings.
+
+The Excel tool also works with other useful functions in metapsyTools. The [`checkRobDiscrepancies`](https://tools.metapsy.org/reference/checkrobdiscrepancies), for example, can be used to check for differences between reviewers and provides Cohen’s kappa as a measure of agreement in the end.
+
+
+<br>
 
 #### Online Handbook
 ---
