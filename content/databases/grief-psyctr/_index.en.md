@@ -13,7 +13,7 @@ hidden: false
 
 #### General Description
 
-The `grief-psyctr` dataset is a meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on psychological interventions for prolonged grief across all age groups. The date of the last search update is provided [here](https://github.com/metapsy-project/data-grief-psyctr/blob/main/metadata/last_search.txt).
+The `grief-psyctr` dataset is a meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on psychological interventions for prolonged grief across all age groups. The date of the last search update is provided [here](https://raw.githubusercontent.com/metapsy-project/data-grief-psyctr/refs/heads/master/metadata/last_search.txt).
 
 This dataset includes psychological interventions (CBT, writing therapy, dual-process model treatment, psychoeducational interventions, etc) vs. control comparisons (e.g., waitlist, care as usual, other inactive controls). Effect sizes are provided for grief symptoms at post-test. When multiple instruments for complicated grief symptoms were reported within a study, one was selected based on the most frequently reported outcomes across the trials.
 
@@ -81,7 +81,7 @@ Studies in the `grief-psyctr` dataset were extracted from the larger "psychologi
 {{< zenodo-last-updated-year doi="10.5281/zenodo.15538811" >}}.
 <i>Database of prolonged grief trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.15538811" >}}).
-URL docs.metapsy.org/databases/ocd-psyctr.
+URL docs.metapsy.org/databases/grief-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.15538811" >}}.
 </div>
 
