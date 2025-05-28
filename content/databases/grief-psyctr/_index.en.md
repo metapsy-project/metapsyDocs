@@ -13,9 +13,9 @@ hidden: false
 
 #### General Description
 
-The `ocd-psyctr` dataset is a meta-analytic research domain [MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf) on psychotherapy for adults with obsessive-compulsive disorder (OCD). This MARD is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials that report the effect of psychotherapy on OCD symptoms. 
+The `grief-psyctr` dataset is a meta-analytic research domain ([MARD](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) which is part of the  [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of randomized trials on psychological interventions for prolonged grief across all age groups. The date of the last search update is provided [here](https://github.com/metapsy-project/data-grief-psyctr/blob/main/metadata/last_search.txt).
 
-This dataset includes **psychotherapy vs. control ('psy vs ctr')** comparisons. Effect sizes are provided for outcomes at post-test. The protocol describing the main meta-analytic project using the database can be accessed [here](https://archive.org/details/osf-registrations-n3rxf-v1).
+This dataset includes psychological interventions (CBT, writing therapy, dual-process model treatment, psychoeducational interventions, etc) vs. control comparisons (e.g., waitlist, care as usual, other inactive controls). Effect sizes are provided for grief symptoms at post-test. When multiple instruments for complicated grief symptoms were reported within a study, one was selected based on the most frequently reported outcomes across the trials.
 
 The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/). All included information has been independently extracted two researchers. Risk of bias ratings were conducted using the Cochrane Collaboration Risk of Bias Tool (Version 2).
 
@@ -24,13 +24,13 @@ The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-pr
 
 #### Affiliated Institutions
 
-Vrije Universiteit Amsterdam
+Universitat Jaume I, Vrije Universiteit Amsterdam
 
 <br>
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at [metapsy.org/database/sad](https://www.metapsy.org/database/sad).
+A simplified version of this database can be analyzed at [metapsy.org/database/grief](https://www.metapsy.org/database/grief).
 
 <br>
 
@@ -67,7 +67,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/s
 
 #### Database Flowchart
 
-Studies in the `ocd-psyctr` dataset were extracted from the larger "psychological interventions for OCD" database. The study flow of this database can be found below.
+Studies in the `grief-psyctr` dataset were extracted from the larger "psychological interventions for prolonged grief" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.15538811" >}}
 
@@ -79,7 +79,7 @@ Studies in the `ocd-psyctr` dataset were extracted from the larger "psychologica
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
 {{< zenodo-authors doi="10.5281/zenodo.15538811" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.15538811" >}}.
-<i>Database of OCD trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>
+<i>Database of prolonged grief trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.15538811" >}}).
 URL docs.metapsy.org/databases/ocd-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.15538811" >}}.
