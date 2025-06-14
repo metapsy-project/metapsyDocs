@@ -14,6 +14,8 @@ weight: "2"
 
 This page provides documentation entries for all databases included in Metapsy.
 
+{{< database-overview >}}
+
 <br>
 
 #### Naming Conventions
@@ -47,5 +49,6 @@ Each released database is automatically indexed using **[Zenodo](https://www.zen
 - - -
 
 As part of the metadata, each database is also provided with a shorthand. This shorthand is used, e.g. in **[`metapsyData`](https://www.metapsy.org/r-package)** to retrieve a specific database using R.
+
 
 <br></br>

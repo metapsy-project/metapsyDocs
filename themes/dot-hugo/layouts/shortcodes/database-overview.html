@@ -1,0 +1,57 @@
+<span id="database-overview-box">
+    <button
+      type="button"
+      class="btn btn-default dropdown-toggle expand-btn"
+      data-toggle="collapse"
+      href="#collapseDatabaseList"
+      role="button"
+      aria-expanded="false"
+    >
+      📂 Show All Databases <span class="caret"></span>
+    </button>
+  
+    <div class="collapse" id="collapseDatabaseList">
+      <div class="card card-body" style="padding: 20px 20px 0px 20px !important">
+        
+        <!-- 🔍 Search bar -->
+        <input
+          type="text"
+          class="form-control"
+          id="dbSearchInput"
+          placeholder="Search databases..."
+          onkeyup="filterDatabases()"
+          style="margin-bottom: 15px; font-size: 90%; border: 1px solid rgba(0, 0, 0, .125); border-radius: .25rem;"
+        />
+  
+        <div style="max-height: 300px; overflow-y: scroll;">
+          <ul id="dbList">
+            {{ range sort .Page.Sections "Title" }}
+              <li style="margin-bottom: 0.5rem; font-size: 90%;">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a><br>
+                {{ with .Params.description }}
+                  <span style="color: gray;">{{ . }}</span>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br />
+  </span>
+  
+  <!-- 🔧 JS: Filter list based on search input -->
+  <script>
+    function filterDatabases() {
+      const input = document.getElementById('dbSearchInput');
+      const filter = input.value.toLowerCase();
+      const ul = document.getElementById('dbList');
+      const items = ul.getElementsByTagName('li');
+  
+      for (let i = 0; i < items.length; i++) {
+        const txt = items[i].textContent || items[i].innerText;
+        items[i].style.display = txt.toLowerCase().includes(filter) ? '' : 'none';
+      }
+    }
+  </script>
+  
