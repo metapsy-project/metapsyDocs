@@ -80,7 +80,7 @@ Studies in the `ed-psyctr` dataset were extracted from the larger "psychological
 {{< zenodo-last-updated-year doi="10.5281/zenodo.15663216" >}}.
 <i>Database of eating disorder trials comparing cognitive behavioral interventions with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.15663216" >}}).
-URL docs.metapsy.org/databases/ocd-psyctr.
+URL docs.metapsy.org/databases/ed-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.15663216" >}}.
 </div>
 
