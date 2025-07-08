@@ -890,8 +890,18 @@ pre code::-webkit-scrollbar-thumb {
   color: var(--white-color);
 }
 
+header.shadow-bottom {
+  position: revert !important;
+}
 
 
+.sidelist li a {
+  font-weight: 300 !important;
+}
+
+.sidebar {
+  top: 2rem !important
+}
 .sidebar::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 5px;
