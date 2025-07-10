@@ -2,8 +2,8 @@
 title: References of studies excluded based on full-text screening
 description: Documentation of the database release & versioning workflow
 type: docs
-sidebar: false
 hidden: true
+exclude_topic: true
 ---
 ***
 

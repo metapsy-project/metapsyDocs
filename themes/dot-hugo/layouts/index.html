@@ -16,7 +16,7 @@
           <h2 class="section-title">{{ i18n "topics_title" | markdownify }}</h2>
         </div>
         <!-- topic-item -->
-        {{ range (where .Site.Pages "Type" "docs") }}
+        {{ range (where (where .Site.Pages "Type" "docs") "Params.exclude_topic" "ne" true) }}
           <div class="col-lg-4 col-sm-6 mb-4">
             <a href="{{ .Permalink }}" class="px-4 py-5 bg-white shadow text-center d-block match-height">
               {{ with .Params.icon}}
