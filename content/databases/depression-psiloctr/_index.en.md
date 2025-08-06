@@ -34,7 +34,7 @@ University of Pennsylvania, Johns Hopkins University, Vanderbilt University, Uni
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can be analyzed at [metapsy.org/sypres/psilocybin](https://www.metapsy.org/sypres/psilocybin).
+A simplified version of this database can be analyzed at [metapsy.org/sypres/psilocybin-depression](https://www.metapsy.org/sypres/psilocybin-depression).
 
 <br>
 
