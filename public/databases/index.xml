@@ -8,14 +8,5 @@
     <language>en-us</language>
     <copyright>&amp;copy; &lt;script&gt;document.write(new Date().getFullYear())&lt;/script&gt; Metapsy Collaboration</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="/databases/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Psychosis: Psychotherapy vs. Control</title>
-      <link>/databases/psychosis-psyctr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/databases/psychosis-psyctr/</guid>
-      <description>.loader-spinner { width: 20px; height: 20px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133); border-bottom-color: transparent; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 1s linear infinite;} @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}  var randID=makeid(10);async function renderAuthors(){for(;!isDataSaved();)await new Promise(t=setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem(&#34;apiResponse&#34;)),e=!0;for(let r=0;rt.text()).then(t={t=JSON.parse(t),text=&#34;&#34;;for(let e=0;e, &#39;;text=text.slice(0,-2);for(let r=0;r General Description The data-psychosis-psyctr dataset is a meta-analytic research domain MARD which is part of the Metapsy project. The dataset contains study information and effect size data of randomized trials on psychological interventions for schizophrenia and psychosis.</description>
-    </item>
-    
   </channel>
 </rss>

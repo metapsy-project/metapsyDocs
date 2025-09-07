@@ -17,9 +17,13 @@
   </url><url>
     <loc>/databases/depression-inpatients/</loc>
   </url><url>
+    <loc>/databases/depression-psiloctr/</loc>
+  </url><url>
     <loc>/databases/depression-psyctr/</loc>
   </url><url>
     <loc>/databases/depression-selfguided-psyctr/</loc>
+  </url><url>
+    <loc>/databases/ed-psyctr/</loc>
   </url><url>
     <loc>/databases/gambling-psyctr/</loc>
   </url><url>
@@ -33,9 +37,13 @@
   </url><url>
     <loc>/databases/peer-support/</loc>
   </url><url>
+    <loc>/databases/grief-psyctr/</loc>
+  </url><url>
     <loc>/databases/ptsd-psyctr/</loc>
   </url><url>
     <loc>/r-packages/r-packages/</loc>
+  </url><url>
+    <loc>/rob/assistant/</loc>
   </url><url>
     <loc>/databases/sad-psyctr/</loc>
   </url><url>
@@ -46,12 +54,16 @@
   </url><url>
     <loc>/general/contribute/</loc>
   </url><url>
+    <loc>/rob/db-application/</loc>
+  </url><url>
     <loc>/data-preparation/metadata/</loc>
   </url><url>
     <loc>/r-packages/api/</loc>
   </url><url>
     <loc>/data-preparation/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
+  </url><url>
+    <loc>/rob/r-functions/</loc>
   </url><url>
     <loc>/data-preparation/upload/</loc>
   </url><url>
@@ -64,12 +76,16 @@
     <loc>/meta-analysis-tool/</loc>
     <lastmod>2018-12-28T11:02:05+06:00</lastmod>
   </url><url>
+    <loc>/rob/</loc>
+  </url><url>
     <loc>/</loc>
     <lastmod>2018-12-29T11:02:05+06:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
   </url><url>
     <loc>/databases/psychosis-psyctr/</loc>
+  </url><url>
+    <loc>/databases/depression-psyctr/adm-ipd-v1.0-0/</loc>
   </url><url>
     <loc>/tags/</loc>
   </url>
