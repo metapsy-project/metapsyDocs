@@ -2,7 +2,7 @@
 
 This is the code repository of the [docs.metapsy.org](https://luxury-syrniki-6a53eb.netlify.app/) documentation website. 📄
 
-## Updating the Documentation Database 🔄
+## 🔄 Updating the Documentation Database
 
 The Metapsy Documentation webpage uses a **static snapshot of all the Metapsy metadata released to Zenodo**, which is saved to a JSON library (`/data/zenodo.json`).
 This snapshot does not update automatically. Instead, we can refresh it manually whenever there are new releases.
@@ -26,7 +26,7 @@ This snapshot does not update automatically. Instead, we can refresh it manually
      `chore: refresh documentation database snapshot`.
    * ℹ️ If nothing changed → no commit is made.
 
-## Using the Netlify CMS
+## 🖌️ Using the Netlify CMS
 
 The Metapsy documentation site is built using [Hugo](https://gohugo.io/). We have created a **Content Management System (CMS)** for the website, which is provided on [docs.metapsy.org/admin](https://docs.metapsy.org/admin). If you want to have access to the backend, please approach [@cyplessen](www.github.com/cyplessen), [@clara-miguel](www.github.com/clara-miguel), or [@MathiasHarrer](www.github.com/MathiasHarrer).
 
