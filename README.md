@@ -2,6 +2,29 @@
 
 This is the code repository of the [docs.metapsy.org](https://luxury-syrniki-6a53eb.netlify.app/) documentation website. 📄
 
+## Updating the Documentation Database 🔄
+
+The Metapsy Documentation webpage uses a **static snapshot of all the Metapsy metadata released to Zenodo**, which is saved to a JSON library (`/data/zenodo.json`).
+This snapshot does not update automatically. Instead, we can refresh it manually whenever there are new releases.
+
+### How it works
+
+1. The GitHub Action **“Refresh Documentation Database”** downloads the latest version of the documentation database.
+2. It saves this into `static/data/zenodo.json`.
+3. If the file has changed, the Action **creates a commit on `master`** with the updated data.
+4. That commit triggers a new **Netlify build**, so the website updates automatically.
+5. If there are **no changes** in the database, nothing happens (no commit, no build).
+
+### How to trigger a refresh
+
+1. Go to the **Actions** tab in GitHub.
+2. Select **“Refresh Documentation Database”**.
+3. Click **“Run workflow”** (make sure the branch is `master`).
+4. Wait \~1 minute for the workflow to finish.
+
+   * ✅ If the database changed → a commit appears in `master` called
+     `chore: refresh documentation database snapshot`.
+   * ℹ️ If nothing changed → no commit is made.
 
 ## Using the Netlify CMS
 
