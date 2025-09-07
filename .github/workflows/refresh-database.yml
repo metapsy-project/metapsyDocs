@@ -1,0 +1,27 @@
+name: Refresh Documentation Database
+on:
+  workflow_dispatch: {}
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm ci
+      - env:
+          ZENODO_API_KEY: ${{ secrets.ZENODO_API_KEY }}
+        run: npm run prebuild
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet -- static/data/zenodo.json; then
+            git config user.name "github-actions"
+            git config user.email "actions@users.noreply.github.com"
+            git add static/data/zenodo.json
+            git commit -m "chore: refresh zenodo snapshot"
+            git push
+          else
+            echo "No changes."
+          fi
