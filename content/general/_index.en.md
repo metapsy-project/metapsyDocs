@@ -21,7 +21,9 @@ keywords:
 
 ***
 
-Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers]()). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**.
+Metapsy is a research project led by the VU University Amsterdam (Prof. [Pim Cuijpers](https://www.pimcuijpers.com/blog/)). The goal of Metapsy is to **provide access to meta-analytic databases of clinical trials** investigating the effect of **psychological interventions** (e.g. psychotherapy, preventive interventions, psychoeducation) on various **mental disorders or mental health problems**. 
+
+A **comprehensive summary** of the Metapsy infrastructure can be found in [Harrer et al. (2025)](https://research.vu.nl/en/publications/effectiveness-of-psychotherapy-synthesis-of-a-meta-analytic-resea).
 
 <br>
 
@@ -68,7 +70,7 @@ Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a
 
 <br>
 
-{{< youtube y3AosOKX-Q4 >}}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y3AosOKX-Q4?si=kvRKx3kvRIV9LmwT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 _A presentation introducing the concept of meta-analytic research domains._
 
