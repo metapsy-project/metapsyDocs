@@ -1,11 +1,16 @@
 // Add costum metapsy logo
 var brand = document.getElementsByClassName('navbar-brand');
-brand[0].innerHTML = "<img src='/images/hexagon2.png' alt='logo' height='30px'>"+ 
-    "<span style='padding-right: 20px; padding-left: 10px; color: white'>METAPSY</span>" + 
-    "<span id='documentationText' style='border-left: 1px solid #adadad;" +
-    " padding: 10px 0 10px 15px; font-family: var(--font-family),sans-serif; font-weight: 500 !important; color: #adadad'>" +
-    "Documentation</span>";
-brand[0].style.fontWeight = '500'; 
+brand[0].innerHTML = `
+  <img src="/images/hexagon2.png" alt="logo" height="30px">
+  <span style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>
+  <span id="documentationText" style="border-left: 1px solid #adadad; 
+    padding: 10px 0 10px 15px; 
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', serif !important; 
+    font-weight: 500 !important; 
+    color: #adadad;">
+    Documentation
+  </span>`;
+brand[0].style.fontWeight = '500';
 
 var navbar = document.querySelectorAll('.navbar-nav,.ml-auto');
 var ul = navbar[0];
