@@ -12,11 +12,13 @@ Following the data preparation according to the Metapsy data standard, all files
 
 * 💾 **`data.csv`**
 * 📄 **`license`**
+* 📄 **`readme.md`**
 * 📁 **`metadata`**
   * 📄 **`authors.json`**
   * 📄 **`last_search.txt`**
   * 📄 **`number_studies.txt`**
   * 📄 **`search_string.txt`**
+  * 📄 **`search_flow.json`**
   * 📄 **`shorthand.txt`**
   * 📄 **`variable_description.json`**
 
