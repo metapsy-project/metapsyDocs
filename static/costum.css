@@ -395,3 +395,38 @@ a.nav-link.dropdown-toggle.text-dark {
     visibility: visible;
   }
 
+/* Theme toggle icon styles */
+#theme-icon {
+    transition: all 0.3s ease;
+    transform-origin: center;
+    vertical-align: middle;
+    line-height: 1;
+    display: inline-block;
+}
+
+#theme-icon:hover {
+    transform: scale(1.1);
+    color: var(--bs-info) !important;
+}
+
+/* Better alignment for the theme toggle button */
+#mode-switch-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+}
+
+#mode-switch-inner i {
+    margin: 0;
+    padding: 0;
+}
+
+/* Theme changes without transitions - instant switching */
+
+/* Override theme's uppercase transformation for navigation */
+.navbar .nav-item .nav-link {
+    text-transform: none !important;
+    font-size: 1rem !important;
+}
+

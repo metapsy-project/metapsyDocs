@@ -90,56 +90,52 @@ link = "contact/"
 
 
 ################## english navigation #################
-[[Languages.en.menu.main]]
-name = "Home"
-url = ""
-weight = 1
-
+# Home button removed - no longer needed
 
 # Dropdown menu
 [[Languages.en.menu.main]]
 weight = 4
-name = "topics"
+name = "Topics"
 hasChildren = true
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "General Information"
   url = "general/"
   weight = 1
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "Databases"
   url = "databases/"
   weight = 2
   
    [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "Data Preparation"
   url = "data-preparation/"
   weight = 3
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "Data Release"
   url = "release/"
   weight = 4
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "R Packages & API"
   url = "r-packages/"
   weight = 5
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "Meta-Analysis Tool"
   url = "meta-analysis-tool/"
   weight = 6
 
   [[Languages.en.menu.main]]
-  parent = "topics"
+  parent = "Topics"
   name = "Risk of Bias"
   url = "rob/"
   weight = 7

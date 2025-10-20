@@ -29,11 +29,6 @@ innerLink.innerHTML = '<i class="bi-github"></i>';
 li.appendChild(innerLink);
 ul.appendChild(li);
 
-// Change home button
-var navItem = document.getElementsByClassName('navbar-nav');
-navItem[0].firstChild.nextSibling.innerHTML = 
-    "<a class='nav-link text-dark' href='https://www.metapsy.org'>" + 
-    "<i class='ti-home' style='color: white;'></i></a>"
 
 // Add mode switcher
 var switcher = document.createElement('li');
@@ -43,7 +38,7 @@ switcher.innerHTML = '<a href="#"' +
     'class="nav-link text-dark"' + 
     'onclick="toggleTheme()"' +
     'id="mode-switch-inner">' + 
-    '<i class="ti-shine" style="font-size: 170%; color: white;"></i>' +
+    '<i id="theme-icon" class="bi-brightness-high" style="font-size: 140%; color: white; transition: all 0.3s ease; vertical-align: middle;"></i>' +
     '</a>'
 navItem[0].appendChild(switcher);
 
@@ -53,20 +48,6 @@ if (dateSection.length > 0){
     dateSection[0].innerText = "";
 }
 
-// add construction bar
-// var constructionDiv = document.createElement('div');
-// var body = document.body;
-// var header = document.getElementsByClassName('banner')[0];
-// constructionDiv.setAttribute('id', 'construction');
-// constructionDiv.innerHTML = 
-//    '<i class="fa-solid fa-helmet-safety"></i>' +
-//    '<strong> This site is under construction.</strong>';
-// constructionDiv.style.backgroundColor = "var(--bs-info)";
-// constructionDiv.style.color = "white";
-// constructionDiv.style.textAlign = "center";
-// constructionDiv.style.fontSize = "18px";
-// constructionDiv.style.padding = "10px 0 10px 0";
-// body.insertBefore(constructionDiv, body.firstChild);
 
 // add gradient bar
 var header = document.getElementsByTagName('header');
@@ -88,21 +69,25 @@ function setTheme(themeName) {
     document.documentElement.className = themeName;
 }
 function toggleTheme() {
+   var themeIcon = document.getElementById('theme-icon');
    if (localStorage.getItem('theme') === 'theme-dark'){
        setTheme('theme-light');
+       themeIcon.className = 'bi-brightness-high';
    } else {
        setTheme('theme-dark');
+       themeIcon.className = 'bi-moon';
        //var shine = body.getElementsByClassName('ti-shine');
        //shine[0].style.color = "var(--text-color-dark)";
    }
 }
 (function () {
+   var themeIcon = document.getElementById('theme-icon');
    if (localStorage.getItem('theme') === 'theme-dark') {
        setTheme('theme-dark');
-       //var shine = body.getElementsByClassName('ti-shine');
-       //shine[0].style.color = "var(--text-color-dark)";
+       if (themeIcon) themeIcon.className = 'bi-moon';
    } else {
        setTheme('theme-light');
+       if (themeIcon) themeIcon.className = 'bi-brightness-high';
    }
 })();
 

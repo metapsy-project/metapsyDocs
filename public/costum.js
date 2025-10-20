@@ -24,11 +24,11 @@ innerLink.innerHTML = '<i class="bi-github"></i>';
 li.appendChild(innerLink);
 ul.appendChild(li);
 
-// Change home button
-var navItem = document.getElementsByClassName('navbar-nav');
-navItem[0].firstChild.nextSibling.innerHTML = 
-    "<a class='nav-link text-dark' href='https://www.metapsy.org'>" + 
-    "<i class='ti-home' style='color: white;'></i></a>"
+// Remove home button - no longer needed
+// var navItem = document.getElementsByClassName('navbar-nav');
+// navItem[0].firstChild.nextSibling.innerHTML = 
+//     "<a class='nav-link text-dark' href='https://www.metapsy.org'>" + 
+//     "<i class='ti-home' style='color: white;'></i></a>"
 
 // Add mode switcher
 var switcher = document.createElement('li');
@@ -38,7 +38,7 @@ switcher.innerHTML = '<a href="#"' +
     'class="nav-link text-dark"' + 
     'onclick="toggleTheme()"' +
     'id="mode-switch-inner">' + 
-    '<i class="ti-shine" style="font-size: 170%; color: white;"></i>' +
+    '<i id="theme-icon" class="bi-brightness-high" style="font-size: 140%; color: white; transition: all 0.3s ease; vertical-align: middle;"></i>' +
     '</a>'
 navItem[0].appendChild(switcher);
 
@@ -83,21 +83,23 @@ function setTheme(themeName) {
     document.documentElement.className = themeName;
 }
 function toggleTheme() {
+   var themeIcon = document.getElementById('theme-icon');
    if (localStorage.getItem('theme') === 'theme-dark'){
        setTheme('theme-light');
+       themeIcon.className = 'bi-brightness-high';
    } else {
        setTheme('theme-dark');
-       //var shine = body.getElementsByClassName('ti-shine');
-       //shine[0].style.color = "var(--text-color-dark)";
+       themeIcon.className = 'bi-moon';
    }
 }
 (function () {
+   var themeIcon = document.getElementById('theme-icon');
    if (localStorage.getItem('theme') === 'theme-dark') {
        setTheme('theme-dark');
-       //var shine = body.getElementsByClassName('ti-shine');
-       //shine[0].style.color = "var(--text-color-dark)";
+       if (themeIcon) themeIcon.className = 'bi-moon';
    } else {
        setTheme('theme-light');
+       if (themeIcon) themeIcon.className = 'bi-brightness-high';
    }
 })();
 
