@@ -8,7 +8,7 @@ const needsRefresh = sessionStorage.getItem("apiResponse") === null ||
 
 if (needsRefresh) {
   async function fetchData() {
-    const res = await fetch("/data/zenodo.json", { cache: "force-cache" });
+    const res = await fetch("/data/zenodo.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`Failed to load /data/zenodo.json: ${res.status}`);
     return await res.json();
   }
