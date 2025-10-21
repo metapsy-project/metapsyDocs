@@ -1,5 +1,12 @@
-// If nothing cached in this tab yet, fetch the static snapshot
-if (sessionStorage.getItem("apiResponse") === null) {
+// Check if data needs to be refreshed (every 1 hour)
+const DATA_MAX_AGE = 60 * 60 * 1000; // 1 hour in milliseconds
+const lastUpdate = sessionStorage.getItem("dataLastUpdate");
+const now = Date.now();
+const needsRefresh = sessionStorage.getItem("apiResponse") === null || 
+                     !lastUpdate || 
+                     (now - parseInt(lastUpdate)) > DATA_MAX_AGE;
+
+if (needsRefresh) {
   async function fetchData() {
     const res = await fetch("/data/zenodo.json", { cache: "force-cache" });
     if (!res.ok) throw new Error(`Failed to load /data/zenodo.json: ${res.status}`);
@@ -11,6 +18,8 @@ if (sessionStorage.getItem("apiResponse") === null) {
       const data = await fetchData();
       sessionStorage.setItem("apiResponse", JSON.stringify(data));
       sessionStorage.setItem("dataSaved", "true");
+      sessionStorage.setItem("dataLastUpdate", now.toString());
+      console.log("Zenodo data refreshed at:", new Date(now).toLocaleString());
     } catch (err) {
       console.error(err);
       sessionStorage.setItem("dataSaved", "false");
