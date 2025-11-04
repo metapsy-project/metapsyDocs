@@ -431,7 +431,7 @@ a.nav-link.dropdown-toggle.text-dark {
 }
 
 /* Hide contact header icon on mobile */
-@media (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .contact-header-icon {
         display: none !important;
     }
