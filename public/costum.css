@@ -430,3 +430,10 @@ a.nav-link.dropdown-toggle.text-dark {
     font-size: 1rem !important;
 }
 
+/* Hide contact header icon on mobile */
+@media (max-width: 767px) {
+    .contact-header-icon {
+        display: none !important;
+    }
+}
+
