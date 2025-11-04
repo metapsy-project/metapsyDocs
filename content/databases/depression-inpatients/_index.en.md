@@ -8,6 +8,8 @@ url: databases/depression-inpatients
 
 ***
 
+{{< contact-header >}}
+
 <br>
 
 #### General Description

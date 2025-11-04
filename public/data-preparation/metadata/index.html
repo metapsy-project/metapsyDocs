@@ -59,7 +59,7 @@
 
   
   <link
-    href="https://fonts.googleapis.com/css?family=Fira%20Sans:300,400,700&display=swap"
+    href="https://fonts.googleapis.com/css?family=:300,400,700&display=swap"
     rel="stylesheet"
   />
 
@@ -81,7 +81,7 @@
       --text-color-dark:#242738;
       --white-color:#ffffff;
       --light-color:#f8f9fa;
-      --font-family:Fira Sans;
+      --font-family:;
     }
   </style>
 
@@ -147,16 +147,10 @@
       <ul class="navbar-nav ml-auto">
         
         
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="/">Home</a>
-        </li>
-        
-        
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            topics
+            Topics
           </a>
           <div class="dropdown-menu">
             
@@ -279,13 +273,15 @@
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/authors.json"><strong><code>authors.json</code></strong></a>: A <a href="https://www.json.org/json-en.html"><code>.json</code></a> file containing the authors or owners of the the database, as well as their <a href="https://orcid.org/">ORCID</a> research ID.</li>
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/last_search.txt"><strong><code>last_search.txt</code></strong></a>: A <code>.txt</code> file containing the date of the last search update, in the <code>YYYY-MM-DD</code> format.</li>
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/number_studies.txt"><strong><code>number_studies.txt</code></strong></a>: A <code>.txt</code> file containing the number of studies included in the current version of the database.</li>
+<li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/search_flow.json"><strong><code>search_flow.json</code></strong></a>. A <a href="https://www.json.org/json-en.html"><code>.json</code></a> file, containing a JSON object (key-value pairs). Please note that all keys need to be specified with a number; if one of the keys does not apply, set the value to <code>0</code>. Under <code>&quot;full.text.excluded.reasons&quot;</code>, it is possible to give various reasons for full-text exclusion. Reasons can be adapted freely for each database - the ones in the linked template are just examples.</li>
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/search_string.txt"><strong><code>search_string.txt</code></strong></a>: A <code>.txt</code> file showing the employed search string(s).</li>
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/shorthand.txt"><strong><code>shorthand.txt</code></strong></a>: A <code>.txt</code> file with the <code>metapsyData</code> <a href="https://docs.metapsy.org/databases/#shorthand">shorthand</a> of the database.</li>
-<li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json"><strong><code>variable_description.json</code></strong></a>: A <a href="https://www.json.org/json-en.html"><code>.json</code></a> file; containing a JSON object (key-value pairs). The key represents the variable name, while the value component includes a description or explanation provided for the database variable (e.g. information on the meaning of factor levels).</li>
+<li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/metadata/variable_description.json"><strong><code>variable_description.json</code></strong></a>: A <a href="https://www.json.org/json-en.html"><code>.json</code></a> file, containing a JSON object (key-value pairs). The key represents the variable name, while the value component includes a description or explanation provided for the database variable (e.g. information on the meaning of factor levels).</li>
 </ul>
-<p>There is also one additional metadata item stored at the <strong>base</strong> of the repository:</p>
+<p>There are also additional metadata items stored at the <strong>base</strong> of the repository:</p>
 <ul>
 <li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/license"><strong><code>license</code></strong></a>: A file that contains the license under which the data is shared. This is either the license text itself, or a persistent identifier to the license. By default, all datasets are assigned with a <a href="https://opendatacommons.org/licenses/by/1-0/">Open Data Commons Attribution License (ODC-By) v1.0</a> license, which allows anyone to share and adapt the data, as well as to create works from the it, provided that the original database is attributed.</li>
+<li>📄 <a href="https://github.com/metapsy-project/data-template/blob/master/readme.md"><strong><code>readme.md</code></strong></a>: A <a href="https://www.markdownguide.org/getting-started/">markdown file</a> in which the topic and contents of the database are briefly summarized. This readme text will also be displayed on <a href="/release/#zenodo">Zenodo</a>. The readme also contains a badge with a database DOI, which will only be filled in once the database is finally <a href="/release/">released</a>.</li>
 </ul>
 <p><br></br></p>
 </div>
@@ -301,6 +297,7 @@
                          
               
                                       
+                         
                          
                          
                          

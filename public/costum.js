@@ -1,11 +1,16 @@
 // Add costum metapsy logo
 var brand = document.getElementsByClassName('navbar-brand');
-brand[0].innerHTML = "<img src='/images/hexagon2.png' alt='logo' height='30px'>"+ 
-    "<span style='padding-right: 20px; padding-left: 10px; color: white'>METAPSY</span>" + 
-    "<span id='documentationText' style='border-left: 1px solid #adadad;" +
-    " padding: 10px 0 10px 15px; font-family: var(--font-family),sans-serif; font-weight: 500 !important; color: #adadad'>" +
-    "Documentation</span>";
-brand[0].style.fontWeight = '500'; 
+brand[0].innerHTML = `
+  <img src="/images/hexagon2.png" alt="logo" height="30px">
+  <span style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>
+  <span id="documentationText" style="border-left: 1px solid #adadad; 
+    padding: 10px 0 10px 15px; 
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', serif !important; 
+    font-weight: 500 !important; 
+    color: #adadad;">
+    Documentation
+  </span>`;
+brand[0].style.fontWeight = '500';
 
 var navbar = document.querySelectorAll('.navbar-nav,.ml-auto');
 var ul = navbar[0];
@@ -24,11 +29,6 @@ innerLink.innerHTML = '<i class="bi-github"></i>';
 li.appendChild(innerLink);
 ul.appendChild(li);
 
-// Remove home button - no longer needed
-// var navItem = document.getElementsByClassName('navbar-nav');
-// navItem[0].firstChild.nextSibling.innerHTML = 
-//     "<a class='nav-link text-dark' href='https://www.metapsy.org'>" + 
-//     "<i class='ti-home' style='color: white;'></i></a>"
 
 // Add mode switcher
 var switcher = document.createElement('li');
@@ -48,20 +48,6 @@ if (dateSection.length > 0){
     dateSection[0].innerText = "";
 }
 
-// add construction bar
-// var constructionDiv = document.createElement('div');
-// var body = document.body;
-// var header = document.getElementsByClassName('banner')[0];
-// constructionDiv.setAttribute('id', 'construction');
-// constructionDiv.innerHTML = 
-//    '<i class="fa-solid fa-helmet-safety"></i>' +
-//    '<strong> This site is under construction.</strong>';
-// constructionDiv.style.backgroundColor = "var(--bs-info)";
-// constructionDiv.style.color = "white";
-// constructionDiv.style.textAlign = "center";
-// constructionDiv.style.fontSize = "18px";
-// constructionDiv.style.padding = "10px 0 10px 0";
-// body.insertBefore(constructionDiv, body.firstChild);
 
 // add gradient bar
 var header = document.getElementsByTagName('header');
@@ -90,6 +76,8 @@ function toggleTheme() {
    } else {
        setTheme('theme-dark');
        themeIcon.className = 'bi-moon';
+       //var shine = body.getElementsByClassName('ti-shine');
+       //shine[0].style.color = "var(--text-color-dark)";
    }
 }
 (function () {
