@@ -92,3 +92,76 @@ function toggleTheme() {
 })();
 
 var block = document.getElementsByClassName('list-inline');
+
+// Mobile burger menu for databases sidebar
+(function() {
+    // Check if we're on a databases page
+    var isDatabasesPage = window.location.pathname.indexOf('/databases/') !== -1;
+    
+    if (isDatabasesPage) {
+        // Add class to body for CSS targeting
+        document.body.classList.add('databases-page');
+        
+        // Create burger button
+        var burgerBtn = document.createElement('button');
+        burgerBtn.className = 'sidebar-burger-btn';
+        burgerBtn.setAttribute('aria-label', 'Toggle sidebar');
+        var icon = document.createElement('i');
+        icon.className = 'bi bi-list';
+        icon.id = 'sidebar-toggle-icon';
+        burgerBtn.appendChild(icon);
+        document.body.appendChild(burgerBtn);
+        
+        // Create overlay
+        var overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+        
+        // Toggle sidebar function
+        function toggleSidebar() {
+            document.body.classList.toggle('sidebar-open');
+            overlay.classList.toggle('active');
+            
+            // Toggle icon between burger and X
+            var icon = document.getElementById('sidebar-toggle-icon');
+            if (document.body.classList.contains('sidebar-open')) {
+                icon.className = 'bi bi-x';
+            } else {
+                icon.className = 'bi bi-list';
+            }
+        }
+        
+        // Burger button click
+        burgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleSidebar();
+        });
+        
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', function() {
+            if (document.body.classList.contains('sidebar-open')) {
+                toggleSidebar();
+            }
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                var sidebar = document.querySelector('.col-lg-3');
+                var isClickInsideSidebar = sidebar && sidebar.contains(e.target);
+                var isClickOnBurger = burgerBtn.contains(e.target);
+                
+                if (!isClickInsideSidebar && !isClickOnBurger && document.body.classList.contains('sidebar-open')) {
+                    toggleSidebar();
+                }
+            }
+        });
+        
+        // Close sidebar on window resize if it becomes desktop size
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && document.body.classList.contains('sidebar-open')) {
+                toggleSidebar();
+            }
+        });
+    }
+})();

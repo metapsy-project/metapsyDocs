@@ -437,3 +437,98 @@ a.nav-link.dropdown-toggle.text-dark {
     }
 }
 
+/* Mobile burger menu for databases sidebar */
+@media only screen and (max-width: 768px) {
+    /* Hide sidebar by default on mobile for databases pages */
+    body.databases-page .col-lg-3 {
+        display: none;
+    }
+    
+    /* Make content full width on mobile for databases pages */
+    body.databases-page .col-lg-9 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    /* Remove all horizontal padding and margins from col-lg-9 containing #content on mobile */
+    .col-lg-9 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Remove max-height from sidebar on mobile */
+    body.databases-page .col-lg-3 > .sidebar {
+        max-height: none !important;
+    }
+    
+    /* Burger menu button - bottom right, quadratic */
+    .sidebar-burger-btn {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        z-index: 1050;
+        background-color: var(--bs-primary);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar-burger-btn:hover {
+        background-color: var(--bs-info);
+    }
+    
+    .sidebar-burger-btn i {
+        font-size: 20px;
+    }
+    
+    /* Sidebar overlay when open */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        display: none;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+    
+    /* Sidebar when open - full width, no padding on container */
+    body.databases-page.sidebar-open .col-lg-3 {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1050;
+        background-color: var(--body-color);
+        overflow-y: auto;
+        padding: 0;
+    }
+    
+    /* Prevent body scroll when sidebar is open */
+    body.databases-page.sidebar-open {
+        overflow: hidden;
+    }
+    
+    /* Remove top padding from section-sm on databases pages on mobile */
+    body.databases-page .section-sm {
+        padding-top: 0px !important;
+    }
+}
+
