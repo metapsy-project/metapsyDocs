@@ -63,6 +63,7 @@ We differentiate between standard (I.) study design, (II.) effect size data, and
 * **`time`**: The measurement point at which the outcome was obtained (e.g. `post` or `follow-up`).
 * **`time_weeks`**: The measurement point at which the outcome was obtained, in weeks after randomization (set to `NA` if this information was not available).
 * **`rating`**: This variable encodes if the measured outcome was self-reported (`"self-report"`) or clinician-rated (`"clinician"`).
+* **`full_ref`**: A full reference to the main or relevant publication. 
 
 <br>
 
@@ -123,7 +124,7 @@ Each Metapsy database also contains variables in which the (raw or pre-calculate
 
 - - -
 
-The Metapsy database standard includes nine additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`. They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
+The Metapsy database standard includes nine additional variables that all start with a dot (`.`). These are variables created by the [`calculateEffectSizes`](https://tools.metapsy.org/reference/calculateeffectsizes) function in `metapsyTools`, or the [data validator application](https://tools.metapsy.org/data-validator). They are included so that meta-analysis functions in `metapsyTools` can be applied "out of the box".
 
 * **`.id`**: Unique identifier for a trial arm comparison/row.
 * **`.g`**: Calculated effect size (Hedges' $g$).
@@ -155,6 +156,10 @@ Metapsy databases also contain additional variables. These are used, for example
 ##### Data File Type
 
 - - -
+
+{{< notice tip >}}
+If you are a contributor to the Metapsy intitiative, it is usually sufficient to prepare the data in **MS Excel sheets** as a first step. Members of the maintenance team can help you with the transformation to .csv files, which is only needed once datasets are [released publically](/release/). Excel sheets are also sufficient if you want to perform a meta-analysis using [`metapsyTools`](https://tools.metapsy.org/articles/web/get-started#the-analysis-module). An example of an Excel sheet following the Metapsy data format can be downloaded [here](/uploads/example-metapsy-formatted-dataset.xlsx).
+{{</notice>}}
 
 Finalized datasets are saved as **comma-separated values** (.csv) files. Importantly, in our case, .csv files *always* use a **semicolon** as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. `1,02` instead of `1.02`). This is typically how MS Excel exports sheets as .csv by default (with "continental European" settings). 
 A﻿nother method to create the .csv files in the correct format is to export the dataset from R using the  <tt>[write.csv2](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html)</tt> function.
