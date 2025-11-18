@@ -9,5 +9,50 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderLastSearch(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let a=0;a<e.length;a++){var r=e[a].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var n,i=e[a].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/last_search.txt").then(e=>e.text()).then(e=>{let t=["January","February","March","April","May","June","July","August","September","October","November","December",];(e=new String(e)).length>10&&(e=e.substring(0,10));let a=new Date(e),r=t[a.getMonth()],n=a.getFullYear(),i=a.getDate();modDate=document.createTextNode(r+" "+i+", "+n),document.getElementById("spinner-ph-last-search").style.display="none";var s=document.getElementById("ph-last-search");s.id=s.id+"-"+randID,s.appendChild(modDate)}),t=!1}}}renderLastSearch();
+var randID = makeid(10);
+
+async function renderLastSearch() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const content = await getMetadataFile(conceptDOI, "metadata/last_search.txt");
+    
+    const months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    let dateStr = new String(content);
+    if (dateStr.length > 10) {
+      dateStr = dateStr.substring(0, 10);
+    }
+    
+    const date = new Date(dateStr);
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const day = date.getDate();
+    const modDate = document.createTextNode(month + " " + day + ", " + year);
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-last-search").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-last-search");
+    div.id = div.id + "-" + randID;
+    div.appendChild(modDate);
+  } catch (error) {
+    console.error("Error loading last search:", error);
+    document.getElementById("spinner-ph-last-search").style.display = "none";
+    const div = document.getElementById("ph-last-search");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading last search date</em>";
+  }
+}
+
+renderLastSearch();
 </script>

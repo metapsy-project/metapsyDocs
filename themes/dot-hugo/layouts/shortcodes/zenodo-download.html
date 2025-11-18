@@ -3,7 +3,7 @@
   class="btn btn-default dropdown-toggle download-btn"
   data-toggle="dropdown"
 >
-  <i class="ti-download"></i>&nbsp;&nbsp;Download .CSV
+  <i class="ti-download"></i>&nbsp;&nbsp;Download .ZIP
   <span class="caret"></span>
 </button>
 <ul class="dropdown-menu scrollable-menu" role="menu" id="ph-download">
@@ -17,6 +17,128 @@
       @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
   </style>
 
-<script defer>
-var randID=makeid(10);function downloadData(e){function t(e,t){var a=document.createElement("a");a.setAttribute("href","data:text/plain;charset=utf-8,"+encodeURIComponent(t)),a.setAttribute("download",e),a.style.display="none",document.body.appendChild(a),a.click(),document.body.removeChild(a)}if(function e(t){for(var a="",n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",r=n.length,i=0;i<10;i++)a+=n.charAt(Math.floor(Math.random()*r));return a}(10),null===sessionStorage.getItem("apiResponse")){async function a(){let e=await (await fetch("https://zenodo.org/api/deposit/depositions?access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX&all_versions=1&size=10000")).json();return JSON.parse(e=JSON.stringify(e))}async function n(){let n=await a();sessionStorage.setItem("apiResponse",JSON.stringify(n));var r=n,i=!0;for(let o=0;o<r.length;o++){var s=r[o].conceptdoi?.toString()||"";if((s=JSON.stringify(s))===JSON.stringify("{{.Get `doi`}}")){var l=r[o].metadata.related_identifiers[0].identifier,d=l.split("/")[4];l.split("/")[6],fetch("https://raw.githubusercontent.com/metapsy-project/"+d+"/"+e+"/data.csv").then(e=>e.text()).then(a=>{var n=d+"_v"+e,n=n.replaceAll(".","_").replaceAll("-","_")+".csv";!0===i&&(t(n,a),i=!1)})}}}n()}else{var r=JSON.parse(sessionStorage.getItem("apiResponse")),i=!0;for(let o=0;o<r.length;o++){var s=r[o].conceptdoi?.toString()||"";if((s=JSON.stringify(s))===JSON.stringify("{{.Get `doi`}}")){var l=r[o].metadata.related_identifiers[0].identifier,d=l.split("/")[4];l.split("/")[6],fetch("https://raw.githubusercontent.com/metapsy-project/"+d+"/"+e+"/data.csv").then(e=>e.text()).then(a=>{var n=d+"_v"+e,n=n.replaceAll(".","_").replaceAll("-","_")+".csv";!0===i&&(t(n,a),i=!1)})}}}}async function renderDownload(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t="",a=!0;for(let n=0;n<e.length;n++){var r=e[n].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")){let i=["January","February","March","April","May","June","July","August","September","October","November","December",],o=new Date(e[n].created),s=i[o.getMonth()],l=o.getFullYear(),d=o.getDate();if(modDate=s+" "+d+", "+l,e[n].links.badge,e[n].links.doi,!0===a){var c="<li><a onclick=\"downloadData('"+e[n].metadata.version+"')\"><strong> Version "+e[n].metadata.version+"</strong> ("+String(modDate)+"; latest)</a></li>";t+=c;var a=!1}else{var c="<li><a onclick=\"downloadData('"+e[n].metadata.version+"')\"><strong> Version "+e[n].metadata.version+"</strong> ("+String(modDate)+")</a></li>";t+=c}}}var p=document.getElementById("ph-download");p.id=randID,p.innerHTML=t}renderDownload();
+<script>
+(function() {
+  // Ensure makeid function is available
+  if (typeof makeid === 'undefined') {
+    window.makeid = function(length) {
+      var result = "";
+      var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    };
+  }
+
+  // Ensure isDataSaved function is available
+  if (typeof isDataSaved === 'undefined') {
+    window.isDataSaved = function() {
+      return sessionStorage.getItem("dataSaved") === "true";
+    };
+  }
+
+  var randID = makeid(10);
+
+// Download ZIP file from Zenodo - make it globally accessible
+window.downloadData = function(version) {
+  // Wait for data to be loaded
+  if (!isDataSaved()) {
+    setTimeout(function() { downloadData(version); }, 1000);
+    return;
+  }
+
+  var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+  var found = false;
+
+  for (var i = 0; i < post.length; i++) {
+    var searchDOI = post[i].conceptdoi ? post[i].conceptdoi.toString() : "";
+    searchDOI = JSON.stringify(searchDOI);
+    var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+    if (searchDOI === inputDOI && post[i].metadata.version === version) {
+      found = true;
+      
+      // Get the record ID and file info
+      var recordId = post[i].id || post[i].record_id;
+      var files = post[i].files || [];
+      
+      if (files.length > 0) {
+        // Use the filename from the files array
+        var filename = files[0].filename || files[0].key;
+        
+        // Construct the public API download URL
+        // Format: https://zenodo.org/api/records/{record_id}/files/{filename}/content
+        var downloadUrl = "https://zenodo.org/api/records/" + recordId + "/files/" + encodeURIComponent(filename) + "/content";
+        
+        // Create a temporary link and trigger download
+        var link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = filename;
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+      break;
+    }
+  }
+  
+  if (!found) {
+    console.error("Version not found or no files available");
+  }
+};
+
+// Render download menu
+function renderDownload() {
+  // Wait for data to be saved
+  function waitForData() {
+    if (!isDataSaved()) {
+      setTimeout(waitForData, 1000);
+      return;
+    }
+    renderDownloadMenu();
+  }
+  
+  function renderDownloadMenu() {
+    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var html = "";
+    var isFirst = true;
+
+    for (var i = 0; i < post.length; i++) {
+      var searchDOI = post[i].conceptdoi ? post[i].conceptdoi.toString() : "";
+      searchDOI = JSON.stringify(searchDOI);
+      var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+      if (searchDOI === inputDOI) {
+        var months = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        var d = new Date(post[i].created);
+        var month = months[d.getMonth()];
+        var year = d.getFullYear();
+        var day = d.getDate();
+        var modDate = month + " " + day + ", " + year;
+
+        if (isFirst) {
+          html += "<li><a onclick=\"downloadData('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + "; latest)</a></li>";
+          isFirst = false;
+        } else {
+          html += "<li><a onclick=\"downloadData('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + ")</a></li>";
+        }
+      }
+    }
+
+    var div = document.getElementById("ph-download");
+    div.id = randID;
+    div.innerHTML = html;
+  }
+  
+  waitForData();
+}
+
+  renderDownload();
+})();
 </script>

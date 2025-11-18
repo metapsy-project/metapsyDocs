@@ -1,4 +1,121 @@
 <span id="placeholder"></span>
+<style>
+/* Modal styles for search string */
+.search-string-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.search-string-modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-string-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.search-string-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-string-modal-header h4 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.search-string-close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+.search-string-close:hover,
+.search-string-close:focus {
+  color: #000;
+}
+
+
+.search-string-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-family: monospace;
+  font-size: 0.75em;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.search-string-copy-btn {
+  margin-right: 0;
+  font-size: 12px;
+  font-family: var(--font-family), sans-serif;
+  text-transform: uppercase;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-weight: 600;
+  border: 0;
+  transition: .2s ease;
+  background-color: var(--bs-primary);
+  color: var(--body-color);
+  cursor: pointer;
+}
+
+.search-string-copy-btn:hover {
+  background-color: var(--bs-primary);
+  color: var(--body-color);
+}
+
+.search-string-copy-btn.copied:hover {
+  background-color: #28a745 !important;
+  color: var(--body-color) !important;
+}
+
+.search-string-copy-btn.copied:active,
+.search-string-copy-btn.copied:focus {
+  background-color: #28a745 !important;
+  color: var(--body-color) !important;
+}
+
+.search-string-copy-btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.search-string-copy-btn.copied {
+  background-color: #28a745;
+  color: var(--body-color);
+}
+</style>
 <script>
   // random id generator
   function makeid(length) {
@@ -12,17 +129,106 @@
     return result;
   }
   var randID = makeid(10);
+  var modalId = 'search-string-modal-' + randID;
+  
+  // Function to open search string modal
+  function openSearchStringModal(content) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById(modalId);
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = modalId;
+      modal.className = "search-string-modal";
+      
+      const modalContent = document.createElement("div");
+      modalContent.className = "search-string-modal-content";
+      
+      const header = document.createElement("div");
+      header.className = "search-string-modal-header";
+      
+      const headerLeft = document.createElement("div");
+      headerLeft.className = "search-string-modal-header-left";
+      
+      const copyBtn = document.createElement("button");
+      copyBtn.className = "search-string-copy-btn btn btn-default";
+      const copyIcon = document.createElement("i");
+      copyIcon.className = "bi bi-clipboard";
+      copyBtn.appendChild(copyIcon);
+      
+      const h4 = document.createElement("h4");
+      h4.textContent = "Search String";
+      
+      const closeSpan = document.createElement("span");
+      closeSpan.className = "search-string-close";
+      closeSpan.innerHTML = "&times;";
+      
+      const textarea = document.createElement("textarea");
+      textarea.className = "search-string-textarea";
+      textarea.readOnly = true;
+      textarea.value = content;
+      
+      copyBtn.onclick = function() {
+        textarea.select();
+        document.execCommand('copy');
+        copyIcon.className = "bi bi-check";
+        copyBtn.classList.add("copied");
+        setTimeout(function() {
+          copyIcon.className = "bi bi-clipboard";
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      };
+      
+      headerLeft.appendChild(copyBtn);
+      headerLeft.appendChild(h4);
+      header.appendChild(headerLeft);
+      header.appendChild(closeSpan);
+      
+      const textareaWrapper = document.createElement("div");
+      textareaWrapper.className = "search-string-textarea-wrapper";
+      textareaWrapper.appendChild(textarea);
+      
+      modalContent.appendChild(header);
+      modalContent.appendChild(textareaWrapper);
+      modal.appendChild(modalContent);
+      document.body.appendChild(modal);
+      
+      // Close modal when clicking X or outside
+      closeSpan.onclick = function() {
+        modal.style.display = "none";
+      };
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    } else {
+      // Update content if modal exists
+      const textarea = modal.querySelector(".search-string-textarea");
+      if (textarea) {
+        textarea.value = content;
+      }
+      // Reset button state
+      const copyBtn = modal.querySelector(".search-string-copy-btn");
+      if (copyBtn) {
+        const icon = copyBtn.querySelector("i");
+        if (icon) {
+          icon.className = "bi bi-clipboard";
+        }
+        copyBtn.classList.remove("copied");
+      }
+    }
+    
+    modal.style.display = "block";
+  }
 
   if ("{{.Get `type`}}" === "all-versions") {
-    fetch(
-      "https://zenodo.org/api/deposit/depositions?" +
-        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX" +
-        "&all_versions=1"
-    )
-      .then((data) => {
-        return data.json();
-      })
-      .then((post) => {
+    // Wait for data to be loaded, then use static zenodo.json
+    async function renderAllVersions() {
+      while (!isDataSaved()) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+      
+      const post = JSON.parse(sessionStorage.getItem("apiResponse"));
         // start div
         var html =
           "<button class='accbutton' style='border: none;" +
@@ -83,16 +289,17 @@
         var div = document.getElementById("placeholder");
         div.id = randID;
         div.innerHTML = html;
-      });
+    }
+    
+    renderAllVersions();
   } else {
-    fetch(
-      "https://zenodo.org/api/deposit/depositions?" +
-        "access_token=Bounk4ySHPIYxrFMWN49jyenJZ1Uy6tBhico7tuZ3iW6cp1hJ3m9FIY6HcvX"
-    )
-      .then((data) => {
-        return data.json();
-      })
-      .then((post) => {
+    // Wait for data to be loaded, then use static zenodo.json
+    async function renderZenodoRef() {
+      while (!isDataSaved()) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+      
+      const post = JSON.parse(sessionStorage.getItem("apiResponse"));
         // loop through all elements
         for (let i = 0; i < post.length; i++) {
           var searchDOI = post[i].conceptdoi?.toString() || "";
@@ -178,61 +385,46 @@
               div.appendChild(link);
             }
             if ("{{.Get `type`}}" === "authors") {
-              var ghLink = post[i].metadata.related_identifiers[0].identifier;
-              var repoName = ghLink.split("/")[4];
-              var repoVersion = ghLink.split("/")[6];
-              var readLink =
-                "https://raw.githubusercontent.com/metapsy-project/" +
-                repoName +
-                "/" +
-                repoVersion +
-                "/metadata/" +
-                "authors" +
-                ".txt";
-              fetch(readLink)
-                .then((d) => d.text())
+              const conceptDOI = post[i].conceptdoi;
+              getMetadataFile(conceptDOI, "metadata/authors.txt")
                 .then((d) => {
                   var div = document.getElementById("placeholder");
                   div.id = randID;
                   div.innerHTML = d;
+                })
+                .catch((error) => {
+                  console.error("Error loading authors:", error);
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<em>Error loading authors</em>";
                 });
             }
             if ("{{.Get `type`}}" === "search-string") {
-              var ghLink = post[i].metadata.related_identifiers[0].identifier;
-              var repoName = ghLink.split("/")[4];
-              var repoVersion = ghLink.split("/")[6];
-              var readLink =
-                "https://raw.githubusercontent.com/metapsy-project/" +
-                repoName +
-                "/" +
-                repoVersion +
-                "/metadata/" +
-                "search_string" +
-                ".txt";
-              var links = document.createElement("a");
-              var href = readLink;
-              links.innerText = "{{.Get `text`}}";
-              links.setAttribute("href", href);
-              links.setAttribute("target", "blank");
-              var div = document.getElementById("placeholder");
-              div.id = randID;
-              links.setAttribute("style", "color: unset !important");
-              div.appendChild(links);
+              const conceptDOI = post[i].conceptdoi;
+              getMetadataFile(conceptDOI, "metadata/search_string.txt")
+                .then((d) => {
+                  const links = document.createElement("a");
+                  links.innerText = "{{.Get `text`}}";
+                  links.setAttribute("href", "#");
+                  links.setAttribute("style", "color: unset !important; cursor: pointer; text-decoration: none;");
+                  links.onclick = function(e) {
+                    e.preventDefault();
+                    openSearchStringModal(d);
+                  };
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.appendChild(links);
+                })
+                .catch((error) => {
+                  console.error("Error loading search string:", error);
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<em>Error loading search string</em>";
+                });
             }
             if ("{{.Get `type`}}" === "last-search") {
-              var ghLink = post[i].metadata.related_identifiers[0].identifier;
-              var repoName = ghLink.split("/")[4];
-              var repoVersion = ghLink.split("/")[6];
-              var readLink =
-                "https://raw.githubusercontent.com/metapsy-project/" +
-                repoName +
-                "/" +
-                repoVersion +
-                "/metadata/" +
-                "last_search" +
-                ".txt";
-              fetch(readLink)
-                .then((d) => d.text())
+              const conceptDOI = post[i].conceptdoi;
+              getMetadataFile(conceptDOI, "metadata/last_search.txt")
                 .then((d) => {
                   const months = [
                     "January",
@@ -248,7 +440,11 @@
                     "November",
                     "December",
                   ];
-                  const date = new Date(d);
+                  let dateStr = new String(d);
+                  if (dateStr.length > 10) {
+                    dateStr = dateStr.substring(0, 10);
+                  }
+                  const date = new Date(dateStr);
                   const month = months[date.getMonth()];
                   const year = date.getFullYear();
                   const day = date.getDate();
@@ -258,45 +454,37 @@
                   var div = document.getElementById("placeholder");
                   div.id = randID;
                   div.appendChild(modDate);
+                })
+                .catch((error) => {
+                  console.error("Error loading last search:", error);
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<em>Error loading last search date</em>";
                 });
             }
             if ("{{.Get `type`}}" === "shorthand") {
-              var ghLink = post[i].metadata.related_identifiers[0].identifier;
-              var repoName = ghLink.split("/")[4];
-              var repoVersion = ghLink.split("/")[6];
-              var readLink =
-                "https://raw.githubusercontent.com/metapsy-project/" +
-                repoName +
-                "/" +
-                repoVersion +
-                "/metadata/" +
-                "shorthand" +
-                ".txt";
-              fetch(readLink)
-                .then((d) => d.text())
+              const conceptDOI = post[i].conceptdoi;
+              getMetadataFile(conceptDOI, "metadata/shorthand.txt")
                 .then((d) => {
                   var div = document.getElementById("placeholder");
                   div.id = randID;
                   div.innerHTML = "<code>" + d + "</code>";
+                })
+                .catch((error) => {
+                  console.error("Error loading shorthand:", error);
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<em>Error loading shorthand</em>";
                 });
             }
             if ("{{.Get `type`}}" === "variable-description") {
-              var ghLink = post[i].metadata.related_identifiers[0].identifier;
-              var repoName = ghLink.split("/")[4];
-              var repoVersion = ghLink.split("/")[6];
-              var readLink =
-                "https://raw.githubusercontent.com/metapsy-project/" +
-                repoName +
-                "/" +
-                repoVersion +
-                "/metadata/" +
-                "variable_description.json";
-              fetch(readLink)
-                .then((d) => d.text())
+              const conceptDOI = post[i].conceptdoi;
+              getMetadataFile(conceptDOI, "metadata/variable_description.json")
                 .then((d) => {
                   var div = document.getElementById("placeholder");
                   div.id = randID;
-                  tableData = JSON.parse(d);
+                  // If it's already parsed (from JSON), use it; otherwise parse it
+                  tableData = typeof d === 'object' ? d : JSON.parse(d);
                   // extract variable names & definitions
                   var keys = Object.keys(tableData);
                   var values = Object.values(tableData);
@@ -311,19 +499,27 @@
                   tr.appendChild(th1);
                   tr.appendChild(th2);
                   // add contents via loop
-                  for (var i = 0; i < keys.length; i++) {
+                  for (var j = 0; j < keys.length; j++) {
                     tr = table.insertRow(-1);
                     var tabCell1 = tr.insertCell(-1);
-                    tabCell1.innerHTML = "<code>" + keys[i] + "</code>";
+                    tabCell1.innerHTML = "<code>" + keys[j] + "</code>";
                     var tabCell2 = tr.insertCell(-1);
-                    tabCell2.innerHTML = values[i];
+                    tabCell2.innerHTML = values[j];
                   }
                   table.style.fontSize = "90%";
                   div.appendChild(table);
+                })
+                .catch((error) => {
+                  console.error("Error loading variable description:", error);
+                  var div = document.getElementById("placeholder");
+                  div.id = randID;
+                  div.innerHTML = "<em>Error loading variable description</em>";
                 });
             }
           }
         }
-      });
+      }
+      
+      renderZenodoRef();
   }
 </script>

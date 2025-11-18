@@ -6,8 +6,254 @@
     border-bottom-color: transparent; border-radius: 50%; display: inline-block;
     box-sizing: border-box; animation: rotation 1s linear infinite;}
     @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+
+/* Modal styles */
+.search-string-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.search-string-modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-string-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.search-string-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-string-modal-header h4 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.search-string-close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+.search-string-close:hover,
+.search-string-close:focus {
+  color: #000;
+}
+
+
+.search-string-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  font-family: monospace;
+  font-size: 0.75em;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.search-string-copy-btn {
+  margin-right: 0;
+  font-size: 12px;
+  font-family: var(--font-family), sans-serif;
+  text-transform: uppercase;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-weight: 600;
+  border: 0;
+  transition: .2s ease;
+  background-color: var(--bs-primary);
+  color: var(--body-color);
+  cursor: pointer;
+}
+
+.search-string-copy-btn:hover {
+  background-color: var(--bs-primary);
+  color: var(--body-color);
+}
+
+.search-string-copy-btn.copied:hover {
+  background-color: #28a745 !important;
+  color: var(--body-color) !important;
+}
+
+.search-string-copy-btn.copied:active,
+.search-string-copy-btn.copied:focus {
+  background-color: #28a745 !important;
+  color: var(--body-color) !important;
+}
+
+.search-string-copy-btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.search-string-copy-btn.copied {
+  background-color: #28a745;
+  color: var(--body-color);
+}
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderSearchString(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var n=t[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("{{.Get `doi`}}")&&!0===e){var i,a=t[r].metadata.related_identifiers[0].identifier,s="https://raw.githubusercontent.com/metapsy-project/"+a.split("/")[4]+"/"+a.split("/")[6]+"/metadata/search_string.txt",d=document.createElement("a"),p=s;d.innerText="{{.Get `text`}}",d.setAttribute("href",p),d.setAttribute("target","blank"),document.getElementById("spinner-ph-search-string").style.display="none";var g=document.getElementById("ph-search-string");g.id=g.id+"-"+randID,g.appendChild(d),e=!1}}}renderSearchString();
+var randID = makeid(10);
+var modalId = 'search-string-modal-' + randID;
+
+async function renderSearchString() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const content = await getMetadataFile(conceptDOI, "metadata/search_string.txt");
+    
+    // Create button/link to open modal
+    const button = document.createElement("a");
+    button.innerText = "{{.Get `text`}}";
+    button.style.cursor = "pointer";
+    button.style.textDecoration = "none";
+    button.href = "#";
+    button.onclick = function(e) {
+      e.preventDefault();
+      openSearchStringModal(content);
+    };
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-search-string").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-search-string");
+    div.id = div.id + "-" + randID;
+    div.appendChild(button);
+  } catch (error) {
+    console.error("Error loading search string:", error);
+    document.getElementById("spinner-ph-search-string").style.display = "none";
+    const div = document.getElementById("ph-search-string");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading search string</em>";
+  }
+}
+
+function openSearchStringModal(content) {
+  // Create modal if it doesn't exist
+  let modal = document.getElementById(modalId);
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = modalId;
+    modal.className = "search-string-modal";
+    
+    const modalContent = document.createElement("div");
+    modalContent.className = "search-string-modal-content";
+    
+      const header = document.createElement("div");
+      header.className = "search-string-modal-header";
+      
+      const headerLeft = document.createElement("div");
+      headerLeft.className = "search-string-modal-header-left";
+      
+      const copyBtn = document.createElement("button");
+      copyBtn.className = "search-string-copy-btn btn btn-default";
+      const copyIcon = document.createElement("i");
+      copyIcon.className = "bi bi-clipboard";
+      copyBtn.appendChild(copyIcon);
+      
+      const h4 = document.createElement("h4");
+      h4.textContent = "Search String";
+      
+      const closeSpan = document.createElement("span");
+      closeSpan.className = "search-string-close";
+      closeSpan.innerHTML = "&times;";
+      
+      const textarea = document.createElement("textarea");
+      textarea.className = "search-string-textarea";
+      textarea.readOnly = true;
+      textarea.value = content;
+      
+      copyBtn.onclick = function() {
+        textarea.select();
+        document.execCommand('copy');
+        copyIcon.className = "bi bi-check";
+        copyBtn.classList.add("copied");
+        setTimeout(function() {
+          copyIcon.className = "bi bi-clipboard";
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      };
+      
+      headerLeft.appendChild(copyBtn);
+      headerLeft.appendChild(h4);
+      header.appendChild(headerLeft);
+      header.appendChild(closeSpan);
+      
+      const textareaWrapper = document.createElement("div");
+      textareaWrapper.className = "search-string-textarea-wrapper";
+      textareaWrapper.appendChild(textarea);
+    
+    modalContent.appendChild(header);
+    modalContent.appendChild(textareaWrapper);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+      // Close modal when clicking X or outside
+      closeSpan.onclick = function() {
+        modal.style.display = "none";
+      };
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  } else {
+    // Update content if modal exists
+    const textarea = modal.querySelector(".search-string-textarea");
+    if (textarea) {
+      textarea.value = content;
+    }
+    // Reset button state
+    const copyBtn = modal.querySelector(".search-string-copy-btn");
+    if (copyBtn) {
+      const icon = copyBtn.querySelector("i");
+      if (icon) {
+        icon.className = "bi bi-clipboard";
+      }
+      copyBtn.classList.remove("copied");
+    }
+  }
+  
+  modal.style.display = "block";
+}
+
+renderSearchString();
 </script>

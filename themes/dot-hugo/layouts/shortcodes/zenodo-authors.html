@@ -9,5 +9,50 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderAuthors(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let r=0;r<t.length;r++){var n=t[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("{{.Get `doi`}}")&&!0===e){var a,i=t[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/authors.json").then(t=>t.text()).then(t=>{t=JSON.parse(t),text="";for(let e=0;e<t.length;e++)text=text+t[e].name+' <a target="_blank" href="https://orcid.org/'+t[e].orcid+'"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>, ';text=text.slice(0,-2);for(let r=0;r<document.getElementsByClassName("spinner-ph-authors").length;r++)document.getElementsByClassName("spinner-ph-authors")[r].style.display="none";var n=document.getElementById("ph-authors");n.id=n.id+"-"+randID,n.innerHTML=text}),e=!1}}}renderAuthors();
+var randID = makeid(10);
+
+async function renderAuthors() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const authors = await getMetadataFile(conceptDOI, "metadata/authors.json");
+    // If it's already parsed (from JSON), use it; otherwise parse it
+    const authorsArray = Array.isArray(authors) ? authors : JSON.parse(authors);
+    
+    let text = "";
+    for (let i = 0; i < authorsArray.length; i++) {
+      text += authorsArray[i].name + 
+        ' <a target="_blank" href="https://orcid.org/' + authorsArray[i].orcid + 
+        '"><img style="display: inline-block !important" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png"/></a>, ';
+    }
+    text = text.slice(0, -2);
+    
+    // Hide spinners
+    const spinners = document.getElementsByClassName("spinner-ph-authors");
+    for (let i = 0; i < spinners.length; i++) {
+      spinners[i].style.display = "none";
+    }
+    
+    // Update content
+    const div = document.getElementById("ph-authors");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = text;
+  } catch (error) {
+    console.error("Error loading authors:", error);
+    const spinners = document.getElementsByClassName("spinner-ph-authors");
+    for (let i = 0; i < spinners.length; i++) {
+      spinners[i].style.display = "none";
+    }
+    const div = document.getElementById("ph-authors");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading authors</em>";
+  }
+}
+
+renderAuthors();
 </script>

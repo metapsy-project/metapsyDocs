@@ -27,5 +27,56 @@
 </span>
 
 <script defer>
-var randID=makeid(10);async function renderVariableDescription(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var n=e[i].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var r,a=e[i].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+a.split("/")[4]+"/"+a.split("/")[6]+"/metadata/variable_description.json").then(e=>e.text()).then(e=>{document.getElementById("spinner-ph-variable-description").style.display="none";var t=document.getElementById("ph-variable-description");t.id=t.id+"-"+randID;var i=Object.keys(tableData=JSON.parse(e)),n=Object.values(tableData),r=document.createElement("table"),a=r.insertRow(-1),s=document.createElement("th");s.innerHTML="Variable";var l=document.createElement("th");l.innerHTML="Description",a.appendChild(s),a.appendChild(l);for(var d=0;d<i.length;d++)(a=r.insertRow(-1)).insertCell(-1).innerHTML="<code>"+i[d]+"</code>",a.insertCell(-1).innerHTML=n[d];r.style.fontSize="90%",t.appendChild(r)}),t=!1}}}renderVariableDescription();
+var randID = makeid(10);
+
+async function renderVariableDescription() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const tableData = await getMetadataFile(conceptDOI, "metadata/variable_description.json");
+    // If it's already parsed (from JSON), use it; otherwise parse it
+    const tableDataObj = typeof tableData === 'object' ? tableData : JSON.parse(tableData);
+    
+    const keys = Object.keys(tableDataObj);
+    const values = Object.values(tableDataObj);
+    
+    const table = document.createElement("table");
+    const headerRow = table.insertRow(-1);
+    const headerVar = document.createElement("th");
+    headerVar.innerHTML = "Variable";
+    const headerDesc = document.createElement("th");
+    headerDesc.innerHTML = "Description";
+    headerRow.appendChild(headerVar);
+    headerRow.appendChild(headerDesc);
+    
+    for (let i = 0; i < keys.length; i++) {
+      const row = table.insertRow(-1);
+      row.insertCell(-1).innerHTML = "<code>" + keys[i] + "</code>";
+      row.insertCell(-1).innerHTML = values[i];
+    }
+    
+    table.style.fontSize = "90%";
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-variable-description").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-variable-description");
+    div.id = div.id + "-" + randID;
+    div.appendChild(table);
+  } catch (error) {
+    console.error("Error loading variable description:", error);
+    document.getElementById("spinner-ph-variable-description").style.display = "none";
+    const div = document.getElementById("ph-variable-description");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading variable description</em>";
+  }
+}
+
+renderVariableDescription();
 </script>

@@ -9,5 +9,34 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderNumberStudies(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let n=0;n<e.length;n++){var i=e[n].conceptdoi?.toString()||"";if((i=JSON.stringify(i))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var r,s=e[n].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+s.split("/")[4]+"/"+s.split("/")[6]+"/metadata/number_studies.txt").then(e=>e.text()).then(e=>{document.getElementById("spinner-ph-number-studies").style.display="none";var t=document.getElementById("ph-number-studies");t.id=t.id+"-"+randID,t.innerHTML=e}),t=!1}}}renderNumberStudies();
+var randID = makeid(10);
+
+async function renderNumberStudies() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const content = await getMetadataFile(conceptDOI, "metadata/number_studies.txt");
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-number-studies").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-number-studies");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = content;
+  } catch (error) {
+    console.error("Error loading number of studies:", error);
+    document.getElementById("spinner-ph-number-studies").style.display = "none";
+    const div = document.getElementById("ph-number-studies");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading number of studies</em>";
+  }
+}
+
+renderNumberStudies();
 </script>

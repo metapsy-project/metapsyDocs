@@ -9,5 +9,34 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderShorthand(){for(;!isDataSaved();)await new Promise(t=>setTimeout(t,1e3));var t=JSON.parse(sessionStorage.getItem("apiResponse")),e=!0;for(let n=0;n<t.length;n++){var r=t[n].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===e){var a,i=t[n].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+i.split("/")[4]+"/"+i.split("/")[6]+"/metadata/shorthand.txt").then(t=>t.text()).then(t=>{document.getElementById("spinner-ph-shorthand").style.display="none";var e=document.getElementById("ph-shorthand");e.id=e.id+"-"+randID,e.innerHTML="<code>"+t+"</code>"}),e=!1}}}renderShorthand();
+var randID = makeid(10);
+
+async function renderShorthand() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const content = await getMetadataFile(conceptDOI, "metadata/shorthand.txt");
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-shorthand").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-shorthand");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<code>" + content + "</code>";
+  } catch (error) {
+    console.error("Error loading shorthand:", error);
+    document.getElementById("spinner-ph-shorthand").style.display = "none";
+    const div = document.getElementById("ph-shorthand");
+    div.id = div.id + "-" + randID;
+    div.innerHTML = "<em>Error loading shorthand</em>";
+  }
+}
+
+renderShorthand();
 </script>

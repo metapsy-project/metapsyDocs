@@ -25,5 +25,44 @@
 </span>
 
 <script defer>
-var randID=makeid(10);async function renderReferences(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let r=0;r<e.length;r++){var n=e[r].conceptdoi?.toString()||"";if((n=JSON.stringify(n))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var i,s=e[r].metadata.related_identifiers[0].identifier;fetch("https://raw.githubusercontent.com/metapsy-project/"+s.split("/")[4]+"/"+s.split("/")[6]+"/metadata/references.json").then(e=>e.text()).then(e=>{var t=Object.keys(e=JSON.parse(e)),r=" <div style='background-color: var(--body-color); padding: 20px 20px 20px 20px;overflow-y: scroll; height:300px;'><ul style='font-size: 90% !important;'>";for(let n=0;n<t.length;n++)r+="<li><strong>"+String(t[n])+":</strong> "+String(e[t[n]])+"</li>";r+="</ul></div>",document.getElementById("spinner-ph-references").style.display="none";var i=document.getElementById("ph-references");i.id=randID,i.innerHTML=r}),t=!1}}}renderReferences();
+var randID = makeid(10);
+
+async function renderReferences() {
+  // Wait for data to be loaded
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  
+  try {
+    const references = await getMetadataFile(conceptDOI, "metadata/references.json");
+    // If it's already parsed (from JSON), use it; otherwise parse it
+    const referencesObj = typeof references === 'object' ? references : JSON.parse(references);
+    
+    const keys = Object.keys(referencesObj);
+    let html = " <div style='background-color: var(--body-color); padding: 20px 20px 20px 20px;overflow-y: scroll; height:300px;'><ul style='font-size: 90% !important;'>";
+    
+    for (let i = 0; i < keys.length; i++) {
+      html += "<li><strong>" + String(keys[i]) + ":</strong> " + String(referencesObj[keys[i]]) + "</li>";
+    }
+    html += "</ul></div>";
+    
+    // Hide spinner
+    document.getElementById("spinner-ph-references").style.display = "none";
+    
+    // Update content
+    const div = document.getElementById("ph-references");
+    div.id = randID;
+    div.innerHTML = html;
+  } catch (error) {
+    console.error("Error loading references:", error);
+    document.getElementById("spinner-ph-references").style.display = "none";
+    const div = document.getElementById("ph-references");
+    div.id = randID;
+    div.innerHTML = "<em>Error loading references</em>";
+  }
+}
+
+renderReferences();
 </script>
