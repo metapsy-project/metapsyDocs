@@ -11,8 +11,8 @@ if (!ZENODO_API_KEY) {
   process.exit(1);
 }
 
-// Request: adjust params if you don't need all_versions/size
-const url = `https://zenodo.org/api/deposit/depositions?access_token=${ZENODO_API_KEY}&all_versions=1&size=10000`;
+// Base URL for Zenodo API (max page size is 200, using 100 to be safe)
+const BASE_URL = `https://zenodo.org/api/deposit/depositions?access_token=${ZENODO_API_KEY}&all_versions=1&size=100`;
 
 // Output goes to Hugo's 'static' dir so it becomes /data/zenodo.json
 const OUT = path.resolve("static/data/zenodo.json");
@@ -157,14 +157,40 @@ const main = async () => {
   }
   
   console.log("Fetching Zenodo records...");
-  const res = await fetch(url, { headers: { "Accept": "application/json" } });
-  if (!res.ok) {
-    const t = await res.text();
-    throw new Error(`Zenodo fetch failed: ${res.status} ${t}`);
-  }
-  const data = await res.json();
   
-  console.log(`Fetched ${data.length} records from API. Checking for new/updated records...`);
+  // Fetch all pages (Zenodo API max page size is 200)
+  let allRecords = [];
+  let page = 1;
+  let hasMore = true;
+  
+  while (hasMore) {
+    const url = `${BASE_URL}&page=${page}`;
+    const res = await fetch(url, { headers: { "Accept": "application/json" } });
+    if (!res.ok) {
+      const t = await res.text();
+      throw new Error(`Zenodo fetch failed: ${res.status} ${t}`);
+    }
+    const pageData = await res.json();
+    
+    if (pageData.length === 0) {
+      hasMore = false;
+    } else {
+      allRecords = allRecords.concat(pageData);
+      console.log(`Fetched page ${page}: ${pageData.length} records (total: ${allRecords.length})`);
+      
+      // If we got fewer than 100 records, we've reached the last page
+      if (pageData.length < 100) {
+        hasMore = false;
+      } else {
+        page++;
+        // Add a small delay between pages to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 200));
+      }
+    }
+  }
+  
+  const data = allRecords;
+  console.log(`Fetched ${data.length} total records from API. Checking for new/updated records...`);
   
   // Track statistics
   let newRecords = 0;
