@@ -30,7 +30,7 @@ University of Wuppertal
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can soon be analyzed at [metapsy.org/database/bodily-distress](https://www.metapsy.org/database/bodily-distress).
+A simplified version of this database can be analyzed at [metapsy.org/database/bodily-distress](https://www.metapsy.org/database/bodily-distress).
 
 <br>
 
