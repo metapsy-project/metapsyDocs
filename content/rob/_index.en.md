@@ -19,6 +19,10 @@ As part of the Metapsy initiative, we developed a version of the widely used **C
 
 The tool can be applied in two ways: using (1) an **online RoB assistant**, or (2) **Excel** version of the tool.
 
+{{< notice info >}}
+The Metapsy RoB guidance and 24-item operationalization **do not modify or replace** Cochrane’s official RoB 2 tool. They serve as independent, supplementary implementation support and must always be used alongside the official Cochrane documentation.
+{{</notice>}}
+
 <br>
 
 ##### 🤖 Online RoB Tool
