@@ -70,8 +70,19 @@ Like [umbrella reviews](https://ebmh.bmj.com/content/21/3/95), MARDs can cover a
 
 <br>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3AosOKX-Q4?si=kvRKx3kvRIV9LmwT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-_A presentation introducing the concept of meta-analytic research domains._
+<div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; align-items: flex-start; margin-bottom: 32px;">
+  <div style="flex: 1 1 340px; min-width: 340px; max-width: 560px;">
+    <iframe width="100%" height="196" src="https://www.youtube.com/embed/v0ENafczccM?si=-_Yl_mGC8aw_BwgW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div style="margin-top: 0.5em; font-style: italic; color: #555;">
+      A video introducing the Metapsy infrastructure (2025).
+    </div>
+  </div>
+  <div style="flex: 1 1 340px; min-width: 340px; max-width: 560px;">
+    <iframe width="100%" height="196" src="https://www.youtube.com/embed/y3AosOKX-Q4?si=kvRKx3kvRIV9LmwT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div style="margin-top: 0.5em; font-style: italic; color: #555;">
+      A presentation introducing the concept of meta-analytic research domains (2022).
+    </div>
+  </div>
+</div>
 
 <br></br>
