@@ -1,6 +1,6 @@
 ---
 keywords: []
-title: "Perinatal Depression: Psychological Intervention vs. Control"
+title: "Depression (Perinatal): Psychological Intervention vs. Control"
 weight: 1
 url: databases/depression-perinatal-psyctr/
 hidden: false
