@@ -83,7 +83,7 @@ Studies in the `depression-perinatal-psyctr` dataset were extracted from the lar
 {{< zenodo-last-updated-year doi="10.5281/zenodo.18378280" >}}.
 <i>Database of perinatal depression trials comparing psychological intervention with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.18378280" >}}).
-URL docs.metapsy.org/databases/ocd-psyctr.
+URL docs.metapsy.org/databases/depression-perinatal-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.18378280" >}}.
 </div>
 
