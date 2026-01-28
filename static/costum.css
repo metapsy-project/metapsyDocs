@@ -532,3 +532,10 @@ a.nav-link.dropdown-toggle.text-dark {
     }
 }
 
+/* Hide sidebar burger button on laptop screens */
+@media (min-width: 769px) {
+    .sidebar-burger-btn {
+        display: none !important;
+    }
+}
+

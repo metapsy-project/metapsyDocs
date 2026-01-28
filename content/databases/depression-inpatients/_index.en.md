@@ -88,7 +88,10 @@ Studies in the "depression-inpatients" dataset were extracted from the larger "d
 
 #### Citation
 
-<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<div class="citation" id="citation-depression-inpatients" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%); position: relative;'>
+<button class="citation-copy-btn" onclick="copyCitation('citation-depression-inpatients', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
+<i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
+</button>
 {{< zenodo-authors doi="10.5281/zenodo.6881064" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.6881064" >}}.
 <i>Database of depression psychotherapy trials in inpatient settings. Part of the Metapsy project </i>

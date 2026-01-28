@@ -149,3 +149,100 @@
     }
 
 })(jQuery);
+
+// Citation copy function
+function copyCitation(citationId, button) {
+  var citationDiv = document.getElementById(citationId);
+  if (!citationDiv) return;
+  
+  // Clone the div to avoid modifying the original
+  var clone = citationDiv.cloneNode(true);
+  
+  // Remove all script and style tags first (these contain code that shouldn't be copied)
+  var scripts = clone.getElementsByTagName('script');
+  while (scripts.length > 0) {
+    scripts[0].remove();
+  }
+  var styles = clone.getElementsByTagName('style');
+  while (styles.length > 0) {
+    styles[0].remove();
+  }
+  
+  // Remove the copy button
+  var buttonClone = clone.querySelector('.citation-copy-btn');
+  if (buttonClone) {
+    buttonClone.remove();
+  }
+  
+  // Remove loader spinners and empty placeholder spans
+  var spinners = clone.querySelectorAll('.loader-spinner, [id^="spinner-"]');
+  for (var i = 0; i < spinners.length; i++) {
+    spinners[i].remove();
+  }
+  
+  // Remove empty placeholder spans (they might not have content yet)
+  var placeholders = clone.querySelectorAll('[id^="ph-"]');
+  for (var j = 0; j < placeholders.length; j++) {
+    var placeholder = placeholders[j];
+    // Only remove if it's empty or only contains whitespace
+    if (!placeholder.textContent || !placeholder.textContent.trim()) {
+      placeholder.remove();
+    }
+  }
+  
+  // Use innerText instead of textContent - innerText respects CSS visibility
+  // and won't include script/style content
+  var text = clone.innerText || clone.textContent || '';
+  // Clean up whitespace - replace multiple spaces/newlines with single space
+  text = text.replace(/\s+/g, ' ').trim();
+  
+  // Clean up punctuation spacing
+  text = text.replace(/\s+\)/g, ')');      // Remove space before closing paren: " )" -> ")"
+  text = text.replace(/\s+,/g, ',');       // Remove space before comma: " ," -> ","
+  text = text.replace(/\s+\./g, '.');     // Remove space before period: " ." -> "."
+  // Clean up any double spaces that might have been created
+  text = text.replace(/\s+/g, ' ').trim();
+  
+  // Copy to clipboard
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      // Update button state
+      var icon = button.querySelector('i');
+      if (icon) {
+        icon.className = 'bi bi-check';
+      }
+      button.classList.add('copied');
+      setTimeout(function() {
+        if (icon) {
+          icon.className = 'bi bi-clipboard';
+        }
+        button.classList.remove('copied');
+      }, 2000);
+    });
+  } else {
+    // Fallback for older browsers
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      var icon = button.querySelector('i');
+      if (icon) {
+        icon.className = 'bi bi-check';
+      }
+      button.classList.add('copied');
+      setTimeout(function() {
+        if (icon) {
+          icon.className = 'bi bi-clipboard';
+        }
+        button.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy citation:', err);
+    }
+    document.body.removeChild(textarea);
+  }
+}

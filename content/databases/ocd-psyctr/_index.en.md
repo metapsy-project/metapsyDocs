@@ -78,7 +78,10 @@ Studies in the `ocd-psyctr` dataset were extracted from the larger "psychologica
 
 #### Citation
 
-<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<div class="citation" id="citation-ocd-psyctr" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%); position: relative;'>
+<button class="citation-copy-btn" onclick="copyCitation('citation-ocd-psyctr', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
+<i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
+</button>
 {{< zenodo-authors doi="10.5281/zenodo.10471942" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.10471942" >}}.
 <i>Database of OCD trials comparing psychological interventions with control conditions. Part of the Metapsy project </i>

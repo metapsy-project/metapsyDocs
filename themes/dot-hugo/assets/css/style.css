@@ -912,3 +912,45 @@ header.shadow-bottom {
   background-color: lightgray;
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
+
+/* Citation copy button */
+.citation-copy-btn {
+  margin: 0;
+  font-size: 12px;
+  font-family: var(--font-family), sans-serif;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-weight: 600;
+  border: 0;
+  transition: .2s ease;
+  background-color: #eeeeee;
+  color: black;
+  cursor: pointer;
+}
+
+.citation-copy-btn:hover {
+  background-color: #eeeeee;
+  color: white;
+}
+
+.citation-copy-btn.copied {
+  background-color: #28a745;
+  color: var(--body-color);
+}
+
+.citation-copy-btn.copied:hover,
+.citation-copy-btn.copied:active,
+.citation-copy-btn.copied:focus {
+  background-color: #28a745 !important;
+  color: var(--body-color) !important;
+}
+
+.citation-copy-btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}

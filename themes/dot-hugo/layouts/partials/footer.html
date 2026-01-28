@@ -27,3 +27,5 @@
 <!-- Main Script -->
 {{ $script := resources.Get "js/script.js" | minify}}
 <script src="{{ $script.Permalink }}"></script>
+<!-- Custom Script -->
+<script src="{{ `/costum.js` | absURL }}"></script>

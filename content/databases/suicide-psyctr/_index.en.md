@@ -84,7 +84,10 @@ Studies in the `suicide-psyctr` dataset were extracted from the larger "p﻿sych
 
 #### Citation
 
-<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<div class="citation" id="citation-suicide-psyctr" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%); position: relative;'>
+<button class="citation-copy-btn" onclick="copyCitation('citation-suicide-psyctr', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
+<i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
+</button>
 {{< zenodo-authors doi="10.5281/zenodo.8364508" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.8364508" >}}.
 <i>Database of psychological interventions for suicide prevention trials with control conditions. Part of the Metapsy project </i>

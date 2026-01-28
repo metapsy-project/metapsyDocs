@@ -32,7 +32,7 @@ University of Seville
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can soon be analyzed at [metapsy.org/database/depression-perinatal](https://www.metapsy.org/database/depression-perinatal).
+A simplified version of this database can be analyzed at [metapsy.org/database/depression-perinatal](https://www.metapsy.org/database/depression-perinatal).
 
 <br>
 
@@ -78,7 +78,10 @@ Studies in the `depression-perinatal-psyctr` dataset were extracted from the lar
 
 #### Citation
 
-<div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<div class="citation" id="citation-depression-perinatal-psyctr" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%); position: relative;'>
+<button class="citation-copy-btn" onclick="copyCitation('citation-depression-perinatal-psyctr', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
+<i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
+</button>
 {{< zenodo-authors doi="10.5281/zenodo.18378280" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.18378280" >}}.
 <i>Database of perinatal depression trials comparing psychological intervention with control conditions. Part of the Metapsy project </i>
