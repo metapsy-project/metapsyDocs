@@ -1,7 +1,9 @@
 # Repository of the Metapsy documentation website
 
 This is the code repository of the [docs.metapsy.org](https://luxury-syrniki-6a53eb.netlify.app/) documentation website. 📄
+
 To check if new releases have been built correctly by [Netlify](https://www.netlify.com/), click on the badge below:
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9f38bde6-99f8-4fe5-8dac-af7b89e4372e/deploy-status)](https://app.netlify.com/projects/metapsydocs/deploys)
 
 ## 🔄 Updating the Documentation Database
