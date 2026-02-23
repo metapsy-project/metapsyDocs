@@ -33,7 +33,7 @@ University of Pennsylvania, Johns Hopkins University, Vanderbilt University, Uni
 
 #### Online Meta-Analysis Tool
 
-A simplified version of this database can soon be analyzed at [metapsy.org/sypres/mdma-ptsd](https://www.metapsy.org/sypres/mdma-ptsd).
+A simplified version of this database can be analyzed at [metapsy.org/sypres/mdma-ptsd](https://www.metapsy.org/sypres/mdma-ptsd).
 
 <br>
 
