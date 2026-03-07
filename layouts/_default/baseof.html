@@ -9,6 +9,7 @@
       class="banner {{if .Site.Params.banner.bg_image}}overlay bg-cover{{else}}bg-primary{{end}}"
       data-background="{{ .Site.Params.banner.bg_image | absURL }}"
     >
+      <div id="strip"></div>
       {{ partialCached "navigation.html" . (printf "nav-%s-home" .Site.Language.Lang) }}
       {{ partialCached "banner.html" . }}
     </header>
@@ -16,6 +17,7 @@
     {{ else }}
     <!-- header -->
     <header class="shadow-bottom sticky-top bg-white">
+      <div id="strip"></div>
       {{ partialCached "navigation.html" . (printf "nav-%s-inner" .Site.Language.Lang) }}
     </header>
     <!-- /header -->

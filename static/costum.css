@@ -7,6 +7,7 @@
 :root {
     --bg-image: url("/images/banner.jpg");
     --bs-gradient2: linear-gradient(90deg, rgba(94, 186, 189, 1), rgba(3, 114, 183, 1));
+    --nav-accent: #fff;
 }
 
 .theme-light {
@@ -14,6 +15,7 @@
     --body-color: #f9f9f9 !important;
     --text-color: #636363 !important;
     --text-color-dark: #242738 !important;
+    --nav-accent: #fff;
     --white-color: #ffffff !important;
     --light-color: #f8f9fa !important;
     --code-bg-color: #f6f6f6 !important;
@@ -38,6 +40,7 @@
     --body-color: #313f45 !important;
     --text-color: var(--neutral-200) !important;
     --text-color-dark: #f8f9fa !important;
+    --nav-accent: #f8f9fa;
     --white-color: #222d32 !important;
     --light-color: #222d32 !important;
     --code-bg-color: #313f45 !important;
@@ -371,6 +374,10 @@ header.banner .container.section {
     background-image: var(--bs-gradient2) !important;
     min-height: 10px;
     display: block;
+    margin-top: -20px;
+    font-size: 13px;
+    padding-bottom: 10px;
+    padding-left: 28px;
 }
 
 td > code {
@@ -592,8 +599,12 @@ span.navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
-a.nav-link.dropdown-toggle.text-dark {
-    color: white !important;
+/* Topics + GitHub + theme switcher: reverse of --text-color (white in light mode, dark in dark mode) */
+header .navbar a.nav-link.dropdown-toggle.text-dark,
+header .navbar #gh-logo,
+header .navbar #mode-switch-inner,
+header .navbar #theme-icon {
+    color: var(--nav-accent) !important;
 }
 
 #content {
@@ -613,6 +624,9 @@ a.nav-link.dropdown-toggle.text-dark {
 .navbar,
 .navbar .dropdown-menu {
     box-shadow: none !important;
+}
+header .navbar {
+    padding-top: 20px !important;
 }
 .navbar .dropdown:hover .dropdown-menu {
     border: 1px solid var(--hr-color, rgba(0,0,0,.1));

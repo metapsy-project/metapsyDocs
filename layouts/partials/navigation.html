@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-md {{ if .IsHome }}navbar-dark{{ else }}navbar-light{{ end }}">
+  <div class="container px-2 px-md-0">
+    <a class="navbar-brand px-2" href="{{ site.BaseURL | relLangURL }}" style="font-weight: 500;">
+      <img src="/images/hexagon2.png" alt="logo" height="30px">
+      <span class="navbar-brand-name" style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>
+      <span id="documentationText" style="border-left: 1px solid #adadad; padding: 10px 0 10px 15px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif !important; font-weight: 500 !important; color: #adadad;">Documentation</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        {{ range site.Menus.main }}
+        {{ if .HasChildren }}
+        <li class="nav-item dropdown dropdown-{{ .Name | urlize }}">
+          <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ .Name }}
+          </a>
+          <div class="dropdown-menu">
+            {{ range .Children }}
+            {{ $sectionPath := strings.TrimSuffix "/" .URL }}
+            {{ $sectionPage := site.GetPage (path.Join "/" $sectionPath) }}
+            {{ if and $sectionPage $sectionPage.Params.icon }}
+            <a class="dropdown-item" href="{{ .URL | absLangURL }}"><i class="{{ $sectionPage.Params.icon }} icon text-primary"></i> {{ .Name }}</a>
+            {{ else }}
+            <a class="dropdown-item" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            {{ end }}
+            {{ end }}
+          </div>
+        </li>
+        {{ else }}
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+        <li class="nav-item" id="gh-logo-container">
+          <a class="nav-link {{ if .IsHome }}text-white{{ else }}text-dark{{ end }}" id="gh-logo" href="https://github.com/metapsy-project" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi-github"></i></a>
+        </li>
+        <li class="nav-item" id="mode-switch">
+          <a class="nav-link {{ if .IsHome }}text-white{{ else }}text-dark{{ end }}" href="#" id="mode-switch-inner" onclick="toggleTheme(); return false;" aria-label="Toggle theme">
+            <i id="theme-icon" class="bi-brightness-high" style="font-size: 140%; transition: all 0.3s ease; vertical-align: middle;"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- Language List -->
+      {{- if site.IsMultiLingual }}
+      <select class="lang-list {{ if not .IsHome }}dark mb-3 mb-md-0{{ end }}" id="select-language"
+        onchange="location = this.value;">
+        {{ $siteLanguages := site.Languages}}
+        {{ $pageLang := .Page.Lang}}
+        {{ range .Page.AllTranslations }}
+        {{ $translation := .}}
+        {{ range $siteLanguages }}
+        {{ if eq $translation.Lang .Lang }}
+        {{ $selected := false }}
+        {{ if eq $pageLang .Lang}}
+        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+        </option>
+        {{ else }}
+        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+      </select>
+      {{ end }}
+    </div>
+  </div>
+</nav>

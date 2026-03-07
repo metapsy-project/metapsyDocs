@@ -1,53 +1,7 @@
-// Add costum metapsy logo
-var brand = document.getElementsByClassName('navbar-brand');
-if (brand.length > 0) {
-    brand[0].innerHTML = '<img src="/images/hexagon2.png" alt="logo" height="30px">' +
-        '<span class="navbar-brand-name" style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>' +
-        '<span id="documentationText" style="border-left: 1px solid #adadad; padding: 10px 0 10px 15px; font-family: system-ui, -apple-system, \'Segoe UI\', Roboto, \'Helvetica Neue\', \'Noto Sans\', \'Liberation Sans\', Arial, sans-serif !important; font-weight: 500 !important; color: #adadad;">Documentation</span>';
-    brand[0].style.fontWeight = '500';
-}
-var navbar = document.querySelectorAll('.navbar-nav,.ml-auto');
-var ul = navbar[0];
-if (ul) {
-    var li = document.createElement("li");
-    li.classList.add('nav-item');
-    li.setAttribute('id', 'gh-logo-container');
-    var innerLink = document.createElement('a');
-    innerLink.href = "https://github.com/metapsy-project";
-    innerLink.target = "_blank";
-    innerLink.style = "color: white !important;";
-    innerLink.classList.add('nav-link');
-    innerLink.classList.add('text-dark');
-    innerLink.setAttribute('id', 'gh-logo');
-    innerLink.innerHTML = '<i class="bi-github"></i>';
-    li.appendChild(innerLink);
-    ul.appendChild(li);
-    var switcher = document.createElement('li');
-    switcher.id = "mode-switch";
-    switcher.className = "nav-item";
-    switcher.innerHTML = '<a href="#" class="nav-link text-dark" onclick="toggleTheme()" id="mode-switch-inner">' +
-        '<i id="theme-icon" class="bi-brightness-high" style="font-size: 140%; color: white; transition: all 0.3s ease; vertical-align: middle;"></i></a>';
-    ul.appendChild(switcher);
-}
 // remove 'updated on'
 var dateSection = document.getElementsByClassName('post-meta');
 if (dateSection.length > 0) {
     dateSection[0].innerText = "";
-}
-// add gradient bar
-var header = document.getElementsByTagName('header');
-if (header.length > 0) {
-    var strip = document.createElement('div');
-    strip.id = "strip";
-    strip.style.marginTop = "-20px";
-    strip.style.fontSize = "13px";
-    strip.style.paddingBottom = "10px";
-    strip.style.paddingLeft = "28px";
-    header[0].insertBefore(strip, header[0].firstChild);
-}
-var navbarEl = document.getElementsByClassName('navbar');
-if (navbarEl.length > 0) {
-    navbarEl[0].style.paddingTop = "20px";
 }
 
 // Light mode switch
