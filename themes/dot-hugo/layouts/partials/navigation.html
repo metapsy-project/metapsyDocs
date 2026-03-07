@@ -23,14 +23,20 @@
       <ul class="navbar-nav ml-auto">
         {{ range site.Menus.main }}
         {{ if .HasChildren }}
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-{{ .Name | urlize }}">
           <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             {{ .Name }}
           </a>
           <div class="dropdown-menu">
             {{ range .Children }}
+            {{ $sectionPath := strings.TrimSuffix "/" .URL }}
+            {{ $sectionPage := site.GetPage (path.Join "/" $sectionPath) }}
+            {{ if and $sectionPage $sectionPage.Params.icon }}
+            <a class="dropdown-item" href="{{ .URL | absLangURL }}"><i class="{{ $sectionPage.Params.icon }} icon text-primary"></i> {{ .Name }}</a>
+            {{ else }}
             <a class="dropdown-item" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            {{ end }}
             {{ end }}
           </div>
         </li>

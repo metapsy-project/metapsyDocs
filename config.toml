@@ -13,6 +13,11 @@ disableLanguages = ["fr"]
 [markup.goldmark.renderer]
 unsafe = true
 
+# Table of contents for "On this page" (h2–h4)
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 4
+
 
 ############################# Default Parameters ##########################
 [params]

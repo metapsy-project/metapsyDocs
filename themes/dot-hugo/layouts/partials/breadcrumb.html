@@ -1,0 +1,13 @@
+<nav class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="container px-2 px-md-0">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="{{ .Site.Home.Permalink }}">{{ .Site.Params.breadcrumb_home | default "Home" }}</a></li>
+      {{ .Scratch.Set "breadcrumb_ancestors" slice }}
+      {{ partial "breadcrumb_ancestors.html" . }}
+      {{ range .Scratch.Get "breadcrumb_ancestors" }}
+        <li class="breadcrumb-item"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+      <li class="breadcrumb-item active" aria-current="page">{{ .LinkTitle }}</li>
+    </ol>
+  </div>
+</nav>

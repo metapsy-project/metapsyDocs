@@ -1,0 +1,109 @@
+<!-- banner -->
+<div class="container section">
+  <div class="row">
+    <div class="col-lg-8 text-center mx-auto">
+      <h1 class="text-white mb-3">
+        {{ .Site.Params.banner.title | markdownify }}
+      </h1>
+      <p class="text-white mb-4">
+        {{ .Site.Params.banner.subtitle | markdownify }}
+      </p>
+      <div class="position-relative">
+        <input
+          id="search"
+          class="form-control"
+          type="search"
+          placeholder="{{ .Site.Params.banner.placeholder }}"
+          aria-label="{{ .Site.Params.banner.placeholder }}"
+          autocomplete="off"
+        />
+        <i class="ti-search search-icon" aria-hidden="true"></i>
+        <!-- Search data: doc pages + section indexes, exclude topic list, limit for performance -->
+        {{ $byKind := where .Site.Pages "Kind" "page" }}
+        {{ $sections := where .Site.Pages "Kind" "section" }}
+        {{ $searchPages := $byKind | union $sections }}
+        {{ $searchPages = where $searchPages "Params.exclude_topic" "ne" true }}
+        {{ $searchPages = where $searchPages "Section" "!=" "" | first 80 }}
+        {{ $searchList := slice }}
+        {{ range $searchPages }}
+          {{ $desc := default (truncate 120 .Plain) .Summary }}
+          {{ with .Params.Keywords }}{{ $desc = print $desc " " (delimit . " ") }}{{ end }}
+          {{ $entry := dict "value" .Title "label" (truncate 150 $desc) "url" .Permalink "isPage" true }}
+          {{ $searchList = $searchList | append $entry }}
+        {{ end }}
+        <script>
+          $(function() {
+            var projects = {{ $searchList | jsonify | safeJS }};
+            var $search = $("#search");
+            function scoreItem(item, term) {
+              if (!item.value) return 0;
+              var v = item.value.toLowerCase();
+              var l = (item.label || "").toLowerCase();
+              if (v.indexOf(term) < 0 && l.indexOf(term) < 0) return 0;
+              if (v === term) return 100;
+              var vStarts = v.indexOf(term) === 0;
+              var vWord = new RegExp("\\b" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i").test(v);
+              if (vStarts) return 50 + (item.isPage ? 10 : 0);
+              if (vWord || v.indexOf(term) >= 0) return 30 + (item.isPage ? 5 : 0);
+              if (l.indexOf(term) >= 0) return 10;
+              return 5;
+            }
+            $search.autocomplete({
+              source: function(request, response) {
+                var term = (request.term || "").toLowerCase().trim();
+                if (term.length < 2) {
+                  response([]);
+                  return;
+                }
+                var filtered = [];
+                $.each(projects, function(_, item) {
+                  if (item.noResult) return;
+                  var s = scoreItem(item, term);
+                  if (s > 0) filtered.push({ item: item, score: s });
+                });
+                filtered.sort(function(a, b) { return b.score - a.score; });
+                var results = filtered.slice(0, 18).map(function(x) { return x.item; });
+                if (results.length === 0) {
+                  results = [{ value: "No results found", label: "", url: "#", noResult: true }];
+                }
+                response(results);
+              },
+              minLength: 2,
+              delay: 150,
+              select: function(event, ui) {
+                if (ui.item.noResult) return false;
+                if (ui.item.url && ui.item.url !== "#") {
+                  window.location.href = ui.item.url;
+                }
+                return false;
+              },
+              focus: function(event, ui) {
+                if (ui.item.noResult) return false;
+                return false;
+              }
+            });
+            var ac = $search.data("ui-autocomplete");
+            if (ac) {
+              ac._renderItem = function(ul, item) {
+                var li = $("<li>").addClass(item.noResult ? "search-no-result" : "");
+                var a = $("<a>").attr("href", item.url || "#").attr("tabindex", -1).text(item.value);
+                li.append(a).appendTo(ul);
+                return li;
+              };
+            }
+            $search.on("keydown", function(e) {
+              if (e.key === "Enter") {
+                var menu = $search.autocomplete("widget");
+                if (menu.is(":visible")) {
+                  var first = menu.find("li:not(.search-no-result) a").first();
+                  if (first.length) { first[0].click(); e.preventDefault(); }
+                }
+              }
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /banner -->

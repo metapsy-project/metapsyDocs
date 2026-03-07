@@ -1,0 +1,4 @@
+{{ if .Parent }}
+  {{ partial "breadcrumb_ancestors.html" .Parent }}
+  {{ if ne .Parent $.Site.Home }}{{ $.Scratch.Set "breadcrumb_ancestors" (union ($.Scratch.Get "breadcrumb_ancestors") (slice .Parent)) }}{{ end }}
+{{ end }}

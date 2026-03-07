@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="theme-light">
   <head>
   <meta charset="utf-8" />
   <title>References of studies excluded based on full-text screening</title>
@@ -8,7 +8,7 @@
   <meta name="description" content="References of studies excluded based on full-text screening - Metapsy Documentation " />
 
   
-  <link rel="stylesheet" href="/costum.min.css" />
+  <link rel="stylesheet" href="/costum.css" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
@@ -16,6 +16,7 @@
 
   
   <script src="/zenodo.min.js"></script>
+  <script src="/zenodo-zip-utils.js"></script>
 
   
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -72,6 +73,9 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
   <style>
     :root{
@@ -149,7 +153,7 @@
       <ul class="navbar-nav ml-auto">
         
         
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-topics">
           <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Topics
@@ -182,34 +186,69 @@
 
     </header>
     
-     
+    
+    
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="container px-2 px-md-0">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+  
+  
+  
+
+  
 
 
-<section class="single section-sm pb-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="sidebar">
+  
+
+
+  
+
+
+      
+        <li class="breadcrumb-item"><a href="/databases/depression-psyctr/">Depression: Psychotherapy vs. Control</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">References of studies excluded based on full-text screening</li>
+    </ol>
+  </div>
+</nav>
+
+    
+    
+
+
+
+
+
+<section class="single section-sm pb-0 two-column-layout three-column-layout has-on-this-page has-subtopics" id="single-section">
+  <div class="two-column-container">
+    <div class="row no-gutters two-column-row three-column-row" id="single-row">
+      <aside class="col-12 col-lg-3" id="toc-column" role="navigation" aria-label="Table of contents">
+        
+        <div class="toc-search-wrap">
+          <input type="search" class="toc-search-input" id="toc-databases-search" placeholder="Search databases…" aria-label="Filter databases in this list" autocomplete="off">
+        </div>
+        
+        <div class="sidebar toc-sidebar">
           <a
             class="back-btn"
-            href="/"
+            href="/databases/depression-psyctr/"
             aria-label="back"
           ></a>
           <ul class="list-styled">
-                       
- 
-<li
-  data-nav-id="/databases/"
-  title="Databases"
-  class="sidelist
-  "
->
-  <a href="/databases/">
-    Databases
-  </a>
-   
-  <ul>
             
+            
+              
+            
+              
+                <li data-nav-id="/databases/" title="Databases" class="sidelist ">
+                  <a href="/databases/">Databases</a>
+                </li>
+                <li class="toc-hr-wrap" aria-hidden="true"><hr class="toc-hr"></li>
+                
+                        
  
 <li
   data-nav-id="/databases/bodily-distress-psyctr/"
@@ -222,7 +261,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/borderline-psyctr/"
@@ -235,7 +276,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-anxiety-transdiagnostic/"
@@ -248,7 +291,24 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
+ 
+<li
+  data-nav-id="/databases/depression-perinatal-psyctr/"
+  title="Depression (Perinatal): Psychological Intervention vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/depression-perinatal-psyctr/">
+    Depression (Perinatal): Psychological Intervention vs. Control
+  </a>
+   
+</li>
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-childadol-psyctr/"
@@ -261,7 +321,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-inpatients/"
@@ -274,7 +336,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-psiloctr/"
@@ -287,7 +351,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-psyctr/"
@@ -305,7 +371,9 @@
   </ul>
   
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/depression-selfguided-psyctr/"
@@ -318,7 +386,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/ed-psyctr/"
@@ -331,7 +401,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/gambling-psyctr/"
@@ -344,7 +416,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/gad-psyctr/"
@@ -357,7 +431,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/total-response/"
@@ -370,7 +446,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/ocd-psyctr/"
@@ -383,7 +461,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/panic-psyctr/"
@@ -396,7 +476,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/peer-support/"
@@ -409,7 +491,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/grief-psyctr/"
@@ -422,7 +506,24 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
+ 
+<li
+  data-nav-id="/databases/ptsd-mdmactr/"
+  title="PTSD: MDMA-Assisted Therapy vs. Control"
+  class="sidelist
+  "
+>
+  <a href="/databases/ptsd-mdmactr/">
+    PTSD: MDMA-Assisted Therapy vs. Control
+  </a>
+   
+</li>
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/ptsd-psyctr/"
@@ -435,7 +536,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/sad-psyctr/"
@@ -448,7 +551,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/suicide-psyctr/"
@@ -461,7 +566,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/databases/psychosis-psyctr/"
@@ -474,17 +581,26 @@
   </a>
    
 </li>
-   
-  </ul>
-  
-</li>
+ 
                 
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+               
           </ul>
         </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-lg-5 p-4 bg-white" id="content">
-          <h2 class="mb-5" id="title">References of studies excluded based on full-text screening</h2>
+      </aside>
+      <main class="col-12 col-lg-9" id="content-column" role="main">
+        <div class="p-lg-5 p-4 bg-white content-wrapper" id="content">
+          <h2 class="mb-3" id="title">References of studies excluded based on full-text screening</h2>
           
           <div class="content"><hr>
 <style>
@@ -578,73 +694,587 @@ body > section > div > div > div.col-lg-3 {
             Updated on 01 Jan 0001
           </p>
           <nav class="pagination mt-3">
-            
-                      
-                     
-                                  
-                         
-              
-                                
-                     
-                         
-                         
-                         
-                         
-                         
-                            
-              
-                  
-                     
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-              
-                                      
-                         
-                         
-              
-                         
-                                      
-                         
-              
-                         
-                                      
-                         
-                         
-              
-                
-            <a
-              class="nav nav-prev"
-              href="/databases/depression-psiloctr/"
-              aria-label="Previous page"
-              ><i class="ti-arrow-left mr-2"></i>
-              <span class="d-none d-md-block">Depression: Psilocybin-Assisted Therapy vs. Control</span></a
-            >
              
-            <a
-              class="nav nav-next"
-              href="/databases/depression-selfguided-psyctr/"
-              aria-label="Previous page"
-            >
-              <span class="d-none d-md-block">Depression: Self-Guided Interventions vs. Control</span
-              ><i class="ti-arrow-right ml-2"></i
-            ></a>
-            
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -652,19 +1282,57 @@ body > section > div > div > div.col-lg-3 {
 
 
  
+            <a class="nav nav-prev" href="/databases/depression-psiloctr/" aria-label="Previous page"
+              ><i class="ti-arrow-left mr-2"></i>
+              <span class="d-none d-md-block">Depression: Psilocybin-Assisted Therapy vs. Control</span></a
+            >
+             
+            <a class="nav nav-next" href="/databases/depression-selfguided-psyctr/" aria-label="Next page">
+              <span class="d-none d-md-block">Depression: Self-Guided Interventions vs. Control</span
+              ><i class="ti-arrow-right ml-2"></i
+            ></a>
+            
+          </nav>
+        </div>
+      </main>
+      
+      <aside class="col-12 col-lg-2" id="on-this-page-column" role="navigation" aria-label="On this page">
+        
+      </aside>
+      
+    </div>
+  </div>
+  <div class="mobile-toc-overlay" id="mobile-toc-overlay" aria-hidden="true"></div>
+  <button type="button" class="mobile-toc-btn" id="mobile-toc-btn" aria-label="Open table of contents" title="Table of contents">
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
+</section>
+
+
+
+
+
+
+
+
+
+    <button type="button" id="immersive-reader-btn" class="immersive-reader-btn" title="Immersive reader" aria-label="Immersive reader: hide or show sidebars">
+      <i class="bi-eye" aria-hidden="true"></i>
+    </button>
+    
 <footer class="section pb-4">
   
-  <script src="/costum.min.js"></script>
+  <script src="/costum.js"></script>
   <div class="container">
     <div
       class="row align-items-center"
       style="margin-bottom: 50px; margin-top: -30px"
     >
       <div class="col-md-8 text-md-left text-center">
-        <p class="mb-md-0 mb-4">© <script>document.write(new Date().getFullYear())</script> Metapsy Collaboration</p>
+        <p class="footer-copyright mb-md-0 mb-4">© <script>document.write(new Date().getFullYear())</script> Metapsy Collaboration</p>
       </div>
       <div class="col-md-4 text-md-right text-center">
-        <div>
+        <div class="footer-logos">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"

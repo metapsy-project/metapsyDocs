@@ -1,19 +1,35 @@
-<!-- details page -->
-<section class="single section-sm pb-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="sidebar">
+<!-- details page: three-column layout (ToC left, content center, On this page right), single page scroll, sticky sidebars -->
+{{ $toc := .TableOfContents }}
+{{ $hasToc := and .Content (gt (len (plainify $toc)) 0) }}
+{{ $hasSubtopics := gt (len .FirstSection.Pages) 0 }}
+<section class="single section-sm pb-0 two-column-layout three-column-layout{{ if and .Content .TableOfContents }} has-on-this-page{{ end }}{{ if $hasSubtopics }} has-subtopics{{ end }}" id="single-section">
+  <div class="two-column-container">
+    <div class="row no-gutters two-column-row three-column-row" id="single-row">
+      <aside class="col-12 col-lg-3" id="toc-column" role="navigation" aria-label="Table of contents">
+        {{ if eq .Section "databases" }}
+        <div class="toc-search-wrap">
+          <input type="search" class="toc-search-input" id="toc-databases-search" placeholder="Search databases…" aria-label="Filter databases in this list" autocomplete="off">
+        </div>
+        {{ end }}
+        <div class="sidebar toc-sidebar">
           <a
             class="back-btn"
-            href="{{ .Site.BaseURL | relLangURL }}"
+            href="{{ with .Parent }}{{ .Permalink | relLangURL }}{{ else }}{{ .Site.BaseURL | relLangURL }}{{ end }}"
             aria-label="back"
           ></a>
           <ul class="list-styled">
-            {{ $currentNode := . }} {{range .Site.Home.Sections.ByWeight}} {{ if
-            eq .FirstSection $currentNode.FirstSection }} {{ template
-            "section-tree-nav" dict "sect" . "currentnode" $currentNode}} {{ end
-            }} {{ end }} {{ if .Content }} {{ if eq .Params.downloadBtn "true"
+            {{ $currentNode := . }}
+            {{ range .Site.Home.Sections.ByWeight }}
+              {{ if eq .FirstSection $currentNode.FirstSection }}
+                <li data-nav-id="{{ .Permalink }}" title="{{ .Title }}" class="sidelist {{ if eq .Permalink $currentNode.Permalink }}active{{ end }}">
+                  <a href="{{ .Permalink }}">{{ or .Params.menuTitle .LinkTitle .Title }}</a>
+                </li>
+                <li class="toc-hr-wrap" aria-hidden="true"><hr class="toc-hr"></li>
+                {{ range .Pages.ByWeight }}
+                  {{ if .Params.hidden }}{{ else }}{{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showhidden" false }}{{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }} {{ if .Content }} {{ if eq .Params.downloadBtn "true"
             }} 
             <div>
               <button class="btn btn-primary btn-block" id="generatePDF">
@@ -23,10 +39,10 @@
             {{ end }} {{ end }}
           </ul>
         </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-lg-5 p-4 bg-white" id="content">
-          <h2 class="mb-5" id="title">{{ .Title }}</h2>
+      </aside>
+      <main class="col-12 col-lg-9" id="content-column" role="main">
+        <div class="p-lg-5 p-4 bg-white content-wrapper" id="content">
+          <h2 class="mb-3" id="title">{{ .Title }}</h2>
           {{ if .Content }}
           <div class="content">{{.Content}}</div>
           {{ else }}
@@ -41,46 +57,41 @@
             Updated on {{ .Lastmod.Format "02 Jan 2006" }}
           </p>
           <nav class="pagination mt-3">
-            <!-- Next prev page -->
             {{ $currentNode := . }} {{ template "menu-nextprev" dict "menu"
-            .Site.Home "currentnode" $currentNode }} {{ define "menu-nextprev"
-            }} {{$currentNode := .currentnode }} {{ if ne .menu.Params.hidden
-            true}} {{if hasPrefix $currentNode.Permalink .menu.Permalink }} {{
-            $currentNode.Scratch.Set "NextPageOK" "OK" }} {{
-            $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get
-            "prevPageTmp") }} {{else}} {{if eq ($currentNode.Scratch.Get
-            "NextPageOK") "OK"}} {{ $currentNode.Scratch.Set "NextPageOK" nil }}
-            {{ $currentNode.Scratch.Set "nextPage" .menu }} {{end}} {{end}} {{
-            $currentNode.Scratch.Set "prevPageTmp" .menu }} {{
-            $currentNode.Scratch.Set "pages" .menu.Pages }} {{ if .menu.IsHome}}
-            {{ $currentNode.Scratch.Set "pages" .menu.Sections }} {{ else if
-            .menu.Sections}} {{ $currentNode.Scratch.Set "pages" (.menu.Pages |
-            union .menu.Sections) }} {{end}} {{ $pages :=
-            ($currentNode.Scratch.Get "pages") }} {{ range $pages.ByWeight }} {{
-            template "menu-nextprev" dict "menu" . "currentnode" $currentNode }}
-            {{end}} {{ end }} {{ end }} {{with ($.Scratch.Get "prevPage")}}
-            <a
-              class="nav nav-prev"
-              href="{{.Permalink }}"
-              aria-label="Previous page"
+            .Site.Home "currentnode" $currentNode }} {{with ($.Scratch.Get "prevPage")}}
+            <a class="nav nav-prev" href="{{.Permalink }}" aria-label="Previous page"
               ><i class="ti-arrow-left mr-2"></i>
               <span class="d-none d-md-block">{{.Title}}</span></a
             >
             {{end}} {{with ($.Scratch.Get "nextPage")}}
-            <a
-              class="nav nav-next"
-              href="{{.Permalink }}"
-              aria-label="Previous page"
-            >
+            <a class="nav nav-next" href="{{.Permalink }}" aria-label="Next page">
               <span class="d-none d-md-block">{{.Title}}</span
               ><i class="ti-arrow-right ml-2"></i
             ></a>
             {{end}}
           </nav>
         </div>
-      </div>
+        {{ partial "footer.html" . }}
+      </main>
+      {{ if and .Content .TableOfContents }}
+      <aside class="col-12 col-lg-2" id="on-this-page-column" role="navigation" aria-label="On this page">
+        {{ if $hasToc }}
+        <nav class="on-this-page-sidebar">
+          <h3 class="on-this-page-title">On this page</h3>
+          <hr>
+          <div class="on-this-page-toc">
+            {{ $toc }}
+          </div>
+        </nav>
+        {{ end }}
+      </aside>
+      {{ end }}
     </div>
   </div>
+  <div class="mobile-toc-overlay" id="mobile-toc-overlay" aria-hidden="true"></div>
+  <button type="button" class="mobile-toc-btn" id="mobile-toc-btn" aria-label="Open table of contents" title="Table of contents">
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
 </section>
 <!-- /details page -->
 
@@ -105,8 +116,34 @@ $currentNodeFileUniqueID = .UniqueID }}{{ end }}
   <ul>
     {{ range .Pages.ByWeight }} {{ if and .Params.hidden (not $.showhidden) }}
     {{else}} {{ template "section-tree-nav" dict "sect" . "currentnode"
-    $currentNode }} {{end}} {{end}}
+    $currentNode "showhidden" $.showhidden }} {{end}} {{end}}
   </ul>
   {{ end }}
 </li>
 {{ end }} {{ end }}
+
+{{ define "menu-nextprev" }}
+{{ $currentNode := .currentnode }}
+{{ if ne .menu.Params.hidden true}}
+{{ if hasPrefix $currentNode.Permalink .menu.Permalink }}
+{{ $currentNode.Scratch.Set "NextPageOK" "OK" }}
+{{ $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") }}
+{{ else }}
+{{ if eq ($currentNode.Scratch.Get "NextPageOK") "OK" }}
+{{ $currentNode.Scratch.Set "NextPageOK" nil }}
+{{ $currentNode.Scratch.Set "nextPage" .menu }}
+{{ end }}
+{{ end }}
+{{ $currentNode.Scratch.Set "prevPageTmp" .menu }}
+{{ $currentNode.Scratch.Set "pages" .menu.Pages }}
+{{ if .menu.IsHome }}
+{{ $currentNode.Scratch.Set "pages" .menu.Sections }}
+{{ else if .menu.Sections }}
+{{ $currentNode.Scratch.Set "pages" (.menu.Pages | union .menu.Sections) }}
+{{ end }}
+{{ $pages := ($currentNode.Scratch.Get "pages") }}
+{{ range $pages.ByWeight }}
+{{ template "menu-nextprev" dict "menu" . "currentnode" $currentNode }}
+{{ end }}
+{{ end }}
+{{ end }}

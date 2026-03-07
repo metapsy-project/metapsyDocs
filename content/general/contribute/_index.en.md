@@ -4,6 +4,8 @@ title = "Contributors"
 weight = 2
 
 +++
+
+<br>
 <div class="gallery">
 
 <div class="logo-gallery"> <img src="/uploads/vu.jpg" width="600" height="400" title="Vrije Universiteit Amsterdam"> </div>

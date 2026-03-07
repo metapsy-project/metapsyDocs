@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}">
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}" class="theme-light">
   {{ partial "head.html" . }}
 
   <body>
@@ -18,6 +18,14 @@
       {{ partial "navigation.html" . }}
     </header>
     <!-- /header -->
-    {{ end }} {{ block "main" . }}{{ end }} {{ partialCached "footer.html" . }}
+    {{ end }}
+    {{ if not .IsHome }}
+    {{ partial "breadcrumb.html" . }}
+    {{ end }}
+    {{ block "main" . }}{{ end }}
+    <button type="button" id="immersive-reader-btn" class="immersive-reader-btn" title="Immersive reader" aria-label="Immersive reader: hide or show sidebars">
+      <i class="bi-eye" aria-hidden="true"></i>
+    </button>
+    {{ if .IsHome }}{{ partial "footer.html" . }}{{ end }}
   </body>
 </html>

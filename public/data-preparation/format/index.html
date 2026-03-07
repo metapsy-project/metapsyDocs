@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="theme-light">
   <head>
   <meta charset="utf-8" />
   <title>Data Format</title>
@@ -8,7 +8,7 @@
   <meta name="description" content="Data Format - Metapsy Documentation " />
 
   
-  <link rel="stylesheet" href="/costum.min.css" />
+  <link rel="stylesheet" href="/costum.css" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
@@ -16,6 +16,7 @@
 
   
   <script src="/zenodo.min.js"></script>
+  <script src="/zenodo-zip-utils.js"></script>
 
   
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -72,6 +73,9 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
   <style>
     :root{
@@ -147,7 +151,7 @@
       <ul class="navbar-nav ml-auto">
         
         
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropdown-topics">
           <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Topics
@@ -180,34 +184,63 @@
 
     </header>
     
-     
+    
+    
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="container px-2 px-md-0">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      
+      
+  
+  
+
+  
 
 
-<section class="single section-sm pb-0">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="sidebar">
+  
+
+
+      
+        <li class="breadcrumb-item"><a href="/data-preparation/">Data Preparation</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Data Format</li>
+    </ol>
+  </div>
+</nav>
+
+    
+    
+
+
+
+
+
+<section class="single section-sm pb-0 two-column-layout three-column-layout has-on-this-page has-subtopics" id="single-section">
+  <div class="two-column-container">
+    <div class="row no-gutters two-column-row three-column-row" id="single-row">
+      <aside class="col-12 col-lg-3" id="toc-column" role="navigation" aria-label="Table of contents">
+        
+        <div class="sidebar toc-sidebar">
           <a
             class="back-btn"
-            href="/"
+            href="/data-preparation/"
             aria-label="back"
           ></a>
           <ul class="list-styled">
-                         
- 
-<li
-  data-nav-id="/data-preparation/"
-  title="Data Preparation"
-  class="sidelist
-  "
->
-  <a href="/data-preparation/">
-    Data Preparation
-  </a>
-   
-  <ul>
             
+            
+              
+            
+              
+            
+              
+                <li data-nav-id="/data-preparation/" title="Data Preparation" class="sidelist ">
+                  <a href="/data-preparation/">Data Preparation</a>
+                </li>
+                <li class="toc-hr-wrap" aria-hidden="true"><hr class="toc-hr"></li>
+                
+                        
  
 <li
   data-nav-id="/data-preparation/format/"
@@ -220,7 +253,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/data-preparation/metadata/"
@@ -233,7 +268,9 @@
   </a>
    
 </li>
-           
+ 
+                
+                        
  
 <li
   data-nav-id="/data-preparation/upload/"
@@ -246,17 +283,24 @@
   </a>
    
 </li>
-   
-  </ul>
-  
-</li>
+ 
+                
               
+            
+              
+            
+              
+            
+              
+            
+              
+               
           </ul>
         </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-lg-5 p-4 bg-white" id="content">
-          <h2 class="mb-5" id="title">Data Format</h2>
+      </aside>
+      <main class="col-12 col-lg-9" id="content-column" role="main">
+        <div class="p-lg-5 p-4 bg-white content-wrapper" id="content">
+          <h2 class="mb-3" id="title">Data Format</h2>
           
           <div class="content"><hr>
 <p>All released Metapsy databases follow a uniform data formatting standard. This includes both the meta-analytic datasets per se, as well as the meta-data provided for the data. Database repositories themselves also follow a predefined folder structure.</p>
@@ -296,6 +340,7 @@
 <li><strong><code>time</code></strong>: The measurement point at which the outcome was obtained (e.g. <code>post</code> or <code>follow-up</code>).</li>
 <li><strong><code>time_weeks</code></strong>: The measurement point at which the outcome was obtained, in weeks after randomization (set to <code>NA</code> if this information was not available).</li>
 <li><strong><code>rating</code></strong>: This variable encodes if the measured outcome was self-reported (<code>&quot;self-report&quot;</code>) or clinician-rated (<code>&quot;clinician&quot;</code>).</li>
+<li><strong><code>full_ref</code></strong>: A full reference to the main or relevant publication.</li>
 </ul>
 <br>
 <p><strong>II. Effect Size Data Variables</strong> 📐</p>
@@ -344,7 +389,7 @@
 <br>
 <p><strong>III. <code>metapsyTools</code> Variables</strong> 📦</p>
 <hr>
-<p>The Metapsy database standard includes nine additional variables that all start with a dot (<code>.</code>). These are variables created by the <a href="https://tools.metapsy.org/reference/calculateeffectsizes"><code>calculateEffectSizes</code></a> function in <code>metapsyTools</code>. They are included so that meta-analysis functions in <code>metapsyTools</code> can be applied &ldquo;out of the box&rdquo;.</p>
+<p>The Metapsy database standard includes nine additional variables that all start with a dot (<code>.</code>). These are variables created by the <a href="https://tools.metapsy.org/reference/calculateeffectsizes"><code>calculateEffectSizes</code></a> function in <code>metapsyTools</code>, or the <a href="https://tools.metapsy.org/data-validator">data validator application</a>. They are included so that meta-analysis functions in <code>metapsyTools</code> can be applied &ldquo;out of the box&rdquo;.</p>
 <ul>
 <li><strong><code>.id</code></strong>: Unique identifier for a trial arm comparison/row.</li>
 <li><strong><code>.g</code></strong>: Calculated effect size (Hedges' $g$).</li>
@@ -370,6 +415,9 @@
 </ul>
 <br>
 <h5 id="data-file-type">Data File Type</h5><hr>
+
+
+<div class="notices tip" ><p>If you are a contributor to the Metapsy intitiative, it is usually sufficient to prepare the data in <strong>MS Excel sheets</strong> as a first step. Members of the maintenance team can help you with the transformation to .csv files, which is only needed once datasets are <a href="/release/">released publically</a>. Excel sheets are also sufficient if you want to perform a meta-analysis using <a href="https://tools.metapsy.org/articles/web/get-started#the-analysis-module"><code>metapsyTools</code></a>. An example of an Excel sheet following the Metapsy data format can be downloaded <a href="/uploads/example-metapsy-formatted-dataset.xlsx">here</a>.</p></div>
 <p>Finalized datasets are saved as <strong>comma-separated values</strong> (.csv) files. Importantly, in our case, .csv files <em>always</em> use a <strong>semicolon</strong> as a separator (to allow for commas in text fields). Decimals are separated using commas (e.g. <code>1,02</code> instead of <code>1.02</code>). This is typically how MS Excel exports sheets as .csv by default (with &ldquo;continental European&rdquo; settings).
 A﻿nother method to create the .csv files in the correct format is to export the dataset from R using the  <tt><a href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/write.table.html">write.csv2</a></tt> function.</p>
 <p>An example can be seen below.</p>
@@ -380,72 +428,584 @@ A﻿nother method to create the .csv files in the correct format is to export th
             Updated on 01 Jan 0001
           </p>
           <nav class="pagination mt-3">
-            
-                      
-                     
-                                  
-                         
-              
-                                      
-                         
-                         
-                         
-                         
-                         
-                           
-              
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-              
-                                        
-                  
-                     
-                         
-              
-                         
-                                      
-                         
-              
-                         
-                                      
-                         
-                         
-              
-                
-            <a
-              class="nav nav-prev"
-              href="/data-preparation/"
-              aria-label="Previous page"
-              ><i class="ti-arrow-left mr-2"></i>
-              <span class="d-none d-md-block">Data Preparation</span></a
-            >
              
-            <a
-              class="nav nav-next"
-              href="/data-preparation/metadata/"
-              aria-label="Previous page"
-            >
-              <span class="d-none d-md-block">Metadata</span
-              ><i class="ti-arrow-right ml-2"></i
-            ></a>
-            
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -453,19 +1013,78 @@ A﻿nother method to create the .csv files in the correct format is to export th
 
 
  
+            <a class="nav nav-prev" href="/data-preparation/" aria-label="Previous page"
+              ><i class="ti-arrow-left mr-2"></i>
+              <span class="d-none d-md-block">Data Preparation</span></a
+            >
+             
+            <a class="nav nav-next" href="/data-preparation/metadata/" aria-label="Next page">
+              <span class="d-none d-md-block">Metadata</span
+              ><i class="ti-arrow-right ml-2"></i
+            ></a>
+            
+          </nav>
+        </div>
+      </main>
+      
+      <aside class="col-12 col-lg-2" id="on-this-page-column" role="navigation" aria-label="On this page">
+        
+        <nav class="on-this-page-sidebar">
+          <h3 class="on-this-page-title">On this page</h3>
+          <hr>
+          <div class="on-this-page-toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#standard-variables">Standard Variables</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+        </nav>
+        
+      </aside>
+      
+    </div>
+  </div>
+  <div class="mobile-toc-overlay" id="mobile-toc-overlay" aria-hidden="true"></div>
+  <button type="button" class="mobile-toc-btn" id="mobile-toc-btn" aria-label="Open table of contents" title="Table of contents">
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
+</section>
+
+
+
+
+
+
+
+
+
+    <button type="button" id="immersive-reader-btn" class="immersive-reader-btn" title="Immersive reader" aria-label="Immersive reader: hide or show sidebars">
+      <i class="bi-eye" aria-hidden="true"></i>
+    </button>
+    
 <footer class="section pb-4">
   
-  <script src="/costum.min.js"></script>
+  <script src="/costum.js"></script>
   <div class="container">
     <div
       class="row align-items-center"
       style="margin-bottom: 50px; margin-top: -30px"
     >
       <div class="col-md-8 text-md-left text-center">
-        <p class="mb-md-0 mb-4">© <script>document.write(new Date().getFullYear())</script> Metapsy Collaboration</p>
+        <p class="footer-copyright mb-md-0 mb-4">© <script>document.write(new Date().getFullYear())</script> Metapsy Collaboration</p>
       </div>
       <div class="col-md-4 text-md-right text-center">
-        <div>
+        <div class="footer-logos">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
