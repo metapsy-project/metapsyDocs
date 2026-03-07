@@ -2,7 +2,7 @@
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}" class="theme-light">
   {{ partial "head.html" . }}
 
-  <body>
+  <body class="layout-loading">
     {{ if .IsHome }}
     <!-- header -->
     <header

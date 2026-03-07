@@ -79,6 +79,16 @@ function toggleTheme() {
    }
 })();
 
+// Reveal 3-column layout only when DOM is ready (main + "On this page" show together)
+(function() {
+   function reveal() { document.body.classList.remove('layout-loading'); }
+   if (document.readyState === 'loading') {
+       document.addEventListener('DOMContentLoaded', reveal);
+   } else {
+       reveal();
+   }
+})();
+
 var block = document.getElementsByClassName('list-inline');
 
 // Collapsible ToC (laptop and up)

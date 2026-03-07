@@ -747,6 +747,15 @@ a.nav-link.dropdown-toggle.text-dark {
     background-color: var(--white-color, #fff);
 }
 
+/* Show main content only when DOM is ready (avoids staggered "On this page" / content flash) */
+body.layout-loading #single-section {
+    opacity: 0;
+}
+body:not(.layout-loading) #single-section {
+    opacity: 1;
+    transition: opacity 0.12s ease-out;
+}
+
 /* Three-column layout: page scroll for content; left ToC column fixed height, separately scrollable */
 /* Column fills viewport below header; when header scrolled past, stick at top:0 (no gap) */
 #single-section.has-on-this-page #toc-column {
