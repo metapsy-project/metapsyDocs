@@ -760,6 +760,9 @@ header .navbar {
 #single-section {
     background-color: var(--white-color, #fff);
 }
+#single-section #content-column {
+    padding-top: 1rem;
+}
 
 /* Show main content only when DOM is ready (avoids staggered "On this page" / content flash) */
 body.layout-loading #single-section {
