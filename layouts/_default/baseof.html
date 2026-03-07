@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}" class="theme-light">
+  {{ partial "head.html" . }}
+
+  <body>
+    {{ if .IsHome }}
+    <!-- header -->
+    <header
+      class="banner {{if .Site.Params.banner.bg_image}}overlay bg-cover{{else}}bg-primary{{end}}"
+      data-background="{{ .Site.Params.banner.bg_image | absURL }}"
+    >
+      {{ partialCached "navigation.html" . (printf "nav-%s-home" .Site.Language.Lang) }}
+      {{ partialCached "banner.html" . }}
+    </header>
+    <!-- /header -->
+    {{ else }}
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      {{ partialCached "navigation.html" . (printf "nav-%s-inner" .Site.Language.Lang) }}
+    </header>
+    <!-- /header -->
+    {{ end }}
+    {{ if not .IsHome }}
+    {{ partial "breadcrumb.html" . }}
+    {{ end }}
+    {{ block "main" . }}{{ end }}
+    <button type="button" id="immersive-reader-btn" class="immersive-reader-btn" title="Immersive reader" aria-label="Immersive reader: hide or show sidebars">
+      <i class="bi-eye" aria-hidden="true"></i>
+    </button>
+    {{ if .IsHome }}{{ partial "footer.html" . }}{{ end }}
+  </body>
+</html>

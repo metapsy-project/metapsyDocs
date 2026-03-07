@@ -69,6 +69,14 @@ h1, h2, h3 {
 .text-white.mb-3{
     color: var(--header-color) !important;
 }
+/* Home banner title (main h1): black in dark mode for contrast */
+.theme-dark header.banner .text-white.mb-3 {
+    color: #000 !important;
+}
+/* Navbar "METAPSY" span: black in dark mode on home only (inline color overridden) */
+.theme-dark header.banner .navbar-brand .navbar-brand-name {
+    color: #000 !important;
+}
 
 #title {
     color: var(--bs-primary) !important;
@@ -80,6 +88,17 @@ h1, h2, h3 {
 .section-title {
     color: var(--bs-primary) !important;
     display: none;
+}
+
+/* Home page topic boxes: no shadow, border instead */
+.section a.bg-white.shadow.match-height {
+    box-shadow: none !important;
+    border: 1px solid var(--hr-color, rgba(0,0,0,.15)) !important;
+}
+.section a.bg-white.shadow.match-height:hover,
+.section a.bg-white.shadow.match-height:focus {
+    box-shadow: none !important;
+    border-color: var(--primary-color) !important;
 }
 
 p {
@@ -267,16 +286,54 @@ tbody {
   background: transparent !important;
 }
 
-/* Front-page search: scrollable dropdown */
-header.banner .ui-menu {
-  max-height: 280px;
-  overflow-y: auto;
-  overflow-x: hidden;
+/* Front-page search dropdown: above banner and all page content so it can be clicked */
+ul.ui-menu.ui-autocomplete {
+  z-index: 999999 !important;
+  pointer-events: auto !important;
 }
-header.banner .ui-menu-item a {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.ui-menu {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Front-page search bar: same border/background as .toc-search-input (databases) */
+header.banner #search,
+header.banner #search.form-control,
+header.banner .form-control#search,
+header.banner #search.ui-autocomplete-input {
+  border-radius: 0 !important;
+  background: var(--body-color, #fff) !important;
+  color: var(--text-color, #333) !important;
+  border: 1px solid rgba(0,0,0,.15) !important;
+  box-shadow: none !important;
+}
+header.banner #search::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+header.banner #search:focus {
+  border-color: rgba(0,0,0,.15) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+header.banner .search-icon,
+header.banner .ti-search.search-icon {
+  color: var(--text-color) !important;
+}
+/* Search dropdown: square corners, theme colors */
+.ui-menu {
+  border-radius: 0 !important;
+  background: var(--white-color) !important;
+  border: 1px solid var(--hr-color) !important;
+  border-top: none !important;
+}
+.ui-menu-item a {
+  display: block !important;
+  color: var(--text-color-dark) !important;
+}
+.ui-menu-item a:hover {
+  color: var(--primary-color) !important;
+  background: var(--light-color) !important;
 }
 
 header.banner.overlay.bg-cover {
@@ -287,15 +344,20 @@ header.banner.overlay.bg-cover {
     color: black !important;
 }
 
-/* Ensure overlay sits behind navbar and strip on banner (start page) */
+/* Ensure overlay sits behind navbar and strip; overlay must not block clicks */
 header.banner.overlay::before {
     z-index: 0 !important;
+    pointer-events: none !important;
 }
 header.banner .navbar,
-header.banner #strip,
-header.banner .container.section {
+header.banner #strip {
     position: relative;
     z-index: 2;
+}
+/* Container section: no z-index so search dropdown (appended to body) can layer above everything; overflow visible so dropdown isn't clipped */
+header.banner .container.section {
+    position: relative;
+    overflow: visible;
 }
 
 .shadow-bottom {
@@ -557,6 +619,14 @@ a.nav-link.dropdown-toggle.text-dark {
 }
 .navbar .dropdown-topics .dropdown-menu {
     border: 1px solid var(--hr-color, rgba(0,0,0,.1));
+}
+/* Topics dropdown: smaller icons, icon color on link hover */
+.navbar .dropdown-menu .dropdown-item .icon {
+    font-size: 70%;
+    margin-right: 0.35rem;
+}
+.navbar .dropdown-menu .dropdown-item:hover .icon {
+    color: var(--bs-info) !important;
 }
 
 .col-lg-3 > .sidebar {
@@ -1026,8 +1096,11 @@ body.toc-header-past #single-section.has-on-this-page #toc-column {
     #single-section #content.p-lg-5.p-4 {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
-        padding-top: 1rem !important;
+        padding-top: 2rem !important;
         padding-bottom: 1.5rem !important;
+    }
+    #single-section #content #title {
+        margin-bottom: 0 !important;
     }
     /* Mobile TOC button: bottom-left (don't overlap immersive reader) */
     .mobile-toc-btn {

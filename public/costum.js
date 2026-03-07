@@ -2,7 +2,7 @@
 var brand = document.getElementsByClassName('navbar-brand');
 if (brand.length > 0) {
     brand[0].innerHTML = '<img src="/images/hexagon2.png" alt="logo" height="30px">' +
-        '<span style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>' +
+        '<span class="navbar-brand-name" style="padding-right: 10px; padding-left: 10px; color: white">METAPSY</span>' +
         '<span id="documentationText" style="border-left: 1px solid #adadad; padding: 10px 0 10px 15px; font-family: system-ui, -apple-system, \'Segoe UI\', Roboto, \'Helvetica Neue\', \'Noto Sans\', \'Liberation Sans\', Arial, sans-serif !important; font-weight: 500 !important; color: #adadad;">Documentation</span>';
     brand[0].style.fontWeight = '500';
 }
