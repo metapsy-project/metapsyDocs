@@ -74,7 +74,7 @@ h1, h2, h3 {
 }
 /* Main page only (body.page-home): banner title + METAPSY logo text */
 .theme-dark body.page-home header.banner .text-white.mb-3 {
-    color: #fff !important;
+    color: var(--primary-color) !important;
 }
 body.page-home header.banner .navbar-brand .navbar-brand-name {
     color: #fff !important;
