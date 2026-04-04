@@ -72,13 +72,16 @@ h1, h2, h3 {
 .text-white.mb-3{
     color: var(--header-color) !important;
 }
-/* Home banner title (main h1): black in dark mode for contrast */
-.theme-dark header.banner .text-white.mb-3 {
-    color: #000 !important;
+/* Main page only (body.page-home): banner title + METAPSY logo text */
+.theme-dark body.page-home header.banner .text-white.mb-3 {
+    color: #fff !important;
 }
-/* Navbar "METAPSY" span: black in dark mode on home only (inline color overridden) */
-.theme-dark header.banner .navbar-brand .navbar-brand-name {
-    color: #000 !important;
+body.page-home header.banner .navbar-brand .navbar-brand-name {
+    color: #fff !important;
+}
+/* Not home + light theme: top bar is dark (#222d32); METAPSY must be white */
+.theme-light body:not(.page-home) header .navbar-brand .navbar-brand-name {
+    color: #fff !important;
 }
 
 #title {
@@ -345,6 +348,15 @@ header.banner.overlay.bg-cover {
     background-position: center center !important;
     background-color: rgba(0, 0, 0, 1) !important;
     color: black !important;
+}
+
+/* Dark mode main page only: solid header — no banner photo or overlay wash */
+.theme-dark body.page-home header.banner.overlay.bg-cover {
+    background-image: none !important;
+    background-color: var(--header-color) !important;
+}
+.theme-dark body.page-home header.banner.overlay::before {
+    display: none !important;
 }
 
 /* Ensure overlay sits behind navbar and strip; overlay must not block clicks */
