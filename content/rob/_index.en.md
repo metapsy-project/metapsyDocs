@@ -1,7 +1,7 @@
 ---
 title: Risk of Bias
 icon: ti-check-box
-description: Documentation and Guidance on the Metapsy RoB-2 Tool Adaptation
+description: Documentation and Guidance on the Metapsy RoB tool
 type: docs
 weight: "7"
 
@@ -15,7 +15,7 @@ weight: "7"
 #### Introduction
 ---
 
-As part of the Metapsy initiative, we developed a version of the widely used **Cochrane RoB 2 tool** ([Sterne et al., 2019](https://www.bmj.com/content/366/bmj.l4898.short)). Our version is tailored for psychological intervention trials and provides clear, detailed guidance for answering RoB 2's signalling questions in this field. To make it easier to use, we also created digital assistants to help with the rating process. All materials and tools are freely available at [**metapsy.org/rob**](https://www.metapsy.org/rob).
+As part of the Metapsy initiative, we developed a risk of bias (RoB) tool tailored for psychological intervention trials. It provides clear, detailed guidance for conducting RoB ratings in this field. To make it easier to use, we also created digital assistants to help with the rating process. All materials and tools are freely available at [**metapsy.org/rob**](https://www.metapsy.org/rob).
 
 The tool can be applied in two ways: using (1) an **online RoB assistant**, or (2) **Excel** version of the tool.
 
@@ -70,7 +70,7 @@ The latest version will be displayed at [metapsy.org/rob](https://www.metapsy.or
 
 <img src="/uploads/fingerprint.png" width="100" style="pointer-events: none;">
 
-By clicking on the fingerprint button, you can copy a **permalink** to the current version to your clipboard (e.g., [metapsy.org/rob/#v1.0-0](https://www.metapsy.org/rob/#v1.0-0) for version 1.0-0). This permalink ensures rating decisions can be reproduced even when new versions are released.
+By clicking on the fingerprint button, you can copy a **permalink** to the current version to your clipboard (e.g., [metapsy.org/rob/#v1.1-0](https://www.metapsy.org/rob/#v1.1-0) for version 1.1-0). This permalink ensures rating decisions can be reproduced even when new versions are released.
 
 
 <br>
