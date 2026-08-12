@@ -12,7 +12,12 @@ weight: "2"
 
 <br>
 
+{{< database-release-notice >}}
+
 This page provides documentation entries for all databases included in Metapsy.
+
+
+<br>
 
 {{< database-overview >}}
 
