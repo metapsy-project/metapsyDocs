@@ -160,6 +160,13 @@ ul .nav-item gh-logo-container.nav-item:hover {
 
 div#content a:link {
     color: var(--bs-primary) !important;
+    text-decoration: none;
+}
+
+div#content a:hover,
+div#content a:focus {
+    color: var(--bs-primary) !important;
+    text-decoration: underline;
 }
 
 a.nav-next:hover>i {
@@ -188,10 +195,6 @@ a.navbar-brand {
 
 li.sidelist>a {
     color: var(--primary-color) !important;
-}
-
-div#content a:hover {
-    color: var(--bs-info) !important;
 }
 
 .nav-item.active {
@@ -917,6 +920,7 @@ body.toc-header-past #single-section.has-on-this-page #toc-column {
 .on-this-page-toc nav#TableOfContents a:hover,
 .on-this-page-toc #TableOfContents a:hover {
     color: var(--text-color, #636363) !important;
+    text-decoration: underline;
 }
 /* On this page: active item (scroll-spy) — same look as left ToC active */
 #on-this-page-column .on-this-page-toc li:has(> a.active) {
