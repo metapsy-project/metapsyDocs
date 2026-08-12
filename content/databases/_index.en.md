@@ -10,9 +10,10 @@ weight: "2"
 
 <img src="/uploads/library.jpg" width="100%" style="border-radius: 5px;">
 
-<br>
 
 {{< database-release-notice >}}
+
+<br>
 
 This page provides documentation entries for all databases included in Metapsy.
 
