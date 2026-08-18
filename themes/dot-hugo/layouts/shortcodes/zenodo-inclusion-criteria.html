@@ -1,0 +1,226 @@
+<span id="inclusion-criteria-box">
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle expand-btn"
+    data-toggle="collapse"
+    href="#collapseInclusionCriteria"
+    role="button"
+    aria-expanded="false"
+  >
+    Show Inclusion Criteria<span class="caret"></span>
+  </button>
+  <div class="collapse" id="collapseInclusionCriteria">
+    <div class="card card-body ic-wrap">
+      <span id="ph-inclusion-criteria"></span>
+      <span id="spinner-ph-inclusion-criteria" class="loader-spinner"></span>
+      <style>
+        #spinner-ph-inclusion-criteria { width: 20px; height: 20px; margin: 0.75rem 0; border: 2px solid rgb(133, 133, 133);
+          border-bottom-color: transparent; border-radius: 50%; display: inline-block;
+          box-sizing: border-box; animation: rotation 1s linear infinite;}
+        @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+        #inclusion-criteria-box .ic-wrap {
+          margin-top: 0.35rem;
+          margin-bottom: 0;
+          overflow-x: auto;
+          padding: 0 !important;
+          background-color: transparent !important;
+          line-height: 0;
+        }
+        #inclusion-criteria-box #ph-inclusion-criteria,
+        #inclusion-criteria-box [id^="ph-inclusion-criteria"] {
+          display: block;
+          line-height: 0;
+          margin: 0;
+          padding: 0;
+        }
+        #inclusion-criteria-box table.ic-table {
+          width: 100%;
+          border-collapse: collapse;
+          table-layout: fixed;
+          background: transparent !important;
+          margin: 0 !important;
+          line-height: normal;
+        }
+        #inclusion-criteria-box table.ic-table thead,
+        #inclusion-criteria-box table.ic-table tbody,
+        #inclusion-criteria-box table.ic-table tr {
+          background: transparent !important;
+        }
+        #inclusion-criteria-box table.ic-table th,
+        #inclusion-criteria-box table.ic-table td {
+          vertical-align: top;
+          text-align: left;
+          padding: 1.1rem 1.35rem !important;
+          border: 0 !important;
+        }
+        #inclusion-criteria-box table.ic-table col.ic-col-domain { width: 20%; }
+        #inclusion-criteria-box table.ic-table col.ic-col-criteria { width: 40%; }
+        #inclusion-criteria-box table.ic-table thead th {
+          font-weight: 600;
+          font-size: 0.78rem;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: var(--text-color-dark);
+          background-color: var(--body-color) !important;
+          border-bottom: 1px solid var(--hr-color) !important;
+        }
+        #inclusion-criteria-box table.ic-table th i {
+          margin-right: 0.4rem;
+          font-size: 1em;
+          line-height: 1;
+          vertical-align: baseline;
+          color: inherit;
+        }
+        #inclusion-criteria-box table.ic-table tbody td {
+          border-bottom: 1px solid var(--hr-color) !important;
+        }
+        #inclusion-criteria-box table.ic-table tbody tr:last-child td {
+          border-bottom: 0 !important;
+          padding-bottom: 1.1rem !important;
+        }
+        #inclusion-criteria-box table.ic-table td.ic-domain {
+          font-weight: 600;
+          font-size: 0.85rem;
+          line-height: 1.4;
+          color: var(--text-color-dark);
+          background-color: var(--body-color) !important;
+        }
+        #inclusion-criteria-box table.ic-table td.ic-criteria {
+          font-size: 0.78rem !important;
+          line-height: 1.5;
+          color: var(--text-color);
+          background-color: transparent !important;
+        }
+        #inclusion-criteria-box table.ic-table .ic-item {
+          margin: 0 0 0.7rem 0 !important;
+          padding: 0 !important;
+          font-size: inherit !important;
+          line-height: 1.5;
+          list-style: none;
+        }
+        #inclusion-criteria-box table.ic-table .ic-item:last-child {
+          margin-bottom: 0 !important;
+        }
+        #inclusion-criteria-box table.ic-table ul,
+        #inclusion-criteria-box table.ic-table li,
+        #inclusion-criteria-box table.ic-table li::before {
+          list-style: none !important;
+          content: none !important;
+          display: none !important;
+        }
+        #inclusion-criteria-box .ic-empty {
+          color: var(--text-color);
+          opacity: 0.45;
+          font-style: italic;
+          font-size: 0.78rem;
+        }
+      </style>
+    </div>
+  </div>
+  <br />
+</span>
+
+<script defer>
+(function() {
+var randID = makeid(10);
+
+var IC_DOMAINS = [
+  { key: "population",   label: "Population" },
+  { key: "intervention", label: "Intervention" },
+  { key: "comparison",   label: "Comparison" },
+  { key: "outcome",      label: "Outcome" },
+  { key: "study_design", label: "Study Design" },
+  { key: "other",        label: "Other" }
+];
+
+function capitalizeFirst(text) {
+  var s = String(text == null ? "" : text).replace(/^\s+/, "");
+  if (!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function renderCriteriaList(items) {
+  if (!Array.isArray(items) || items.length === 0) {
+    return "<span class='ic-empty'>None specified</span>";
+  }
+  var html = "";
+  for (var i = 0; i < items.length; i++) {
+    html += "<p class='ic-item'>" + capitalizeFirst(items[i]) + "</p>";
+  }
+  return html;
+}
+
+async function renderInclusionCriteria() {
+  while (!isDataSaved()) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  const conceptDOI = "{{.Get `doi`}}";
+  const div = document.getElementById("ph-inclusion-criteria");
+  div.id = div.id + "-" + randID;
+
+  try {
+    const raw = await getMetadataFile(conceptDOI, "metadata/inclusion_criteria.json");
+    const data = (raw && typeof raw === "object") ? raw : (raw ? JSON.parse(raw) : null);
+
+    document.getElementById("spinner-ph-inclusion-criteria").style.display = "none";
+
+    if (!data) {
+      div.innerHTML = "<em>No inclusion criteria available</em>";
+      return;
+    }
+
+    const table = document.createElement("table");
+    table.className = "ic-table";
+
+    const colgroup = document.createElement("colgroup");
+    ["ic-col-domain", "ic-col-criteria", "ic-col-criteria"].forEach(function(cls) {
+      const col = document.createElement("col");
+      col.className = cls;
+      colgroup.appendChild(col);
+    });
+    table.appendChild(colgroup);
+
+    const thead = table.createTHead();
+    const headerRow = thead.insertRow(-1);
+    [
+      { text: "", icon: "" },
+      { text: "Inclusion Criteria", icon: "ti-import" },
+      { text: "Exclusion Criteria", icon: "ti-export" }
+    ].forEach(function(col) {
+      const th = document.createElement("th");
+      th.scope = "col";
+      th.innerHTML = (col.icon ? "<i class='" + col.icon + "' aria-hidden='true'></i>" : "") + col.text;
+      headerRow.appendChild(th);
+    });
+
+    const tbody = table.createTBody();
+    for (let i = 0; i < IC_DOMAINS.length; i++) {
+      const domain = IC_DOMAINS[i];
+      const entry = data[domain.key] || {};
+      const row = tbody.insertRow(-1);
+
+      const domainCell = row.insertCell(-1);
+      domainCell.className = "ic-domain";
+      domainCell.innerHTML = domain.label;
+
+      const inclusionCell = row.insertCell(-1);
+      inclusionCell.className = "ic-criteria";
+      inclusionCell.innerHTML = renderCriteriaList(entry.inclusion);
+
+      const exclusionCell = row.insertCell(-1);
+      exclusionCell.className = "ic-criteria";
+      exclusionCell.innerHTML = renderCriteriaList(entry.exclusion);
+    }
+
+    div.appendChild(table);
+  } catch (error) {
+    console.error("Error loading inclusion criteria:", error);
+    document.getElementById("spinner-ph-inclusion-criteria").style.display = "none";
+    div.innerHTML = "<em>No inclusion criteria available</em>";
+  }
+}
+
+renderInclusionCriteria();
+})();
+</script>

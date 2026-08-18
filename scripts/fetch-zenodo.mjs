@@ -21,6 +21,7 @@ const OUT = path.resolve("static/data/zenodo.json");
 const METADATA_FILES = [
   "metadata/authors.json",
   "metadata/authors.txt",
+  "metadata/inclusion_criteria.json",
   "metadata/shorthand.txt",
   "metadata/number_studies.txt",
   "metadata/last_search.txt",
@@ -29,6 +30,14 @@ const METADATA_FILES = [
   "metadata/variable_description.json",
   "metadata/references.json",
   "metadata/registration.txt"
+];
+
+// Metadata files added after the initial snapshot. Records whose extracted
+// metadata predates these keys are re-extracted once so the files get
+// backfilled (see main()). Missing files are recorded as null to avoid
+// re-downloading the ZIP on every subsequent run.
+const BACKFILL_METADATA_FILES = [
+  "metadata/inclusion_criteria.json"
 ];
 
 /**
@@ -219,7 +228,13 @@ const main = async () => {
         return typeof value === 'string' && value.includes('\n');
       });
     
-    if (isNew || isModified || missingMetadata || hasNewlinesToStrip) {
+    // Re-extract records that predate a newly added metadata file, so the new
+    // file gets backfilled without needing the record itself to change.
+    const missingNewMetadataFile = existingRecord && existingRecord.extracted_metadata &&
+      Object.keys(existingRecord.extracted_metadata).length > 0 &&
+      BACKFILL_METADATA_FILES.some(key => existingRecord.extracted_metadata[key] === undefined);
+    
+    if (isNew || isModified || missingMetadata || hasNewlinesToStrip || missingNewMetadataFile) {
       if (processed % 10 === 0) {
         console.log(`Processing record ${processed}/${data.length}...`);
       }
@@ -227,6 +242,13 @@ const main = async () => {
       // Extract metadata and add to record
       const extractedMetadata = await extractMetadataFromZip(record);
       if (Object.keys(extractedMetadata).length > 0) {
+        // Record backfilled files that are absent from this ZIP as null, so we
+        // don't re-download the ZIP on every future run just to look for them.
+        for (const key of BACKFILL_METADATA_FILES) {
+          if (extractedMetadata[key] === undefined) {
+            extractedMetadata[key] = null;
+          }
+        }
         record.extracted_metadata = extractedMetadata;
       }
       
