@@ -15,10 +15,11 @@ hidden: false
 
 #### General Description
 
-The `data-ed-digital-psyctr` dataset is part of the meta-analytic research domain (MARD) on psychotherapy for eating disorders. This MARD is part of the [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials on digital interventions for eating disorders. The date of the last search update is provided [here](https://github.com/metapsy-project/data-ed-digital-psyctr/blob/master/metadata/last_search.txt). 
+The `ed-digital-psyctr` dataset is part of the meta-analytic research domain (MARD) on psychotherapy for eating disorders. This MARD is part of the [Metapsy project](https://www.metapsy.org/). The dataset contains study information and effect size data of trials on digital interventions for eating disorders. The date of the last search update is provided [here](https://github.com/metapsy-project/data-ed-digital-psyctr/blob/master/metadata/last_search.txt). 
 
 This dataset includes psychotherapy vs. control (`psy vs ctr`) comparisons. Effect sizes are provided for eating disorder psychopathology, objective binge eating frequency, compensatory behaviours, abstinence, shape/ weight concerns, dietary restraint, eating concerns, depression, anxiety, clinical impairment, quality of life/ well-being, general distress, and self-esteem at post-test and follow-up. It includes one type of effect size calculation per study, giving priority to means and standard deviations at post-test, followed by change scores, binary outcomes, and other statistics.
 
+A published meta-analysis using the `ed-digital-psyctr` dataset can be found [here](https://www.doi.org/10.1001/jamapsychiatry.2026.0668).
 
 
 <br>
@@ -74,7 +75,7 @@ A simplified version of this database can be analyzed at [metapsy.org/database/e
 
 #### Database Flowchart
 
-Studies in the `ed-psyctr` dataset were extracted from the larger "psychological interventions for eating disorders" database. The study flow of this database can be found below.
+Studies in the `ed-digital-psyctr` dataset were extracted from the larger "digital interventions for eating disorders" database. The study flow of this database can be found below.
 
 {{< zenodo-flowchart doi="10.5281/zenodo.21996490" >}}
 
@@ -89,7 +90,7 @@ Studies in the `ed-psyctr` dataset were extracted from the larger "psychological
 </button>
 {{< zenodo-authors doi="10.5281/zenodo.21996490" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.21996490" >}}.
-<i>Database of eating disorder trials comparing cognitive behavioral interventions with control conditions. Part of the Metapsy project </i>
+<i>Database of eating disorder trials comparing digital interventions with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.21996490" >}}).
 URL docs.metapsy.org/databases/ed-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.21996490" >}}.
