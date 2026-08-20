@@ -23,7 +23,7 @@ The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-pr
 
 #### Affiliated Institutions
 
-University of Edinburgh
+Technical University of Munich, Vrije Universiteit Amsterdam
 
 <br>
 
