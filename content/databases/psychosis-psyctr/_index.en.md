@@ -80,7 +80,7 @@ Studies in the `psychosis-psyctr` dataset were extracted from the larger databas
 <li>A network meta-analysis using the psychosis database <a href="https://www.sciencedirect.com/science/article/abs/pii/S0920996421000219" target="_blank"> ↗</a></li>
 <li>Published meta-analyses using the depression database<a href="/uploads/published_meta_analyses.pdf" target="_blank"> ↗</a></li>
 <li>Published 'individual participant data'  meta-analyses, based on the database<a href="/uploads/ipd_ma.pdf" target="_blank"> ↗</a></li>
-</ul
+</ul>
 
 <br>
 
