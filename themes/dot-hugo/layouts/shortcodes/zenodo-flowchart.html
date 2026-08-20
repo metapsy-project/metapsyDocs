@@ -98,6 +98,14 @@ async function renderFlowchart() {
     // Parse if needed (already parsed if from JSON)
     const searchFlow = typeof searchFlowContent === 'object' ? searchFlowContent : JSON.parse(searchFlowContent);
     const numberStudies = typeof numberStudiesContent === 'number' ? numberStudiesContent : JSON.parse(numberStudiesContent);
+
+    // search_flow.json sometimes omits keys that do not apply (e.g. additional.records).
+    // Treat missing/null/NaN values as 0 so the flowchart never shows "undefined".
+    function flowNum(key) {
+      const v = searchFlow[key];
+      const n = typeof v === "number" ? v : Number(v);
+      return Number.isFinite(n) ? n : 0;
+    }
     
     // Update flowchart nodes with data
     const databaseSearchNode = dataFlowChart.nodes.find(n => n.id === "database-search");
@@ -109,21 +117,28 @@ async function renderFlowchart() {
     const excludedFullTextNode = dataFlowChart.nodes.find(n => n.id === "excluded-full-text");
     const includedNode = dataFlowChart.nodes.find(n => n.id === "included");
     const includedDatasetNode = dataFlowChart.nodes.find(n => n.id === "included-dataset");
+
+    const databaseHits = flowNum("database.hits");
+    const additionalRecords = flowNum("additional.records");
+    const afterDuplicates = flowNum("database.hits.duplicates.removed");
+    const recordsScreened = flowNum("records.screened");
+    const fullTextAssessed = flowNum("full.text.assessed.for.eligibility");
+    const included = flowNum("included");
     
-    databaseSearchNode.label.name = databaseSearchNode.label.name + "(n=" + searchFlow["database.hits"] + ")";
-    otherSourcesNode.label.name = otherSourcesNode.label.name + "(n=" + searchFlow["additional.records"] + ")";
-    duplicateNode.label.name = duplicateNode.label.name + "(n=" + searchFlow["database.hits.duplicates.removed"] + ")";
-    screenNode.label.name = screenNode.label.name + "(n=" + searchFlow["records.screened"] + ")";
+    databaseSearchNode.label.name = databaseSearchNode.label.name + "(n=" + databaseHits + ")";
+    otherSourcesNode.label.name = otherSourcesNode.label.name + "(n=" + additionalRecords + ")";
+    duplicateNode.label.name = duplicateNode.label.name + "(n=" + afterDuplicates + ")";
+    screenNode.label.name = screenNode.label.name + "(n=" + recordsScreened + ")";
     
-    const noExcludedRecords = searchFlow["records.screened"] - searchFlow["full.text.assessed.for.eligibility"];
+    const noExcludedRecords = recordsScreened - fullTextAssessed;
     recordsExcludedNode.label.name = recordsExcludedNode.label.name + "(n=" + noExcludedRecords + ")";
     
-    fullTextNode.label.name = fullTextNode.label.name + "(n=" + searchFlow["full.text.assessed.for.eligibility"] + ")";
+    fullTextNode.label.name = fullTextNode.label.name + "(n=" + fullTextAssessed + ")";
     
-    const noExcludedFullTextRecords = searchFlow["full.text.assessed.for.eligibility"] - searchFlow.included;
+    const noExcludedFullTextRecords = fullTextAssessed - included;
     excludedFullTextNode.label.name = excludedFullTextNode.label.name + "(n=" + noExcludedFullTextRecords + ")";
     
-    includedNode.label.name = includedNode.label.name + "(n=" + searchFlow.included + ")";
+    includedNode.label.name = includedNode.label.name + "(n=" + included + ")";
     includedDatasetNode.label.name = includedDatasetNode.label.name + "(n=" + String(numberStudies) + ")";
     
     // Render flowchart
