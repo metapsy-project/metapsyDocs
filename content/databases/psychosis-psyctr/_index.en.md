@@ -52,6 +52,12 @@ A simplified version of this database can be analyzed at [metapsy.org/database/p
 
 <br>
 
+#### Inclusion Criteria
+
+{{< zenodo-inclusion-criteria doi="10.5281/zenodo.7782324" >}}
+
+<br>
+
 #### Variable Description
 
 {{< zenodo-variable-description doi="10.5281/zenodo.7782324" >}}
