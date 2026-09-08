@@ -17,6 +17,57 @@ const BASE_URL = `https://zenodo.org/api/deposit/depositions?access_token=${ZENO
 // Output goes to Hugo's 'static' dir so it becomes /data/zenodo.json
 const OUT = path.resolve("static/data/zenodo.json");
 
+// A descriptive User-Agent. Zenodo's edge/anti-bot layer blocks requests that
+// use the default runtime UA (a common cause of spurious 403s from CI IPs).
+const USER_AGENT =
+  "metapsyDocs-zenodo-sync/1.0 (+https://github.com/metapsy-project/metapsyDocs)";
+
+/**
+ * fetch() wrapper that retries transient failures with exponential backoff.
+ * Retries on network errors and on 403/429/5xx responses — Zenodo's CDN
+ * returns 403 (or 429) when it rate-limits a shared CI IP, and these clear
+ * on their own after a short wait.
+ * @param {string} url
+ * @param {Object} [options] - fetch options
+ * @param {Object} [cfg] - { retries, baseDelay } backoff config
+ * @returns {Promise<Response>}
+ */
+async function fetchWithRetry(url, options = {}, { retries = 5, baseDelay = 1000 } = {}) {
+  const headers = {
+    "User-Agent": USER_AGENT,
+    ...(options.headers || {}),
+  };
+
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { ...options, headers });
+
+      // Success, or a non-retryable client error (e.g. 401/404) — return as-is.
+      if (res.ok || (res.status < 500 && res.status !== 403 && res.status !== 429)) {
+        return res;
+      }
+
+      lastErr = new Error(`HTTP ${res.status}`);
+    } catch (err) {
+      // Network-level failure (DNS, connection reset, timeout).
+      lastErr = err;
+    }
+
+    if (attempt < retries) {
+      // Exponential backoff with jitter: ~1s, 2s, 4s, 8s, 16s (+/- randomness).
+      const delay = baseDelay * 2 ** attempt + Math.floor(Math.random() * 500);
+      console.warn(
+        `Request to ${url.replace(/access_token=[^&]+/, "access_token=***")} failed ` +
+          `(${lastErr.message}); retry ${attempt + 1}/${retries} in ${delay}ms...`
+      );
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+
+  throw new Error(`Request failed after ${retries} retries: ${lastErr.message}`);
+}
+
 // Metadata files to extract from ZIP
 const METADATA_FILES = [
   "metadata/authors.json",
@@ -71,7 +122,7 @@ async function extractMetadataFromZip(record) {
     const downloadUrl = `https://zenodo.org/api/records/${recordId}/files/${encodeURIComponent(filename)}/content`;
     
     // Download ZIP file
-    const zipResponse = await fetch(downloadUrl);
+    const zipResponse = await fetchWithRetry(downloadUrl);
     if (!zipResponse.ok) {
       console.warn(`Failed to download ZIP for record ${recordId}: ${zipResponse.status}`);
       return metadata;
@@ -174,7 +225,7 @@ const main = async () => {
   
   while (hasMore) {
     const url = `${BASE_URL}&page=${page}`;
-    const res = await fetch(url, { headers: { "Accept": "application/json" } });
+    const res = await fetchWithRetry(url, { headers: { "Accept": "application/json" } });
     if (!res.ok) {
       const t = await res.text();
       throw new Error(`Zenodo fetch failed: ${res.status} ${t}`);
