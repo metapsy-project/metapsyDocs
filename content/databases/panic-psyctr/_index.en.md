@@ -92,12 +92,21 @@ Studies in the `panic-psyctr` dataset were extracted from the larger "panic diso
 <button class="citation-copy-btn" onclick="copyCitation('citation-panic-psyctr', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
 <i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
 </button>
+<div class="citation-scroll">
+<ul class="citation-list">
+<li>
 {{< zenodo-authors doi="10.5281/zenodo.7863722" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.7863722" >}}.
 <i>Database of panic disorder psychotherapy trials with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.7863722" >}}).
 URL docs.metapsy.org/databases/depression-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.7863722" >}}.
+</li>
+<li class="citation-additional">
+Harrer, M., Miguel, C., Van Ballegooijen, W., Ciharova, M., Plessen, C. Y., Kuper, P., ... & Cuijpers, P. (2025). Effectiveness of psychotherapy: Synthesis of a “meta-analytic research domain” across world regions and 12 mental health problems. <i>Psychological Bulletin</i>, 151(5), 600. DOI <a href="https://doi.org/10.1037/bul0000465" target="_blank" rel="noopener">https://doi.org/10.1037/bul0000465</a>.
+</li>
+</ul>
+</div>
 </div>
 
 <br>

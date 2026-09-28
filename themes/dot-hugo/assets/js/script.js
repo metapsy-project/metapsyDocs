@@ -173,6 +173,12 @@ function copyCitation(citationId, button) {
   if (buttonClone) {
     buttonClone.remove();
   }
+
+  // Remove ORCID links/icons so they are not included in copied text
+  var orcidLinks = clone.querySelectorAll('a[href*="orcid.org"]');
+  for (var o = 0; o < orcidLinks.length; o++) {
+    orcidLinks[o].remove();
+  }
   
   // Remove loader spinners and empty placeholder spans
   var spinners = clone.querySelectorAll('.loader-spinner, [id^="spinner-"]');
@@ -190,18 +196,30 @@ function copyCitation(citationId, button) {
     }
   }
   
-  // Use innerText instead of textContent - innerText respects CSS visibility
-  // and won't include script/style content
-  var text = clone.innerText || clone.textContent || '';
-  // Clean up whitespace - replace multiple spaces/newlines with single space
-  text = text.replace(/\s+/g, ' ').trim();
-  
-  // Clean up punctuation spacing
-  text = text.replace(/\s+\)/g, ')');      // Remove space before closing paren: " )" -> ")"
-  text = text.replace(/\s+,/g, ',');       // Remove space before comma: " ," -> ","
-  text = text.replace(/\s+\./g, '.');     // Remove space before period: " ." -> "."
-  // Clean up any double spaces that might have been created
-  text = text.replace(/\s+/g, ' ').trim();
+  // Prefer one clipboard line per citation list item
+  var items = clone.querySelectorAll('.citation-list > li');
+  var text = '';
+  if (items.length > 0) {
+    var lines = [];
+    for (var k = 0; k < items.length; k++) {
+      var line = (items[k].innerText || items[k].textContent || '');
+      line = line.replace(/\s+/g, ' ').trim();
+      line = line.replace(/\s+\)/g, ')');
+      line = line.replace(/\s+,/g, ',');
+      line = line.replace(/\s+\./g, '.');
+      line = line.replace(/\s+/g, ' ').trim();
+      if (line) lines.push(line);
+    }
+    text = lines.join('\n\n');
+  } else {
+    // Fallback for citations without a list
+    text = clone.innerText || clone.textContent || '';
+    text = text.replace(/\s+/g, ' ').trim();
+    text = text.replace(/\s+\)/g, ')');
+    text = text.replace(/\s+,/g, ',');
+    text = text.replace(/\s+\./g, '.');
+    text = text.replace(/\s+/g, ' ').trim();
+  }
   
   // Copy to clipboard
   if (navigator.clipboard && navigator.clipboard.writeText) {

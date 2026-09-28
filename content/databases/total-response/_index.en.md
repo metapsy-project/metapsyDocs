@@ -90,7 +90,16 @@ A simplified version of this database can be analyzed at [metapsy.org/database/e
 If you use this dataset for your own research, please provide this preferred citation:
 
 <div class="citation" style='background-color: var(--body-color); padding: 20px 20px 20px 20px; font-size: 80%; -webkit-filter: grayscale(100%); filter: grayscale(100%);'>
+<div class="citation-scroll">
+<ul class="citation-list">
+<li>
 Cuijpers P, Miguel C, Ciharova M,  Harrer M, Basic D, Cristea IA, de Ponti N, Driessen E, Hamblen J, Larsen SE, Matbouriahi M, Papola D, Pauley D, Plessen CY Pfund RA, Setkowski K, Schnurr PP, van Ballegooijen W, Wang Y, Riper H, van Straten A, Sijbrandij M, Furukawa TA, Karyotaki E (2024). Absolute and relative outcomes of psychotherapies for eight mental disorders: a systematic review and meta-analysis. <a href="https://onlinelibrary.wiley.com/journal/20515545" target="_blank"><i>World Psychiatry</i></a>, in press.
+</li>
+<li class="citation-additional">
+Harrer, M., Miguel, C., Van Ballegooijen, W., Ciharova, M., Plessen, C. Y., Kuper, P., ... & Cuijpers, P. (2025). Effectiveness of psychotherapy: Synthesis of a “meta-analytic research domain” across world regions and 12 mental health problems. <i>Psychological Bulletin</i>, 151(5), 600. DOI <a href="https://doi.org/10.1037/bul0000465" target="_blank" rel="noopener">https://doi.org/10.1037/bul0000465</a>.
+</li>
+</ul>
+</div>
 </div>
 
 <br>

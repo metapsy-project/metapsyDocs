@@ -477,9 +477,61 @@ header.banner #documentationText {
     color: revert !important;
   }
 
-  .citation {
-    line-height: 200%;
-  }
+.citation {
+  position: relative !important;
+  line-height: 1.55;
+  font-size: 90% !important;
+  padding: 10px 44px 10px 14px !important;
+  overflow: visible !important;
+  max-height: none !important;
+}
+.citation .citation-scroll {
+  max-height: 154px !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 0.15rem;
+}
+.citation .citation-copy-btn {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  float: none !important;
+  z-index: 3;
+  margin: 0 !important;
+}
+.citation .citation-list,
+.citation .citation-list > li,
+.citation .citation-list > li p,
+.citation .citation-additional {
+  margin: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+.citation .citation-list {
+  padding: 0 0 0 1.15rem !important;
+  list-style: disc !important;
+  clear: none;
+}
+.citation .citation-list > li {
+  margin: 0 0 0.75rem 0 !important;
+  padding-left: 0.15rem;
+  position: static !important;
+}
+.citation .citation-list > li:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.citation .citation-list > li:last-child {
+  margin-bottom: 0 !important;
+}
+.citation .citation-list > li::before {
+  display: none !important;
+  content: none !important;
+}
+.citation a[href*="orcid.org"],
+.citation a[href*="orcid.org"] img {
+  display: none !important;
+}
   
 header.shadow-bottom.sticky-top.bg-white {
     padding-top: 20px !important;

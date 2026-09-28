@@ -11,8 +11,13 @@ if (!ZENODO_API_KEY) {
   process.exit(1);
 }
 
-// Base URL for Zenodo API (max page size is 200, using 100 to be safe)
-const BASE_URL = `https://zenodo.org/api/deposit/depositions?access_token=${ZENODO_API_KEY}&all_versions=1&size=100`;
+// Records per page. The deposit endpoint with all_versions=1 is heavy, and
+// large pages make Zenodo's gateway time out (504). A smaller page returns
+// faster and well within the timeout, at the cost of a few more requests.
+const PAGE_SIZE = 25;
+
+// Base URL for Zenodo API (max page size is 200)
+const BASE_URL = `https://zenodo.org/api/deposit/depositions?access_token=${ZENODO_API_KEY}&all_versions=1&size=${PAGE_SIZE}`;
 
 // Output goes to Hugo's 'static' dir so it becomes /data/zenodo.json
 const OUT = path.resolve("static/data/zenodo.json");
@@ -32,7 +37,7 @@ const USER_AGENT =
  * @param {Object} [cfg] - { retries, baseDelay } backoff config
  * @returns {Promise<Response>}
  */
-async function fetchWithRetry(url, options = {}, { retries = 5, baseDelay = 1000 } = {}) {
+async function fetchWithRetry(url, options = {}, { retries = 6, baseDelay = 1500 } = {}) {
   const headers = {
     "User-Agent": USER_AGENT,
     ...(options.headers || {}),
@@ -238,8 +243,8 @@ const main = async () => {
       allRecords = allRecords.concat(pageData);
       console.log(`Fetched page ${page}: ${pageData.length} records (total: ${allRecords.length})`);
       
-      // If we got fewer than 100 records, we've reached the last page
-      if (pageData.length < 100) {
+      // A short page means we've reached the last one.
+      if (pageData.length < PAGE_SIZE) {
         hasMore = false;
       } else {
         page++;

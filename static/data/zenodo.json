@@ -28686,5 +28686,311 @@
     "files": [],
     "state": "unsubmitted",
     "submitted": false
+  },
+  {
+    "_synthetic": true,
+    "_synthetic_note": "Manually injected while zenodo.org was down (2026-09-08). Version-specific id/doi are placeholders (set to the concept recid). The next successful `npm run prebuild` will replace this with the authoritative Zenodo record.",
+    "created": "2026-09-08T00:00:00.000000+00:00",
+    "modified": "2026-09-08T00:00:00.000000+00:00",
+    "id": 22663728,
+    "conceptrecid": "22663728",
+    "doi": "10.5281/zenodo.22663728",
+    "conceptdoi": "10.5281/zenodo.22663728",
+    "doi_url": "https://doi.org/10.5281/zenodo.22663728",
+    "metadata": {
+      "title": "metapsy-project/data-adhd-psyctr: Version 26.0.0",
+      "doi": "10.5281/zenodo.22663728",
+      "publication_date": "2026-09-08",
+      "description": "<p>The <code>data-adhd-psyctr</code> dataset, part of the Metapsy project. Manually staged snapshot; description will be refreshed on the next Zenodo sync.</p>",
+      "access_right": "open",
+      "creators": [
+        {
+          "name": "Rianne Hornstra",
+          "orcid": "0000-0001-8797-8973"
+        },
+        {
+          "name": "Annabeth P. Groenman",
+          "orcid": "0000-0002-8394-6605"
+        },
+        {
+          "name": "Saskia van der Oord",
+          "orcid": "0000-0003-2771-0187"
+        },
+        {
+          "name": "Marjolein Luman",
+          "orcid": "0000-0002-1539-2831"
+        },
+        {
+          "name": "Tycho J. Dekkers",
+          "orcid": "0000-0001-8572-5606"
+        },
+        {
+          "name": "Lianne van der Veen-Mulders",
+          "orcid": "0000-0002-1203-8685"
+        },
+        {
+          "name": "Pieter J. Hoekstra",
+          "orcid": "0000-0003-1018-9954"
+        },
+        {
+          "name": "Constantina Psyllou ",
+          "orcid": ""
+        },
+        {
+          "name": "Barbara J. van den Hoofdakker",
+          "orcid": "0000-0001-9570-9976"
+        }
+      ],
+      "related_identifiers": [
+        {
+          "identifier": "https://github.com/metapsy-project/data-adhd-psyctr/tree/26.0.0",
+          "relation": "isSupplementTo",
+          "resource_type": "software",
+          "scheme": "url"
+        }
+      ],
+      "version": "26.0.0",
+      "custom": {
+        "code:codeRepository": "https://github.com/metapsy-project/data-adhd-psyctr"
+      },
+      "license": "cc-by-4.0",
+      "imprint_publisher": "Zenodo",
+      "upload_type": "software",
+      "prereserve_doi": {
+        "doi": "10.5281/zenodo.22663728",
+        "recid": 22663728
+      }
+    },
+    "title": "metapsy-project/data-adhd-psyctr: Version 26.0.0",
+    "links": {
+      "self": "https://zenodo.org/api/records/22663728",
+      "html": "https://zenodo.org/records/22663728",
+      "doi": "https://doi.org/10.5281/zenodo.22663728",
+      "parent_doi": "https://doi.org/10.5281/zenodo.22663728",
+      "badge": "https://zenodo.org/badge/doi/10.5281%2Fzenodo.22663728.svg",
+      "conceptbadge": "https://zenodo.org/badge/doi/10.5281%2Fzenodo.22663728.svg",
+      "files": "https://zenodo.org/api/records/22663728/files",
+      "record": "https://zenodo.org/api/records/22663728",
+      "record_html": "https://zenodo.org/record/22663728",
+      "latest": "https://zenodo.org/api/records/22663728/versions/latest",
+      "latest_html": "https://zenodo.org/records/22663728/latest"
+    },
+    "record_id": 22663728,
+    "owner": 59765,
+    "files": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "filename": "metapsy-project/data-adhd-psyctr-26.0.0.zip",
+        "filesize": 24444,
+        "checksum": "",
+        "links": {
+          "self": "https://zenodo.org/api/records/22663728/files/metapsy-project%2Fdata-adhd-psyctr-26.0.0.zip",
+          "download": "https://zenodo.org/api/records/22663728/files/metapsy-project%2Fdata-adhd-psyctr-26.0.0.zip/content"
+        }
+      }
+    ],
+    "state": "done",
+    "submitted": true,
+    "extracted_metadata": {
+      "metadata/authors.json": [
+        {
+          "name": "Rianne Hornstra",
+          "orcid": "0000-0001-8797-8973"
+        },
+        {
+          "name": "Annabeth P. Groenman",
+          "orcid": "0000-0002-8394-6605"
+        },
+        {
+          "name": "Saskia van der Oord",
+          "orcid": "0000-0003-2771-0187"
+        },
+        {
+          "name": "Marjolein Luman",
+          "orcid": "0000-0002-1539-2831"
+        },
+        {
+          "name": "Tycho J. Dekkers",
+          "orcid": "0000-0001-8572-5606"
+        },
+        {
+          "name": "Lianne van der Veen-Mulders",
+          "orcid": "0000-0002-1203-8685"
+        },
+        {
+          "name": "Pieter J. Hoekstra",
+          "orcid": "0000-0003-1018-9954"
+        },
+        {
+          "name": "Constantina Psyllou ",
+          "orcid": ""
+        },
+        {
+          "name": "Barbara J. van den Hoofdakker",
+          "orcid": "0000-0001-9570-9976"
+        }
+      ],
+      "metadata/inclusion_criteria.json": {
+        "population": {
+          "inclusion": [
+            "Children and adolescents with ADHD under the age of 18 years meeting clinical cut-offs on ADHD questionnaires or meeting DSM-III (American Psychiatric Association, 1980), DSM-IV (American Psychiatric Association, 1994), DSM-IV-TR (American Psychiatric Association, 2000), or DSM-5 (American Psychiatric Association, 2013) criteria for ADHD on a (semi)structured interview"
+          ],
+          "exclusion": [
+            "Studies primarily aimed at samples with comorbid ADHD"
+          ]
+        },
+        "intervention": {
+          "inclusion": [
+            "Behavioral parent or teacher training, multimodal intervention (i.e., a combination of parent, teacher, and/or child training)"
+          ],
+          "exclusion": []
+        },
+        "comparison": {
+          "inclusion": [
+            "Control condition was either (i) an active control treatment (i.e., a treatment arm that controls for nonspecific effects of the intervention); (ii) a treatment as usual; (iii) a no treatment/waitlist control. If trials had two control conditions, the condition with the highest quality (defined above i > ii > iii) was selected as the comparison."
+          ],
+          "exclusion": [
+            "Medication or intervention arms in which medication was (part of) the treatment"
+          ]
+        },
+        "outcome": {
+          "inclusion": [
+            "Total ADHD symptoms, separate symptoms of inattention and hyperactivity/impulsivity, and behavioral problems (symptoms of oppositional defiant disorder [ODD], or conduct disorder [CD])"
+          ],
+          "exclusion": []
+        },
+        "study_design": {
+          "inclusion": [
+            "Randomized controlled trials (RCTs)"
+          ],
+          "exclusion": []
+        },
+        "other": {
+          "inclusion": [],
+          "exclusion": []
+        }
+      },
+      "metadata/shorthand.txt": "adhd-psyctr",
+      "metadata/number_studies.txt": "32",
+      "metadata/last_search.txt": "2020-05-13",
+      "metadata/search_string.txt": "**PubMed**\n---\n(\"Attention Deficit Disorder with Hyperactivity\"[Mesh] OR ADHD[tiab] OR ADD[tiab] OR attention deficit*[tiab] OR hyperactiv*[tiab] OR hyperkinetic*[tiab] OR minimal brain deficit*[tiab] OR minimal brain dysfunction*[tiab])\nAND\n((\"Psychotherapy\"[Mesh] OR psychotherap*[tiab] OR psychological therap*[tiab] OR psychological intervent*[tiab] OR psychoeduca*[tiab] OR mentoring*[tiab] OR coaching*[tiab] OR mindful*[tiab] OR relax*[tiab] OR meditat*[tiab])\n OR  \n((parent*[tiab] OR mother[tiab] OR father[tiab] OR teacher*[tiab] OR school*[tiab]) \nAND \n(program*[tiab] OR train*[tiab] OR educa*[tiab] OR therapy*[tiab] OR therapies*[tiab] OR therapeu*[tiab]OR intervention*[tiab] OR coaching*[tiab] OR counseling*[tiab]))\nOR \n((behavio*[tiab] OR cognit*[tiab] OR “acceptance and commitment”[tiab] OR dialectica*[tiab]) \nAND \n(program*[tiab] OR therapy*[tiab] OR therapies*[tiab] OR therapeu*[tiab] OR intervention*[tiab] OR treatment*[tiab] OR train*[tiab]))  \nOR \n(psychosocial[tiab] \nAND \n(treatment*[tiab] OR therapy*[tiab] OR therapies*[tiab] OR therapeu*[tiab] OR  train*[tiab] OR intervention*[tiab] OR program*[tiab])) \nOR \n((skill*[tiab] OR organization*[tiab] OR organisation*[tiab] OR planning*[tiab] OR play*[tiab]) \nAND \n(train*[tiab] OR intervention*[tiab] OR program*[tiab])))\nAND \n(\"Adolescent\"[Mesh] OR \"Child\"[Mesh] OR child*[tiab] OR school*[tiab] OR infan*[tiab] OR adolescen*[tiab] OR pediatri*[tiab] OR paediatr*[tiab] OR boy[tiab] OR boys[tiab] OR boyhood[tiab] OR girl[tiab] OR girls[tiab] OR girlhood[tiab] OR youth[tiab] OR youths[tiab] OR teen[tiab] OR teens[tiab] OR teenage*[tiab] OR puberty[tiab] OR preschool*[tiab] OR toddler*[tiab] OR juvenile*[tiab] OR kids[tiab])\nAND  \n(\"Controlled Clinical Trial\" [Publication Type] OR \"Randomized Controlled Trials as Topic\"[Mesh] OR  \"Follow-Up Studies\"[Mesh] OR follow-up[tiab] OR followup[tiab] OR control group*[tiab] OR \"Random Allocation\"[Mesh] OR random*[tiab] OR trial[ti])\n\n**EMBASE EMBASE.com (combine separate parts on website)**\n---\n('attention deficit disorder'/exp OR (ADHD OR ADD OR ‘attention deficit*’\nOR hyperactiv* OR hyperkinetic* OR ‘minimal brain deficit*’ OR ‘minimal brain dysfunction*’):ab,ti)\nAND\n('psychotherapy'/exp OR (psychotherap* OR ‘psychological therap*’ OR ‘psychological intervent*’ OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*):ab,ti)\n OR  \n((((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n(psychosocial \nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR  train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*))):ab,ti)\nAND \n('juvenile'/exp OR (child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenage* OR puberty OR preschool* OR toddler* OR juvenile* OR kids):ab,ti)\nAND  \n('controlled clinical trial'/exp OR 'randomization'/exp OR (‘control group*’ OR random*):ab,ti OR trial:ti)\n\n**EBSCO PsycINFO (add separate parts)**\n---\n(DE \"Attention Deficit Disorder\" OR DE \"Attention Deficit Disorder with Hyperactivity\" OR ADHD OR ADD OR “attention deficit*” OR hyperactiv* OR hyperkinetic* OR “minimal brain deficit*” OR “minimal brain dysfunction*”)\nAND\n(DE \"Psychotherapy\" OR DE \"Child Psychotherapy\" OR DE \"Play Therapy\" OR  DE \"Behavior Therapy\" OR DE \"Aversion Therapy\" OR DE \"Conversion Therapy\" OR DE \"Dialectical Behavior Therapy\" OR DE \"Exposure Therapy\" OR DE \"Implosive Therapy\" OR DE \"Reciprocal Inhibition Therapy\" OR DE \"Response Cost\" OR DE \"Systematic Desensitization Therapy\" AND DE \"Cognitive Behavior Therapy\" OR DE \"Cognitive Therapy\" OR DE \"Group Psychotherapy\" OR DE \"Neurotherapy\" OR psychotherap* OR “psychological therap*” OR “psychological intervent*” OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*)\n OR  \n((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n(psychosocial \nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR  train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*))\nAND \n(AG (childhood OR adolescence) OR (child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenage* OR puberty OR preschool* OR toddler* OR juvenile* OR kids))\nAND  \n(“control group*” OR random* OR \"controlled trial\" OR \"controlled study\" OR \"experimental study\" OR \"experimental design\" OR TI trial)\n\n**EBSCO CINAHL (separate parts)**\n---\n(MH \"Attention Deficit Hyperactivity Disorder\" OR \"Attention Deficit Disorder with Hyperactivity\" OR ADHD OR ADD OR “attention deficit*” OR hyperactiv* OR hyperkinetic* OR “minimal brain deficit*” OR “minimal brain dysfunction*”)\nAND\n(MH \"Psychotherapy+\"  OR psychotherap* OR “psychological therap*” OR “psychological intervent*” OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*)\n OR  \n((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n(psychosocial \nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR  train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*))\nAND \n(AG child OR (child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenage* OR puberty OR preschool* OR toddler* OR juvenile* OR kids))\nAND  \n(MH \"Clinical Trials+\" OR “control group*” OR random* OR \"controlled trial\" OR \"controlled study\" OR \"experimental study\" OR \"experimental design\" OR TI trial) \n\n**EBSCO ERIC (separate parts)**\n---\n(DE \"Attention Deficit Disorder\" OR DE \"Attention Deficit Hyperactivity Disorder\"  OR ADHD OR ADD OR “attention deficit*” OR hyperactiv* OR hyperkinetic* OR “minimal brain deficit*” OR “minimal brain dysfunction*”)\nAND\n(DE \"Psychotherapy\" OR psychotherap* OR “psychological therap*” OR “psychological intervent*” OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*)\n OR  \n((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n(psychosocial \nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR  train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*))\nAND \n(child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenager* OR puberty OR preschool* OR toddler* OR juvenile* OR kids))\nAND  \n(“control group*” OR random* OR \"controlled trial\" OR \"controlled study\" OR \"experimental study\" OR \"experimental design\" OR TI trial)\n\n**Web of Science (via advanced search)**\n---\n(TS=(\"Attention Deficit Disorder with Hyperactivity\" OR ADHD OR ADD OR “attention deficit*” OR hyperactiv* OR hyperkinetic* OR “minimal brain deficit*” OR “minimal brain dysfunction*”))\nAND\n(TS=(psychotherap* OR psychotherap* OR “psychological therap*” OR “psychological intervent*” OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*\n OR  \n((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n(psychosocial \nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR  train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*))))\nAND \n(TS=(child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenager* OR puberty OR preschool* OR toddler* OR juvenile* OR kids))\nAND  \n(TS=(“clinical trial*” OR  “control group*” OR random* OR \"controlled trial\" OR \"controlled study\" OR \"experimental study\" OR \"experimental design\"))\n\n**Cochrane Central register of Controlled Trials (CENTRAL)**\n---\n(\"Attention Deficit Disorder with Hyperactivity\" OR ADHD OR ADD OR “attention deficit*” OR hyperactiv* OR hyperkinetic* OR “minimal brain deficit*” OR “minimal brain dysfunction*”)\nAND\n((psychotherap* OR “psychological therap*” OR “psychological intervent*” OR psychoeduca* OR mentoring* OR coaching* OR mindful* OR relax*)\n OR  \n((parent* OR mother OR father OR teacher* OR school*) \nAND \n(program* OR train* OR educa* OR therapy* OR therapies* OR therapeu*OR intervention* OR coaching* OR counseling*))\nOR \n((behavio* OR cognit* OR ‘acceptance and commitment’ OR dialectica*) \nAND \n(program* OR therapy* OR therapies* OR therapeu* OR intervention* OR treatment* OR train*))  \nOR \n((psychosocial)\nAND \n(treatment* OR therapy* OR therapies* OR therapeu* OR train* OR intervention* OR program*)) \nOR \n((skill* OR organization* OR organisation* OR planning* OR play*) \nAND \n(train* OR intervention* OR program*)))\nAND \n(child* OR school* OR infan* OR adolescen* OR pediatri* OR paediatr* OR boy OR boys OR boyhood OR girl OR girls OR girlhood OR youth OR youths OR teen OR teens OR teenage* OR puberty OR preschool* OR toddler* OR juvenile* OR kids)\n \n",
+      "metadata/search_flow.json": {
+        "database.hits": 23023,
+        "additional.records": 3,
+        "database.hits.duplicates.removed": 13053,
+        "records.screened": 13053,
+        "full.text.assessed.for.eligibility": 330,
+        "full.text.excluded.reasons": {
+          "Other publication type": 72,
+          "No RCT": 52,
+          "Other intervention": 48,
+          "Re-analysis": 38,
+          "Other population": 29,
+          "Foreign language": 14,
+          "Medication": 20,
+          "Other control group": 10,
+          "Other outcome": 15
+        },
+        "included": 32
+      },
+      "metadata/variable_description.json": {
+        "study": "Author of the study. Formated as: Last name of first author, year",
+        "condition_arm1": "Type of treatment (HNC= Helping the Noncompliant Child, NFPP= New Forest Parenting Package, Triple-P= Positive Parenting Program, BPT= behavioural parent training, STEPP= Strategies to Enhance Positive Parenting , DRC= daily report card, Coaches= Coaching Our Acting-out Children: Heightening Essential Skills, PSY= psychoeducation, EGTP= Enhanced Group Triple-P, PCIT= Parent-Child Interaction Therapy, FSS(-EE)= Family-School Success(-Early Education), CLS= Collaborative Life Skills, CLAS= Child Life and Attention Skills, PFT= parent-focused treatment, WPJ= Well Parent Japan, STAND= Supporting Teens' Academic Needs Daily, PT= parent training, IY= Incredible Years)",
+        "condition_arm2": "Type of comparator (tau= treatment as usual, wl= waitlist, PC&S= parent counseling and support, CARE= Coping With ADHD Through Relationships and Education)",
+        "multi_arm1": "In multiarm trials, this variable provides a specification of the type of treatment used in the first arm. This variable is set to NA (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of parent training interventions, face-to-face and Internet-based, this variable would be set to f2f and Internet, respectively.",
+        "multi_arm2": "In multiarm trials, this variable provides a specification of the type of treatment used in the second arm. This variable is set to NA (missing) when the study was not a multiarm trial. For example, if a multiarm trial employed two types of control groups, waitlist and placebo, this variable would be set to wl and plac, respectively. Typically, multiarm trials employ two or more active treatments (e.g. CBT and problem-solving therapy), which are compared to the same control group (e.g. a waitlist). This means that values in multi_arm2 do not differ (e.g. they are always wl for this specific multiarm trial); nevertheless, the variable should be specified in the dataset.",
+        "instrument": "Describes the instrument through which the relevant outcome was measured.",
+        "rating": "Encodes how the outcome measurement was rated (e.g., parent, teacher, mother, coder).",
+        "outcome_category": "Broad behavioural outcome category (ADHD total= total ADHD score, ADHD HI= hiperactivity, ADHD A= inattention, behavioural problems= other behavioural problems).",
+        "outcome_type": "Type of outcome that builds the basis of the comparison, e.g. means and standard deviations (msd), change from baseline, response, remission, other statistics, etc.",
+        "mean_arm1": "Mean arm 1",
+        "mean_arm2": "Mean arm 2",
+        "sd_arm1": "Standard deviation arm 1",
+        "sd_arm2": "Standard deviation arm 2",
+        "n_arm1": "Number of participants arm 1",
+        "n_arm2": "Number of participants arm 2",
+        "baseline_m_arm1": "Baseline mean arm 1",
+        "baseline_sd_arm1": "Baseline standard deviation arm 1",
+        "baseline_m_arm2": "Baseline mean arm 2",
+        "baseline_sd_arm2": "Baseline standard deviation arm 2",
+        "Source of participants": "Encodes how the participants were recruited (e.g., community, clinic, school).",
+        "Sex_percentage_male": "% of male participants",
+        "Mean_age": "Mean age of the sample",
+        "Country": "Country where the trial was carried out",
+        "Number_Sessions": "Intended number of sessions",
+        "time": "The measurement point at which the outcome was obtained (e.g. post or follow-up).",
+        "time_weeks": "The measurement point at which the outcome was obtained, in weeks after randomization. If unspecified, code as NA.",
+        "seq_gen": "Score on the sequence generation scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "alloc_conce": "Score on the allocation concealment scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "blindind_assess": "Score on the blinding of assessors scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "missing_data": "Score on the dealing with missing data scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "vested_int": "Score on the vested interest scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "selec_report": "Score on the selective reporting scale of the Risk of Bias assessment (0= high risk; 1= low risk; ?= unclear).",
+        "d1": "Risk of bias (tool 2) domain 1: Randomization process (low, some concerns or high)",
+        "d2": "Risk of bias (tool 2) domain 2: Deviations from the intended interventions (low, some concerns or high)",
+        "d3": "Risk of bias (tool 2) domain 3: Missing outcome data (low, some concerns or high)",
+        "d4": "Risk of bias (tool 2) domain 4: Measurement of the outcome (low, some concerns or high)",
+        "d5": "Risk of bias (tool 2) domain 5: Selection of the reported result (low, some concerns or high)",
+        "rob": "Overall risk of bias score (low, some concerns or high)",
+        "event_arm1": "Number of events (responders, remission, deterioration cases) in the first trial arm",
+        "event_arm2": "Number of events (responders, remission, deterioration cases) in the second trial arm",
+        "totaln_arm1": "Total number of participants arm 1 (event data)",
+        "totaln_arm2": "Total number of participants arm 2 (event data)",
+        "mean_change_arm1": "Mean change from baseline arm 1",
+        "mean_change_arm2": "Mean change from baseline arm 2",
+        "sd_change_arm1": "Standard deviation for the change from baseline arm 1",
+        "sd_change_arm2": "Standard deviation for the change from baseline arm 2",
+        "n_change_arm1": "Number of participants arm 1 (change scores)",
+        "n_change_arm2": "Number of participants arm 2 (change scores)",
+        "precalc_g": "The pre-calculated value of Hedges' g (small-sample bias corrected standardized mean difference; Hedges, 1981).",
+        "precalc_g_se": "Standard error of g",
+        "precalc_log_rr": "The pre-calculated value of the log-risk ratio logeRR, comparing events in the first arm to events in the second arm.",
+        "precalc_log_rr_se": "The standard error of the log-risk ratio logeRR, comparing events in the first arm to events in the second arm.",
+        ".id": "metapsyTools generated variable: Unique identifier for a trial arm comparison/row.",
+        ".g": "metapsyTools generated variable: Calculated effect size (Hedges' g).",
+        ".g_se": "metapsyTools generated variable: Standard error of Hedges' g.",
+        ".log_rr": "metapsyTools generated variable: Calculated effect size (logeRR).",
+        ".log_rr_se": "metapsyTools generated variable: Standard error of logeRR.",
+        ".event_arm1": "metapsyTools generated variable: Number of events (responders, remission, deterioration cases) in the first trial arm.",
+        ".event_arm2": "metapsyTools generated variable: Number of events (responders, remission, deterioration cases) in the second trial arm.",
+        ".totaln_arm1": "metapsyTools generated variable: Total sample size in the first trial arm.",
+        ".totaln_arm2": "metapsyTools generated variable: Total sample size in the second trial arm."
+      },
+      "metadata/references.json": {
+        "Abikoff, 2015": "Abikoff, H. B., Thompson, M., Laver‐Bradbury, C., Long, N., Brotman, L. M., Klein, R. G., … Sonuga‐Barke, E. (2015). Parent training for preschool ADHD: A randomized controlled trial of specialized and generic programs. Journal of Child Psychology and Psychiatry, 56(6), 618–631.",
+        "Au, 2014": "Au, A., Lau, K., Wong, A. H., Lam, C., Leung, C., Lau, J., Lee, Y. K. (2014) The Efficacy of a Group Triple P (Positive Parenting Program) for Chinese Parents with a Child Diagnosed with ADHD in Hong Kong: A Pilot Randomised Controlled Study, Australian Psychologist, 49(3), 151-162.",
+        "Chacko, 2009": "Chacko A, Wymbs BT, Wymbs FA, et al. (2009). Enhancing traditional behavioral parent training for single mothers of children with ADHD. J Clin Child Adolesc Psychol, 38(2):206-218.",
+        "Corkum, 2019": "Corkum, P., Elik, N., Blotnicky-Gallant, P. A. C., McGonnell, M., & McGrath, P. (2015). Web-Based Intervention for Teachers of Elementary Students With ADHD: randomized Controlled Trial, Journal of Attention Disorders, 1-13.",
+        "Daley, 2013": "Daley, D., O’Brien, M. (2013). A small-scale randomized controlled trial of the self-help version of the New Forest Parent Training Programme for children with ADHD symptoms. Eur Child Adolesc Psychiatry, 22(9):543-552.",
+        "DuPaul, 2018": "DuPaul, G. J., Kern, L., Belk, G,, et al. (2018) Face-to-Face Versus Online Behavioral Parent Training for Young Children at Risk for ADHD: Treatment Engagement and Outcomes. J Clin Child Adolesc Psychol. 47(1), S369-S383.",
+        "Fabiano, 2010": "Fabiano, G., Pelham, W., Waschbusch, D., Massetti, G., Vujnovic, R., Pariseau, M., Naylor, J., Robins, M., Carnefix, T., Greiner, A., Volker, M., Lopata, C. (2010). Enhancing the Effectiveness of Special Education Programming for Children With Attention Deficit Hyperactivity Disorder Using a Daily Report Card. School psychology review. 39. 219-239.",
+        "Fabiano, 2012": "Fabiano, G.A., Pelham, W.E., Cunningham, C.E., et al. (2012) A Waitlist-Controlled Trial of Behavioral Parent Training for Fathers of Children with ADHD. J Clin Child Adolesc Psychol, 41(3), 337-345.",
+        "Ferrin, 2014": "Ferrin, M., Moreno-Granados, J. M., Salcedo-Marin, M. D., Ruiz-Veguilla, M., Perez-Ayala, V., & Taylor, E. (2014). Evaluation of a psychoeducation programme for parents of children and adolescents with ADHD: Immediate and long-term effects using a blind randomized controlled trial. European Child and Adolescent Psychiatry, 23(8), 637–647.",
+        "Ferrin, 2016": "Ferrin, M., Perez-Ayala, V., El-Abd, S., Lax-Pericall, T., Jacobs, B., Bilbow, A., & Taylor, E. (2016). A Randomized Controlled Trial Evaluating the Efficacy of a Psychoeducation Program for Families of Children and Adolescents With ADHD in the United Kingdom. Journal of Attention Disorders, 1-12.",
+        "Franke, 2016": "Franke, N., Keown, L.J., Sanders, M.R. (2016) An RCT of an Online Parenting Program for Parents of Preschool-Aged Children With ADHD symptoms. J Atten Disord.",
+        "Herbert, 2013": "Herbert, S.D., Harvey, E.A., Roberts, J.L., Wichowski, K., Lugo-Candelas, C.I. (2013) A Randomized Controlled Trial of a Parent Training and Emotion Socialization Program for Families of Hyperactive Preschool-Aged Children. Behav Ther, 44(2), 302-316.",
+        "Hoath, 2002": "Hoath, F. E., Sanders, M.R. (2002). A feasibility study of Enhanced Group Triple P – Positive parenting program for parents of children with attention-deficit/hyperactivity disorder. Behav Chang, 19(4), 191-206.",
+        "Lange, 2018": "Lange, A.M., Daley, D., Frydenberg, M., et al. (2018) Parent Training for Preschool ADHD in Routine, Specialist Care: A Randomized Controlled Trial. J Am Acad Child Adolesc Psychiatry, 57(8), 593-602.",
+        "Matos, 2009": "Matos, M., Bauermeister, J.J., Bernal, G. (2009) Parent-child interaction therapy for puerto rican preschool children with ADHD and behavior problems: A pilot efficacy study. Fam Process, 48(2), 232-252.",
+        "Mautone et al., 2012": "Mautone, J.A., Marshall, S.A., Sharman, J., Eiraldi, R. B., Jawad, A.F., Power, T.J. (2012) Development of a family-School intervention for young children with attention deficit hyperactivity disorder. School Psych Rev, 41(4), 447-466.",
+        "Miranda, 2013": "Miranda, A., Presentación, M. J., Siegenthaler, R., & Jara, P. (2013). Effects of a Psychosocial Intervention on the Executive Functioning in Children With ADHD. Journal of Learning Disabilities, 46(4), 363–376.",
+        "Murray, 2008": "Murray, D. W., Rabiner, D., Schulte, A., Newitt, K. (2008). Feasibility and Integrity of a Parent–Teacher Consultation Intervention for ADHD Students. Child Youth Care Forum, 37, 111–126.",
+        "Pfiffner, 2014": "Pfiffner, L. J., Hinshaw, S. P., Owens, E., Zalecki, C., Kaiser, N. M., Villodas, M., & McBurnett, K. (2014). A two-site randomized clinical trial of integrated psychosocial treatment for ADHD-inattentive type. Journal of consulting and clinical psychology, 82(6), 1115–1127.",
+        "Pfiffner, 2016": "Pfiffner, L.J., Rooney, M., Haack, L., Villodas, M., Delucchi, K., McBurnett, K. (2016). A Randomized Controlled Trial of a School-Implemented School-Home Intervention for Attention-Deficit/Hyperactivity Disorder Symptoms and Impairment. J Am Acad Child Adolesc Psychiatry,  55(9), 762-70.",
+        "Pisterman, 1989": "Pisterman, S., McGrath, P., Firestone, P., Goodman, J.T., Webster, I., Mallory, R. (1989) Outcome of Parent-Mediated Treatment of Preschoolers With Attention Deficit Disorder With Hyperactivity. J Consult Clin Psychol, 57(5), 628-635.",
+        "Pisterman, 1992": "Pisterman, S., Firestone, P., McGrath, P., et al. (1992). The role of parent training in treatment of preschoolers with ADDH. Am J Orthopsychiatry, 62(3), 397-408.",
+        "Power, 2012": "Power, T.J., Mautone, J.A., Soffer, S.L., et al. (2012) A family-school intervention for children with ADHD: Results of a randomized clinical trial. J Consult Clin Psychol, 80(4), 611- 623.",
+        "Seeley, 2009": "Seeley, J. R., Small, J. W., Walker, H. M., Feil, E. G., Severson, H. H., Golly, A. M., & Forness, S. R. (2009). Efficacy of the First Step to Success intervention for students with attention-deficit/hyperactivity disorder. School Mental Health, 1(1), 37–48.",
+        "Shimabukuro, 2020": "Shimabukuro, S., Daley, D., Thompson, M., Laver-Bradbury, C., Lovern, K., Tripp, G. (2020). Supporting Japanese Mothers of Children at Risk for Attention Deficit Hyperactivity Disorder (ADHD): A Small Scale Randomized Control Trial of Well Parent Japan. J Child Fam Stud, 29(6), 1604-1616.",
+        "Sibley, 2013": "Sibley, M.H., Pelham, W.E., Derefinko, K.J. et al. (2013). A Pilot Trial of Supporting teens’ Academic Needs Daily (STAND): A Parent-Adolescent Collaborative Intervention for ADHD. Journal of Psychopathology and Behavior Assessment, 35, 436–449.",
+        "Sibley, 2016": "Sibley, M.H., Graziano, P.A., Kuriyan, A. B., et al. (2016). Parent-Teen Behavior Therapy + Motivational Interviewing for Adolescents with ADHD. J Consult Clin Psychol, 84(8), 699-712.",
+        "Sonuga Barke, 2001": "Sonuga-Barke, E. J. S., Daley, D., Thompson, M., Laver-Bradbury, C., Weeks, A. (2001). Parent-based therapies for preschool attention-deficit/hyperactivity disorder: A randomized controlled trial with a community sample. J Am Acad Child Adolesc Psychiatry, 40(4), 402-408.",
+        "Sonuga Barke, 2004": "Sonuga-Barke, E. J. S., Thompson, M., Daley, D., Laver-Bradbury, C. (2004). Parent training for attention deficit/hyperactivity disorder: Is it as effective when delivered as routine rather than as specialist care?  British Journal of Clinical Psychology, 43(4), 449-457.",
+        "Sonuga-Barke, 2018": "Sonuga-Barke, E. J. S., Barton, J., Daley, D., et al. (2018). A comparison of the clinical effectiveness and cost of specialised individually delivered parent training for preschool attentiondeficit/hyperactivity disorder and a generic, group-based programme: a multi-centre, randomised controlled trial of the New F. Eur Child Adolesc Psychiatry, 27(6), 797-809.",
+        "Thompson, 2009": "Thompson, M. J. J., Laver-Bradbury, C., Ayres, M., et al. (2009). A small-scale randomized controlled trial of the revised new forest parenting programme for preschoolers with attention deficit hyperactivity disorder. Eur Child Adolesc Psychiatry, 18(10), 605-616.",
+        "Van den Hoofdakker, 2007": "Van den Hoofdakker, B.J., Van der Veen-Mulders, L., Sytema, S., Emmelkamp, P. M. G., Minderaa, R.B., Nauta, M.H. (2007). Effectiveness of behavioral parent training for children with ADHD in routine clinical practice: A randomized controlled study. J Am Acad Child Adolesc Psychiatry, 46(10), 1263-1271."
+      },
+      "metadata/registration.txt": "https://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42018096768"
+    }
   }
 ]

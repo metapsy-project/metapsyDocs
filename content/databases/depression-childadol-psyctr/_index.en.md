@@ -93,12 +93,21 @@ Studies in the `depression-childadol-psyctr` dataset were extracted from the lar
 <button class="citation-copy-btn" onclick="copyCitation('citation-depression-childadol-psyctr', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
 <i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
 </button>
+<div class="citation-scroll">
+<ul class="citation-list">
+<li>
 {{< zenodo-authors doi="10.5281/zenodo.8096828" >}}
 {{< zenodo-last-updated-year doi="10.5281/zenodo.8096828" >}}.
 <i>Database of depression psychotherapy trials in children & adolescents with control conditions. Part of the Metapsy project </i>
 (Version {{< zenodo-version doi="10.5281/zenodo.8096828" >}}).
 URL docs.metapsy.org/databases/depression-childadol-psyctr.
 DOI {{< zenodo-doi doi="10.5281/zenodo.8096828" >}}.
+</li>
+<li class="citation-additional">
+Harrer, M., Miguel, C., Van Ballegooijen, W., Ciharova, M., Plessen, C. Y., Kuper, P., ... & Cuijpers, P. (2025). Effectiveness of psychotherapy: Synthesis of a “meta-analytic research domain” across world regions and 12 mental health problems. <i>Psychological Bulletin</i>, 151(5), 600. DOI <a href="https://doi.org/10.1037/bul0000465" target="_blank" rel="noopener">https://doi.org/10.1037/bul0000465</a>.
+</li>
+</ul>
+</div>
 </div>
 
 <br>

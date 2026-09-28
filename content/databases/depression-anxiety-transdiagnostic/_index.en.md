@@ -86,7 +86,16 @@ Studies in the "depression-anxiety-transdiagnostic" dataset were extracted from 
 <button class="citation-copy-btn" onclick="copyCitation('citation-depression-anxiety-transdiagnostic', this)" title="Copy citation to clipboard" style="position: absolute; top: 10px; right: 10px;">
 <i class="bi bi-clipboard" style="padding-top: 0.5rem;"></i>
 </button>
+<div class="citation-scroll">
+<ul class="citation-list">
+<li>
 {{< zenodo-authors doi="10.5281/zenodo.7243836" >}} {{< zenodo-last-updated-year doi="10.5281/zenodo.7243836" >}}. <i>Database of transdiagnostic psychotherapy trials for depression and anxiety. Part of the Metapsy project </i> (Version {{< zenodo-version doi="10.5281/zenodo.7243836" >}}). URL docs.metapsy.org/databases/depression-anxiety-transdiagnostic. DOI {{< zenodo-doi doi="10.5281/zenodo.7243836" >}}.
+</li>
+<li class="citation-additional">
+Harrer, M., Miguel, C., Van Ballegooijen, W., Ciharova, M., Plessen, C. Y., Kuper, P., ... & Cuijpers, P. (2025). Effectiveness of psychotherapy: Synthesis of a “meta-analytic research domain” across world regions and 12 mental health problems. <i>Psychological Bulletin</i>, 151(5), 600. DOI <a href="https://doi.org/10.1037/bul0000465" target="_blank" rel="noopener">https://doi.org/10.1037/bul0000465</a>.
+</li>
+</ul>
+</div>
 </div>
 
 <br>
