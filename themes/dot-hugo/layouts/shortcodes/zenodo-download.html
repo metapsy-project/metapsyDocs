@@ -14,8 +14,308 @@
   .loader-spinner { width: 20px; height: 20px; margin-left: 5px; margin-bottom: -5px; border: 2px solid rgb(133, 133, 133);
       border-bottom-color: transparent; border-radius: 50%; display: inline-block;
       box-sizing: border-box; animation: rotation 1s linear infinite;}
-      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
-  </style>
+      @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+
+  @keyframes dg-fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes dg-slide-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  .download-guidelines-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(15, 20, 25, 0.95);
+    animation: dg-fade-in .15s ease-out;
+  }
+
+  .download-guidelines-modal.is-open {
+    display: flex;
+  }
+
+  .download-guidelines-modal-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 980px;
+    max-height: calc(100vh - 48px);
+    background-color: var(--white-color, #fff);
+    color: var(--text-color, #636363);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    animation: dg-slide-up .2s ease-out;
+    text-align: left;
+  }
+
+  /* Header */
+  .download-guidelines-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--hr-color, rgba(0, 0, 0, .1));
+    flex-shrink: 0;
+  }
+
+  .download-guidelines-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+    color: var(--text-color, #636363);
+    background-color: rgba(127, 127, 127, 0.1);
+    border: 1px solid rgba(0, 0, 0, .1);
+  }
+
+  .download-guidelines-header-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .download-guidelines-modal-header h4 {
+    margin: 0 0 2px;
+    font-size: 18px !important;
+    line-height: 1.3;
+    color: var(--text-color-dark, #242738);
+  }
+
+  .download-guidelines-subtitle {
+    margin: 0 !important;
+    font-size: 13px !important;
+    color: var(--text-color, #636363);
+    opacity: .85;
+  }
+
+  .download-guidelines-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    align-self: flex-start;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 14px;
+    color: var(--text-color, #636363);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .download-guidelines-close:hover,
+  .download-guidelines-close:focus {
+    color: #fff !important;
+    background-color: var(--bs-primary, #0372b7) !important;
+    outline: 0;
+  }
+
+  .download-guidelines-close:hover i,
+  .download-guidelines-close:focus i {
+    color: #fff !important;
+  }
+
+  /* Body */
+  .download-guidelines-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 18px 28px 22px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .download-guidelines-body p {
+    margin: 0 0 10px;
+    font-size: 14px !important;
+    line-height: 1.6;
+    color: var(--text-color, #636363);
+  }
+
+  .download-guidelines-body strong {
+    color: var(--text-color-dark, #242738);
+    font-weight: 700;
+  }
+
+  .download-guidelines-body a {
+    color: var(--bs-primary, #0372b7);
+    text-decoration: none;
+  }
+
+  .download-guidelines-body a:hover {
+    text-decoration: underline;
+  }
+
+  .download-guidelines-license {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    border-left: 3px solid color-mix(in srgb, var(--text-color, #636363) 45%, transparent);
+    background-color: rgba(127, 127, 127, 0.08);
+  }
+
+  .download-guidelines-license > i {
+    margin-top: 3px;
+    font-size: 15px;
+    color: var(--bs-primary, #0372b7);
+  }
+
+  .download-guidelines-license p {
+    margin: 0;
+  }
+
+  .download-guidelines-body p.download-guidelines-note {
+    font-size: 13px !important;
+    opacity: .85;
+  }
+
+  .download-guidelines-body h5 {
+    margin: 22px 0 10px;
+    padding-bottom: 8px;
+    font-size: 15px !important;
+    font-weight: 700;
+    color: var(--text-color-dark, #242738);
+    border-bottom: 1px solid var(--hr-color, rgba(0, 0, 0, .1));
+  }
+
+  .download-guidelines-body ul {
+    margin: 0 0 12px !important;
+    padding: 0;
+    list-style: none;
+    font-size: 14px !important;
+  }
+
+  .download-guidelines-body li {
+    position: relative;
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color, #636363);
+  }
+
+  .download-guidelines-body li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--bs-primary, #0372b7);
+  }
+
+  .theme-dark .download-guidelines-body li::before {
+    background-color: var(--text-color, #ffffff);
+  }
+
+  /* Footer */
+  .download-guidelines-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 28px;
+    border-top: 1px solid var(--hr-color, rgba(0, 0, 0, .1));
+    background-color: rgba(127, 127, 127, 0.05);
+    flex-shrink: 0;
+  }
+
+  .download-guidelines-footer-hint {
+    margin: 0 !important;
+    font-size: 12.5px !important;
+    color: var(--text-color, #636363);
+    opacity: .85;
+  }
+
+  .download-guidelines-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .download-guidelines-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px 18px;
+    font-family: var(--font-family), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    border: 1px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .download-guidelines-btn i {
+    font-size: 12px;
+  }
+
+  .download-guidelines-btn-cancel {
+    align-self: center;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--text-color-dark, #242738) !important;
+    background-color: transparent !important;
+    border-color: var(--hr-color, rgba(0, 0, 0, .15));
+  }
+
+  .download-guidelines-btn-cancel i {
+    font-size: 11px;
+  }
+
+  .download-guidelines-btn-cancel:hover {
+    color: var(--bs-primary, #0372b7) !important;
+    background-color: rgba(127, 127, 127, 0.12) !important;
+    border-color: var(--bs-primary, #0372b7);
+  }
+
+  .download-guidelines-btn-agree {
+    padding: 14px 24px;
+    font-size: 15px;
+    color: #fff !important;
+    background-color: var(--bs-primary, #0372b7) !important;
+    border-color: var(--bs-primary, #0372b7);
+  }
+
+  .download-guidelines-btn-agree i {
+    font-size: 14px;
+  }
+
+  .download-guidelines-btn-agree:hover {
+    color: #fff !important;
+    background-color: var(--bs-primary, #0372b7) !important;
+    filter: brightness(1.1);
+  }
+
+  .download-guidelines-btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(3, 114, 183, 0.25) !important;
+  }
+
+  @media (max-width: 640px) {
+    .download-guidelines-modal { padding: 12px; }
+    .download-guidelines-modal-content { max-height: calc(100vh - 24px); }
+    .download-guidelines-modal-header,
+    .download-guidelines-body,
+    .download-guidelines-footer { padding-left: 18px; padding-right: 18px; }
+    .download-guidelines-header-icon { display: none; }
+    .download-guidelines-footer { flex-direction: column; align-items: stretch; }
+    .download-guidelines-footer-hint { display: none; }
+    .download-guidelines-actions { flex-direction: column-reverse; }
+    .download-guidelines-btn { width: 100%; }
+  }
+</style>
 
 <script>
 (function() {
@@ -40,104 +340,211 @@
   }
 
   var randID = makeid(10);
+  var modalId = "download-guidelines-modal-" + randID;
+  var pendingDownloadVersion = null;
+  var previousBodyOverflow = "";
 
-// Download ZIP file from Zenodo - make it globally accessible
-window.downloadData = function(version) {
-  // Wait for data to be loaded
-  if (!isDataSaved()) {
-    setTimeout(function() { downloadData(version); }, 1000);
-    return;
-  }
-
-  var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-  var found = false;
-
-  for (var i = 0; i < post.length; i++) {
-    var searchDOI = post[i].conceptdoi ? post[i].conceptdoi.toString() : "";
-    searchDOI = JSON.stringify(searchDOI);
-    var inputDOI = JSON.stringify("{{.Get `doi`}}");
-
-    if (searchDOI === inputDOI && post[i].metadata.version === version) {
-      found = true;
-      
-      // Get the record ID and file info
-      var recordId = post[i].id || post[i].record_id;
-      var files = post[i].files || [];
-      
-      if (files.length > 0) {
-        // Use the filename from the files array
-        var filename = files[0].filename || files[0].key;
-        
-        // Construct the public API download URL
-        // Format: https://zenodo.org/api/records/{record_id}/files/{filename}/content
-        var downloadUrl = "https://zenodo.org/api/records/" + recordId + "/files/" + encodeURIComponent(filename) + "/content";
-        
-        // Create a temporary link and trigger download
-        var link = document.createElement("a");
-        link.href = downloadUrl;
-        link.download = filename;
-        link.style.display = "none";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-      break;
+  function onGuidelinesKeydown(event) {
+    if (event.key === "Escape") {
+      closeDownloadGuidelines();
     }
   }
-  
-  if (!found) {
-    console.error("Version not found or no files available");
-  }
-};
 
-// Render download menu
-function renderDownload() {
-  // Wait for data to be saved
-  function waitForData() {
+  function closeDownloadGuidelines() {
+    pendingDownloadVersion = null;
+    var modal = document.getElementById(modalId);
+    if (modal && modal.classList.contains("is-open")) {
+      modal.classList.remove("is-open");
+      document.body.style.overflow = previousBodyOverflow;
+      document.removeEventListener("keydown", onGuidelinesKeydown);
+    }
+  }
+
+  function ensureDownloadGuidelinesModal() {
+    var modal = document.getElementById(modalId);
+    if (modal) {
+      return modal;
+    }
+
+    modal = document.createElement("div");
+    modal.id = modalId;
+    modal.className = "download-guidelines-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", modalId + "-title");
+    modal.innerHTML =
+      '<div class="download-guidelines-modal-content">' +
+        '<div class="download-guidelines-modal-header">' +
+          '<span class="download-guidelines-header-icon"><i class="ti-info"></i></span>' +
+          '<div class="download-guidelines-header-text">' +
+            '<h4 id="' + modalId + '-title">Guidelines and Recommendations for Using Metapsy Databases</h4>' +
+            '<p class="download-guidelines-subtitle">Please read the following before downloading the data.</p>' +
+          '</div>' +
+          '<button type="button" class="download-guidelines-close" aria-label="Close"><i class="ti-close"></i></button>' +
+        '</div>' +
+        '<div class="download-guidelines-body">' +
+          '<div class="download-guidelines-license">' +
+            '<i class="ti-unlock"></i>' +
+            '<p>All Metapsy databases are provided under the <a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noopener">Open Data Commons Attribution License (ODC-By) v1.0</a>. You are free to download, share, adapt, and reuse the data for any purpose, including commercial use, as long as you give appropriate attribution. Please cite the database version you used and the reference publication listed on the database’s page.</p>' +
+          '</div>' +
+          '<p class="download-guidelines-note">The recommendations below are not license conditions. They describe a few recommendations for good practice that we believe lead to better research.</p>' +
+          '<h5>Using the databases for stand-alone meta-analyses</h5>' +
+          '<p>If you plan to use a Metapsy database for a stand-alone meta-analysis intended for publication in a peer-reviewed journal, we <strong>strongly recommend</strong> that you <a href="https://www.metapsy.org/contact" target="_blank" rel="noopener">contact our team first</a>. There are several reasons for this:</p>' +
+          '<ul>' +
+            '<li>More recent data. In most cases, a more up-to-date version of the database is available internally. We are usually happy to share it for scientific publications.</li>' +
+            '<li>Correct interpretation. Some data items and coding procedures are easy to misunderstand, for example how multi-arm trials, outcome selection, or risk of bias ratings were handled. We can help make sure the data are represented correctly in your paper.</li>' +
+            '<li>Reporting requirements. Journals and reviewers will usually ask for details on searches, screening, and study selection (e.g., following PRISMA). We can provide the documentation you need.</li>' +
+            '<li>Known corrections. We may be aware of errors or pending corrections that are not yet part of the public release.</li>' +
+            '<li>Avoiding duplicate work. Our team or collaborators may already be working on the same or a closely related question. Coordinating early helps avoid redundant publications and wasted effort on both sides.</li>' +
+          '</ul>' +
+          '<h5>Supporting open science</h5>' +
+          '<p>Metapsy works because researchers in our collaboration make their data freely available. Keeping the databases up to date involves substantial ongoing work: running new searches, screening records, extracting and double-checking data, and maintaining the infrastructure. This work is carried out by the database teams and their principal investigators.</p>' +
+          '<p>If you would like to support this effort, there are several ways to do so:</p>' +
+          '<ul>' +
+            '<li>Cite properly. Cite the database and its reference publication. This is the main way our contributors receive credit for their work.</li>' +
+            '<li>Collaborate. If you are planning a publication, consider working together with the database team. When team members contribute meaningfully to your project (e.g., by providing updated data, advising on the analysis, or reviewing the manuscript), co-authorship following <a href="https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html" target="_blank" rel="noopener">ICMJE criteria</a> is a natural way to recognize that contribution. Feel free to contact us <a href="https://www.metapsy.org/contact" target="_blank" rel="noopener">here</a>.</li>' +
+            '<li>Give back. Let us know if you find errors, and consider sharing data you have extracted or coded yourself so it can benefit others.</li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="download-guidelines-footer">' +
+          '<p class="download-guidelines-footer-hint">By continuing, you confirm that you have read these guidelines.</p>' +
+          '<div class="download-guidelines-actions">' +
+            '<button type="button" class="download-guidelines-btn download-guidelines-btn-cancel"><i class="ti-close"></i>Cancel</button>' +
+            '<button type="button" class="download-guidelines-btn download-guidelines-btn-agree"><i class="ti-check"></i>I understand and want to download</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(modal);
+
+    modal.querySelector(".download-guidelines-close").addEventListener("click", closeDownloadGuidelines);
+    modal.querySelector(".download-guidelines-btn-cancel").addEventListener("click", closeDownloadGuidelines);
+    modal.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        closeDownloadGuidelines();
+      }
+    });
+    modal.querySelector(".download-guidelines-btn-agree").addEventListener("click", function() {
+      var version = pendingDownloadVersion;
+      closeDownloadGuidelines();
+      if (version) {
+        downloadData(version);
+      }
+    });
+
+    return modal;
+  }
+
+  window.showDownloadGuidelines = function(version) {
+    pendingDownloadVersion = version;
+    var modal = ensureDownloadGuidelinesModal();
+    if (!modal.classList.contains("is-open")) {
+      previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", onGuidelinesKeydown);
+      modal.classList.add("is-open");
+    }
+    modal.querySelector(".download-guidelines-body").scrollTop = 0;
+    modal.querySelector(".download-guidelines-btn-agree").focus();
+  };
+
+  // Download ZIP file from Zenodo - make it globally accessible
+  window.downloadData = function(version) {
+    // Wait for data to be loaded
     if (!isDataSaved()) {
-      setTimeout(waitForData, 1000);
+      setTimeout(function() { downloadData(version); }, 1000);
       return;
     }
-    renderDownloadMenu();
-  }
-  
-  function renderDownloadMenu() {
+
     var post = JSON.parse(sessionStorage.getItem("apiResponse"));
-    var html = "";
-    var isFirst = true;
+    var found = false;
 
     for (var i = 0; i < post.length; i++) {
       var searchDOI = post[i].conceptdoi ? post[i].conceptdoi.toString() : "";
       searchDOI = JSON.stringify(searchDOI);
       var inputDOI = JSON.stringify("{{.Get `doi`}}");
 
-      if (searchDOI === inputDOI) {
-        var months = [
-          "January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"
-        ];
-        var d = new Date(post[i].created);
-        var month = months[d.getMonth()];
-        var year = d.getFullYear();
-        var day = d.getDate();
-        var modDate = month + " " + day + ", " + year;
+      if (searchDOI === inputDOI && post[i].metadata.version === version) {
+        found = true;
 
-        if (isFirst) {
-          html += "<li><a onclick=\"downloadData('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + "; latest)</a></li>";
-          isFirst = false;
-        } else {
-          html += "<li><a onclick=\"downloadData('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + ")</a></li>";
+        // Get the record ID and file info
+        var recordId = post[i].id || post[i].record_id;
+        var files = post[i].files || [];
+
+        if (files.length > 0) {
+          // Use the filename from the files array
+          var filename = files[0].filename || files[0].key;
+
+          // Construct the public API download URL
+          // Format: https://zenodo.org/api/records/{record_id}/files/{filename}/content
+          var downloadUrl = "https://zenodo.org/api/records/" + recordId + "/files/" + encodeURIComponent(filename) + "/content";
+
+          // Create a temporary link and trigger download
+          var link = document.createElement("a");
+          link.href = downloadUrl;
+          link.download = filename;
+          link.style.display = "none";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         }
+        break;
       }
     }
 
-    var div = document.getElementById("ph-download");
-    div.id = randID;
-    div.innerHTML = html;
+    if (!found) {
+      console.error("Version not found or no files available");
+    }
+  };
+
+  // Render download menu
+  function renderDownload() {
+    // Wait for data to be saved
+    function waitForData() {
+      if (!isDataSaved()) {
+        setTimeout(waitForData, 1000);
+        return;
+      }
+      renderDownloadMenu();
+    }
+
+    function renderDownloadMenu() {
+      var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      var html = "";
+      var isFirst = true;
+
+      for (var i = 0; i < post.length; i++) {
+        var searchDOI = post[i].conceptdoi ? post[i].conceptdoi.toString() : "";
+        searchDOI = JSON.stringify(searchDOI);
+        var inputDOI = JSON.stringify("{{.Get `doi`}}");
+
+        if (searchDOI === inputDOI) {
+          var months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ];
+          var d = new Date(post[i].created);
+          var month = months[d.getMonth()];
+          var year = d.getFullYear();
+          var day = d.getDate();
+          var modDate = month + " " + day + ", " + year;
+
+          if (isFirst) {
+            html += "<li><a onclick=\"showDownloadGuidelines('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + "; latest)</a></li>";
+            isFirst = false;
+          } else {
+            html += "<li><a onclick=\"showDownloadGuidelines('" + post[i].metadata.version + "')\"><strong> Version " + post[i].metadata.version + "</strong> (" + modDate + ")</a></li>";
+          }
+        }
+      }
+
+      var div = document.getElementById("ph-download");
+      div.id = randID;
+      div.innerHTML = html;
+    }
+
+    waitForData();
   }
-  
-  waitForData();
-}
 
   renderDownload();
 })();
