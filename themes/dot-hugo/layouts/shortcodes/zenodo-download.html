@@ -39,7 +39,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 980px;
+    max-width: 860px;
     max-height: calc(100vh - 48px);
     background-color: var(--white-color, #fff);
     color: var(--text-color, #636363);
@@ -170,6 +170,12 @@
   .download-guidelines-body p.download-guidelines-note {
     font-size: 13px !important;
     opacity: .85;
+  }
+
+  .download-guidelines-hr {
+    margin: 14px 0 16px;
+    border: 0;
+    border-top: 1px solid var(--hr-color, rgba(0, 0, 0, .1));
   }
 
   .download-guidelines-body h5 {
@@ -387,22 +393,14 @@
             '<p>All Metapsy databases are provided under the <a href="https://opendatacommons.org/licenses/by/1-0/" target="_blank" rel="noopener">Open Data Commons Attribution License (ODC-By) v1.0↗</a>. You are free to download, share, adapt, and reuse the data for any purpose, including commercial use, as long as you give appropriate attribution. Please cite the database version you used and the reference publication listed on the database’s page.</p>' +
           '</div>' +
           '<p class="download-guidelines-note">The recommendations below are not license conditions. They describe a few recommendations for good practice that we believe lead to better research.</p>' +
-          '<h5>Using the databases for stand-alone meta-analyses</h5>' +
-          '<p>If you plan to use a Metapsy database for a stand-alone meta-analysis intended for publication in a peer-reviewed journal, we <strong>strongly recommend</strong> that you <a href="https://www.metapsy.org/contact" target="_blank" rel="noopener">contact our team first↗</a>. There are several reasons for this:</p>' +
+          '<hr class="download-guidelines-hr">' +
+          '<p>In general, we <strong>discourage</strong> the use of the datasets for new research <strong>without contacting</strong> the developers of the datasets first. If you require more recent data or want to discuss your research ideas, please do not hesitate to <a href="https://www.metapsy.org/contact" target="_blank" rel="noopener">contact us↗</a>. There are several reasons for this:</p>' +
           '<ul>' +
-            '<li>More recent data. In most cases, a more up-to-date version of the database is available internally. We are usually happy to share it for scientific publications.</li>' +
+            '<li>More recent data. In most cases, a more up-to-date version of the database is available internally. We are usually happy to share it for scientific publications under certain conditions.</li>' +
             '<li>Correct interpretation. Some data items and coding procedures are easy to misunderstand, for example how multi-arm trials, outcome selection, or risk of bias ratings were handled. We can help make sure the data are represented correctly in your paper.</li>' +
             '<li>Reporting requirements. Journals and reviewers will usually ask for details on searches, screening, and study selection (e.g., following PRISMA). We can provide the documentation you need.</li>' +
             '<li>Known corrections. We may be aware of errors or pending corrections that are not yet part of the public release.</li>' +
             '<li>Avoiding duplicate work. Our team or collaborators may already be working on the same or a closely related question. Coordinating early helps avoid redundant publications and wasted effort on both sides.</li>' +
-          '</ul>' +
-          '<h5>Supporting open science</h5>' +
-          '<p>Metapsy works because researchers in our collaboration make their data freely available. Keeping the databases up to date involves substantial ongoing work: running new searches, screening records, extracting and double-checking data, and maintaining the infrastructure. This work is carried out by the database teams and their principal investigators.</p>' +
-          '<p>If you would like to support this effort, there are several ways to do so:</p>' +
-          '<ul>' +
-            '<li>Cite properly. Cite the database and its reference publication. This is the main way our contributors receive credit for their work.</li>' +
-            '<li>Collaborate. If you are planning a publication, consider working together with the database team. When team members contribute meaningfully to your project (e.g., by providing updated data, advising on the analysis, or reviewing the manuscript), co-authorship following <a href="https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html" target="_blank" rel="noopener">ICMJE criteria↗</a> is a natural way to recognize that contribution. Feel free to contact us <a href="https://www.metapsy.org/contact" target="_blank" rel="noopener">here↗</a>.</li>' +
-            '<li>Give back. Let us know if you find errors, and consider sharing data you have extracted or coded yourself so it can benefit others.</li>' +
           '</ul>' +
         '</div>' +
         '<div class="download-guidelines-footer">' +
