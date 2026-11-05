@@ -29,6 +29,12 @@ Kyoto University, Vrije Universiteit Amsterdam
 
 <br>
 
+#### Online Meta-Analysis Tool
+
+A simplified version of this database can be analyzed at [metapsy.org/database/insomnia](https://www.metapsy.org/database/insomnia).
+
+<br>
+
 #### Metadata
 
 * <a href="https://data.metapsy.org" target="_blank">metapsyData</a> Shorthand: {{< zenodo-shorthand doi="10.5281/zenodo.23977511" >}}
