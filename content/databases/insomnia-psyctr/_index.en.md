@@ -15,11 +15,11 @@ hidden: false
 
 #### General Description
 
-The `data-insomnia-psyctr` dataset is a meta-analytic research domain (MARD; see the [MARD framework paper](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)), part of the [Metapsy project](https://www.metapsy.org/). It contains study information and effect size data from randomized controlled trials comparing psychological treatments with control conditions in adults with chronic insomnia. The date of the last search update is provided [here](https://github.com/metapsy-project/data-insomnia-psyctr/blob/master/metadata/last_search.txt).
+The `insomnia-psyctr` dataset is a meta-analytic research domain (MARD; see the [MARD framework paper](https://docs.metapsy.org/uploads/ebmental-2022-300509.pdf)) within the [Metapsy project](https://www.metapsy.org/). It includes study information and effect sizes from randomized trials of psychological treatments versus control conditions in adults with chronic insomnia. The date of the last search is available [here](https://github.com/metapsy-project/data-insomnia-psyctr/blob/master/metadata/last_search.txt).
 
-Psychological treatments include cognitive behavioural therapy for insomnia (CBT-I) and its components, grouped as CBT-I (`cbt`), behavioural therapy (`bt`), cognitive or third-wave therapy (`ct`), and relaxation (`re`), in any delivery format. Control conditions are waitlist (`wl`), no treatment (`nt`), placebo or attention control (`plb`), and psychoeducation or sleep hygiene education (`pe`). Reported outcomes include insomnia severity (e.g. ISI, PSQI) at post-treatment and long-term follow-up (3 to 12 months), sleep diary parameters (sleep efficiency, total sleep time, sleep onset latency, wake after sleep onset), and remission.
+Treatments cover cognitive behavioural therapy for insomnia (CBT-I) and related approaches, coded as CBT-I (`cbt`), behavioural therapy (`bt`), cognitive or third-wave therapy (`ct`), and relaxation (`re`), in any delivery format. Controls are waitlist (`wl`), no treatment (`nt`), placebo or attention control (`plb`), and psychoeducation or sleep hygiene (`pe`). Outcomes include insomnia severity (e.g. ISI, PSQI) at post-treatment and long-term follow-up (3–12 months), sleep diary measures (sleep efficiency, total sleep time, sleep onset latency, wake after sleep onset), and remission.
 
-The data are derived from the living systematic review "Psychotherapies for chronic insomnia" (SLEEPI database; last search: 2025-03-12), which is updated yearly. The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
+The dataset follows the [Metapsy data standard](https://docs.metapsy.org/data-preparation/format/).
 
 <br>
 
