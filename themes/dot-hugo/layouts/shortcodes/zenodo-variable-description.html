@@ -10,15 +10,73 @@
     Show Variable Description<span class="caret"></span>
   </button>
   <div class="collapse" id="collapseVariableDescription">
-    <div class="card card-body" style="padding: 0.15rem !important">
-      <div style="overflow-y: scroll; height: 300px">
+    <div class="card card-body vd-wrap">
+      <div class="vd-scroll">
         <span id="ph-variable-description"></span>
         <span id="spinner-ph-variable-description" class="loader-spinner"></span>
         <style>
-         #spinner-ph-variable-description { width: 20px; height: 20px; padding-bottom: 10px; border: 2px solid rgb(133, 133, 133);
+          #spinner-ph-variable-description { width: 20px; height: 20px; margin: 0.75rem 0; border: 2px solid rgb(133, 133, 133);
             border-bottom-color: transparent; border-radius: 50%; display: inline-block;
             box-sizing: border-box; animation: rotation 1s linear infinite;}
-            @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}} 
+          @keyframes rotation {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+          #variable-description-box .vd-wrap {
+            margin-top: 0.35rem;
+            margin-bottom: 0;
+            padding: 0 !important;
+            background-color: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+          }
+          #variable-description-box .vd-scroll {
+            overflow-y: auto;
+            height: 300px;
+          }
+          #variable-description-box table.vd-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent !important;
+            border: 0 !important;
+            outline: 0 !important;
+            margin: 0 !important;
+            font-size: 90%;
+          }
+          .theme-dark #variable-description-box table.vd-table {
+            border: 1px solid var(--hr-color, rgba(255, 255, 255, 0.1)) !important;
+          }
+          #variable-description-box table.vd-table thead,
+          #variable-description-box table.vd-table tbody,
+          #variable-description-box table.vd-table tr {
+            background: transparent !important;
+          }
+          #variable-description-box table.vd-table th,
+          #variable-description-box table.vd-table td {
+            vertical-align: top;
+            text-align: left;
+            padding: 0.75rem 1rem !important;
+            border: 0 !important;
+          }
+          #variable-description-box table.vd-table th {
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-color-dark);
+            background-color: var(--body-color) !important;
+            border-bottom: 1px solid var(--hr-color) !important;
+            position: sticky;
+            top: -2px;
+            z-index: 1;
+            box-shadow: 0 -2px 0 0 var(--body-color);
+          }
+          #variable-description-box table.vd-table td {
+            border-bottom: 1px solid var(--hr-color) !important;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            line-height: 1.5;
+          }
+          #variable-description-box table.vd-table tr:last-child td {
+            border-bottom: 0 !important;
+          }
         </style>
       </div>
     </div>
@@ -36,35 +94,37 @@ async function renderVariableDescription() {
   }
 
   const conceptDOI = "{{.Get `doi`}}";
-  
+
   try {
     const tableData = await getMetadataFile(conceptDOI, "metadata/variable_description.json");
     // If it's already parsed (from JSON), use it; otherwise parse it
     const tableDataObj = typeof tableData === 'object' ? tableData : JSON.parse(tableData);
-    
+
     const keys = Object.keys(tableDataObj);
     const values = Object.values(tableDataObj);
-    
+
     const table = document.createElement("table");
-    const headerRow = table.insertRow(-1);
+    table.className = "vd-table";
+
+    const thead = table.createTHead();
+    const headerRow = thead.insertRow(-1);
     const headerVar = document.createElement("th");
     headerVar.innerHTML = "Variable";
     const headerDesc = document.createElement("th");
     headerDesc.innerHTML = "Description";
     headerRow.appendChild(headerVar);
     headerRow.appendChild(headerDesc);
-    
+
+    const tbody = table.createTBody();
     for (let i = 0; i < keys.length; i++) {
-      const row = table.insertRow(-1);
+      const row = tbody.insertRow(-1);
       row.insertCell(-1).innerHTML = "<code>" + keys[i] + "</code>";
       row.insertCell(-1).innerHTML = values[i];
     }
-    
-    table.style.fontSize = "90%";
-    
+
     // Hide spinner
     document.getElementById("spinner-ph-variable-description").style.display = "none";
-    
+
     // Update content
     const div = document.getElementById("ph-variable-description");
     div.id = div.id + "-" + randID;

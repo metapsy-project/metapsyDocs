@@ -11,24 +11,25 @@
 .search-string-modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(15, 20, 25, 0.75);
 }
 
 .search-string-modal-content {
-  background-color: #fefefe;
+  background-color: var(--white-color, #fff);
+  color: var(--text-color, #636363);
   margin: 5% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--hr-color, rgba(0, 0, 0, .15));
   width: 80%;
   max-width: 800px;
   border-radius: 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-string-modal-header {
@@ -49,10 +50,11 @@
 .search-string-modal-header h4 {
   margin: 0;
   font-size: 1.2em;
+  color: var(--text-color-dark, #242738);
 }
 
 .search-string-close {
-  color: #aaa;
+  color: var(--text-color, #636363);
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -61,20 +63,26 @@
 
 .search-string-close:hover,
 .search-string-close:focus {
-  color: #000;
+  color: var(--text-color-dark, #242738);
 }
-
 
 .search-string-textarea {
   width: 100%;
   min-height: 300px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--hr-color, #ddd);
   border-radius: 0;
   font-family: monospace;
   font-size: 0.75em;
   resize: vertical;
   box-sizing: border-box;
+  background-color: var(--body-color, #fff);
+  color: var(--text-color-dark, #242738);
+}
+
+.search-string-textarea:focus {
+  outline: 0;
+  border-color: var(--bs-primary, #0372b7);
 }
 
 .search-string-copy-btn {
@@ -93,24 +101,25 @@
   border: 0;
   transition: .2s ease;
   background-color: var(--bs-primary);
-  color: var(--body-color);
+  color: #fff !important;
   cursor: pointer;
 }
 
 .search-string-copy-btn:hover {
   background-color: var(--bs-primary);
-  color: var(--body-color);
+  color: #fff !important;
+  opacity: 0.9;
 }
 
 .search-string-copy-btn.copied:hover {
   background-color: #28a745 !important;
-  color: var(--body-color) !important;
+  color: #fff !important;
 }
 
 .search-string-copy-btn.copied:active,
 .search-string-copy-btn.copied:focus {
   background-color: #28a745 !important;
-  color: var(--body-color) !important;
+  color: #fff !important;
 }
 
 .search-string-copy-btn:focus {
@@ -120,7 +129,7 @@
 
 .search-string-copy-btn.copied {
   background-color: #28a745;
-  color: var(--body-color);
+  color: #fff !important;
 }
 </style>
 
