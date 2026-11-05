@@ -145,7 +145,7 @@ ul .nav-item gh-logo-container.nav-item:hover {
 }
 
 .nav-link.text-dark:hover {
-    color: var(--bs-info) !important;
+    color: var(--bs-primary) !important;
 }
 
 .d-md-block {
@@ -182,7 +182,7 @@ a.nav-prev:hover>i {
 }
 
 .dropdown-item:hover {
-    color: var(--bs-info) !important;
+    color: var(--bs-primary) !important;
 }
 
 a {
@@ -729,7 +729,7 @@ header .navbar {
     margin-right: 0.35rem;
 }
 .navbar .dropdown-menu .dropdown-item:hover .icon {
-    color: var(--bs-info) !important;
+    color: var(--bs-primary) !important;
 }
 
 .col-lg-3 > .sidebar {
