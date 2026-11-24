@@ -10,5 +10,5 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderGithubRelease(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),t=!0;for(let i=0;i<e.length;i++){var r=e[i].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var n=document.createElement("a"),a=e[i].metadata.related_identifiers[0].identifier;n.innerText="{{.Get `text`}}",n.setAttribute("href",a),n.setAttribute("target","blank"),document.getElementById("spinner-ph-github-release").style.display="none";var d=document.getElementById("ph-github-release");d.id=d.id+"-"+randID,d.appendChild(n),t=!1}}}renderGithubRelease();
+var randID=makeid(10);async function renderGithubRelease(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=getApiResponse(),t=!0;for(let i=0;i<e.length;i++){var r=e[i].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===t){var n=document.createElement("a"),a=e[i].metadata.related_identifiers[0].identifier;n.innerText="{{.Get `text`}}",n.setAttribute("href",a),n.setAttribute("target","blank"),document.getElementById("spinner-ph-github-release").style.display="none";var d=document.getElementById("ph-github-release");d.id=d.id+"-"+randID,d.appendChild(n),t=!1}}}renderGithubRelease();
 </script>

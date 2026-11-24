@@ -9,5 +9,5 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderDoi(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),n=!0;for(let i=0;i<e.length;i++){var t=e[i].conceptdoi?.toString()||"";if((t=JSON.stringify(t))===JSON.stringify("{{.Get `doi`}}")&&!0===n){let r=e[i].links.parent_doi;latestVersion=document.createTextNode(r),document.getElementById("spinner-ph-doi").style.display="none";var d=document.getElementById("ph-doi");d.id=d.id+"-"+randID,d.appendChild(latestVersion),n=!1}}}renderDoi();
+var randID=makeid(10);async function renderDoi(){for(;!isDataSaved();)await new Promise(e=>setTimeout(e,1e3));var e=getApiResponse(),n=!0;for(let i=0;i<e.length;i++){var t=e[i].conceptdoi?.toString()||"";if((t=JSON.stringify(t))===JSON.stringify("{{.Get `doi`}}")&&!0===n){let r=e[i].links.parent_doi;latestVersion=document.createTextNode(r),document.getElementById("spinner-ph-doi").style.display="none";var d=document.getElementById("ph-doi");d.id=d.id+"-"+randID,d.appendChild(latestVersion),n=!1}}}renderDoi();
 </script>

@@ -228,7 +228,7 @@
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
       
-      const post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      const post = getApiResponse();
         // start div
         var html =
           "<button class='accbutton' style='border: none;" +
@@ -299,7 +299,7 @@
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
       
-      const post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      const post = getApiResponse();
         // loop through all elements
         for (let i = 0; i < post.length; i++) {
           var searchDOI = post[i].conceptdoi?.toString() || "";

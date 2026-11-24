@@ -9,5 +9,5 @@
 </style>
 
 <script defer>
-var randID=makeid(10);async function renderVersion(){for(;!isDataSaved();)console.log("waiting"),await new Promise(e=>setTimeout(e,1e3));var e=JSON.parse(sessionStorage.getItem("apiResponse")),n=!0;for(let t=0;t<e.length;t++){var r=e[t].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===n){let i=e[t].metadata.version;latestVersion=document.createTextNode(i);for(let a=0;a<document.getElementsByClassName("spinner-ph-version").length;a++)document.getElementsByClassName("spinner-ph-version")[a].style.display="none";var s=document.getElementById("ph-version");s.id=s.id+"-"+randID,s.appendChild(latestVersion),n=!1}}}renderVersion();
+var randID=makeid(10);async function renderVersion(){for(;!isDataSaved();)console.log("waiting"),await new Promise(e=>setTimeout(e,1e3));var e=getApiResponse(),n=!0;for(let t=0;t<e.length;t++){var r=e[t].conceptdoi?.toString()||"";if((r=JSON.stringify(r))===JSON.stringify("{{.Get `doi`}}")&&!0===n){let i=e[t].metadata.version;latestVersion=document.createTextNode(i);for(let a=0;a<document.getElementsByClassName("spinner-ph-version").length;a++)document.getElementsByClassName("spinner-ph-version")[a].style.display="none";var s=document.getElementById("ph-version");s.id=s.id+"-"+randID,s.appendChild(latestVersion),n=!1}}}renderVersion();
 </script>

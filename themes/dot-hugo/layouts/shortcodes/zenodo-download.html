@@ -341,7 +341,7 @@
   // Ensure isDataSaved function is available
   if (typeof isDataSaved === 'undefined') {
     window.isDataSaved = function() {
-      return sessionStorage.getItem("dataSaved") === "true";
+      return typeof getApiResponse === 'function' && getApiResponse() !== null;
     };
   }
 
@@ -454,7 +454,7 @@
       return;
     }
 
-    var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+    var post = getApiResponse();
     var found = false;
 
     for (var i = 0; i < post.length; i++) {
@@ -507,7 +507,7 @@
     }
 
     function renderDownloadMenu() {
-      var post = JSON.parse(sessionStorage.getItem("apiResponse"));
+      var post = getApiResponse();
       var html = "";
       var isFirst = true;
 

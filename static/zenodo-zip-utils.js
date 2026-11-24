@@ -17,7 +17,7 @@ async function getMetadataFile(conceptDOI, filePath, version = null) {
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
   
-  const data = JSON.parse(sessionStorage.getItem("apiResponse"));
+  const data = getApiResponse();
   
   // Find the record
   let record = null;
@@ -52,7 +52,7 @@ async function getMetadataFile(conceptDOI, filePath, version = null) {
 function getLatestRecord(conceptDOI) {
   if (!isDataSaved()) return null;
   
-  const data = JSON.parse(sessionStorage.getItem("apiResponse"));
+  const data = getApiResponse();
   let latestRecord = null;
   let latestDate = null;
   
@@ -75,7 +75,7 @@ function getLatestRecord(conceptDOI) {
 function getVersionRecord(conceptDOI, version) {
   if (!isDataSaved()) return null;
   
-  const data = JSON.parse(sessionStorage.getItem("apiResponse"));
+  const data = getApiResponse();
   
   for (let i = 0; i < data.length; i++) {
     if (data[i].conceptdoi === conceptDOI && data[i].metadata.version === version) {
